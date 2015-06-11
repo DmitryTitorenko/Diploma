@@ -25,7 +25,6 @@ public class Mode_second extends Activity implements View.OnClickListener{
     public final static String p="p";
     public final static String t_support="t_support";
     public final static String c="c";
-    public final static String q="q";
     public final static String n="n";
     public final static String a="a";
     public final static String b="b";
@@ -82,7 +81,7 @@ public class Mode_second extends Activity implements View.OnClickListener{
 
         //инициализировали наш массив
         allEds = new ArrayList<View>();
-        //находим наш linear который у нас под кнопкой add edittext в activity_main.xml
+        //находим наш linear который у нас под кнопкой add edittext
         final LinearLayout linear = (LinearLayout) findViewById(R.id.linear);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
