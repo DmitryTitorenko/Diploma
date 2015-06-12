@@ -19,7 +19,7 @@ import java.util.List;
 
 
 public class Mode_second extends Activity implements View.OnClickListener{
-    private final static int ACTION_EDIT_V = 101;//идентификатор запроса к V
+    private final static int ACTION_EDIT_V = 101;
     final String LOG_TAG = "myLogs";
 
     public final static String p="p";

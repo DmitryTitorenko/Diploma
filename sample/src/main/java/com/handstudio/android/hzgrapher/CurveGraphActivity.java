@@ -48,32 +48,9 @@ public class CurveGraphActivity extends Activity{
 	TextView tv_6;
 	Button btn_event;
 
-	int i = 0;//для нажатия кнопок
+	int iiii = 0;//для нажатия кнопок
 
-	//поднятия температуры
-	public float[] graphT(int ii) {
-		Bundle extras = getIntent().getExtras();
-		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
-		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
-		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-		int tm = 0;//размерность массива
 
-		for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-			tm++;
-			t1add++;
-			if(ia>ii)
-				break;
-		}
-
-		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-		for (int ia = 0; t1 <= t2; ia++) {
-			graphT[ia] = t1;
-			t1++;
-			if (ia > ii)
-				break;
-		}
-		return graphT;
-	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,9 +68,9 @@ public class CurveGraphActivity extends Activity{
 		tv_6 = (TextView) findViewById(R.id.tv_6);
 		btn_event = (Button) findViewById(R.id.btn_event);
 
-		maths_oll();
-		setCurveGraph(i);
-		i++;
+		maths_oll(iiii);
+		setCurveGraph(iiii);
+		iiii++;
 
 		btn_event.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -102,20 +79,20 @@ public class CurveGraphActivity extends Activity{
 				Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 
 				if(t1<t2){
-					if (t1 + i < t2) {
-						maths_oll();
-						setCurveGraph(i);
-						i++;
+					if (t1 + iiii < t2) {
+						maths_oll(iiii);
+						setCurveGraph(iiii);
+						iiii++;
 					}
 					else {
 						Toast.makeText(getApplicationContext(),"Досягнута необхідна температура",Toast.LENGTH_SHORT).show();
 					}
 				}
 				else if(t1>t2){
-					if (t1 + i > t2) {
-						maths_oll();
-						setCurveGraph(i);
-						i++;
+					if (t1 + iiii > t2) {
+						maths_oll(iiii);
+						setCurveGraph(iiii);
+						iiii++;
 					}
 					else {
 						Toast.makeText(getApplicationContext(),"Досягнута необхідна температура",Toast.LENGTH_SHORT).show();
@@ -178,16 +155,13 @@ public class CurveGraphActivity extends Activity{
 		double[] Nr_oll = new double[tm];//реальная производительность кондиционера
 		double[] Q_heat_loss = new double[tm];//массив с теплопотерями
 		double[] t_street_random_array = new double[tm];//массив с случайной температурой на улице
-		Log.e(LOG_TAG, "значени count " + tm);
 
 		for (int i = 0; t1 < t2; i++) {
 			graphT[i] = t1;
 			axis[i] = i;
 			double tKelvin = t1 + 273.15;// температура в Кельвинах
 			double p = 0.473 * (BD / tKelvin);// плотность
-			Log.e(LOG_TAG, "значения плотности   " + p);
 			double m = p * v; //масса воздуха
-			Log.e(LOG_TAG, "значения массы   " + m);
 
 			Q[i] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
 
@@ -204,7 +178,6 @@ public class CurveGraphActivity extends Activity{
 		// проверяем доступность SD
 		if (!Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
-			Log.d(LOG_TAG, "SD-карта не доступна: " + Environment.getExternalStorageState());
 			return;
 		}
 		// получаем путь к SD
@@ -299,16 +272,13 @@ public class CurveGraphActivity extends Activity{
 		double[] t_street_random_array = new double[tm];//массив с случайной температурой на улице
 
 
-		Log.e(LOG_TAG, "значени count " + tm);
 
 		for (int i = 0; t1 > t2; i++) {
 			graphT[i] = t1;
 			axis[i] = i;
 			double tKelvin = t1 + 273.15;// температура в Кельвинах
 			double p = 0.473 * (BD / tKelvin);// плотность
-			Log.e(LOG_TAG, "значения плотности   " + p);
 			double m = p * v; //масса воздуха
-			Log.e(LOG_TAG, "значения массы   " + m);
 
 			Q[i] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
 			int t_street_random = -1 + (int) (Math.random() * ((2) + 1));
@@ -402,7 +372,6 @@ public class CurveGraphActivity extends Activity{
 //		CurveGraphVO vo = makeCurveGraphDefaultSetting();
 
 		layoutGraphView.removeAllViews();//удаляем предыдущие View, что бы обновить график
-		Log.e(LOG_TAG, "проверка количество граффиков" + layoutGraphView.getChildCount());
 		layoutGraphView.addView(new CurveGraphView(this, vo));
 
 
@@ -447,9 +416,6 @@ public class CurveGraphActivity extends Activity{
 		String[] legendArr = {Arrays.toString(axis_oll(i))};
 		List<CurveGraph> arrGraph = new ArrayList<CurveGraph>();
 		arrGraph.add(new CurveGraph("Graph", 0xaa10ffff, graphT_oll(i)));
-		for(float ff:graphT_oll(i)){
-			Log.e(LOG_TAG,"проверка graphT_oll(i) "+ ff );
-		}
 
 		CurveGraphVO vo = new CurveGraphVO(
 				paddingBottom, paddingTop, paddingLeft, paddingRight,
@@ -459,10 +425,8 @@ public class CurveGraphActivity extends Activity{
 		//set graph name box
 		vo.setGraphNameBox(new GraphNameBox());
 		//set draw graph region
-
 		return vo;
 	}
-
 
 
 	public int[] axis(int ii) {
@@ -507,7 +471,6 @@ public class CurveGraphActivity extends Activity{
 		return axis;
 	}
 
-	//определяем axis
 	public int[] axis_oll(int ii) {
 		Bundle extras = getIntent().getExtras();
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
@@ -520,12 +483,36 @@ public class CurveGraphActivity extends Activity{
 		}
 		int[] axis = new int[tm];// отсчет для оси х
 		if (t1 < t2) {
-			axis = axis(i);
+			axis = axis(iiii);
 		} else if (t1 > t2) {
-			axis = axis_minus(i);
+			axis = axis_minus(iiii);
 		}
 		return axis;
 
+	}
+
+	public float[] graphT(int ii) {
+		Bundle extras = getIntent().getExtras();
+		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
+		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
+		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
+		int tm = 0;//размерность массива
+
+		for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
+			tm++;
+			t1add++;
+			if(ia>ii)
+				break;
+		}
+
+		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
+		for (int ia = 0; t1 <= t2; ia++) {
+			graphT[ia] = t1;
+			t1++;
+			if (ia > ii)
+				break;
+		}
+		return graphT;
 	}
 
 	public float[] grapht_minus(int ii) {
@@ -563,15 +550,15 @@ public class CurveGraphActivity extends Activity{
 		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
 
 		if (t1 < t2) {
-			graphT = graphT(i);
+			graphT = graphT(iiii);
 		} else if (t1 > t2) {
-			graphT = grapht_minus(i);
+			graphT = grapht_minus(iiii);
 		}
 		return graphT;
 
 	}
 
-	public void maths_plus() {
+	public void maths_plus(int ii) {
 
 		Bundle extras = getIntent().getExtras();
 
@@ -600,11 +587,12 @@ public class CurveGraphActivity extends Activity{
 		float Nr;//реальноя производительность кондиционера
 		float F = a * b;//площадь
 
-		//	if (t1<t2){// для поднятия температуры
-		for (int i = 0; t1add < t2; i++) {//находим кол-во элементов массива который необходимо нарисовать
+		for (int ia = 0; t1add < t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
 			t1add++;
+			if(ia==ii) break;
 		}
+
 		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
 		int[] axis = new int[tm];// отсчет для оси х
 		double[] Q = new double[tm];// количество теплоты/холода, которое необходимо для нагревания/охлаждения
@@ -612,44 +600,41 @@ public class CurveGraphActivity extends Activity{
 		double[] Nr_oll = new double[tm];//реальная производительность кондиционера
 		double[] Q_heat_loss = new double[tm];//массив с теплопотерями
 		double[] t_street_random_array = new double[tm];//массив с случайной температурой на улице
-		Log.e(LOG_TAG, "значени count " + tm);
 
-		for (int i = 0; t1 < t2; i++) {
-			t1++;
-
-			graphT[i] = t1;
-			axis[i] = i;
+		for (int ia = 0; t1 < t2; ia++) {
+			graphT[ia] = t1;
+			axis[ia] = ia;
 			double tKelvin = t1 + 273.15;// температура в Кельвинах
 			double p = 0.473 * (BD / tKelvin);// плотность
-			Log.e(LOG_TAG, "значения плотности   " + p);
 			double m = p * V; //масса воздуха
-			Log.e(LOG_TAG, "значения массы   " + m);
 
-			Q[i] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
+			Q[ia] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
 
 			int t_street_random = -1 + (int) (Math.random() * ((2) + 1));
 			t_street += t_street_random;
-			t_street_random_array[i] = t_street_random;
+			t_street_random_array[ia] = t_street_random;
 			q = Float.valueOf(F * (t1 - t_street) * (1 + B) * nn / R0);
-			Log.e(LOG_TAG, "теплопотери " + q + " изменение температуры " + t_street_random);
 
-			Q_heat_loss[i] = q;
+			Q_heat_loss[ia] = q;
 			Nr = N_heat_productivity - q;
-			Nr_oll[i] = Nr;
-			time[i] = Q[i] / Nr;
+			Nr_oll[ia] = Nr;
+			time[ia] = Q[ia] / Nr;
 
-			tv_1.setText("" + graphT[i]);
-			tv_2.setText("" + Q[i]);
+			t1++;
+
+			tv_1.setText("" + t1);
+			tv_2.setText("" + Q[ia]);
 			tv_6.setText("" + t_street_random);
 			tv_5.setText("" + q);
 			tv_4.setText("" + Nr);
-			tv_3.setText("" + time[i]);
+			tv_3.setText("" + time[ia]);
 
-			t1++;
+			if (ia == ii)
+				break;
 		}
 	}
 
-	public void maths_minus() {
+	public void maths_minus(int ii) {
 
 		Bundle extras = getIntent().getExtras();
 
@@ -680,9 +665,10 @@ public class CurveGraphActivity extends Activity{
 		float Nr;//реальноя производительность кондиционера
 		float F = a * b;//площадь
 
-		for (int i = 0; t1add > t2; i++) {//находим кол-во элементов массива который необходимо нарисовать
+		for (int ia = 0; t1add > t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
 			t1add--;
+			if(ia==ii) break;
 		}
 		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
 		int[] axis = new int[tm];// отсчет для оси х
@@ -692,49 +678,48 @@ public class CurveGraphActivity extends Activity{
 		double[] Q_heat_loss = new double[tm];//массив с теплопотерями
 		double[] t_street_random_array = new double[tm];//массив с случайной температурой на улице
 
+		for (int ia = 0; t1 > t2; ia++) {
 
-		Log.e(LOG_TAG, "значени count " + tm);
-
-		for (int i = 0; t1 > t2; i++) {
-			t1--;
-
-			graphT[i] = t1;
-			axis[i] = i;
+			graphT[ia] = t1;
+			axis[ia] = ia;
 			double tKelvin = t1 + 273.15;// температура в Кельвинах
 			double p = 0.473 * (BD / tKelvin);// плотность
-			Log.e(LOG_TAG, "значения плотности   " + p);
 			double m = p * v; //масса воздуха
-			Log.e(LOG_TAG, "значения массы   " + m);
 
-			Q[i] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
+			Q[ia] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
 			int t_street_random = -1 + (int) (Math.random() * ((2) + 1));
 			t_street += t_street_random;
-			t_street_random_array[i] = t_street_random;
+			t_street_random_array[ia] = t_street_random;
 
 			q = Float.valueOf(F * (t1 - t_street) * (1 + B) * nn / R0);
-			Log.e(LOG_TAG, "теплопотери для понижения" + q + " изменение температуры " + t_street_random);
-			Q_heat_loss[i] = q;
+			Q_heat_loss[ia] = q;
 			Nr = N_loss_productivity - q;
-			Nr_oll[i] = Nr;
-			time[i] = Q[i] / Nr;
+			Nr_oll[ia] = Nr;
+			time[ia] = Q[ia] / Nr;
+Log.e(LOG_TAG,"изменение  " +t_street_random +" " + q);
+			t1--;
 
 			tv_1.setText("" + t1);
-			tv_2.setText("" + Q[i]);
+			tv_2.setText("" + Q[ia]);
 			tv_6.setText("" + t_street_random);
 			tv_5.setText("" + q);
 			tv_4.setText("" + Nr);
-			tv_3.setText("" + time[i]);
+			tv_3.setText("" + time[ia]);
+
+			if (ia == ii)
+
+				break;
 		}
 	}
-	public void maths_oll(){
+	public void maths_oll(int iiii){
 		Bundle extras = getIntent().getExtras();
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 
 		if (t1 < t2) {
-			maths_plus();
+			maths_plus(iiii);
 		} else if (t1 > t2) {
-			maths_minus();
+			maths_minus(iiii);
 		}
 	}
 }

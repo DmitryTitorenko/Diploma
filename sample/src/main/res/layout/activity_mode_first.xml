@@ -99,7 +99,7 @@
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/et_t1"
-                android:text="10" />
+                android:text="15" />
 
 
         <TextView
@@ -116,7 +116,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/et_t2"
-            android:text="15" />
+            android:text="10" />
 
         <TextView
             android:layout_width="wrap_content"
