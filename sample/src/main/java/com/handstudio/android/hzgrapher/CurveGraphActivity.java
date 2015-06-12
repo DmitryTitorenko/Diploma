@@ -57,29 +57,21 @@ public class CurveGraphActivity extends Activity{
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 
-		tv_21.setText("Количество теплоты необходимое для нагревания");
-		tv_31.setText("Время, необходимое на обогрев на 1 градус");
-
 		int tm = 0;//Модельное время, так же используется для создания массивов
 
 		Log.e(LOG_TAG, "проверка ii " + ii);
-		ArrayList<Integer> graphT_array_list = new ArrayList<>(); //список событий
 
-
-		//	if (t1<t2){// для поднятия температуры
 		for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
 			t1add++;
 			Log.e(LOG_TAG, "проверка ia " + ia);
 			if(ia>ii) break;
-			//if(ia>ii) break;
 		}
 		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
 		for (int ia = 0; t1 <= t2; ia++) {
 			graphT[ia] = t1;
 			t1++;
 			if(ia>ii) break;
-			//if(ia>ii) break;
 		}
 		for(float bb:graphT){
 			Log.e(LOG_TAG, "проверка graphT " + bb);
@@ -115,11 +107,21 @@ public class CurveGraphActivity extends Activity{
 
 				Log.e(LOG_TAG, "проверка " + i);
 
-				if (t1 + i < t2) {
-					maths_oll();
-					setCurveGraph(i);
-					i++;
-					Log.e(LOG_TAG, "проверка rrr " + i);
+				if(t1<t2){
+					if (t1 + i < t2) {
+						maths_oll();
+						setCurveGraph(i);
+						i++;
+						Log.e(LOG_TAG, "проверка rrr " + i);
+					}
+				}
+				else if(t1>t2){
+					if (t1 + i > t2) {
+						maths_oll();
+						setCurveGraph(i);
+						i++;
+						Log.e(LOG_TAG, "проверка rrr " + i);
+					}
 				}
 			}
 		});
@@ -446,7 +448,7 @@ public class CurveGraphActivity extends Activity{
 		// алгоритм для поднятия температуры
 
 
-		String[] legendArr = {Arrays.toString(axis_oll())};
+		String[] legendArr = {Arrays.toString(axis_oll(i))};
 		List<CurveGraph> arrGraph = new ArrayList<CurveGraph>();
 		arrGraph.add(new CurveGraph("Graph", 0xaa10ffff, graphT_oll(i)));
 		for(float ff:graphT_oll(i)){
@@ -467,29 +469,33 @@ public class CurveGraphActivity extends Activity{
 
 
 
-	public int[] axis() {
+	public int[] axis(int ii) {
 		Bundle extras = getIntent().getExtras();
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 		int tm = 0;//Модельное время, так же используется для создания массивов
 
-		for (int i = 0; t1add <= t2; i++) {//находим кол-во элементов массива который необходимо нарисовать
+		for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
 			t1add++;
+			if(ia>ii) break;
 		}
 		int[] axis = new int[tm];// отсчет для оси х
 
-		for (int i = 0; t1 <= t2; i++) {
-			axis[i] = i;
+		for (int ia = 0; t1 <= t2; ia++) {
+			axis[ia] = ia;
 			t1++;
-
+			if(ia>ii) break;
+		}
+		for(float bb:axis){
+			Log.e(LOG_TAG, "проверка axis " + bb);
 		}
 		return axis;
 	}
 
 	//уменьшения температуры
-	public int[] axis_minus() {
+	public int[] axis_minus(int ii) {
 		Bundle extras = getIntent().getExtras();
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
@@ -509,7 +515,7 @@ public class CurveGraphActivity extends Activity{
 	}
 
 	//определяем axis
-	public int[] axis_oll() {
+	public int[] axis_oll(int ii) {
 		Bundle extras = getIntent().getExtras();
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
@@ -521,9 +527,9 @@ public class CurveGraphActivity extends Activity{
 		}
 		int[] axis = new int[tm];// отсчет для оси х
 		if (t1 < t2) {
-			axis = axis();
+			axis = axis(i);
 		} else if (t1 > t2) {
-			axis = axis_minus();
+			axis = axis_minus(i);
 		}
 		return axis;
 
@@ -592,7 +598,8 @@ public class CurveGraphActivity extends Activity{
 		Float nn = Float.valueOf(extras.getString(Mode_first.nn));
 		Float R0 = Float.valueOf(extras.getString(Mode_first.R0));
 		Float B = Float.valueOf(extras.getString(Mode_first.B));
-
+		tv_21.setText("Количество теплоты необходимое для нагревания");
+		tv_31.setText("Время, необходимое на обогрев на 1 градус");
 
 		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
 
