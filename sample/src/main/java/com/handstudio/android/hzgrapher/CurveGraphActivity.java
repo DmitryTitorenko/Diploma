@@ -56,25 +56,21 @@ public class CurveGraphActivity extends Activity{
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-
-		int tm = 0;//Модельное время, так же используется для создания массивов
-
-		Log.e(LOG_TAG, "проверка ii " + ii);
+		int tm = 0;//размерность массива
 
 		for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
 			t1add++;
-			Log.e(LOG_TAG, "проверка ia " + ia);
-			if(ia>ii) break;
+			if(ia>ii)
+				break;
 		}
+
 		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
 		for (int ia = 0; t1 <= t2; ia++) {
 			graphT[ia] = t1;
 			t1++;
-			if(ia>ii) break;
-		}
-		for(float bb:graphT){
-			Log.e(LOG_TAG, "проверка graphT " + bb);
+			if (ia > ii)
+				break;
 		}
 		return graphT;
 	}
@@ -105,14 +101,14 @@ public class CurveGraphActivity extends Activity{
 				Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 				Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 
-				Log.e(LOG_TAG, "проверка " + i);
-
 				if(t1<t2){
 					if (t1 + i < t2) {
 						maths_oll();
 						setCurveGraph(i);
 						i++;
-						Log.e(LOG_TAG, "проверка rrr " + i);
+					}
+					else {
+						Toast.makeText(getApplicationContext(),"Досягнута необхідна температура",Toast.LENGTH_SHORT).show();
 					}
 				}
 				else if(t1>t2){
@@ -120,13 +116,13 @@ public class CurveGraphActivity extends Activity{
 						maths_oll();
 						setCurveGraph(i);
 						i++;
-						Log.e(LOG_TAG, "проверка rrr " + i);
+					}
+					else {
+						Toast.makeText(getApplicationContext(),"Досягнута необхідна температура",Toast.LENGTH_SHORT).show();
 					}
 				}
 			}
 		});
-
-
 	}
 
 	void writeFileSD() {
@@ -474,7 +470,7 @@ public class CurveGraphActivity extends Activity{
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-		int tm = 0;//Модельное время, так же используется для создания массивов
+		int tm = 0;
 
 		for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
@@ -488,29 +484,26 @@ public class CurveGraphActivity extends Activity{
 			t1++;
 			if(ia>ii) break;
 		}
-		for(float bb:axis){
-			Log.e(LOG_TAG, "проверка axis " + bb);
-		}
 		return axis;
 	}
 
-	//уменьшения температуры
 	public int[] axis_minus(int ii) {
 		Bundle extras = getIntent().getExtras();
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-		int tm = 0;//Модельное время, так же используется для создания массивов
-		for (int i = 0; t1add >= t2; i++) {//находим кол-во элементов массива который необходимо нарисовать
+		int tm = 0;
+		for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
 			t1add--;
+			if(ia>ii) break;
 		}
 		int[] axis = new int[tm];// отсчет для оси х
-		for (int i = 0; t1 >= t2; i++) {
-			axis[i] = i;
+		for (int ia = 0; t1 >= t2; ia++) {
+			axis[ia] = ia;
 			t1--;
+			if(ia>ii) break;
 		}
-
 		return axis;
 	}
 
@@ -537,23 +530,21 @@ public class CurveGraphActivity extends Activity{
 
 	public float[] grapht_minus(int ii) {
 		Bundle extras = getIntent().getExtras();
-
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
+		int tm = 0;//размерность массива
 
-		tv_21.setText("Количество теплоты необходимое для остываня");
-		tv_31.setText("Время, необходимое на охлождение на 1 градус");
-
-		int tm = 0;//Модельное время, так же используется для создания массивов
-		for (int i = 0; t1add >= t2; i++) {//находим кол-во элементов массива который необходимо нарисовать
+		for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
 			t1add--;
+			if(ia>ii) break;
 		}
 		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-		for (int i = 0; t1 >= t2; i++) {
-			graphT[i] = t1;
+		for (int ia = 0; t1 >= t2; ia++) {
+			graphT[ia] = t1;
 			t1--;
+			if(ia>ii) break;
 		}
 		return graphT;
 	}
@@ -678,6 +669,8 @@ public class CurveGraphActivity extends Activity{
 		Float R0 = Float.valueOf(extras.getString(Mode_first.R0));
 		Float B = Float.valueOf(extras.getString(Mode_first.B));
 
+		tv_21.setText("Количество теплоты необходимое для остываня");
+		tv_31.setText("Время, необходимое на охлождение на 1 градус");
 
 		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
 
