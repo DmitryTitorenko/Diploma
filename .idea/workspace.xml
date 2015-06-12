@@ -25,25 +25,31 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="теплопотери" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="проверка" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74203078-a566-48f7-8f40-b198915da46b" name="Default" comment="">
+      <change type="DELETED" beforePath="D:\Android developer\Project\Diploma\sample\build\intermediates\classes\debug\com\handstudio\android\hzgrapher\Mode_second$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android developer\Project\Diploma\sample\build\intermediates\classes\debug\com\handstudio\android\hzgrapher\Mode_second$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android developer\Project\Diploma\sample\build\intermediates\classes\debug\com\handstudio\android\hzgrapher\Mode_second$2$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android developer\Project\Diploma\sample\build\intermediates\classes\debug\com\handstudio\android\hzgrapher\Mode_second$2.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$1$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$2$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$2.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/sample/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/sample/build/intermediates/resources/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug-unaligned.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/activity_graph.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/activity_graph.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/activity_mode_first.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/activity_mode_first.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_first.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_first.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diploma.iws" />
@@ -88,15 +94,39 @@
       <file leaf-file-name="CurveGraphActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.122370936">
-              <caret line="579" column="33" selection-start-line="579" selection-start-column="33" selection-end-line="579" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.25123152">
+              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding>
-                <element signature="method#writeFileSD_plus#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="e#3315#3725#0" expanded="true" />
+                <element signature="e#3724#3725#0" expanded="true" />
                 <element signature="method#writeFileSD_minus#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#setCurveGraph#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="e#13937#13959#0" expanded="false" />
+                <element signature="e#14665#14677#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CurveGraphView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/src/main/java/com/handstudio/android/hzgrapherlib/graphview/CurveGraphView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="68" column="26" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_mode_first.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_first.xml">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="31" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -104,12 +134,41 @@
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#onCreate#0;class#Mode_second#0" expanded="false" />
-                <element signature="method#onClick#0;class#Mode_second#0" expanded="false" />
-              </folding>
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mode_first.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_first.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="75" column="10" selection-start-line="75" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_graph.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Q_heat_loss.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Q_heat_loss.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1997,16 +2056,16 @@
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_q_heat_loss.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/R0.java" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Q_heat_loss.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_first.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_r0.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/V.java" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Select_mode.java" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/custom_edittext_layout.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_second.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_first.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml" />
         <option value="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/Diploma/library/unspecified/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_first.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" />
       </list>
     </option>
@@ -2053,10 +2112,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2137,6 +2193,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2357,7 +2416,13 @@
       <option name="project" value="LOCAL" />
       <updated>1434049607421</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update array">
+      <created>1434051293776</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1434051293776</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2370,18 +2435,17 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33410406" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33410406" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2392,6 +2456,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1096" height="800" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2437,7 +2502,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="more delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="more delete" />
+    <MESSAGE value="update array" />
+    <option name="LAST_COMMIT_MESSAGE" value="update array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2446,32 +2512,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="33" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_first.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="72" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#onCreate#0;class#Mode_second#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#onClick#0;class#Mode_second#0" expanded="false" />
           </folding>
         </state>
@@ -2482,11 +2528,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="664" column="0" selection-start-line="664" selection-start-column="0" selection-end-line="664" selection-end-column="0" />
           <folding>
-            <element signature="method#writeFileSD_plus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#3315#3725#0" expanded="true" />
+            <element signature="e#3724#3725#0" expanded="true" />
             <element signature="method#writeFileSD_minus#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#axis#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#grapht_minus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#13937#13959#0" expanded="false" />
+            <element signature="e#14665#14677#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2526,8 +2572,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="196" column="22" selection-start-line="196" selection-start-column="22" selection-end-line="196" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#onCreate#0;class#Mode_second#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#onClick#0;class#Mode_second#0" expanded="false" />
           </folding>
         </state>
@@ -2538,11 +2583,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="683" column="0" selection-start-line="683" selection-start-column="0" selection-end-line="683" selection-end-column="0" />
           <folding>
-            <element signature="method#writeFileSD_plus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#3315#3725#0" expanded="true" />
+            <element signature="e#3724#3725#0" expanded="true" />
             <element signature="method#writeFileSD_minus#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#axis#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#grapht_minus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#13937#13959#0" expanded="false" />
+            <element signature="e#14665#14677#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2585,8 +2630,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#onCreate#0;class#Mode_second#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#onClick#0;class#Mode_second#0" expanded="false" />
           </folding>
         </state>
@@ -2656,11 +2700,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="658" column="55" selection-start-line="658" selection-start-column="55" selection-end-line="658" selection-end-column="55" />
           <folding>
-            <element signature="method#writeFileSD_plus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#3315#3725#0" expanded="true" />
+            <element signature="e#3724#3725#0" expanded="true" />
             <element signature="method#writeFileSD_minus#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#axis#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#grapht_minus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#13937#13959#0" expanded="false" />
+            <element signature="e#14665#14677#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2791,58 +2835,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/V.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_first.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="35" selection-start-line="117" selection-start-column="26" selection-end-line="117" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Select_mode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Q_heat_loss.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="33" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_first.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_second.xml">
@@ -2915,34 +2913,100 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49936143">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../sdk/sources/android-22/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33211678">
+          <caret line="20053" column="13" selection-start-line="20053" selection-start-column="13" selection-end-line="20053" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/V.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7372262">
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Q_heat_loss.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_first.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="10" selection-start-line="75" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_first.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../sdk/sources/android-22/android/view/ViewGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6459854">
+          <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/com/handstudio/android/hzgrapherlib/graphview/CurveGraphView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="26" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#onCreate#0;class#Mode_second#0" expanded="false" />
-            <element signature="method#onClick#0;class#Mode_second#0" expanded="false" />
-          </folding>
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.122370936">
-          <caret line="579" column="33" selection-start-line="579" selection-start-column="33" selection-end-line="579" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.25123152">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding>
-            <element signature="method#writeFileSD_plus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#3315#3725#0" expanded="true" />
+            <element signature="e#3724#3725#0" expanded="true" />
             <element signature="method#writeFileSD_minus#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#setCurveGraph#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#13937#13959#0" expanded="false" />
+            <element signature="e#14665#14677#0" expanded="true" />
           </folding>
         </state>
       </provider>

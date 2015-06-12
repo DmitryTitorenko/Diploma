@@ -78,6 +78,7 @@ public class Mode_second extends Activity implements View.OnClickListener{
 
         Button addButton = (Button) findViewById(R.id.button);
         Button addButton1 = (Button) findViewById(R.id.button1);
+        /*
 
         //инициализировали наш массив
         allEds = new ArrayList<View>();
@@ -164,8 +165,9 @@ public class Mode_second extends Activity implements View.OnClickListener{
                                      }
 
         );
-    }
+        */
 
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
