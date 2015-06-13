@@ -258,6 +258,34 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/btn_event"
+            android:onClick="onClick_Event" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="++"
+            android:id="@+id/bnt_event2"
+            android:onClick="onClick_Event" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/container"></LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/btn_delete_event"
+            android:onClick="onClick_Event" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Start"
             android:id="@+id/btn_start"
             android:layout_gravity="center_horizontal"

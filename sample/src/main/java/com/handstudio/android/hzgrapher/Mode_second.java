@@ -1,11 +1,14 @@
 package com.handstudio.android.hzgrapher;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class Mode_second extends Activity implements View.OnClickListener{
+public class Mode_second extends FragmentActivity implements View.OnClickListener{
     private final static int ACTION_EDIT_V = 101;
     final String LOG_TAG = "myLogs";
 
@@ -35,6 +38,14 @@ public class Mode_second extends Activity implements View.OnClickListener{
     public final static String R0="R0";
     public final static String B="B";
     public final static String event_mode_="event_mode_";
+
+    private Event_fragment event_fragment;
+    private Event_fragment_home event_fragment_home;
+
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
+
+    Fragment fragment;
 
     EditText et_p;
     EditText et_t_support;//поддержка температуры на этом уровне
@@ -53,9 +64,17 @@ public class Mode_second extends Activity implements View.OnClickListener{
 
 
     private List<View> allEds;    //Создаем список вьюх которые будут создаваться
+
     public ArrayList<Integer>event_mode=new ArrayList<>(); //список событий
+
+    private ArrayList<Integer> coutn_array = new ArrayList<>();    //Создаем список вьюх которые будут создаваться
+
+
     //счетчик чисто декоративный для визуального отображения edittext'ov
     private int counter = 0;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,11 +93,14 @@ public class Mode_second extends Activity implements View.OnClickListener{
         et_R0=(EditText)findViewById(R.id.et_R0);
         et_B=(EditText)findViewById(R.id.et_B);
 
+        manager=getSupportFragmentManager();
+
+
         btn_start=(Button)findViewById(R.id.btn_start);
 
         Button addButton = (Button) findViewById(R.id.button);
         Button addButton1 = (Button) findViewById(R.id.button1);
-        /*
+
 
         //инициализировали наш массив
         allEds = new ArrayList<View>();
@@ -87,37 +109,37 @@ public class Mode_second extends Activity implements View.OnClickListener{
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // event_mode.add(1);//заполняем коллекцию собыитиями, где 1- id изменение температуры на улице
-                counter++;
-                event_mode.add(counter);//заполняем коллекцию собыитиями, где 1- id изменение температуры на улице
 
-                //Log.e(LOG_TAG, "counter   " + event_mode.get(counter));
-                for(int evement:event_mode){
-                    Log.e(LOG_TAG, "counter "+ evement);
-                }
-
+                event_mode.add(1);
 
                 //берем наш кастомный лейаут находим через него все наши кнопки и едит тексты, задаем нужные данные
                 final View view = getLayoutInflater().inflate(R.layout.custom_edittext_layout, null);
 
+/*
 
-                Button deleteField = (Button) view.findViewById(R.id.button2);
+
+                Button deleteField = (Button) view.findViewById(R.id.btn_delete_fragment);
                 deleteField.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         try {
                             ((LinearLayout) view.getParent()).removeView(view);
                             allEds.remove(view);
-                            //Iterator<Integer> iterator=event_mode.iterator();
-                            event_mode.remove(event_mode.indexOf(counter));
+                            Iterator<Integer> iterator=event_mode.iterator();
+                            event_mode.remove(((LinearLayout) view.getParent()));
                             event_mode.add(0);
+                            Log.e(LOG_TAG, "view.getParent() " + Integer.valueOf(view.getId()));
 
                         } catch(IndexOutOfBoundsException ex) {
                             ex.printStackTrace();
                         }
                     }
                 });
+                */
 
+
+
+                counter++;
                 //EditText text = (EditText) view.findViewById(R.id.editText);
                 TextView text=(TextView)view.findViewById(R.id.textView7);
                 text.setText("street_id" + counter);
@@ -125,6 +147,12 @@ public class Mode_second extends Activity implements View.OnClickListener{
                 allEds.add(view);
                 //добавляем елементы в linearlayout
                 linear.addView(view);
+                coutn_array.add(1);//массив для подчета
+
+                for(int i:coutn_array){
+                    Log.e(LOG_TAG, "count event_mode  "+ i);
+
+                }
             }
         }
 
@@ -134,27 +162,7 @@ public class Mode_second extends Activity implements View.OnClickListener{
                                          public void onClick(View v) {
                                              event_mode.add(2);//заполняем коллекцию собыитиями, где 2- id изменение температуры на в доме
                                              counter++;
-
-                                             //берем наш кастомный лейаут находим через него все наши кнопки и едит тексты, задаем нужные данные
                                              final View view = getLayoutInflater().inflate(R.layout.custom_edittext_layout, null);
-
-
-                                             Button deleteField = (Button) view.findViewById(R.id.button2);
-                                             deleteField.setOnClickListener(new View.OnClickListener() {
-                                                 @Override
-                                                 public void onClick(View v) {
-                                                     try {
-                                                         ((LinearLayout) view.getParent()).removeView(view);
-                                                         allEds.remove(view);
-                                                         event_mode.remove(counter);// нужно протестить удаление
-
-                                                     } catch(IndexOutOfBoundsException ex) {
-                                                         ex.printStackTrace();
-                                                     }
-                                                 }
-                                             });
-
-                                             //EditText text = (EditText) view.findViewById(R.id.editText);
                                              TextView text=(TextView)view.findViewById(R.id.textView7);
                                              text.setText("home_id" + counter);
                                              //добавляем все что создаем в массив
@@ -165,9 +173,48 @@ public class Mode_second extends Activity implements View.OnClickListener{
                                      }
 
         );
-        */
+
 
     }
+
+
+public void onClick_Event(View view) {
+    switch (view.getId()) {
+        case R.id.btn_event:
+            event_fragment=new Event_fragment();
+            transaction = manager.beginTransaction();
+            transaction.add(R.id.container, event_fragment, event_fragment.TAG);
+           // event_fragment.setText("street_id");
+
+
+
+            transaction.commit();
+
+          //  Event_fragment event_fragment = (Event_fragment)getSupportFragmentManager().
+         //           findFragmentById(R.id.textView_event_fragment);
+         //   event_fragment.setText("de");
+
+           // TextView textFragment = (TextView) findViewById(R.id.textView_event_fragment);
+            //textFragment.setText("asdf");
+
+
+
+            break;
+        case R.id.bnt_event2:
+            event_fragment_home=new Event_fragment_home();
+            transaction=manager.beginTransaction();
+            transaction.add(R.id.container, event_fragment_home, event_fragment_home.TAG);
+            transaction.commit();
+            break;
+
+        case R.id.btn_delete_event:
+            fragment=getSupportFragmentManager().findFragmentByTag("");
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+            break;
+    }
+}
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -194,12 +241,19 @@ public class Mode_second extends Activity implements View.OnClickListener{
             case R.id.btn_add_R0:
                 Intent ii=new Intent(this,V.class);
                 startActivityForResult(ii, ACTION_EDIT_V);
-
                 break;
+
         }
-    }
+        }
+
 
     private void startActivity(Class<?> cls) {
+
+        Integer[] stockArr = new Integer[event_mode.size()];
+        stockArr=event_mode.toArray(stockArr);
+        for(Integer s : stockArr)
+Log.e(LOG_TAG,"stockArr " +s);
+
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
         i.putExtra(t_support, et_t_support.getText().toString());

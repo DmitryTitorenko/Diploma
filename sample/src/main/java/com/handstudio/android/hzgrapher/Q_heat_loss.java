@@ -3,9 +3,6 @@ package com.handstudio.android.hzgrapher;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +35,7 @@ public class Q_heat_loss extends Activity implements  View.OnClickListener{
                     case R.id.button:
                 counter++;
                 final View view = getLayoutInflater().inflate(R.layout.add_b, null);
-                Button deleteField = (Button) view.findViewById(R.id.button2);
+                Button deleteField = (Button) view.findViewById(R.id.btn_delete_fragment);
                 deleteField.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

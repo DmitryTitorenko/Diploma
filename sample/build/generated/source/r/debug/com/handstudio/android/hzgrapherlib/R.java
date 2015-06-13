@@ -15,7 +15,7 @@ public final class R {
 		public static final int ic_launcher = 0x7f020001;
 	}
 	public static final class id {
-		public static final int action_settings = 0x7f08004d;
+		public static final int action_settings = 0x7f080051;
 		public static final int layoutGraphView = 0x7f080000;
 	}
 	public static final class layout {
@@ -27,7 +27,7 @@ public final class R {
 	public static final class string {
 		public static final int action_settings = 0x7f050000;
 		public static final int app_name = 0x7f050001;
-		public static final int hello_world = 0x7f050005;
+		public static final int hello_world = 0x7f050006;
 	}
 	public static final class style {
 		public static final int AppBaseTheme = 0x7f060000;

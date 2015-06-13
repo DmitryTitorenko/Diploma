@@ -696,7 +696,7 @@ public class CurveGraphActivity extends Activity{
 			Nr = N_loss_productivity - q;
 			Nr_oll[ia] = Nr;
 			time[ia] = Q[ia] / Nr;
-Log.e(LOG_TAG,"изменение  " +t_street_random +" " + q);
+			//Log.e(LOG_TAG,"изменение  " +t_street_random +" " + q);
 			t1--;
 
 			tv_1.setText("" + t1);

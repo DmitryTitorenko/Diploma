@@ -10,6 +10,7 @@
     <string name="app_name">Diploma</string>
     <string name="btn1">number</string>
     <string name="btn2">number</string>
+    <string name="btnAdd">+</string>
     <string name="error_p">"kjh"</string>
     <string name="hello_world">Hello world!</string>
     <string name="text_bubble_graph">BubbleGraph</string>
