@@ -110,7 +110,7 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
             @Override
             public void onClick(View v) {
 
-                event_mode.add(1);
+                //event_mode.add(1);
 
                 //берем наш кастомный лейаут находим через него все наши кнопки и едит тексты, задаем нужные данные
                 final View view = getLayoutInflater().inflate(R.layout.custom_edittext_layout, null);
@@ -149,10 +149,7 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
                 linear.addView(view);
                 coutn_array.add(1);//массив для подчета
 
-                for(int i:coutn_array){
-                    Log.e(LOG_TAG, "count event_mode  "+ i);
 
-                }
             }
         }
 
@@ -181,26 +178,16 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
 public void onClick_Event(View view) {
     switch (view.getId()) {
         case R.id.btn_event:
+            event_mode.add(0);//street
+
             event_fragment=new Event_fragment();
             transaction = manager.beginTransaction();
             transaction.add(R.id.container, event_fragment, event_fragment.TAG);
-           // event_fragment.setText("street_id");
-
-
-
             transaction.commit();
-
-          //  Event_fragment event_fragment = (Event_fragment)getSupportFragmentManager().
-         //           findFragmentById(R.id.textView_event_fragment);
-         //   event_fragment.setText("de");
-
-           // TextView textFragment = (TextView) findViewById(R.id.textView_event_fragment);
-            //textFragment.setText("asdf");
-
-
-
             break;
+
         case R.id.bnt_event2:
+            event_mode.add(1);// home
             event_fragment_home=new Event_fragment_home();
             transaction=manager.beginTransaction();
             transaction.add(R.id.container, event_fragment_home, event_fragment_home.TAG);
@@ -210,10 +197,13 @@ public void onClick_Event(View view) {
         case R.id.btn_delete_event:
             fragment=getSupportFragmentManager().findFragmentByTag("");
             getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+            event_mode.remove(event_mode.size()-1);
             break;
     }
+    for(int i:event_mode){
+        Log.e(LOG_TAG, "event_mode  "+ i);
+    }
 }
-
 
     @Override
     public void onClick(View v) {
@@ -242,8 +232,7 @@ public void onClick_Event(View view) {
                 Intent ii=new Intent(this,V.class);
                 startActivityForResult(ii, ACTION_EDIT_V);
                 break;
-
-        }
+             }
         }
 
 

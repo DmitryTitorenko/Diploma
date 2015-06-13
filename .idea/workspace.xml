@@ -30,52 +30,22 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="event_mode" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74203078-a566-48f7-8f40-b198915da46b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Event_fragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Event_fragment_home.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/fragment_event2_layout.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/fragment_event_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$2.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_second.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Q_heat_loss$1$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Q_heat_loss$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Q_heat_loss$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Q_heat_loss$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Q_heat_loss.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Q_heat_loss.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$id.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapherlib/R$id.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapherlib/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$layout.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$menu.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$string.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapherlib/R$string.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapherlib/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$style.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Select_mode.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Select_mode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/V.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/V.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/sample/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/sample/build/intermediates/resources/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug-unaligned.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Q_heat_loss.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Q_heat_loss.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/generated/source/r/debug/com/handstudio/android/hzgrapher/R.java" afterPath="$PROJECT_DIR$/sample/build/generated/source/r/debug/com/handstudio/android/hzgrapher/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/generated/source/r/debug/com/handstudio/android/hzgrapherlib/R.java" afterPath="$PROJECT_DIR$/sample/build/generated/source/r/debug/com/handstudio/android/hzgrapherlib/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/sample/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/activity_mode_second.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/activity_mode_second.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_second.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_second.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/add_b.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/add_b.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/add_b.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/add_b.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/custom_edittext_layout.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/debug/layout/custom_edittext_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/custom_edittext_layout.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/custom_edittext_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diploma.iws" />
@@ -120,14 +90,14 @@
       <file leaf-file-name="Mode_second.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5821168">
-              <caret line="58" column="32" selection-start-line="58" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.19343066">
+              <caret line="149" column="19" selection-start-line="149" selection-start-column="19" selection-end-line="149" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3753#5633#0" expanded="true" />
-                <element signature="e#5632#5633#0" expanded="true" />
-                <element signature="e#5684#6719#0" expanded="true" />
-                <element signature="e#6718#6719#0" expanded="true" />
+                <element signature="e#3753#5516#0" expanded="true" />
+                <element signature="e#5515#5516#0" expanded="true" />
+                <element signature="e#5567#6602#0" expanded="true" />
+                <element signature="e#6601#6602#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2582,10 +2552,10 @@
           <caret line="196" column="22" selection-start-line="196" selection-start-column="22" selection-end-line="196" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3753#5633#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
-            <element signature="e#5684#6719#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#3753#5516#0" expanded="true" />
+            <element signature="e#5515#5516#0" expanded="true" />
+            <element signature="e#5567#6602#0" expanded="true" />
+            <element signature="e#6601#6602#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2645,10 +2615,10 @@
           <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3753#5633#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
-            <element signature="e#5684#6719#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#3753#5516#0" expanded="true" />
+            <element signature="e#5515#5516#0" expanded="true" />
+            <element signature="e#5567#6602#0" expanded="true" />
+            <element signature="e#6601#6602#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3074,14 +3044,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_second.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5821168">
-          <caret line="58" column="32" selection-start-line="58" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.19343066">
+          <caret line="149" column="19" selection-start-line="149" selection-start-column="19" selection-end-line="149" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3753#5633#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
-            <element signature="e#5684#6719#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#3753#5516#0" expanded="true" />
+            <element signature="e#5515#5516#0" expanded="true" />
+            <element signature="e#5567#6602#0" expanded="true" />
+            <element signature="e#6601#6602#0" expanded="true" />
           </folding>
         </state>
       </provider>
