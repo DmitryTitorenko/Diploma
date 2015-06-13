@@ -41,10 +41,8 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
 
     private Event_fragment event_fragment;
     private Event_fragment_home event_fragment_home;
-
     private FragmentManager manager;
     private FragmentTransaction transaction;
-
     Fragment fragment;
 
     EditText et_p;
@@ -59,21 +57,9 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
     EditText et_nn; //коэффицент
     EditText et_R0;//сопротивление теплопередачи
     EditText et_B;//теплопотери дополнительные
-
     Button btn_start;
 
-
-    private List<View> allEds;    //Создаем список вьюх которые будут создаваться
-
     public ArrayList<Integer>event_mode=new ArrayList<>(); //список событий
-
-    private ArrayList<Integer> coutn_array = new ArrayList<>();    //Создаем список вьюх которые будут создаваться
-
-
-    //счетчик чисто декоративный для визуального отображения edittext'ov
-    private int counter = 0;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,94 +78,15 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
         et_nn=(EditText)findViewById(R.id.et_nn);
         et_R0=(EditText)findViewById(R.id.et_R0);
         et_B=(EditText)findViewById(R.id.et_B);
-
-        manager=getSupportFragmentManager();
-
-
         btn_start=(Button)findViewById(R.id.btn_start);
 
-        Button addButton = (Button) findViewById(R.id.button);
-        Button addButton1 = (Button) findViewById(R.id.button1);
-
-
-        //инициализировали наш массив
-        allEds = new ArrayList<View>();
-        //находим наш linear который у нас под кнопкой add edittext
-        final LinearLayout linear = (LinearLayout) findViewById(R.id.linear);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //event_mode.add(1);
-
-                //берем наш кастомный лейаут находим через него все наши кнопки и едит тексты, задаем нужные данные
-                final View view = getLayoutInflater().inflate(R.layout.custom_edittext_layout, null);
-
-/*
-
-
-                Button deleteField = (Button) view.findViewById(R.id.btn_delete_fragment);
-                deleteField.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        try {
-                            ((LinearLayout) view.getParent()).removeView(view);
-                            allEds.remove(view);
-                            Iterator<Integer> iterator=event_mode.iterator();
-                            event_mode.remove(((LinearLayout) view.getParent()));
-                            event_mode.add(0);
-                            Log.e(LOG_TAG, "view.getParent() " + Integer.valueOf(view.getId()));
-
-                        } catch(IndexOutOfBoundsException ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                });
-                */
-
-
-
-                counter++;
-                //EditText text = (EditText) view.findViewById(R.id.editText);
-                TextView text=(TextView)view.findViewById(R.id.textView7);
-                text.setText("street_id" + counter);
-                //добавляем все что создаем в массив
-                allEds.add(view);
-                //добавляем елементы в linearlayout
-                linear.addView(view);
-                coutn_array.add(1);//массив для подчета
-
-
-            }
-        }
-
-        );
-        addButton1.setOnClickListener(new View.OnClickListener() {
-                                         @Override
-                                         public void onClick(View v) {
-                                             event_mode.add(2);//заполняем коллекцию собыитиями, где 2- id изменение температуры на в доме
-                                             counter++;
-                                             final View view = getLayoutInflater().inflate(R.layout.custom_edittext_layout, null);
-                                             TextView text=(TextView)view.findViewById(R.id.textView7);
-                                             text.setText("home_id" + counter);
-                                             //добавляем все что создаем в массив
-                                             allEds.add(view);
-                                             //добавляем елементы в linearlayout
-                                             linear.addView(view);
-                                         }
-                                     }
-
-        );
-
-
+        manager=getSupportFragmentManager();
     }
-
 
 public void onClick_Event(View view) {
     switch (view.getId()) {
         case R.id.btn_event:
             event_mode.add(0);//street
-
             event_fragment=new Event_fragment();
             transaction = manager.beginTransaction();
             transaction.add(R.id.container, event_fragment, event_fragment.TAG);
@@ -235,7 +142,6 @@ public void onClick_Event(View view) {
              }
         }
 
-
     private void startActivity(Class<?> cls) {
 
         Integer[] stockArr = new Integer[event_mode.size()];
@@ -258,7 +164,6 @@ Log.e(LOG_TAG,"stockArr " +s);
         i.putExtra(B, et_B.getText().toString());
         i.putExtra(event_mode_, event_mode);
         startActivity(i);
-
     }
 
 
