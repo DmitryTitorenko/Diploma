@@ -37,7 +37,7 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
     public final static String nn="nn";
     public final static String R0="R0";
     public final static String B="B";
-    public final static String event_mode_="event_mode_";
+    public final static String eventArr_="eventArr";
 
     private Event_fragment event_fragment;
     private Event_fragment_home event_fragment_home;
@@ -46,20 +46,20 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
     Fragment fragment;
 
     EditText et_p;
-    EditText et_t_support;//поддержка температуры на этом уровне
+    EditText et_t_support;//РїРѕРґРґРµСЂР¶РєР° С‚РµРјРїРµСЂР°С‚СѓСЂС‹ РЅР° СЌС‚РѕРј СѓСЂРѕРІРЅРµ
     EditText et_c;
-    EditText et_n;//пеплопроизводительность
-    EditText et_a;//ширина
-    EditText et_b;//длина
-    EditText et_c_height;//высота
-    EditText et_n_loss;//холодопроизовдительность
-    EditText et_t_street;//температура на улице
-    EditText et_nn; //коэффицент
-    EditText et_R0;//сопротивление теплопередачи
-    EditText et_B;//теплопотери дополнительные
+    EditText et_n;//РїРµРїР»РѕРїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ
+    EditText et_a;//С€РёСЂРёРЅР°
+    EditText et_b;//РґР»РёРЅР°
+    EditText et_c_height;//РІС‹СЃРѕС‚Р°
+    EditText et_n_loss;//С…РѕР»РѕРґРѕРїСЂРѕРёР·РѕРІРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ
+    EditText et_t_street;//С‚РµРјРїРµСЂР°С‚СѓСЂР° РЅР° СѓР»РёС†Рµ
+    EditText et_nn; //РєРѕСЌС„С„РёС†РµРЅС‚
+    EditText et_R0;//СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ С‚РµРїР»РѕРїРµСЂРµРґР°С‡Рё
+    EditText et_B;//С‚РµРїР»РѕРїРѕС‚РµСЂРё РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ
     Button btn_start;
 
-    public ArrayList<Integer>event_mode=new ArrayList<>(); //список событий
+    public ArrayList<Integer>event_mode=new ArrayList<>(); //СЃРїРёСЃРѕРє СЃРѕР±С‹С‚РёР№
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,9 +107,6 @@ public void onClick_Event(View view) {
             event_mode.remove(event_mode.size()-1);
             break;
     }
-    for(int i:event_mode){
-        Log.e(LOG_TAG, "event_mode  "+ i);
-    }
 }
 
     @Override
@@ -144,10 +141,8 @@ public void onClick_Event(View view) {
 
     private void startActivity(Class<?> cls) {
 
-        Integer[] stockArr = new Integer[event_mode.size()];
-        stockArr=event_mode.toArray(stockArr);
-        for(Integer s : stockArr)
-Log.e(LOG_TAG,"stockArr " +s);
+        Integer[] eventArr = new Integer[event_mode.size()];
+        event_mode.toArray(eventArr);
 
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
@@ -162,14 +157,13 @@ Log.e(LOG_TAG,"stockArr " +s);
         i.putExtra(nn,et_nn.getText().toString());
         i.putExtra(R0,et_R0.getText().toString());
         i.putExtra(B, et_B.getText().toString());
-        i.putExtra(event_mode_, event_mode);
+        i.putExtra(eventArr_, eventArr);
         startActivity(i);
     }
 
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==ACTION_EDIT_V){// может приходить ответ с разных activity
+        if (requestCode==ACTION_EDIT_V){
             if(resultCode == RESULT_OK) {
                 String vvv=data.getStringExtra(V.ANSWER_V);
                 et_R0.setText("" + vvv);
