@@ -53,7 +53,7 @@ public class CurveGraphActivity extends Activity{
 
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) throws NumberFormatException{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_graph);
 
@@ -68,37 +68,46 @@ public class CurveGraphActivity extends Activity{
 		tv_6 = (TextView) findViewById(R.id.tv_6);
 		btn_event = (Button) findViewById(R.id.btn_event);
 
-		maths_oll(iiii);
 		setCurveGraph(iiii);
+		maths_oll(iiii);
 		iiii++;
 
 		btn_event.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Bundle extras = getIntent().getExtras();
-				Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-				Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 
-				if(t1<t2){
-					if (t1 + iiii < t2) {
-						maths_oll(iiii);
-						setCurveGraph(iiii);
-						iiii++;
-					}
-					else {
-						Toast.makeText(getApplicationContext(),"Досягнута необхідна температура",Toast.LENGTH_SHORT).show();
+				try {
+					if (Integer.valueOf(extras.getString(Mode_first.t2)) != 0) {// для первого режима
+						Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
+						Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
+						if (t1 < t2) {
+							if (t1 + iiii < t2) {
+								maths_oll(iiii);
+								setCurveGraph(iiii);
+								iiii++;
+							} else {
+								Toast.makeText(getApplicationContext(), "Досягнута необхідна температура", Toast.LENGTH_SHORT).show();
+							}
+						} else if (t1 > t2) {
+							if (t1 - iiii > t2) {
+								maths_oll(iiii);
+								setCurveGraph(iiii);
+								iiii++;
+							} else {
+								Toast.makeText(getApplicationContext(), "Досягнута необхідна температура", Toast.LENGTH_SHORT).show();
+							}
+						}
 					}
 				}
-				else if(t1>t2){
-					if (t1 + iiii > t2) {
-						maths_oll(iiii);
-						setCurveGraph(iiii);
-						iiii++;
-					}
-					else {
-						Toast.makeText(getApplicationContext(),"Досягнута необхідна температура",Toast.LENGTH_SHORT).show();
+				catch (NumberFormatException e){
+						Integer t_support = Integer.valueOf(extras.getString(Mode_second.t_support));
+						 maths_oll(iiii);
+						 setCurveGraph(iiii);
+						 iiii++;
+
 					}
 				}
-			}
+
 		});
 	}
 
@@ -378,12 +387,6 @@ public class CurveGraphActivity extends Activity{
 	}
 
 
-	/**
-	 * make Curve graph using options
-	 *
-	 * @return
-	 */
-
 
 	private CurveGraphVO makeCurveGraphAllSetting(int i) {
 
@@ -415,6 +418,8 @@ public class CurveGraphActivity extends Activity{
 
 		String[] legendArr = {Arrays.toString(axis_oll(i))};
 		List<CurveGraph> arrGraph = new ArrayList<CurveGraph>();
+
+
 		arrGraph.add(new CurveGraph("Graph", 0xaa10ffff, graphT_oll(i)));
 
 		CurveGraphVO vo = new CurveGraphVO(
@@ -471,21 +476,30 @@ public class CurveGraphActivity extends Activity{
 		return axis;
 	}
 
-	public int[] axis_oll(int ii) {
+	public int[] axis_oll(int ii) throws NullPointerException{
 		Bundle extras = getIntent().getExtras();
-		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
-		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
-		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-		int tm = 0;//Модельное время, так же используется для создания массивов
-		for (int i = 0; t1add <= t2; i++) {//находим кол-во элементов массива который необходимо нарисовать// отсавляем <= чтобы график рисовался на 1 гадус больше
-			tm++;
-			t1add++;
+		int[] axis = {0};
+		try {
+			if (Integer.valueOf(extras.getString(Mode_first.t2)) != null
+					|| Integer.valueOf(extras.getString(Mode_second.t_support)) == 0) {// для первого режима
+
+				Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
+				Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
+
+				if (t1 < t2) {
+					axis = axis(iiii);
+				} else if (t1 > t2) {
+					axis = axis_minus(iiii);
+				}
+			}
+
+			////////////////////////////////////////////////// check
+
 		}
-		int[] axis = new int[tm];// отсчет для оси х
-		if (t1 < t2) {
-			axis = axis(iiii);
-		} else if (t1 > t2) {
-			axis = axis_minus(iiii);
+		catch (NumberFormatException e){
+			axis = axis_support(iiii);
+
+
 		}
 		return axis;
 
@@ -536,23 +550,27 @@ public class CurveGraphActivity extends Activity{
 		return graphT;
 	}
 
-	public float[] graphT_oll(int ii) {
+	public float[] graphT_oll(int ii) throws NumberFormatException{
 		Bundle extras = getIntent().getExtras();
-		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
-		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
-		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 
-		int tm = 0;//Модельное время, так же используется для создания массивов
-		for (int i = 0; t1add <= t2; i++) {//находим кол-во элементов массива который необходимо нарисовать// отсавляем <= чтобы график рисовался на 1 гадус больше
-			tm++;
-			t1add++;
+		float[] graphT={0};
+		try {
+			if (Integer.valueOf(extras.getString(Mode_first.t2)) != null) {// для первого режима
+
+				Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
+				Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
+
+				if (t1 < t2) {
+					graphT = graphT(iiii);
+				} else if (t1 > t2) {
+					graphT = grapht_minus(iiii);
+				}
+			}
 		}
-		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
+		catch (NumberFormatException e){
+			graphT = graphT_support(iiii);
 
-		if (t1 < t2) {
-			graphT = graphT(iiii);
-		} else if (t1 > t2) {
-			graphT = grapht_minus(iiii);
+
 		}
 		return graphT;
 
@@ -711,8 +729,11 @@ public class CurveGraphActivity extends Activity{
 				break;
 		}
 	}
-	public void maths_oll(int iiii){
+	public void maths_oll(int iiii) throws NumberFormatException{
 		Bundle extras = getIntent().getExtras();
+
+		try{
+		if(Integer.valueOf(extras.getString(Mode_first.t2))!=null) {// для первого режима
 		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 
@@ -721,6 +742,68 @@ public class CurveGraphActivity extends Activity{
 		} else if (t1 > t2) {
 			maths_minus(iiii);
 		}
+		}
+		}
+		catch (NumberFormatException e){
+
+		}
+	}
+
+
+
+/////////////////////////////////////////
+	// пока работает только здесь  event_mode=extras.getIntegerArrayList(Mode_second.eventArray_);
+
+	public int[] axis_support(int ii) {//check
+		Bundle extras = getIntent().getExtras();
+		Integer t_support = Integer.valueOf(extras.getString(Mode_second.t_support));
+
+		ArrayList<Integer>event_mode=new ArrayList<>();
+		event_mode=extras.getIntegerArrayList(Mode_second.eventArray_);
+
+		Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
+		event_mode.toArray(eventArray);
+		for (int i:eventArray){
+			Log.e(LOG_TAG,"eventArray " +i);
+		}
+		int tm = 0;
+
+		for (int ia=0; ia<=eventArray.length; ia++){//находим кол-во элементов массива который необходимо нарисовать
+			tm++;
+			Log.e(LOG_TAG, ""+eventArray);
+			if(ia>ii) break;//для отрисовки не всех сразу событий
+		}
+
+		int[] axis = new int[tm];// отсчет для оси х
+
+		for (int ia = 0; ia <= eventArray.length; ia++) {
+			axis[ia] = ia;
+			if(ia>ii) break;
+		}
+
+		return axis;
+	}
+	public float[] graphT_support(int ii) {//check
+		Bundle extras = getIntent().getExtras();
+
+		Integer t_support = Integer.valueOf(extras.getString(Mode_second.t_support));
+		int[] eventArray=extras.getIntArray(Mode_second.eventArray_);//check
+		int tm = 0;
+
+		for (int ia=0; ia<=eventArray.length; ia++){//находим кол-во элементов массива который необходимо нарисовать
+			tm++;
+			Log.e(LOG_TAG, ""+eventArray);
+			if(ia>ii) break;//для отрисовки не всех сразу событий
+		}
+
+		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
+
+		for (int ia = 0; ia <= eventArray.length; ia++) {
+			graphT[ia] = ia;
+			if(ia>ii) break;
+		}
+
+		return graphT;
 	}
 }
 

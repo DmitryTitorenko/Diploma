@@ -37,7 +37,7 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
     public final static String nn="nn";
     public final static String R0="R0";
     public final static String B="B";
-    public final static String eventArr_="eventArr";
+    public final static String eventArray_="eventArray";
 
     private Event_fragment event_fragment;
     private Event_fragment_home event_fragment_home;
@@ -141,9 +141,6 @@ public void onClick_Event(View view) {
 
     private void startActivity(Class<?> cls) {
 
-        Integer[] eventArr = new Integer[event_mode.size()];
-        event_mode.toArray(eventArr);
-
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
         i.putExtra(t_support, et_t_support.getText().toString());
@@ -157,7 +154,7 @@ public void onClick_Event(View view) {
         i.putExtra(nn,et_nn.getText().toString());
         i.putExtra(R0,et_R0.getText().toString());
         i.putExtra(B, et_B.getText().toString());
-        i.putExtra(eventArr_, eventArr);
+        i.putExtra(eventArray_, event_mode);
         startActivity(i);
     }
 
