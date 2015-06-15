@@ -68,8 +68,12 @@ public class CurveGraphActivity extends Activity{
 		tv_5 = (TextView) findViewById(R.id.tv_5);
 		tv_6 = (TextView) findViewById(R.id.tv_6);
 		btn_event = (Button) findViewById(R.id.btn_event);
-
-		setCurveGraph(iiii);
+		int random_event;
+		random_event = -1 + (int) (Math.random() * ((2) + 1));
+		if(random_event==0){
+			random_event +=1;
+		}
+		setCurveGraph(iiii,random_event);
 		maths_oll(iiii);
 		iiii++;
 
@@ -83,16 +87,20 @@ public class CurveGraphActivity extends Activity{
 						Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
 						if (t1 < t2) {
 							if (t1 + iiii < t2) {
+								int random_event;
+								random_event = -1 + (int) (Math.random() * ((2) + 1));
 								maths_oll(iiii);
-								setCurveGraph(iiii);
+								setCurveGraph(iiii,random_event );
 								iiii++;
 							} else {
 								Toast.makeText(getApplicationContext(), "Досягнута необхідна температура", Toast.LENGTH_SHORT).show();
 							}
 						} else if (t1 > t2) {
 							if (t1 - iiii > t2) {
+								int random_event;
+								random_event = -1 + (int) (Math.random() * ((2) + 1));
 								maths_oll(iiii);
-								setCurveGraph(iiii);
+								setCurveGraph(iiii, random_event);
 								iiii++;
 							} else {
 								Toast.makeText(getApplicationContext(), "Досягнута необхідна температура", Toast.LENGTH_SHORT).show();
@@ -102,8 +110,13 @@ public class CurveGraphActivity extends Activity{
 				}
 				catch (NumberFormatException e){
 					if(iiii<event_limit()){
+						int random_event;
+						random_event = -1 + (int) (Math.random() * ((2) + 1));
+						if(random_event==0){
+							random_event +=1;
+						}
 						maths_oll(iiii);
-						setCurveGraph(iiii);
+						setCurveGraph(iiii, random_event);
 						iiii++;
 					}
 					else{
@@ -389,9 +402,9 @@ public class CurveGraphActivity extends Activity{
 		return false;
 	}
 
-	private void setCurveGraph(int i) {
+	private void setCurveGraph(int i, int random_event) {
 		//all setting
-		CurveGraphVO vo = makeCurveGraphAllSetting(i);
+		CurveGraphVO vo = makeCurveGraphAllSetting(i,random_event);
 
 		//default setting
 //		CurveGraphVO vo = makeCurveGraphDefaultSetting();
@@ -404,7 +417,7 @@ public class CurveGraphActivity extends Activity{
 
 
 
-	private CurveGraphVO makeCurveGraphAllSetting(int i) {
+	private CurveGraphVO makeCurveGraphAllSetting(int i, int random_event) {
 
 		//BASIC LAYOUT SETTING
 		//padding
@@ -436,7 +449,7 @@ public class CurveGraphActivity extends Activity{
 		List<CurveGraph> arrGraph = new ArrayList<CurveGraph>();
 
 
-		arrGraph.add(new CurveGraph("Graph", 0xaa10ffff, graphT_oll(i)));
+		arrGraph.add(new CurveGraph("Graph", 0xaa10ffff, graphT_oll(i,random_event)));
 
 		CurveGraphVO vo = new CurveGraphVO(
 				paddingBottom, paddingTop, paddingLeft, paddingRight,
@@ -566,7 +579,7 @@ public class CurveGraphActivity extends Activity{
 		return graphT;
 	}
 
-	public float[] graphT_oll(int ii) throws NumberFormatException{
+	public float[] graphT_oll(int ii,int random_event) throws NumberFormatException{
 		Bundle extras = getIntent().getExtras();
 
 		float[] graphT={0};
@@ -584,9 +597,7 @@ public class CurveGraphActivity extends Activity{
 			}
 		}
 		catch (NumberFormatException e){
-			graphT = graphT_support(iiii);
-
-
+			graphT = graphT_support(iiii,random_event);
 		}
 		return graphT;
 
@@ -798,7 +809,7 @@ public class CurveGraphActivity extends Activity{
 
 		return axis;
 	}
-	public float[] graphT_support(int ii) {//check
+	public float[] graphT_support(int ii,int random_event) {//check
 		Bundle extras = getIntent().getExtras();
 
 		Float t_support = Float.valueOf(extras.getString(Mode_second.t_support));
@@ -817,9 +828,9 @@ public class CurveGraphActivity extends Activity{
 		}
 
 		int ia;
-		float random_event=0;
+		//float random_event=0;
 		for ( ia = 0; ia <= eventArray.length; ia++) {
-			 random_event = -1 + (int) (Math.random() * ((2) + 1));
+			// random_event = -1 + (int) (Math.random() * ((2) + 1));
 			if(ia>ii) break;
 			if (ii==0)event.add(t_support);// добавляем значения что бы он рисовал при запуске
 		}
@@ -839,6 +850,83 @@ public class CurveGraphActivity extends Activity{
 		return floatArray;
 	}
 
+	public void maths_support(int ii) {
+
+		Bundle extras = getIntent().getExtras();
+
+		Float BD = Float.valueOf(extras.getString(Mode_first.p));
+		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
+		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
+		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
+		Float c = Float.valueOf(extras.getString(Mode_first.c));
+		Float N_heat_productivity = Float.valueOf(extras.getString(Mode_first.n));
+		Float N_loss_productivity=Float.valueOf(extras.getString(Mode_first.n_loss));
+		Integer a = Integer.valueOf(extras.getString(Mode_first.a));
+		Integer b = Integer.valueOf(extras.getString(Mode_first.b));
+		Integer c_height = Integer.valueOf(extras.getString(Mode_first.c_height));
+
+		Integer t_street = Integer.valueOf(extras.getString(Mode_first.t_street));
+		Float nn = Float.valueOf(extras.getString(Mode_first.nn));
+		Float R0 = Float.valueOf(extras.getString(Mode_first.R0));
+		Float B = Float.valueOf(extras.getString(Mode_first.B));
+
+		tv_21.setText("Количество теплоты необходимое для остываня");
+		tv_31.setText("Время, необходимое на охлождение на 1 градус");
+
+		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
+
+		Integer v = a * b * c_height;//обьем
+
+		int tm = 0;//Модельное время, так же используется для создания массивов
+		float Nr;//реальноя производительность кондиционера
+		float F = a * b;//площадь
+
+		for (int ia = 0; t1add > t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
+			tm++;
+			t1add--;
+			if(ia==ii) break;
+		}
+		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
+		int[] axis = new int[tm];// отсчет для оси х
+		double[] Q = new double[tm];// количество теплоты/холода, которое необходимо для нагревания/охлаждения
+		double[] time = new double[tm]; //время, которое необходимо для нагревания Q на один градус
+		double[] Nr_oll = new double[tm];//реальная производительность кондиционера
+		double[] Q_heat_loss = new double[tm];//массив с теплопотерями
+		double[] t_street_random_array = new double[tm];//массив с случайной температурой на улице
+
+		for (int ia = 0; t1 > t2; ia++) {
+
+			graphT[ia] = t1;
+			axis[ia] = ia;
+			double tKelvin = t1 + 273.15;// температура в Кельвинах
+			double p = 0.473 * (BD / tKelvin);// плотность
+			double m = p * v; //масса воздуха
+
+			Q[ia] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
+			int t_street_random = -1 + (int) (Math.random() * ((2) + 1));
+			t_street += t_street_random;
+			t_street_random_array[ia] = t_street_random;
+
+			q = Float.valueOf(F * (t1 - t_street) * (1 + B) * nn / R0);
+			Q_heat_loss[ia] = q;
+			Nr = N_loss_productivity - q;
+			Nr_oll[ia] = Nr;
+			time[ia] = Q[ia] / Nr;
+			//Log.e(LOG_TAG,"изменение  " +t_street_random +" " + q);
+			t1--;
+
+			tv_1.setText("" + t1);
+			tv_2.setText("" + Q[ia]);
+			tv_6.setText("" + t_street_random);
+			tv_5.setText("" + q);
+			tv_4.setText("" + Nr);
+			tv_3.setText("" + time[ia]);
+
+			if (ia == ii)
+
+				break;
+		}
+	}
 }
 
 
