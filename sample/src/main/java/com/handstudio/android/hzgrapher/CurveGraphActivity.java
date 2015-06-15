@@ -47,10 +47,27 @@ public class CurveGraphActivity extends Activity{
 	TextView tv_5;
 	TextView tv_6;
 	Button btn_event;
-
+	TextView pover_conditionin;
+	TextView tvsupport;
+	TextView tv_heat_loss;
+	TextView tv_need_time;
+	TextView tv_heat_quantity;//количество телоты
+	TextView tv_41;
+	TextView model_time;
+	TextView model_time1;
 
 	int iiii = 0;//для нажатия кнопок
 	ArrayList<Float>event=new ArrayList<>();
+	ArrayList<Float>event_math=new ArrayList<>();
+	int count_eventArray=0;
+	float heat_loss=0;//измененние температуры на улице
+
+
+	int  real_temp_street;//измененние температуры на улице
+
+
+
+
 	float[] graphTevent;
 
 	@Override
@@ -67,14 +84,22 @@ public class CurveGraphActivity extends Activity{
 		tv_4 = (TextView) findViewById(R.id.tv_4);
 		tv_5 = (TextView) findViewById(R.id.tv_5);
 		tv_6 = (TextView) findViewById(R.id.tv_6);
+		tv_heat_loss=(TextView)findViewById(R.id.textView39);
+		tvsupport=(TextView)findViewById(R.id.textView12);
 		btn_event = (Button) findViewById(R.id.btn_event);
+		pover_conditionin=(TextView)findViewById(R.id.textView37);
+		tv_need_time=(TextView)findViewById(R.id.tv_31);
+		tv_heat_quantity=(TextView)findViewById(R.id.tv_21);
+		tv_41=(TextView)findViewById(R.id.textView41);
+		model_time=(TextView)findViewById(R.id.tv_model_time);
+		model_time1=(TextView)findViewById(R.id.tv_model_teme1);
 		int random_event;
 		random_event = -1 + (int) (Math.random() * ((2) + 1));
 		if(random_event==0){
 			random_event +=1;
 		}
 		setCurveGraph(iiii,random_event);
-		maths_oll(iiii);
+		maths_oll(iiii,random_event);
 		iiii++;
 
 		btn_event.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +114,7 @@ public class CurveGraphActivity extends Activity{
 							if (t1 + iiii < t2) {
 								int random_event;
 								random_event = -1 + (int) (Math.random() * ((2) + 1));
-								maths_oll(iiii);
+								maths_oll(iiii, random_event);
 								setCurveGraph(iiii,random_event );
 								iiii++;
 							} else {
@@ -99,7 +124,7 @@ public class CurveGraphActivity extends Activity{
 							if (t1 - iiii > t2) {
 								int random_event;
 								random_event = -1 + (int) (Math.random() * ((2) + 1));
-								maths_oll(iiii);
+								maths_oll(iiii, random_event);
 								setCurveGraph(iiii, random_event);
 								iiii++;
 							} else {
@@ -115,7 +140,7 @@ public class CurveGraphActivity extends Activity{
 						if(random_event==0){
 							random_event +=1;
 						}
-						maths_oll(iiii);
+						maths_oll(iiii,random_event);
 						setCurveGraph(iiii, random_event);
 						iiii++;
 					}
@@ -659,6 +684,7 @@ public class CurveGraphActivity extends Activity{
 			t_street += t_street_random;
 			t_street_random_array[ia] = t_street_random;
 			q = Float.valueOf(F * (t1 - t_street) * (1 + B) * nn / R0);
+			Log.e(LOG_TAG, "q"+q);
 
 			Q_heat_loss[ia] = q;
 			Nr = N_heat_productivity - q;
@@ -673,6 +699,7 @@ public class CurveGraphActivity extends Activity{
 			tv_5.setText("" + q);
 			tv_4.setText("" + Nr);
 			tv_3.setText("" + time[ia]);
+			model_time.setText(""+tm);
 
 			if (ia == ii)
 				break;
@@ -741,7 +768,6 @@ public class CurveGraphActivity extends Activity{
 			Nr = N_loss_productivity - q;
 			Nr_oll[ia] = Nr;
 			time[ia] = Q[ia] / Nr;
-			//Log.e(LOG_TAG,"изменение  " +t_street_random +" " + q);
 			t1--;
 
 			tv_1.setText("" + t1);
@@ -750,13 +776,13 @@ public class CurveGraphActivity extends Activity{
 			tv_5.setText("" + q);
 			tv_4.setText("" + Nr);
 			tv_3.setText("" + time[ia]);
+			model_time.setText(""+tm);
 
 			if (ia == ii)
-
 				break;
 		}
 	}
-	public void maths_oll(int iiii) throws NumberFormatException{
+	public void maths_oll(int iiii, int random_event) throws NumberFormatException{
 		Bundle extras = getIntent().getExtras();
 
 		try{
@@ -772,16 +798,15 @@ public class CurveGraphActivity extends Activity{
 		}
 		}
 		catch (NumberFormatException e){
-
+		maths_support(iiii, random_event);
 		}
 	}
 
 
 
 
-	public int[] axis_support(int ii) {//check
+	public int[] axis_support(int ii) {
 		Bundle extras = getIntent().getExtras();
-		Integer t_support = Integer.valueOf(extras.getString(Mode_second.t_support));
 
 		ArrayList<Integer>event_mode=new ArrayList<>();
 		event_mode=extras.getIntegerArrayList(Mode_second.eventArray_);
@@ -809,7 +834,9 @@ public class CurveGraphActivity extends Activity{
 
 		return axis;
 	}
+
 	public float[] graphT_support(int ii,int random_event) {//check
+
 		Bundle extras = getIntent().getExtras();
 
 		Float t_support = Float.valueOf(extras.getString(Mode_second.t_support));
@@ -820,17 +847,12 @@ public class CurveGraphActivity extends Activity{
 		Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
 		event_mode.toArray(eventArray);
 
-		int tm = 0;
-
 		for (int ia=0; ia<=eventArray.length; ia++){//находим кол-во элементов массива который необходимо нарисовать
-			tm++;
 			if(ia>ii) break;//для отрисовки не всех сразу событий
 		}
 
 		int ia;
-		//float random_event=0;
 		for ( ia = 0; ia <= eventArray.length; ia++) {
-			// random_event = -1 + (int) (Math.random() * ((2) + 1));
 			if(ia>ii) break;
 			if (ii==0)event.add(t_support);// добавляем значения что бы он рисовал при запуске
 		}
@@ -850,85 +872,115 @@ public class CurveGraphActivity extends Activity{
 		return floatArray;
 	}
 
-	public void maths_support(int ii) {
+	public void maths_support(int ii, int random_event) {
 
 		Bundle extras = getIntent().getExtras();
 
-		Float BD = Float.valueOf(extras.getString(Mode_first.p));
-		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
-		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
-		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-		Float c = Float.valueOf(extras.getString(Mode_first.c));
-		Float N_heat_productivity = Float.valueOf(extras.getString(Mode_first.n));
-		Float N_loss_productivity=Float.valueOf(extras.getString(Mode_first.n_loss));
-		Integer a = Integer.valueOf(extras.getString(Mode_first.a));
-		Integer b = Integer.valueOf(extras.getString(Mode_first.b));
-		Integer c_height = Integer.valueOf(extras.getString(Mode_first.c_height));
-
-		Integer t_street = Integer.valueOf(extras.getString(Mode_first.t_street));
-		Float nn = Float.valueOf(extras.getString(Mode_first.nn));
-		Float R0 = Float.valueOf(extras.getString(Mode_first.R0));
-		Float B = Float.valueOf(extras.getString(Mode_first.B));
-
-		tv_21.setText("Количество теплоты необходимое для остываня");
-		tv_31.setText("Время, необходимое на охлождение на 1 градус");
-
-		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
+		Float BD = Float.valueOf(extras.getString(Mode_second.p));
+		Float t_support = Float.valueOf(extras.getString(Mode_second.t_support));
+		Integer t1add = Integer.valueOf(extras.getString(Mode_second.t_support));//дополнительная переменная для цикла
+		Float c = Float.valueOf(extras.getString(Mode_second.c));
+		Float N_heat_productivity = Float.valueOf(extras.getString(Mode_second.n));
+		Float N_loss_productivity=Float.valueOf(extras.getString(Mode_second.n_loss));
+		Integer a = Integer.valueOf(extras.getString(Mode_second.a));
+		Integer b = Integer.valueOf(extras.getString(Mode_second.b));
+		Integer c_height = Integer.valueOf(extras.getString(Mode_second.c_height));
+		Integer t_street = Integer.valueOf(extras.getString(Mode_second.t_street));
+		Float nn = Float.valueOf(extras.getString(Mode_second.nn));
+		Float R0 = Float.valueOf(extras.getString(Mode_second.R0));
+		Float B = Float.valueOf(extras.getString(Mode_second.B));
 
 		Integer v = a * b * c_height;//обьем
-
-		int tm = 0;//Модельное время, так же используется для создания массивов
-		float Nr;//реальноя производительность кондиционера
 		float F = a * b;//площадь
 
-		for (int ia = 0; t1add > t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-			tm++;
-			t1add--;
-			if(ia==ii) break;
+
+		ArrayList<Integer>event_mode=new ArrayList<>();
+		event_mode=extras.getIntegerArrayList(Mode_second.eventArray_);
+
+		Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
+		event_mode.toArray(eventArray);
+
+//////////////////////////////////////////////заполняем изменение температуры
+		int tm = 0;
+		int ia;
+		for ( ia = 0; ia <= eventArray.length; ia++) {
+			if(ia>ii) break;
+			if (ii==0)event_math.add(t_support);// добавляем значения что бы он рисовал при запуске
 		}
-		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-		int[] axis = new int[tm];// отсчет для оси х
-		double[] Q = new double[tm];// количество теплоты/холода, которое необходимо для нагревания/охлаждения
-		double[] time = new double[tm]; //время, которое необходимо для нагревания Q на один градус
-		double[] Nr_oll = new double[tm];//реальная производительность кондиционера
-		double[] Q_heat_loss = new double[tm];//массив с теплопотерями
-		double[] t_street_random_array = new double[tm];//массив с случайной температурой на улице
+		event_math.add(t_support+random_event);//ArrayList с значениями температуры
+		float[] floatArray = new float[event_math.size()];//на соколько изменилась температура
+		int i = 0;
+		for (Float f : event_math) {
+			floatArray[i++] = (f != null ? f : Float.NaN); // Or whatever default you want.
+		}
+		/////////////////////////////////////////// заполнинили
 
-		for (int ia = 0; t1 > t2; ia++) {
 
-			graphT[ia] = t1;
-			axis[ia] = ia;
-			double tKelvin = t1 + 273.15;// температура в Кельвинах
+		Float q;
+		real_temp_street+=random_event;
+		int real_temp_street_oll=t_street+real_temp_street;//реальное изменение температуры на данном шаге
+		for (int iaa = 0;  iaa<eventArray.length; iaa++) {//проход по списку событий
+			tm++;
+			if(iaa==ii) break;
+		}
+		if(eventArray[count_eventArray]==0){
+
+			double[] Nr_oll = new double[tm];//реальная производительность кондиционера
+				q = Float.valueOf(F * (t_support - real_temp_street_oll) * (1 + B) * nn / R0);//все теплопотери
+				Nr_oll [ii] =q;
+
+				tvsupport.setText("Температура, яка підтримується");
+				pover_conditionin.setText("Необхідна потужність кондиціонера ");
+				tv_heat_loss.setText("Температура на вулиці");
+				tv_1.setText("" + t_support);
+				tv_2.setText("" );
+				tv_6.setText("" + random_event);
+				tv_5.setText(""+real_temp_street_oll);
+				tv_4.setText("" +  Nr_oll [ii]);
+				tv_3.setText(""+tm);
+				tv_need_time.setText("Модельний час");
+				tv_heat_quantity.setText("");
+				model_time.setText("");
+				model_time1.setText("");
+
+		}
+		else {
+
+			double[] time = new double[tm]; //время, которое необходимо для нагревания Q на один градус
+			double[] Q = new double[tm];// количество теплоты/холода, которое необходимо для нагревания/охлаждения
+			double[] Nr_oll = new double[tm];//реальная производительность кондиционера
+			double[] Q_heat_loss = new double[tm];//массив с теплопотерями
+			double tKelvin = t_support + 273.15;// температура в Кельвинах
 			double p = 0.473 * (BD / tKelvin);// плотность
 			double m = p * v; //масса воздуха
 
-			Q[ia] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
-			int t_street_random = -1 + (int) (Math.random() * ((2) + 1));
-			t_street += t_street_random;
-			t_street_random_array[ia] = t_street_random;
+			Q[ii] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
+			q = Float.valueOf(F * (t_support - t_street) * (1 + B) * nn / R0);//все теплопотери
+			Nr_oll [ii] =N_loss_productivity-q;
+			Q_heat_loss[ii] = q;
+			time[ii] = Q[ii] / Nr_oll [ii];
 
-			q = Float.valueOf(F * (t1 - t_street) * (1 + B) * nn / R0);
-			Q_heat_loss[ia] = q;
-			Nr = N_loss_productivity - q;
-			Nr_oll[ia] = Nr;
-			time[ia] = Q[ia] / Nr;
-			//Log.e(LOG_TAG,"изменение  " +t_street_random +" " + q);
-			t1--;
-
-			tv_1.setText("" + t1);
-			tv_2.setText("" + Q[ia]);
-			tv_6.setText("" + t_street_random);
-			tv_5.setText("" + q);
-			tv_4.setText("" + Nr);
-			tv_3.setText("" + time[ia]);
-
-			if (ia == ii)
-
-				break;
+			tvsupport.setText("Температура, яка підтримується");
+			pover_conditionin.setText("Реальна потужність кондиціонера ");
+			tv_heat_loss.setText("Температура на вулиці");
+			tv_1.setText("" + t_support);
+			tv_2.setText("" +Q[ii]);
+			tv_6.setText("" + random_event);
+			tv_5.setText(""+t_street);
+			tv_4.setText("" + Nr_oll [ii]);
+			tv_3.setText(""+time[ii]);
+			tv_41.setText("Змінення температури у домі");
+			model_time.setText(""+tm);
+			model_time1.setText("Модельний час");
+			if(random_event==-1){
+				tv_need_time.setText("Час, необхідний для нагрівання");
+				tv_heat_quantity.setText("Кількість теплоти, необхідної для нагрівання");
+			}
+			else {
+				tv_need_time.setText("Час, необхідний для охолодження ");
+				tv_heat_quantity.setText("Кількість теплоти, необхідної для охолодження");
+			}
 		}
+		count_eventArray++;
 	}
 }
-
-
-
-
