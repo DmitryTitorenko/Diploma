@@ -48,9 +48,10 @@ public class CurveGraphActivity extends Activity{
 	TextView tv_6;
 	Button btn_event;
 
+
 	int iiii = 0;//для нажатия кнопок
-
-
+	ArrayList<Float>event=new ArrayList<>();
+	float[] graphTevent;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) throws NumberFormatException{
@@ -100,15 +101,30 @@ public class CurveGraphActivity extends Activity{
 					}
 				}
 				catch (NumberFormatException e){
-						Integer t_support = Integer.valueOf(extras.getString(Mode_second.t_support));
-						 maths_oll(iiii);
-						 setCurveGraph(iiii);
-						 iiii++;
-
+					if(iiii<event_limit()){
+						maths_oll(iiii);
+						setCurveGraph(iiii);
+						iiii++;
+					}
+					else{
+						Toast.makeText(getApplicationContext(), "Моделювання закінченно", Toast.LENGTH_SHORT).show();
+					}
 					}
 				}
-
 		});
+	}
+
+	public int event_limit(){// метод для нахождения количества событий//correct
+		Bundle extras = getIntent().getExtras();
+		ArrayList<Integer>event_mode=new ArrayList<>();
+		event_mode=extras.getIntegerArrayList(Mode_second.eventArray_);
+		Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
+		event_mode.toArray(eventArray);
+		int tm = 0;
+		for (int ia=0; ia<eventArray.length; ia++){//находим кол-во элементов массива который необходимо нарисовать
+			tm++;
+		}
+		return tm;
 	}
 
 	void writeFileSD() {
@@ -751,8 +767,6 @@ public class CurveGraphActivity extends Activity{
 
 
 
-/////////////////////////////////////////
-	// пока работает только здесь  event_mode=extras.getIntegerArrayList(Mode_second.eventArray_);
 
 	public int[] axis_support(int ii) {//check
 		Bundle extras = getIntent().getExtras();
@@ -763,6 +777,7 @@ public class CurveGraphActivity extends Activity{
 
 		Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
 		event_mode.toArray(eventArray);
+
 		for (int i:eventArray){
 			Log.e(LOG_TAG,"eventArray " +i);
 		}
@@ -786,25 +801,44 @@ public class CurveGraphActivity extends Activity{
 	public float[] graphT_support(int ii) {//check
 		Bundle extras = getIntent().getExtras();
 
-		Integer t_support = Integer.valueOf(extras.getString(Mode_second.t_support));
-		int[] eventArray=extras.getIntArray(Mode_second.eventArray_);//check
+		Float t_support = Float.valueOf(extras.getString(Mode_second.t_support));
+
+		ArrayList<Integer>event_mode=new ArrayList<>();
+		event_mode=extras.getIntegerArrayList(Mode_second.eventArray_);
+
+		Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
+		event_mode.toArray(eventArray);
+
 		int tm = 0;
 
 		for (int ia=0; ia<=eventArray.length; ia++){//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
-			Log.e(LOG_TAG, ""+eventArray);
 			if(ia>ii) break;//для отрисовки не всех сразу событий
 		}
 
-		float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-
-		for (int ia = 0; ia <= eventArray.length; ia++) {
-			graphT[ia] = ia;
+		int ia;
+		float random_event=0;
+		for ( ia = 0; ia <= eventArray.length; ia++) {
+			 random_event = -1 + (int) (Math.random() * ((2) + 1));
 			if(ia>ii) break;
+			if (ii==0)event.add(t_support);// добавляем значения что бы он рисовал при запуске
 		}
 
-		return graphT;
+		event.add(t_support+random_event);//ArrayList с значениями температуры
+		event.add(t_support);
+
+		float[] floatArray = new float[event.size()];
+		int i = 0;
+		for (Float f : event) {
+			floatArray[i++] = (f != null ? f : Float.NaN); // Or whatever default you want.
+		}
+
+		for(float a:floatArray){
+			Log.e(LOG_TAG, "floatArray"+a);
+		}
+		return floatArray;
 	}
+
 }
 
 
