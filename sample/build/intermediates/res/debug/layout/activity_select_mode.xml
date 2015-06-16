@@ -18,7 +18,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Режим 1"
+        android:text="Почати моделювання"
         android:id="@+id/btn_mode1"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
@@ -36,7 +36,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Режим 2"
+        android:text="Почати моделювання"
         android:id="@+id/btn_mode2"
         android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true"
@@ -54,7 +54,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Режим 3"
+        android:text="Почати моделювання"
         android:id="@+id/btn_mode3"
         android:layout_below="@+id/textView6"
         android:layout_centerHorizontal="true"

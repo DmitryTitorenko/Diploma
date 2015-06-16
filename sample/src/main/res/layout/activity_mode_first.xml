@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Ширина, а"
+            android:text="Ширина, м"
             android:id="@+id/textView30" />
 
         <EditText
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Довжина,b"
+            android:text="Довжина, м"
             android:id="@+id/textView31" />
 
         <EditText
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Висота, c"
+            android:text="Висота, м"
             android:id="@+id/textView32" />
 
         <EditText
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Атмосферний тиск, B"
+        android:text="Атмосферний тиск, мм рт. ст."
         android:id="@+id/textView8"
         android:layout_below="@+id/et_t2"
         android:layout_centerHorizontal="true" />
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Початкова температура t1"
+            android:text="Початкова температура, °C"
             android:id="@+id/textView9" />
 
 
@@ -106,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Кінцева температура t2"
+            android:text="Кінцева температура, °C"
             android:id="@+id/textView10"
             android:layout_weight="1.05" />
 
@@ -122,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Питома теплоємність, c"
+            android:text="Питома теплоємність, Дж/кг°C"
             android:id="@+id/textView11" />
 
             <EditText
@@ -138,7 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Теплопродуктивність прилада"
+            android:text="Теплопродуктивність прилада, Дж/сек"
             android:id="@+id/textView13"
             android:layout_weight="1.05" />
 
@@ -154,7 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Холодопродуктивність"
+            android:text="Холодопродуктивність прилада, Дж/сек"
             android:id="@+id/textView28" />
 
         <EditText
@@ -169,7 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Температура на вулиці,t_street"
+            android:text="Температура на вулиці, °C"
             android:id="@+id/textView17" />
 
         <EditText
@@ -184,7 +184,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Коефіцієнт, який враховує зовнішню поверхню приміщення відносно     зовнішнього повітря,n"
+            android:text="Коефіцієнт, який враховує зовнішню поверхню приміщення відносно  зовнішнього повітря, Вт/м²°С"
             android:id="@+id/textView19" />
 
         <EditText
@@ -199,7 +199,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Опір теплопередачі, R0"
+            android:text="Опір теплопередачі, Вт/м²°С"
             android:id="@+id/textView33" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -228,7 +228,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Додаткові тепловтрати"
+            android:text="Додаткові тепловтрати, Дж"
             android:id="@+id/textView34" />
 
         <EditText
@@ -242,7 +242,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start"
+            android:text="Почати моделювання"
             android:id="@+id/btn_start"
             android:layout_gravity="center_horizontal"
             android:onClick="onClick" />

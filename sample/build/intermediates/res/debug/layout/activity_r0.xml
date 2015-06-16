@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="α_в"
+        android:text="Коефіцієнт теплосприймання приміщення, Вт/м²°С"
         android:id="@+id/textView23"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="α_н"
+            android:text="Коефіцієнт тепловіддачі приміщення, Вт/м²°С"
             android:id="@+id/textView24" />
 
         <EditText
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Rв.н"
+            android:text="У разі наявності в конструкції приміщення замкнутого повітряного прошарку, його термоопір, м²°С/Вт"
             android:id="@+id/textView25" />
 
         <EditText
@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Коефіцієнт теплопровідності для матеріалу цього шару конструкції, λ"
+            android:text="Коефіцієнт теплопровідності для матеріалу цього шару конструкції, Вт/м²°С"
             android:id="@+id/textView26" />
 
         <EditText
@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Товщина цього шару ,δ"
+            android:text="Товщина цього шару, м"
             android:id="@+id/textView27" />
 
         <EditText

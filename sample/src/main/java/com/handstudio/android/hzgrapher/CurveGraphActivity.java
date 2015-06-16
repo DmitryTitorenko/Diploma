@@ -707,8 +707,8 @@ public class CurveGraphActivity extends Activity {
 		Float nn = Float.valueOf(extras.getString(Mode_first.nn));
 		Float R0 = Float.valueOf(extras.getString(Mode_first.R0));
 		Float B = Float.valueOf(extras.getString(Mode_first.B));
-		tv_21.setText("Количество теплоты необходимое для нагревания");
-		tv_31.setText("Время, необходимое на обогрев на 1 градус");
+		tv_21.setText("Кількість теплоти, необхідної для нагріву, Дж");
+		tv_31.setText("Час, котрий необхідний для обогріву на 1 градус, сек");
 
 		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
 
@@ -787,8 +787,8 @@ public class CurveGraphActivity extends Activity {
 		Float R0 = Float.valueOf(extras.getString(Mode_first.R0));
 		Float B = Float.valueOf(extras.getString(Mode_first.B));
 
-		tv_21.setText("Количество теплоты необходимое для остываня");
-		tv_31.setText("Время, необходимое на охлождение на 1 градус");
+		tv_21.setText("Кількість теплоти необхідне для охолодження, Дж");
+		tv_31.setText("Час, котрий необхідний для охолодження на 1 градус, сек");
 
 		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
 
@@ -994,9 +994,9 @@ public class CurveGraphActivity extends Activity {
 			q = Float.valueOf(F * (t_support - real_temp_street_oll) * (1 + B) * nn / R0);//все теплопотери
 			Nr_oll[ii] = q;
 
-			tvsupport.setText("Температура, яка підтримується");
-			pover_conditionin.setText("Необхідна потужність кондиціонера ");
-			tv_heat_loss.setText("Температура на вулиці");
+			tvsupport.setText("Температура, яка підтримується, °C");
+			pover_conditionin.setText("Необхідна потужність кондиціонера Дж/сек");
+			tv_heat_loss.setText("Температура на вулиці, °C");
 			tv_1.setText("" + t_support);
 			tv_2.setText("");
 			tv_6.setText("" + random_event);
@@ -1024,24 +1024,24 @@ public class CurveGraphActivity extends Activity {
 			Q_heat_loss[ii] = q;
 			time[ii] = Q[ii] / Nr_oll[ii];
 
-			tvsupport.setText("Температура, яка підтримується");
-			pover_conditionin.setText("Реальна потужність кондиціонера ");
-			tv_heat_loss.setText("Температура на вулиці");
+			tvsupport.setText("Температура, яка підтримується, °C");
+			pover_conditionin.setText("Реальна потужність кондиціонера, Дж/сек");
+			tv_heat_loss.setText("Температура на вулиці, °C");
 			tv_1.setText("" + t_support);
 			tv_2.setText("" + Q[ii]);
 			tv_6.setText("" + random_event);
 			tv_5.setText("" + t_street);
 			tv_4.setText("" + Nr_oll[ii]);
 			tv_3.setText("" + time[ii]);
-			tv_41.setText("Змінення температури у домі");
+			tv_41.setText("Змінення температури у домі, °C");
 			model_time.setText("" + tm);
 			model_time1.setText("Модельний час");
 			if (random_event == -1) {
-				tv_need_time.setText("Час, необхідний для нагрівання");
-				tv_heat_quantity.setText("Кількість теплоти, необхідної для нагрівання");
+				tv_need_time.setText("Час, необхідний для нагрівання, сек");
+				tv_heat_quantity.setText("Кількість теплоти, необхідної для нагрівання, Дж");
 			} else {
-				tv_need_time.setText("Час, необхідний для охолодження ");
-				tv_heat_quantity.setText("Кількість теплоти, необхідної для охолодження");
+				tv_need_time.setText("Час, необхідний для охолодження, сек");
+				tv_heat_quantity.setText("Кількість теплоти, необхідної для охолодження, Дж");
 			}
 		}
 		count_eventArray++;
@@ -1224,8 +1224,8 @@ public class CurveGraphActivity extends Activity {
 		Float R0 = Float.valueOf(extras.getString(Mode_third.R0));
 		Float B = Float.valueOf(extras.getString(Mode_third.B));
 
-		tv_21.setText("Количество теплоты необходимое для остываня");
-		tv_31.setText("Время, необходимое на охлождение на 1 градус");
+		tv_21.setText("Кількість теплоти, що необхідно охолодити, Дж");
+		tv_31.setText("Час, котрий необхідний для охолодження на 1 градус, сек");
 
 		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
 
@@ -1299,8 +1299,8 @@ public class CurveGraphActivity extends Activity {
 		Float nn = Float.valueOf(extras.getString(Mode_third.nn));
 		Float R0 = Float.valueOf(extras.getString(Mode_third.R0));
 		Float B = Float.valueOf(extras.getString(Mode_third.B));
-		tv_21.setText("Количество теплоты необходимое для нагревания");
-		tv_31.setText("Время, необходимое на обогрев на 1 градус");
+		tv_21.setText("Кількість теплоти, необхідне для нагрівання, Дж");
+		tv_31.setText("Час, котрий необхіден для охолодження на 1 градус, сек");
 
 		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
 
@@ -1418,9 +1418,9 @@ public class CurveGraphActivity extends Activity {
 			for (double qaqa : Nr_oll) {
 				Log.e(LOG_TAG, "qaqa" + qaqa);
 			}
-			tvsupport.setText("Температура, яка підтримується");
-			pover_conditionin.setText("Необхідна потужність кондиціонера ");
-			tv_heat_loss.setText("Температура на вулиці");
+			tvsupport.setText("Температура, яка підтримується, °C");
+			pover_conditionin.setText("Необхідна потужність кондиціонера, Дж ");
+			tv_heat_loss.setText("Температура на вулиці, °C");
 			tv_1.setText("" + t_support);
 			tv_2.setText("");
 			tv_6.setText("" + random_event);
@@ -1449,24 +1449,24 @@ public class CurveGraphActivity extends Activity {
 			Q_heat_loss[ii] = q;
 			time[ii] = Q[ii] / Nr_oll[ii];
 
-			tvsupport.setText("Температура, яка підтримується");
-			pover_conditionin.setText("Реальна потужність кондиціонера ");
-			tv_heat_loss.setText("Температура на вулиці");
+			tvsupport.setText("Температура, яка підтримується, °C");
+			pover_conditionin.setText("Реальна потужність кондиціонера, Дж/сек ");
+			tv_heat_loss.setText("Температура на вулиці, °C");
 			tv_1.setText("" + t_support);
 			tv_2.setText("" + Q[ii]);
 			tv_6.setText("" + random_event);
 			tv_5.setText("" + t_street);
 			tv_4.setText("" + Nr_oll[ii]);
 			tv_3.setText("" + time[ii]);
-			tv_41.setText("Змінення температури у домі");
+			tv_41.setText("Змінення температури у домі, °C");
 			//model_time.setText("" + tm);
 			model_time1.setText("Модельний час");
 			if (random_event == -1) {
-				tv_need_time.setText("Час, необхідний для нагрівання");
-				tv_heat_quantity.setText("Кількість теплоти, необхідної для нагрівання");
+				tv_need_time.setText("Час, необхідний для нагрівання, сек");
+				tv_heat_quantity.setText("Кількість теплоти, необхідної для нагрівання, Дж");
 			} else {
-				tv_need_time.setText("Час, необхідний для охолодження ");
-				tv_heat_quantity.setText("Кількість теплоти, необхідної для охолодження");
+				tv_need_time.setText("Час, необхідний для охолодження, сек ");
+				tv_heat_quantity.setText("Кількість теплоти, необхідної для охолодження, Дж");
 			}
 		}
 		count_eventArray++;

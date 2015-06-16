@@ -25,14 +25,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Событие"
+            android:text="Подія"
             android:id="@+id/btn_event" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Температура"
+            android:text="Температура, °C"
             android:id="@+id/textView12" />
 
         <TextView
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Реальная производельность кондиционера "
+            android:text="Реальна теплопродуктивність прилада, Дж/сек"
             android:id="@+id/textView37" />
 
         <TextView
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Изменение температуры на улице"
+            android:text="Зміна температури на вулиці, °C"
             android:id="@+id/textView41" />
 
         <TextView
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Теплопотери"
+            android:text="Тепловтрати приміщення, Дж/сек;"
             android:id="@+id/textView39" />
 
         <TextView
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Время, необходимое на охлождение/обогрев на 1 градус"
+            android:text="Час, необхідний для охолодження/обогріву на 1 градус, сек"
             android:id="@+id/tv_31" />
 
         <TextView
@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Количество теплоты необходимое для нагревания/остывания"
+            android:text="Кількість теплоти чи холоду яке необхідне для нагрівання чи охолодження, Дж"
             android:id="@+id/tv_21" />
 
         <TextView
