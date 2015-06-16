@@ -1,43 +1,42 @@
 package com.handstudio.android.hzgrapher;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.AttributeSet;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 
-public class Mode_second extends FragmentActivity implements View.OnClickListener{
-    private final static int ACTION_EDIT_V = 101;
-    final String LOG_TAG = "myLogs";
+public class Mode_third extends FragmentActivity implements View.OnClickListener {
+private final static int ACTION_EDIT_V = 101;//идентификатор запроса к V
 
-    public final static String p="p";
-    public final static String t_support="t_support";
-    public final static String c="c";
-    public final static String n="n";
-    public final static String a="a";
-    public final static String b="b";
-    public final static String c_height="c_height";
-    public final static String n_loss="n_loss";
-    public final static String t_street="t_street";
-    public final static String nn="nn";
-    public final static String R0="R0";
-    public final static String B="B";
+public final static String p="p";
+public final static String t1="t1";
+public final static String t2="t2";
+public final static String c="c";
+public final static String q="q";
+public final static String n="n";
+public final static String a="a";
+public final static String b="b";
+public final static String c_height="c_height";
+public final static String n_loss="n_loss";
+public final static String t_street="t_street";
+public final static String nn="nn";
+public final static String R0="R0";
+public final static String B="B";
     public final static String eventArray_="eventArray";
+
+
 
     private Event_fragment event_fragment;
     private Event_fragment_home event_fragment_home;
@@ -45,29 +44,33 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
     private FragmentTransaction transaction;
     Fragment fragment;
 
-    EditText et_p;
-    EditText et_t_support;//поддержка температуры на этом уровне
-    EditText et_c;
-    EditText et_n;//пеплопроизводительность
-    EditText et_a;//ширина
-    EditText et_b;//длина
-    EditText et_c_height;//высота
-    EditText et_n_loss;//холодопроизовдительность
-    EditText et_t_street;//температура на улице
-    EditText et_nn; //коэффицент
-    EditText et_R0;//сопротивление теплопередачи
-    EditText et_B;//теплопотери дополнительные
-    Button btn_start;
+        EditText et_p;
+        EditText et_t1;
+        EditText et_t2;
+        EditText et_c;
+        EditText et_n;//пеплопроизводительность
+        EditText et_a;//ширина
+        EditText et_b;//длина
+        EditText et_c_height;//высота
+        EditText et_n_loss;//холодопроизовдительность
+        EditText et_t_street;//температура на улице
+        EditText et_nn; //коэффицент
+        EditText et_R0;//сопротивление теплопередачи
+        EditText et_B;//теплопотери дополнительные
 
-    public ArrayList<Integer>event_mode=new ArrayList<>(); //список событий
+        Button btn_start;
+
+    public ArrayList<Integer> event_mode=new ArrayList<>(); //список событий
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mode_second);
+        setContentView(R.layout.activity_mode_third);
 
         et_p=(EditText)findViewById(R.id.et_p);
-        et_t_support=(EditText)findViewById(R.id.et_t1);
+        et_t1=(EditText)findViewById(R.id.et_t1);
+        et_t2=(EditText)findViewById(R.id.et_t2);
         et_c=(EditText)findViewById(R.id.et_c);
         et_n=(EditText)findViewById(R.id.et_n);
         et_a=(EditText)findViewById(R.id.et_a);
@@ -81,40 +84,41 @@ public class Mode_second extends FragmentActivity implements View.OnClickListene
         btn_start=(Button)findViewById(R.id.btn_start);
 
         manager=getSupportFragmentManager();
+
     }
 
-public void onClick_Event(View view) {
-    switch (view.getId()) {
-        case R.id.btn_event:
-            event_mode.add(0);//street
-            event_fragment=new Event_fragment();
-            transaction = manager.beginTransaction();
-            transaction.add(R.id.container, event_fragment, event_fragment.TAG);
-            transaction.commit();
-            break;
+    public void onClick_Event(View view) {
+        switch (view.getId()) {
+            case R.id.btn_event:
+                event_mode.add(0);//street
+                event_fragment=new Event_fragment();
+                transaction = manager.beginTransaction();
+                transaction.add(R.id.container, event_fragment, event_fragment.TAG);
+                transaction.commit();
+                break;
 
-        case R.id.bnt_event2:
-            event_mode.add(1);// home
-            event_fragment_home=new Event_fragment_home();
-            transaction=manager.beginTransaction();
-            transaction.add(R.id.container, event_fragment_home, event_fragment_home.TAG);
-            transaction.commit();
-            break;
+            case R.id.bnt_event2:
+                event_mode.add(1);// home
+                event_fragment_home=new Event_fragment_home();
+                transaction=manager.beginTransaction();
+                transaction.add(R.id.container, event_fragment_home, event_fragment_home.TAG);
+                transaction.commit();
+                break;
 
-        case R.id.btn_delete_event:
-            fragment=getSupportFragmentManager().findFragmentByTag("");
-            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-            event_mode.remove(event_mode.size()-1);
-            break;
+            case R.id.btn_delete_event:
+                fragment=getSupportFragmentManager().findFragmentByTag("");
+                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                event_mode.remove(event_mode.size()-1);
+                break;
+        }
     }
-}
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_start:
                 if( et_p.getText().length()==0
-                        || et_t_support.getText().length()==0 || et_t_support.getText().length()==0 || et_c.getText().length()==0
+                        || et_t1.getText().length()==0 || et_t2.getText().length()==0 || et_c.getText().length()==0
                         || et_n.getText().length()==0
                         || et_a.getText().length()==0 || et_b.getText().length()==0
                         || et_c_height.getText().length()==0|| et_n_loss.getText().length()==0
@@ -136,14 +140,13 @@ public void onClick_Event(View view) {
                 Intent ii=new Intent(this,V.class);
                 startActivityForResult(ii, ACTION_EDIT_V);
                 break;
-             }
         }
-
+    }
     private void startActivity(Class<?> cls) {
-
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
-        i.putExtra(t_support, et_t_support.getText().toString());
+        i.putExtra(t1, et_t1.getText().toString());
+        i.putExtra(t2, et_t2.getText().toString()); //t2=t_support
         i.putExtra(c, et_c.getText().toString());
         i.putExtra(n, et_n.getText().toString());
         i.putExtra(a, et_a.getText().toString());
@@ -157,15 +160,13 @@ public void onClick_Event(View view) {
         i.putExtra(eventArray_, event_mode);
         startActivity(i);
     }
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==ACTION_EDIT_V){
+        if (requestCode==ACTION_EDIT_V){// может приходить ответ с разных activity
             if(resultCode == RESULT_OK) {
                 String vvv=data.getStringExtra(V.ANSWER_V);
                 et_R0.setText("" + vvv);
             }
         }
     }
-
 }

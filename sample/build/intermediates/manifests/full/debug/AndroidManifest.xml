@@ -49,6 +49,10 @@
             android:name="com.handstudio.android.hzgrapher.Mode_second"
             android:label="@string/title_activity_mode_second" >
         </activity>
+        <activity
+            android:name="com.handstudio.android.hzgrapher.Mode_third"
+            android:label="@string/title_activity_mode_third" >
+        </activity>
     </application>
 
 </manifest>

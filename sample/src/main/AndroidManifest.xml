@@ -49,6 +49,10 @@
             android:name=".Mode_second"
             android:label="@string/title_activity_mode_second" >
         </activity>
+        <activity
+            android:name=".Mode_third"
+            android:label="@string/title_activity_mode_third" >
+        </activity>
     </application>
 
 </manifest>

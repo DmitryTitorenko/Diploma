@@ -33,6 +33,11 @@ public class Select_mode extends Activity implements View.OnClickListener{
             case R.id.btn_mode2:
                 Intent i=new Intent(Select_mode.this, Mode_second.class);
                 startActivity(i);
+                break;
+            case R.id.btn_mode3:
+                Intent ii=new Intent(Select_mode.this, Mode_third.class);
+                startActivity(ii);
+                break;
 
         }
 

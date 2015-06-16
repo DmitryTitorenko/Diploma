@@ -97,3 +97,9 @@ ADDED from AndroidManifest.xml:48:9
 		ADDED from AndroidManifest.xml:50:13
 	android:name
 		ADDED from AndroidManifest.xml:49:13
+activity#com.handstudio.android.hzgrapher.Mode_third
+ADDED from AndroidManifest.xml:52:9
+	android:label
+		ADDED from AndroidManifest.xml:54:13
+	android:name
+		ADDED from AndroidManifest.xml:53:13

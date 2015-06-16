@@ -27,4 +27,5 @@
     <string name="title_activity_r0">R0</string>
     <string name="title_activity_mode_second">Mode_second</string>
     <string name="btnAdd">+</string>
+    <string name="title_activity_mode_third">Mode_third</string>
 </resources>

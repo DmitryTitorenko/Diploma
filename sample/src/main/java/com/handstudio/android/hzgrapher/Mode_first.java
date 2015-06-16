@@ -12,9 +12,7 @@ import android.widget.Toast;
 public class Mode_first extends Activity implements View.OnClickListener{
 
     private final static int ACTION_EDIT_V = 101;//идентификатор запроса к V
-    private final static int ACTION_EDIT_Q = 102;//идентификатор запроса к Q
 
-  //  public final static String v="v";
     public final static String p="p";
     public final static String t1="t1";
     public final static String t2="t2";
@@ -30,14 +28,10 @@ public class Mode_first extends Activity implements View.OnClickListener{
     public final static String R0="R0";
     public final static String B="B";
 
-
-    private Context ctx;
- //   EditText et_v;
     EditText et_p;
     EditText et_t1;
     EditText et_t2;
     EditText et_c;
-  //  EditText et_q;
     EditText et_n;//пеплопроизводительность
     EditText et_a;//ширина
     EditText et_b;//длина
@@ -54,12 +48,10 @@ public class Mode_first extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode_first);
-    //    et_v=(EditText)findViewById(R.id.et_v);
         et_p=(EditText)findViewById(R.id.et_p);
         et_t1=(EditText)findViewById(R.id.et_t1);
         et_t2=(EditText)findViewById(R.id.et_t2);
         et_c=(EditText)findViewById(R.id.et_c);
-       // et_q=(EditText)findViewById(R.id.et_q);
         et_n=(EditText)findViewById(R.id.et_n);
         et_a=(EditText)findViewById(R.id.et_a);
         et_b=(EditText)findViewById(R.id.et_b);
@@ -69,7 +61,6 @@ public class Mode_first extends Activity implements View.OnClickListener{
         et_nn=(EditText)findViewById(R.id.et_nn);
         et_R0=(EditText)findViewById(R.id.et_R0);
         et_B=(EditText)findViewById(R.id.et_B);
-
         btn_start=(Button)findViewById(R.id.btn_start);
     }
 
@@ -103,8 +94,6 @@ public class Mode_first extends Activity implements View.OnClickListener{
         }
     }
 
-
-
     private void startActivity(Class<?> cls) {
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
@@ -123,10 +112,6 @@ public class Mode_first extends Activity implements View.OnClickListener{
         startActivity(i);
     }
 
-
-
-
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==ACTION_EDIT_V){// может приходить ответ с разных activity
@@ -136,6 +121,4 @@ public class Mode_first extends Activity implements View.OnClickListener{
         }
     }
     }
-
-
 }
