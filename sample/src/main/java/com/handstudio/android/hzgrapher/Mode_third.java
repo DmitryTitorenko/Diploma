@@ -22,7 +22,7 @@ private final static int ACTION_EDIT_V = 101;//идентификатор зап
 
 public final static String p="p";
 public final static String t1="t1";
-public final static String t2="t2";
+public final static String t2_support="t2_support";
 public final static String c="c";
 public final static String q="q";
 public final static String n="n";
@@ -146,7 +146,7 @@ public final static String B="B";
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
         i.putExtra(t1, et_t1.getText().toString());
-        i.putExtra(t2, et_t2.getText().toString()); //t2=t_support
+        i.putExtra(t2_support, et_t2.getText().toString()); //t2=t_support
         i.putExtra(c, et_c.getText().toString());
         i.putExtra(n, et_n.getText().toString());
         i.putExtra(a, et_a.getText().toString());

@@ -66,6 +66,7 @@ public class CurveGraphActivity extends Activity{
 	int  real_temp_street;//измененние температуры на улице
 
 
+	int tm_axis_third=0;
 
 
 	float[] graphTevent;
@@ -102,53 +103,86 @@ public class CurveGraphActivity extends Activity{
 		maths_oll(iiii,random_event);
 		iiii++;
 
+
+
 		btn_event.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Bundle extras = getIntent().getExtras();
-
 				try {
-					if (Integer.valueOf(extras.getString(Mode_first.t2)) != 0) {// для первого режима
-						Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-						Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
-						if (t1 < t2) {
-							if (t1 + iiii < t2) {
-								int random_event;
-								random_event = -1 + (int) (Math.random() * ((2) + 1));
-								maths_oll(iiii, random_event);
-								setCurveGraph(iiii,random_event );
-								iiii++;
-							} else {
-								Toast.makeText(getApplicationContext(), "Досягнута необхідна температура", Toast.LENGTH_SHORT).show();
-							}
-						} else if (t1 > t2) {
-							if (t1 - iiii > t2) {
-								int random_event;
-								random_event = -1 + (int) (Math.random() * ((2) + 1));
-								maths_oll(iiii, random_event);
-								setCurveGraph(iiii, random_event);
-								iiii++;
-							} else {
-								Toast.makeText(getApplicationContext(), "Досягнута необхідна температура", Toast.LENGTH_SHORT).show();
+
+					try {
+						if (Integer.valueOf(extras.getString(Mode_first.t2)) != 0) {// для первого режима
+							Log.e(LOG_TAG,"go first ");
+
+							Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
+							Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
+							if (t1 < t2) {
+								if (t1 + iiii < t2) {
+									int random_event;
+									random_event = -1 + (int) (Math.random() * ((2) + 1));
+									maths_oll(iiii, random_event);
+									setCurveGraph(iiii, random_event);
+									iiii++;
+								} else {
+									Toast.makeText(getApplicationContext(), "Досягнута необхідна температура", Toast.LENGTH_SHORT).show();
+								}
+							} else if (t1 > t2) {
+								if (t1 - iiii > t2) {
+									int random_event;
+									random_event = -1 + (int) (Math.random() * ((2) + 1));
+									maths_oll(iiii, random_event);
+									setCurveGraph(iiii, random_event);
+									iiii++;
+								} else {
+									Toast.makeText(getApplicationContext(), "Досягнута необхідна температура", Toast.LENGTH_SHORT).show();
+								}
 							}
 						}
-					}
+					} catch (NumberFormatException e) {
+						Log.e(LOG_TAG,"go second ");
+
+						if (Integer.valueOf(extras.getString(Mode_second.t_support)) != 0) {// для второго  режима
+						if (iiii < event_limit()) {
+							int random_event;
+							random_event = -1 + (int) (Math.random() * ((2) + 1));
+							if (random_event == 0) {
+								random_event += 1;
+							}
+							maths_oll(iiii, random_event);
+							setCurveGraph(iiii, random_event);
+							iiii++;
+						} else {
+							Toast.makeText(getApplicationContext(), "Моделювання закінченно", Toast.LENGTH_SHORT).show();
+						}
+					}}
 				}
-				catch (NumberFormatException e){
-					if(iiii<event_limit()){
+				catch (NumberFormatException e){//3й режим
+
+					Integer t2 = Integer.valueOf(extras.getString(Mode_third.t2_support));
+					Integer t1 = Integer.valueOf(extras.getString(Mode_third.t1));
+					Log.e(LOG_TAG,"go third");
+					int a=0;
+					if(t2>t1){
+						a=t2-t1;
+					}
+					else {
+						a=t1-t2;
+					}
+					if (iiii < event_limit()+a) {
 						int random_event;
 						random_event = -1 + (int) (Math.random() * ((2) + 1));
-						if(random_event==0){
-							random_event +=1;
+						if (random_event == 0) {
+							random_event += 1;
 						}
-						maths_oll(iiii,random_event);
+						maths_oll(iiii, random_event);
 						setCurveGraph(iiii, random_event);
 						iiii++;
-					}
-					else{
+					} else {
 						Toast.makeText(getApplicationContext(), "Моделювання закінченно", Toast.LENGTH_SHORT).show();
 					}
-					}
 				}
+			}
+
 		});
 	}
 
@@ -530,9 +564,11 @@ public class CurveGraphActivity extends Activity{
 		return axis;
 	}
 
+
 	public int[] axis_oll(int ii) throws NullPointerException{
 		Bundle extras = getIntent().getExtras();
 		int[] axis = {0};
+		try{
 		try {
 			if (Integer.valueOf(extras.getString(Mode_first.t2)) != null
 					|| Integer.valueOf(extras.getString(Mode_second.t_support)) == 0) {// для первого режима
@@ -546,18 +582,22 @@ public class CurveGraphActivity extends Activity{
 					axis = axis_minus(iiii);
 				}
 			}
-
-			////////////////////////////////////////////////// check
-
 		}
 		catch (NumberFormatException e){
 			axis = axis_support(iiii);
-
-
+			if(Integer.valueOf(extras.getString(Mode_second.t_support)) != null);
+		}
+	}
+		catch (NumberFormatException e){
+			axis = axis_third(iiii);
+			Log.e(LOG_TAG,"go third axis_oll");
+		}
+		for(int aaa:axis){
+			Log.e(LOG_TAG, "axis_oll" +aaa);
 		}
 		return axis;
-
 	}
+
 
 	public float[] graphT(int ii) {
 		Bundle extras = getIntent().getExtras();
@@ -565,6 +605,7 @@ public class CurveGraphActivity extends Activity{
 		Integer t1add = Integer.valueOf(extras.getString(Mode_first.t1));//дополнительная переменная для цикла
 		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 		int tm = 0;//размерность массива
+
 
 		for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
 			tm++;
@@ -609,20 +650,28 @@ public class CurveGraphActivity extends Activity{
 
 		float[] graphT={0};
 		try {
-			if (Integer.valueOf(extras.getString(Mode_first.t2)) != null) {// для первого режима
 
-				Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
-				Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 
-				if (t1 < t2) {
-					graphT = graphT(iiii);
-				} else if (t1 > t2) {
-					graphT = grapht_minus(iiii);
+			try {
+				if (Integer.valueOf(extras.getString(Mode_first.t2)) != null) {// для первого режима
+
+					Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
+					Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
+
+					if (t1 < t2) {
+						graphT = graphT(iiii);
+					} else if (t1 > t2) {
+						graphT = grapht_minus(iiii);
+					}
 				}
+			} catch (NumberFormatException e) {
+				if(Integer.valueOf(extras.getString(Mode_second.t_support)) != null)
+				graphT = graphT_support(iiii, random_event);
 			}
 		}
 		catch (NumberFormatException e){
-			graphT = graphT_support(iiii,random_event);
+			Log.e(LOG_TAG,"go third graphT_oll");
+			//graphT = graphT_support(iiii, random_event);
 		}
 		return graphT;
 
@@ -784,21 +833,25 @@ public class CurveGraphActivity extends Activity{
 	}
 	public void maths_oll(int iiii, int random_event) throws NumberFormatException{
 		Bundle extras = getIntent().getExtras();
+		try {
+			try {
+				if (Integer.valueOf(extras.getString(Mode_first.t2)) != null) {// для первого режима
+					Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
+					Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
 
-		try{
-		if(Integer.valueOf(extras.getString(Mode_first.t2))!=null) {// для первого режима
-		Integer t1 = Integer.valueOf(extras.getString(Mode_first.t1));
-		Integer t2 = Integer.valueOf(extras.getString(Mode_first.t2));
-
-		if (t1 < t2) {
-			maths_plus(iiii);
-		} else if (t1 > t2) {
-			maths_minus(iiii);
-		}
-		}
+					if (t1 < t2) {
+						maths_plus(iiii);
+					} else if (t1 > t2) {
+						maths_minus(iiii);
+					}
+				}
+			} catch (NumberFormatException e) {
+				if(Integer.valueOf(extras.getString(Mode_second.t_support)) != null)
+				maths_support(iiii, random_event);
+			}
 		}
 		catch (NumberFormatException e){
-		maths_support(iiii, random_event);
+			Log.e(LOG_TAG,"go third maths_oll ");
 		}
 	}
 
@@ -983,4 +1036,15 @@ public class CurveGraphActivity extends Activity{
 		}
 		count_eventArray++;
 	}
+
+	public int[] axis_third(int ii) {
+		int[] axis;
+		axis = new int[ii+1];// отсчет для оси х
+		for (int ia = 0; ia<=ii; ia++) {
+			axis[ia] = ia;
+			Log.e(LOG_TAG," axis ia "+ia);
+		}
+		return axis;
+	}
+
 }
