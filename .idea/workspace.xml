@@ -25,7 +25,7 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="axis_oll" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="maths_" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -33,7 +33,6 @@
     <list default="true" id="74203078-a566-48f7-8f40-b198915da46b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_third.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/Mode_third.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/sample/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
@@ -42,7 +41,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_third.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_third.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diploma.iws" />
@@ -87,30 +85,21 @@
       <file leaf-file-name="CurveGraphActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18355641">
-              <caret line="567" column="23" selection-start-line="567" selection-start-column="17" selection-end-line="567" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.45506692">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
                 <element signature="method#onOptionsItemSelected#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#16737#16749#0" expanded="true" />
-                <element signature="method#graphT#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#grapht_minus#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="e#17481#17493#0" expanded="true" />
                 <element signature="method#graphT_oll#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#maths_plus#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#maths_minus#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#maths_oll#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#axis_support#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#graphT_support#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#maths_support#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#graphT_third#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#maths_third_minus#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#maths_third_plus#0;class#CurveGraphActivity#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mode_third.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_third.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2400,11 +2389,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33410406" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33410406" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25323623" sideWeight="0.49305555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25323623" sideWeight="0.49305555" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -2490,6 +2479,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="43" selection-start-line="14" selection-start-column="7" selection-end-line="18" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -2500,6 +2490,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -2527,6 +2518,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="230" column="47" selection-start-line="230" selection-start-column="47" selection-end-line="230" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2537,6 +2529,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="262" column="47" selection-start-line="262" selection-start-column="47" selection-end-line="262" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2554,6 +2547,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2573,15 +2567,16 @@
           <caret line="658" column="55" selection-start-line="658" selection-start-column="55" selection-end-line="658" selection-end-column="55" />
           <folding>
             <element signature="method#onOptionsItemSelected#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#16737#16749#0" expanded="true" />
-            <element signature="method#graphT#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#grapht_minus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#17481#17493#0" expanded="true" />
             <element signature="method#graphT_oll#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#maths_plus#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#maths_minus#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#maths_oll#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#axis_support#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphT_support#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#maths_support#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphT_third#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#maths_third_minus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#maths_third_plus#0;class#CurveGraphActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2590,6 +2585,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="210" column="8" selection-start-line="210" selection-start-column="8" selection-end-line="210" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2621,6 +2617,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2638,6 +2635,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2648,6 +2646,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="200" column="8" selection-start-line="200" selection-start-column="8" selection-end-line="200" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2679,6 +2678,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2710,6 +2710,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2720,6 +2721,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2775,6 +2777,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2832,20 +2835,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_mode_first.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="8.188825">
           <caret line="250" column="19" selection-start-line="9" selection-start-column="4" selection-end-line="250" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -2856,6 +2850,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9017341">
           <caret line="255" column="57" selection-start-line="227" selection-start-column="7" selection-end-line="255" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -2880,6 +2875,12 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="267" column="57" selection-start-line="267" selection-start-column="57" selection-end-line="267" selection-end-column="57" />
+          <folding>
+            <element signature="e#219#254#0" expanded="false" />
+            <element signature="e#280#315#0" expanded="false" />
+            <element signature="e#339#372#0" expanded="false" />
+            <element signature="e#399#432#0" expanded="false" />
+          </folding>
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2890,6 +2891,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2911,21 +2913,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18355641">
-          <caret line="567" column="23" selection-start-line="567" selection-start-column="17" selection-end-line="567" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.45506692">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <element signature="method#onOptionsItemSelected#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#16737#16749#0" expanded="true" />
-            <element signature="method#graphT#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#grapht_minus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#17481#17493#0" expanded="true" />
             <element signature="method#graphT_oll#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#maths_plus#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#maths_minus#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#maths_oll#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#axis_support#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphT_support#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#maths_support#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphT_third#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#maths_third_minus#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#maths_third_plus#0;class#CurveGraphActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
