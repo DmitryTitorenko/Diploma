@@ -66,8 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Початкова температура, °C"
-            android:id="@+id/textView9"
+            android:text="Атмосферний тиск, мм рт. ст."
+            android:id="@+id/textView91"
             android:layout_below="@+id/et_t2"
             android:layout_centerHorizontal="true" />
 
@@ -115,7 +115,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/et_t2"
-            android:text="10" />
+            android:text="20" />
 
         <TextView
             android:layout_width="wrap_content"

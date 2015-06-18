@@ -506,7 +506,7 @@ public class CurveGraphActivity extends Activity {
 		//max value
 		//int maxValue 		= CurveGraphVO.DEFAULT_MAX_VALUE;
 
-		int maxValue = 20;//max температура
+		int maxValue = 30;//max температура
 
 
 		//increment
@@ -522,7 +522,7 @@ public class CurveGraphActivity extends Activity {
 		List<CurveGraph> arrGraph = new ArrayList<CurveGraph>();
 
 
-		arrGraph.add(new CurveGraph("Graph", 0xaa10ffff, graphT_oll(i, random_event)));
+		arrGraph.add(new CurveGraph("Графік", 0xaa10ffff, graphT_oll(i, random_event)));
 
 		CurveGraphVO vo = new CurveGraphVO(
 				paddingBottom, paddingTop, paddingLeft, paddingRight,
