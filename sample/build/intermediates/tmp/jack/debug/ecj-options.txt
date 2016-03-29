@@ -1,0 +1,12 @@
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\CurveGraphActivity.java
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\Event_fragment.java
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\Event_fragment_home.java
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\Mode_first.java
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\Mode_second.java
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\Mode_third.java
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\Q_heat_loss.java
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\Select_mode.java
+D:\Android_developer\Project\Diploma\sample\src\main\java\com\handstudio\android\hzgrapher\V.java
+D:\Android_developer\Project\Diploma\sample\build\generated\source\r\debug\com\handstudio\android\hzgrapher\R.java
+D:\Android_developer\Project\Diploma\sample\build\generated\source\r\debug\com\handstudio\android\hzgrapherlib\R.java
+D:\Android_developer\Project\Diploma\sample\build\generated\source\buildConfig\debug\com\handstudio\android\hzgrapher\BuildConfig.java

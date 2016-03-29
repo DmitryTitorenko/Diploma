@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.handstudio.android.hzgrapher"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.handstudio.android.hzgrapher.CurveGraphActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.handstudio.android.hzgrapher.Select_mode"
+            android:label="@string/title_activity_select_mode" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.handstudio.android.hzgrapher.Mode_first"
+            android:label="@string/title_activity_mode_first" >
+        </activity>
+        <activity
+            android:name="com.handstudio.android.hzgrapher.Q_heat_loss"
+            android:label="@string/title_activity_q_heat_loss" >
+        </activity>
+        <activity
+            android:name="com.handstudio.android.hzgrapher.V"
+            android:label="@string/title_activity_v" >
+        </activity>
+        <activity
+            android:name="com.handstudio.android.hzgrapher.Mode_second"
+            android:label="@string/title_activity_mode_second" >
+        </activity>
+        <activity
+            android:name="com.handstudio.android.hzgrapher.Mode_third"
+            android:label="@string/title_activity_mode_third" >
+        </activity>
+    </application>
+
+</manifest>

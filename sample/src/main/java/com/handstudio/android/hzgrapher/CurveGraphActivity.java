@@ -520,9 +520,9 @@ public class CurveGraphActivity extends Activity {
 
 		String[] legendArr = {Arrays.toString(axis_oll(i))};
 		List<CurveGraph> arrGraph = new ArrayList<CurveGraph>();
+//0xaa10ffff
 
-
-		arrGraph.add(new CurveGraph("Графік", 0xaa10ffff, graphT_oll(i, random_event)));
+		arrGraph.add(new CurveGraph("Графік", 0xaa000000, graphT_oll(i, random_event)));
 
 		CurveGraphVO vo = new CurveGraphVO(
 				paddingBottom, paddingTop, paddingLeft, paddingRight,
@@ -1189,7 +1189,7 @@ public class CurveGraphActivity extends Activity {
 
 
 				maths_third_support(ii - ii_minusofplus , random_event);
-				model_time_Mode_third++;
+				//model_time_Mode_third++;
 			}
 
 		} else {
@@ -1300,7 +1300,7 @@ public class CurveGraphActivity extends Activity {
 		Float R0 = Float.valueOf(extras.getString(Mode_third.R0));
 		Float B = Float.valueOf(extras.getString(Mode_third.B));
 		tv_21.setText("Кількість теплоти, необхідне для нагрівання, Дж");
-		tv_31.setText("Час, котрий необхіден для охолодження на 1 градус, сек");
+		tv_31.setText("Час, котрий необхіден для нагрівання на 1 градус, сек");
 
 		Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
 
@@ -1329,9 +1329,13 @@ public class CurveGraphActivity extends Activity {
 			axis[ia] = ia;
 			double tKelvin = t1 + 273.15;// температура в Кельвинах
 			double p = 0.473 * (BD / tKelvin);// плотность
+			Log.e(LOG_TAG,"test p="+p);
+
 			double m = p * V; //масса воздуха
+			Log.e(LOG_TAG,"test m="+m);
 
 			Q[ia] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
+			Log.e(LOG_TAG,"test Q[ia]="+Q[ia]);
 
 			int t_street_random = -1 + (int) (Math.random() * ((2) + 1));
 			t_street += t_street_random;

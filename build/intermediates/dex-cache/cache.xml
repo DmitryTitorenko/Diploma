@@ -2,74 +2,32 @@
 <items version="2" >
 
     <item
-        jar="D:\Program Files\Project\sample\sample\build\intermediates\exploded-aar\sample\library\unspecified\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="99db85f77037169b43ffd772ab04e776c5e1ada4">
-        <dex dex="D:\Program Files\Project\sample\sample\build\intermediates\pre-dexed\debug\classes-82a443159ef978ab9df5b1002988b8e967f28b2d.jar" />
-    </item>
-    <item
-        jar="D:\Android developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1f172e2eb140bacd315eae9a5300595910dd9945">
-        <dex dex="D:\Android developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\classes-574ff60b6ef8c0d14a645d0c16f971a22cd61b99.jar" />
-    </item>
-    <item
-        jar="D:\Android developer\Project\LabModeling\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="D:\Android developer\Project\LabModeling\sample\build\intermediates\pre-dexed\debug\classes-e28f20d9a5c945602abbac3b86faf33ccdea266e.jar" />
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\classes-93988ab3b6f71bcf3e5f198f666d1275d9c1c4da.jar" />
     </item>
     <item
-        jar="D:\Program Files\Project\sample\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="D:\Program Files\Project\sample\sample\build\intermediates\pre-dexed\debug\classes-f35e8f74916bda32399e21f0790b6fef74c3a43d.jar" />
+        sha1="523e2744b278eb131e8f6a1d33b66ebd5ec80af9">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\classes-da531ac77dd84f28fcae42ca56b276280133f44f.jar" />
     </item>
     <item
-        jar="D:\Program Files\Project\sample\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="D:\Program Files\Project\sample\sample\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-57bd8a3b1fbe3ddba3c2579791116dd611e29674.jar" />
-    </item>
-    <item
-        jar="D:\Android developer\Project\LabModeling\sample\build\intermediates\exploded-aar\LabModeling\library\unspecified\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="065be88b74014fe2698b25a406268ec3160d60d8">
-        <dex dex="D:\Android developer\Project\LabModeling\sample\build\intermediates\pre-dexed\debug\classes-c8f81a6574b32d610a332ea93e0b73b60feadac2.jar" />
-    </item>
-    <item
-        jar="D:\Android developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\libs\internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="D:\Android developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-3f6a5fc79b4f5fd5a251bcdcc23937072e9aaf8e.jar" />
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-e30c7f7b4c1f9333dfaa7475e968feb0dcac0614.jar" />
     </item>
     <item
-        jar="D:\Android developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="D:\Android developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\classes-68f653562b72bb88d0145acea6d6b8262200bda2.jar" />
-    </item>
-    <item
-        jar="D:\Android developer\Project\LabModeling\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="D:\Android developer\Project\LabModeling\sample\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-739bf0f17e4e14f8928d074564b0ba27aa4f1b7c.jar" />
-    </item>
-    <item
-        jar="D:\Android developer\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jar="D:\Android_developer\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="D:\Program Files\Project\sample\sample\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-8908e29430f7caa6260d8c75d25bcaf0816d2ef5.jar" />
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-8a1d209631f2659b05ae23f986060d3d53265441.jar" />
     </item>
 
 </items>

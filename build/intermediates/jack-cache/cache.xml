@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Android_developer\sdk\platforms\android-22\android.jar"
+        revision="22.0.1"
+        sha1="79cb26a0e1c81773e9354a01d671ef3c465856d8">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\jill\debug\runtime\android-3bb09b8e277eb525c530c726fec65b7520663271.jar" />
+    </item>
+    <item
+        jar="D:\Android_developer\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        revision="22.0.1"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\jill\debug\packaged\support-annotations-22.0.0-8a1d209631f2659b05ae23f986060d3d53265441.jar" />
+    </item>
+    <item
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\classes.jar"
+        revision="22.0.1"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\jill\debug\packaged\classes-93988ab3b6f71bcf3e5f198f666d1275d9c1c4da.jar" />
+    </item>
+    <item
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        revision="22.0.1"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\jill\debug\packaged\internal_impl-22.0.0-e30c7f7b4c1f9333dfaa7475e968feb0dcac0614.jar" />
+    </item>
+    <item
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\jars\classes.jar"
+        revision="22.0.1"
+        sha1="523e2744b278eb131e8f6a1d33b66ebd5ec80af9">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\jill\debug\packaged\classes-da531ac77dd84f28fcae42ca56b276280133f44f.jar" />
+    </item>
+
+</items>

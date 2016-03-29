@@ -130,45 +130,45 @@ public final class R {
         public static final int menu_v=0x7f070008;
     }
     public static final class string {
-        public static final int action_settings=0x7f050000;
-        public static final int app_name=0x7f050001;
-        public static final int btn1=0x7f050002;
-        public static final int btn2=0x7f050003;
-        public static final int btnAdd=0x7f050004;
-        public static final int error_p=0x7f050005;
-        public static final int hello_world=0x7f050006;
-        public static final int text_bubble_graph=0x7f050007;
-        public static final int text_consider=0x7f050008;
-        public static final int text_curve_compare_graph=0x7f050009;
-        public static final int text_curve_graph_with_region=0x7f05000a;
-        public static final int text_line_circle_graph=0x7f05000b;
-        public static final int text_line_compare_graph=0x7f05000c;
-        public static final int text_line_graph=0x7f05000d;
-        public static final int text_line_graph_with_region=0x7f05000e;
-        public static final int text_line_pie_graph=0x7f05000f;
-        public static final int text_radar_graph=0x7f050010;
-        public static final int text_scatter_graph=0x7f050011;
-        public static final int title_activity_main_activity2=0x7f050012;
-        public static final int title_activity_mode_first=0x7f050013;
-        public static final int title_activity_mode_second=0x7f050014;
-        public static final int title_activity_mode_third=0x7f050015;
-        public static final int title_activity_q_heat_loss=0x7f050016;
-        public static final int title_activity_r0=0x7f050017;
-        public static final int title_activity_select_mode=0x7f050018;
-        public static final int title_activity_v=0x7f050019;
+        public static final int action_settings=0x7f060000;
+        public static final int app_name=0x7f060001;
+        public static final int btn1=0x7f060002;
+        public static final int btn2=0x7f060003;
+        public static final int btnAdd=0x7f060004;
+        public static final int error_p=0x7f060005;
+        public static final int hello_world=0x7f060006;
+        public static final int text_bubble_graph=0x7f060007;
+        public static final int text_consider=0x7f060008;
+        public static final int text_curve_compare_graph=0x7f060009;
+        public static final int text_curve_graph_with_region=0x7f06000a;
+        public static final int text_line_circle_graph=0x7f06000b;
+        public static final int text_line_compare_graph=0x7f06000c;
+        public static final int text_line_graph=0x7f06000d;
+        public static final int text_line_graph_with_region=0x7f06000e;
+        public static final int text_line_pie_graph=0x7f06000f;
+        public static final int text_radar_graph=0x7f060010;
+        public static final int text_scatter_graph=0x7f060011;
+        public static final int title_activity_main_activity2=0x7f060012;
+        public static final int title_activity_mode_first=0x7f060013;
+        public static final int title_activity_mode_second=0x7f060014;
+        public static final int title_activity_mode_third=0x7f060015;
+        public static final int title_activity_q_heat_loss=0x7f060016;
+        public static final int title_activity_r0=0x7f060017;
+        public static final int title_activity_select_mode=0x7f060018;
+        public static final int title_activity_v=0x7f060019;
     }
     public static final class style {
-        /** 
+        /**  API 11 theme customizations can go here. 
+ API 14 theme customizations can go here. 
+
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
- API 11 theme customizations can go here. 
- API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f050000;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f050001;
     }
 }

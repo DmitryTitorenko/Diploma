@@ -5,6 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
+        useJack true //try this code http://www.androidpolice.com/2014/11/30/jack-and-jill-are-googles-new-compilers-for-android-app-developers/
         applicationId "com.handstudio.android.hzgrapher"
         minSdkVersion 19
         targetSdkVersion 22
