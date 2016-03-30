@@ -20,37 +20,80 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d928820-b5c5-40c8-a913-5eb52aab4756" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/Diploma-library-unspecified_da531ac77dd84f28fcae42ca56b276280133f44f.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/annotations.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.1_5be2879cd33a7f208e93d3cb83664dd7d282dd99.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/debug_3a18b90102d8b9292e75516aa95e4c57d5ed0ef4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/compileDebugAidl/dependency.store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/compileDebugAndroidTestAidl/dependency.store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/compileReleaseAidl/dependency.store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/incremental/compileDebugAidl/dependency.store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/incremental/compileDebugAndroidTestAidl/dependency.store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/internal_impl-23.2.1_988ce2ba6e5f0b65988deb9d27ecf1091b3cdeb5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/support-annotations-23.2.1_9143b91a325ab3a59dd883cbbe89de80bb2d4ebc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aapt/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/MediaMetadataCompat.aidl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/session/MediaSessionCompat.aidl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/session/PlaybackStateCompat.aidl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/RatingCompat.aidl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/os/ResultReceiver.aidl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-hdpi-v4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-mdpi-v4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-xhdpi-v4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-xxhdpi-v4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/layout.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/single/layout.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/menu.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/single/menu.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/packageDebugResources/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/packageReleaseResources/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/incremental/mergeDebugResources/merger.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/multi/values-sw720dp-land-v13.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/multi/values-sw720dp-land-v13.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/Diploma/library/unspecified/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/multi/values-v11.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/multi/values-v11.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/multi/values-v14.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/multi/values-v14.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/multi/values-w820dp-v13.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/values-w820dp-v13/values-w820dp-v13.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/multi/values.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/build/intermediates/blame/res/debug/multi/values.json" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\.idea\libraries\support_annotations_22_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\drawable-xxhdpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\.idea\libraries\support_v4_22_0_0.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\values-sw720dp-land\values-sw720dp-land.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\drawable-xxhdpi\ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\values-sw720dp-land\values-sw720dp-land.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\drawable-xxhdpi\ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\values-sw720dp-land\values-sw720dp-land.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\drawable-xxhdpi\ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\values-sw720dp-land\values-sw720dp-land.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\classes-93988ab3b6f71bcf3e5f198f666d1275d9c1c4da.jar" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\classes-da531ac77dd84f28fcae42ca56b276280133f44f.jar" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-e30c7f7b4c1f9333dfaa7475e968feb0dcac0614.jar" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-8a1d209631f2659b05ae23f986060d3d53265441.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-hdpi\background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-xxhdpi\ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\values-sw720dp-land\values-sw720dp-land.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\values-w820dp\values-w820dp.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/classes/debug/com/handstudio/android/hzgrapherlib/BuildConfig.class" afterPath="$PROJECT_DIR$/library/build/intermediates/classes/debug/com/handstudio/android/hzgrapherlib/BuildConfig.class" />
@@ -139,7 +182,27 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/Diploma/library/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/Diploma/library/unspecified/res/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\.idea\libraries\support_v4_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_1.xml" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\drawable-hdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/Diploma/library/unspecified/res/drawable-hdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\drawable-mdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/Diploma/library/unspecified/res/drawable-mdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\drawable-xhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/Diploma/library/unspecified/res/drawable-xhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\debug\res\drawable-xxhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/sample/build/intermediates/exploded-aar/Diploma/library/unspecified/res/drawable-xxhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\drawable-hdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/drawable-hdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\drawable-mdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/drawable-mdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\drawable-xhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/drawable-xhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\bundles\release\res\drawable-xxhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/drawable-xxhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\drawable-hdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\drawable-mdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\drawable-xhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\library\build\intermediates\res\merged\androidTest\debug\drawable-xxhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\drawable-hdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\drawable-mdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\drawable-xhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\res\drawable-xxhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/drawable-xxhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-hdpi\background.jpg" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/drawable-hdpi-v4/background.jpg" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-hdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-mdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-xhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png" />
+      <change type="MOVED" beforePath="D:\Android_developer\Project\Diploma\sample\build\intermediates\res\merged\debug\drawable-xxhdpi\ic_launcher.png" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_launcher.png" />
     </list>
     <ignored path="Diploma.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -169,10 +232,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="V.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="V.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/V.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5260223">
+            <state vertical-scroll-proportion="0.0">
               <caret line="58" column="54" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -216,10 +279,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.12639405">
               <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
               <folding />
             </state>
@@ -229,7 +292,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5185184">
+            <state vertical-scroll-proportion="0.0">
               <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
               <folding />
             </state>
@@ -3221,14 +3284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5185184">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.2592592">
@@ -3241,22 +3296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.4074073">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_first.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -3284,11 +3323,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/V.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5260223">
+        <state vertical-scroll-proportion="0.0">
           <caret line="58" column="54" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/Mode_first.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12639405">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
