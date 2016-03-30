@@ -18,14 +18,14 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_select_mode">Select_mode</string>
-    <string name="title_activity_mode_first">Mode_first</string>
+    <string name="title_activity_select_mode">Select mode</string>
+    <string name="title_activity_mode_first">Mode first</string>
 
     <string name="error_p">"kjh"</string>
     <string name="title_activity_q_heat_loss">Q_heat_loss</string>
     <string name="title_activity_v">V</string>
     <string name="title_activity_r0">R0</string>
-    <string name="title_activity_mode_second">Mode_second</string>
+    <string name="title_activity_mode_second">Mode second</string>
     <string name="btnAdd">+</string>
-    <string name="title_activity_mode_third">Mode_third</string>
+    <string name="title_activity_mode_third">Mode third</string>
 </resources>

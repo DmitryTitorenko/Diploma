@@ -1,11 +1,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:id="@+id/Mode_first"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.handstudio.android.hzgrapher.Mode_first"
+    tools:context=".ModeThird"
     android:fillViewport="false">
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Довжина, м"
+            android:text="Довжина,м"
             android:id="@+id/textView31" />
 
         <EditText
@@ -68,7 +67,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Атмосферний тиск, мм рт. ст."
-            android:id="@+id/textView8"
+            android:id="@+id/textView91"
             android:layout_below="@+id/et_t2"
             android:layout_centerHorizontal="true" />
 
@@ -87,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Температура, яку необхідно підтримувати °C"
+            android:text="Початкова температура, °C"
             android:id="@+id/textView9" />
 
 
@@ -99,10 +98,24 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/et_t1"
+            android:text="15" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Кінцева температура, °C"
+            android:id="@+id/textView10"
+            android:layout_weight="1.05" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/et_t2"
             android:text="20" />
-
-
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -170,7 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Коефіцієнт, який враховує зовнішню поверхню приміщення відносно     зовнішнього повітря, Вт/м²°С"
+            android:text="Коефіцієнт, який враховує зовнішню поверхню приміщення відносно     зовнішнього повітря,  Вт/м²°С"
             android:id="@+id/textView19" />
 
         <EditText
@@ -185,8 +198,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Опір теплопередачі, Вт/м²°С"
-            android:id="@+id/textView33" />
+            android:text="Коефіцієнт тепловіддачі приміщення, Вт/м²°С"
+            android:id="@+id/textView24" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -214,7 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Додаткові тепловтрати, Дж"
+            android:text="Додаткові тепловтрати,  Дж"
             android:id="@+id/textView34" />
 
         <EditText
@@ -224,7 +237,6 @@
             android:ems="10"
             android:id="@+id/et_B"
             android:text="0.7" />
-
         <Button
             android:layout_width="335dp"
             android:layout_height="wrap_content"
@@ -264,6 +276,6 @@
             android:onClick="onClick" />
 
 
-    </LinearLayout>
 
+    </LinearLayout>
 </ScrollView>

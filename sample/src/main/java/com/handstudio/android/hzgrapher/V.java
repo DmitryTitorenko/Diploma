@@ -18,7 +18,7 @@ public class V extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_r0);
+        setContentView(R.layout.v);
         et_Lb = (EditText) findViewById(R.id.et_lb);
         et_Lh = (EditText) findViewById(R.id.et_Lh);
         et_R = (EditText) findViewById(R.id.et_R);

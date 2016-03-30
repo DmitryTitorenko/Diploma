@@ -25,7 +25,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.handstudio.android.hzgrapher.Select_mode"
+            android:name="com.handstudio.android.hzgrapher.SelectMode"
             android:label="@string/title_activity_select_mode" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.handstudio.android.hzgrapher.Mode_first"
+            android:name="com.handstudio.android.hzgrapher.ModeFirst"
             android:label="@string/title_activity_mode_first" >
         </activity>
         <activity
@@ -42,11 +42,11 @@
             android:label="@string/title_activity_v" >
         </activity>
         <activity
-            android:name="com.handstudio.android.hzgrapher.Mode_second"
+            android:name="com.handstudio.android.hzgrapher.ModeSecond"
             android:label="@string/title_activity_mode_second" >
         </activity>
         <activity
-            android:name="com.handstudio.android.hzgrapher.Mode_third"
+            android:name="com.handstudio.android.hzgrapher.ModeThird"
             android:label="@string/title_activity_mode_third" >
         </activity>
     </application>

@@ -59,12 +59,12 @@ ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:25:13-45
 	android:name
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:24:13-47
-activity#com.handstudio.android.hzgrapher.Select_mode
+activity#com.handstudio.android.hzgrapher.SelectMode
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:27:9-35:20
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:29:13-63
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:28:13-40
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:28:13-39
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:30:13-34:29
 action#android.intent.action.MAIN
@@ -75,27 +75,27 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:33:17-77
 	android:name
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:33:27-74
-activity#com.handstudio.android.hzgrapher.Mode_first
+activity#com.handstudio.android.hzgrapher.ModeFirst
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:36:9-39:20
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:38:13-62
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:37:13-39
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:37:13-38
 activity#com.handstudio.android.hzgrapher.V
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:40:9-43:20
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:42:13-53
 	android:name
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:41:13-30
-activity#com.handstudio.android.hzgrapher.Mode_second
+activity#com.handstudio.android.hzgrapher.ModeSecond
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:44:9-47:20
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:46:13-63
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:45:13-40
-activity#com.handstudio.android.hzgrapher.Mode_third
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:45:13-39
+activity#com.handstudio.android.hzgrapher.ModeThird
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:48:9-51:20
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:50:13-62
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:49:13-39
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:49:13-38
