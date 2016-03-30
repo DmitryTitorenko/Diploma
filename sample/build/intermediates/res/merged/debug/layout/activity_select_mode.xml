@@ -60,4 +60,3 @@
         android:layout_centerHorizontal="true"
         android:onClick="onClick" />
 </RelativeLayout>
-<!-- From: file:/D:/Android_developer/Project/Diploma/sample/src/main/res/layout/activity_select_mode.xml -->

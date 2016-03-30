@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\background.jpg",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\drawable-hdpi\\background.jpg"
+    }
+]

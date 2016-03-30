@@ -7,6 +7,8 @@ ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.
 		INJECTED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml
 	android:versionName
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:5:5-32
+		INJECTED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml
 	android:versionCode
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:4:5-28
 		INJECTED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml
@@ -16,7 +18,7 @@ ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.
 uses-sdk
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:7:5-9:41
 MERGED from [Diploma:library:unspecified] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:22.0.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.2.1] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:9:9-38
 		INJECTED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml
@@ -42,7 +44,7 @@ ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.
 application
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:18:5-56:19
 MERGED from [Diploma:library:unspecified] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\AndroidManifest.xml:11:5-16:19
-MERGED from [com.android.support:support-v4:22.0.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.2.1] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:21:9-41
 	android:allowBackup

@@ -8,4 +8,4 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Зміна у домі"
         android:id="@+id/textView_event_fragment" />
-</LinearLayout><!-- From: file:/D:/Android_developer/Project/Diploma/sample/src/main/res/layout/fragment_event2_layout.xml -->
+</LinearLayout>

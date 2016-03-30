@@ -12,4 +12,4 @@
             android:text="Зміна на вулиці"
             android:id="@+id/textView_event_fragment" />
 
-</LinearLayout><!-- From: file:/D:/Android_developer/Project/Diploma/sample/src/main/res/layout/fragment_event_layout.xml -->
+</LinearLayout>

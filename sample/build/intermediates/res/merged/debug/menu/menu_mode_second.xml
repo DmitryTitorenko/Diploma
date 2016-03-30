@@ -4,4 +4,3 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>
-<!-- From: file:/D:/Android_developer/Project/Diploma/sample/src/main/res/menu/menu_mode_second.xml -->

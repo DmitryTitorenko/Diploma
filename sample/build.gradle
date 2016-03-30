@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
-        useJack true //try this code http://www.androidpolice.com/2014/11/30/jack-and-jill-are-googles-new-compilers-for-android-app-developers/
         applicationId "com.handstudio.android.hzgrapher"
         minSdkVersion 19
-        targetSdkVersion 22
+        targetSdkVersion 23
     }
 
     buildTypes {
@@ -21,5 +20,5 @@ android {
 
 dependencies {
     compile project(':library')
-    compile 'com.android.support:support-v4:22.0.0'
+    compile 'com.android.support:support-v4:23.2.1'
 }

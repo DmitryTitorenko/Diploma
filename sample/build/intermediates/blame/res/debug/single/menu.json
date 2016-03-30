@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main_activity2.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\menu_main_activity2.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\menu_select_mode.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\menu_select_mode.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\menu_mode_first.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\menu_mode_first.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\menu_r0.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\menu_r0.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\menu_mode_third.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\menu_mode_third.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\menu_q_heat_loss.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\menu_q_heat_loss.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\menu_v.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\menu_v.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\menu\\menu_mode_second.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\menu\\menu_mode_second.xml"
+    }
+]
