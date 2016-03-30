@@ -1,11 +1,9 @@
 package com.handstudio.android.hzgrapher;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,7 +15,6 @@ public class Mode_first extends Activity implements View.OnClickListener {
     public final static String t1 = "t1";
     public final static String t2 = "t2";
     public final static String c = "c";
-    public final static String q = "q";
     public final static String n = "n";
     public final static String a = "a";
     public final static String b = "b";
@@ -28,21 +25,19 @@ public class Mode_first extends Activity implements View.OnClickListener {
     public final static String R0 = "R0";
     public final static String B = "B";
 
-    EditText et_p;
-    EditText et_t1;
-    EditText et_t2;
-    EditText et_c;
-    EditText et_n;//пеплопроизводительность
-    EditText et_a;//ширина
-    EditText et_b;//длина
-    EditText et_c_height;//высота
-    EditText et_n_loss;//холодопроизовдительность
-    EditText et_t_street;//температура на улице
-    EditText et_nn; //коэффицент
-    EditText et_R0;//сопротивление теплопередачи
-    EditText et_B;//теплопотери дополнительные
-
-    Button btn_start;
+    private EditText et_p;
+    private EditText et_t1;
+    private EditText et_t2;
+    private EditText et_c;
+    private EditText et_n;//пеплопроизводительность
+    private EditText et_a;//ширина
+    private EditText et_b;//длина
+    private EditText et_c_height;//высота
+    private EditText et_n_loss;//холодопроизовдительность
+    private EditText et_t_street;//температура на улице
+    private EditText et_nn; //коэффицент
+    private EditText et_R0;//сопротивление теплопередачи
+    private EditText et_B;//теплопотери дополнительные
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +56,6 @@ public class Mode_first extends Activity implements View.OnClickListener {
         et_nn = (EditText) findViewById(R.id.et_nn);
         et_R0 = (EditText) findViewById(R.id.et_R0);
         et_B = (EditText) findViewById(R.id.et_B);
-        btn_start = (Button) findViewById(R.id.btn_start);
     }
 
     @Override

@@ -38,10 +38,6 @@
             android:label="@string/title_activity_mode_first" >
         </activity>
         <activity
-            android:name="com.handstudio.android.hzgrapher.Q_heat_loss"
-            android:label="@string/title_activity_q_heat_loss" >
-        </activity>
-        <activity
             android:name="com.handstudio.android.hzgrapher.V"
             android:label="@string/title_activity_v" >
         </activity>

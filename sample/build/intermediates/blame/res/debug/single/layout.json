@@ -1,9 +1,5 @@
 [
     {
-        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\custom_edittext_layout.xml",
-        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\custom_edittext_layout.xml"
-    },
-    {
         "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_r0.xml",
         "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\activity_r0.xml"
     },
@@ -24,16 +20,8 @@
         "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\activity_mode_third.xml"
     },
     {
-        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_q_heat_loss.xml",
-        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\activity_q_heat_loss.xml"
-    },
-    {
         "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_event2_layout.xml",
         "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\fragment_event2_layout.xml"
-    },
-    {
-        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\add_b.xml",
-        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\add_b.xml"
     },
     {
         "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_select_mode.xml",
