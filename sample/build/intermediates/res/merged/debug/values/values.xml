@@ -21,12 +21,12 @@
     <string name="text_radar_graph">RadarGraph</string>
     <string name="text_scatter_graph">ScatterGraph</string>
     <string name="title_activity_main_activity2">MainActivity2Activity</string>
-    <string name="title_activity_mode_first">Mode_first</string>
-    <string name="title_activity_mode_second">Mode_second</string>
-    <string name="title_activity_mode_third">Mode_third</string>
+    <string name="title_activity_mode_first">Mode first</string>
+    <string name="title_activity_mode_second">Mode second</string>
+    <string name="title_activity_mode_third">Mode third</string>
     <string name="title_activity_q_heat_loss">Q_heat_loss</string>
     <string name="title_activity_r0">R0</string>
-    <string name="title_activity_select_mode">Select_mode</string>
+    <string name="title_activity_select_mode">Select mode</string>
     <string name="title_activity_v">V</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
