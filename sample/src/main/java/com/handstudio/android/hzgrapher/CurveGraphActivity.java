@@ -167,7 +167,7 @@ public class CurveGraphActivity extends Activity {
         });
     }
 
-    public int event_limit() {// метод для нахождения количества событий//correct
+    public int event_limit() {// метод для нахождения количества событий
         Bundle extras = getIntent().getExtras();
         ArrayList<Integer> event_mode = new ArrayList<>();
         int tm = 0;
@@ -453,8 +453,6 @@ public class CurveGraphActivity extends Activity {
 
         layoutGraphView.removeAllViews();//удаляем предыдущие View, что бы обновить график
         layoutGraphView.addView(new CurveGraphView(this, vo));
-
-
     }
 
 
@@ -470,25 +468,16 @@ public class CurveGraphActivity extends Activity {
         //graph margin
         int marginTop = CurveGraphVO.DEFAULT_MARGIN_TOP;
         int marginRight = CurveGraphVO.DEFAULT_MARGIN_RIGHT;
-
-        //max value
-        //int maxValue 		= CurveGraphVO.DEFAULT_MAX_VALUE;
-
         int maxValue = 30;//max температура
-
 
         //increment
         int increment = 1;// по оси y 1 т.к. отслеживаем изменение температуры на 1 градус
 
         //GRAPH SETTING
 
-
         // алгоритм для поднятия температуры
-
-
-        String[] legendArr = {Arrays.toString(axis_oll(i))};
+        String[] legendArr = {Arrays.toString(axisAll(i))};
         List<CurveGraph> arrGraph = new ArrayList<CurveGraph>();
-//0xaa10ffff
 
         arrGraph.add(new CurveGraph("Графік", 0xaa000000, graphT_oll(i, random_event)));
 
@@ -503,65 +492,52 @@ public class CurveGraphActivity extends Activity {
         return vo;
     }
 
-
-    public int[] axis(int ii) {
-        Bundle extras = getIntent().getExtras();
-        Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeFirst.t1));//дополнительная переменная для цикла
-        Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
+    public int[] axisCount(int ii, int t1, int t2, String type) {
         int tm = 0;
-
-        for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-            tm++;
-            t1add++;
-            if (ia > ii) break;
-        }
-        int[] axis = new int[tm];// отсчет для оси х
-
-        for (int ia = 0; t1 <= t2; ia++) {
-            axis[ia] = ia;
-            t1++;
-            if (ia > ii) break;
-        }
-        return axis;
-    }
-
-    public int[] axis_minus(int ii) {
-        Bundle extras = getIntent().getExtras();
-        Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeFirst.t1));//дополнительная переменная для цикла
-        Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
-        int tm = 0;
-        for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-            tm++;
-            t1add--;
-            if (ia > ii) break;
-        }
-        int[] axis = new int[tm];// отсчет для оси х
-        for (int ia = 0; t1 >= t2; ia++) {
-            axis[ia] = ia;
-            t1--;
-            if (ia > ii) break;
+        int t1add = t1;
+        int[] axis = {};
+        if (type.equals("up")) {
+            for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
+                tm++;
+                t1add++;
+                if (ia > ii) break;
+            }
+            axis = new int[tm];
+            for (int ia = 0; t1 <= t2; ia++) {
+                axis[ia] = ia;
+                t1++;
+                if (ia > ii) break;
+            }
+        } else if (type.equals("down")) {
+            for (int ia = 0; t1add >= t2; ia++) {
+                tm++;
+                t1add--;
+                if (ia > ii) break;
+            }
+            axis = new int[tm];
+            for (int ia = 0; t1 >= t2; ia++) {
+                axis[ia] = ia;
+                t1--;
+                if (ia > ii) break;
+            }
         }
         return axis;
     }
 
 
-    public int[] axis_oll(int ii) throws NullPointerException {
+    public int[] axisAll(int ii) throws NullPointerException {// отсчет для оси х
         Bundle extras = getIntent().getExtras();
         int[] axis = {0};
         try {
             try {
                 if (Integer.valueOf(extras.getString(ModeFirst.t2)) != null
                         || Integer.valueOf(extras.getString(ModeSecond.t_support)) == 0) {// для первого режима
-
                     Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
                     Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
-
                     if (t1 < t2) {
-                        axis = axis(stepEvent);
+                        axis = axisCount(stepEvent, t1, t2, "up");
                     } else if (t1 > t2) {
-                        axis = axis_minus(stepEvent);
+                        axis = axisCount(stepEvent, t1, t2, "down");
                     }
                 }
             } catch (NumberFormatException e) {
@@ -570,58 +546,43 @@ public class CurveGraphActivity extends Activity {
             }
         } catch (NumberFormatException e) {
             axis = axis_third(stepEvent);
-            Log.e(LOG_TAG, "gothird_mode axis_oll");
-        }
-        for (int aaa : axis) {
-            Log.e(LOG_TAG, "axis_oll" + aaa);
         }
         return axis;
     }
 
 
-    public float[] graphT(int ii) {
-        Bundle extras = getIntent().getExtras();
-        Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeFirst.t1));//дополнительная переменная для цикла
-        Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
+    public float[] countTemp(int ii, int t1, int t2, String type) {
         int tm = 0;//размерность массива
+        int t1add = t1;
+        float[] graphT = {};
+        if (type.equals("up")) {
+            for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
+                tm++;
+                t1add++;
+                if (ia > ii) break;
+            }
+            graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
+            for (int ia = 0; t1 <= t2; ia++) {
+                graphT[ia] = t1;
+                t1++;
+                if (ia > ii) break;
+            }
+        } else if (type.equals("down")) {
+            for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
+                tm++;
+                t1add--;
+                if (ia > ii) break;
+            }
+            graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
+            for (int ia = 0; t1 >= t2; ia++) {
+                graphT[ia] = t1;
+                t1--;
+                if (ia > ii) break;
+            }
 
-
-        for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-            tm++;
-            t1add++;
-            if (ia > ii)
-                break;
         }
 
-        float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-        for (int ia = 0; t1 <= t2; ia++) {
-            graphT[ia] = t1;
-            t1++;
-            if (ia > ii)
-                break;
-        }
-        return graphT;
-    }
 
-    public float[] grapht_minus(int ii) {
-        Bundle extras = getIntent().getExtras();
-        Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeFirst.t1));//дополнительная переменная для цикла
-        Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
-        int tm = 0;//размерность массива
-
-        for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-            tm++;
-            t1add--;
-            if (ia > ii) break;
-        }
-        float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-        for (int ia = 0; t1 >= t2; ia++) {
-            graphT[ia] = t1;
-            t1--;
-            if (ia > ii) break;
-        }
         return graphT;
     }
 
@@ -639,9 +600,9 @@ public class CurveGraphActivity extends Activity {
                     Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
 
                     if (t1 < t2) {
-                        graphT = graphT(stepEvent);
+                        graphT = countTemp(stepEvent, t1, t2, "up");
                     } else if (t1 > t2) {
-                        graphT = grapht_minus(stepEvent);
+                        graphT = countTemp(stepEvent, t1, t2, "down");
                     }
                 }
             } catch (NumberFormatException e) {
@@ -649,9 +610,7 @@ public class CurveGraphActivity extends Activity {
                     graphT = graphT_support(stepEvent, random_event);
             }
         } catch (NumberFormatException e) {
-            Log.e(LOG_TAG, "gothird graphT_oll");
             graphT = graphT_third(stepEvent, random_event);
-            //graphT = graphT_support(, random_event);
         }
         return graphT;
 
@@ -834,7 +793,6 @@ public class CurveGraphActivity extends Activity {
             maths_third(iiii, random_event);
         }
     }
-
 
     public int[] axis_support(int ii) {
         Bundle extras = getIntent().getExtras();
@@ -1068,12 +1026,9 @@ public class CurveGraphActivity extends Activity {
     public float[] graphT_third(int ii, int random_event) {
         Bundle extras = getIntent().getExtras();
         Integer t1 = Integer.valueOf(extras.getString(ModeThird.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeThird.t1));//дополнительная переменная для цикла
         Integer t2 = Integer.valueOf(extras.getString(ModeThird.t2_support));
-        int tm = 0;//размерность массива
-        float graphT[] = {0};
-        //float graphT_go[]={0};//дополнительный массив с значениями массива режима 1
-        float a = 0;
+        float graphT[];
+        float a;
         if (t1 > t2) {
             a = t1 - t2;
         } else if (t1 < t2) {
@@ -1081,42 +1036,19 @@ public class CurveGraphActivity extends Activity {
         } else a = 0;
         if (a != 0) {
             if (ii + 1 <= a) {            //режим 1  //проверка на события, если события==температуры, которую нужно достич, то переходим к режиму 2
-                //Log.e(LOG_TAG,"ii= " +ii +"a=" +a);
-                //Log.e(LOG_TAG, "maths_third_minus 2 ");
-
-                if (t1 > t2) {    //понижение
-                    Log.e(LOG_TAG, "gotographT_third_minus ");
-                    graphT = graphT_third_minus(ii);
-                    graphT_go = graphT_third_minus(ii);
-
-
-                } else {            //повышение
-                    graphT = graphT_third_plus(ii);        //correct
-                    Log.e(LOG_TAG, "gotographT_third_plus ");
-                    graphT_go = graphT_third_plus(ii);
+                if (t1 > t2) {
+                    graphT_go = graphT = countTemp(ii, t1, t2, "down");
+                } else {
+                    graphT_go = graphT = countTemp(ii, t1, t2, "up");
                 }
-
-            } else {                //режим 2
-                for (float qwer : graphT_go) {
-                    Log.e(LOG_TAG, "graphT_go5555 " + qwer);
-                }
-
-                graphT = graphT_third_support_after(ii, random_event, graphT_go);//
+            } else {
+                graphT = graphT_third_support_after(ii, random_event, graphT_go);
             }
-
         } else {                //режим 2
             graphT = graphT_third_support(ii, random_event);
         }
-
-
-        //model_time_Mode_third++;
-        //model_time.setText("" + model_time_Mode_third);
-        for (float aa : graphT) {
-            Log.e(LOG_TAG, "graphT" + a);
-        }
         return graphT;
     }
-
 
     public void maths_third(int ii, int random_event) {
         Log.e(LOG_TAG, "maths_third_ 1 ");
@@ -1167,7 +1099,6 @@ public class CurveGraphActivity extends Activity {
         model_time.setText("" + model_time_Mode_third);
 
     }
-
 
     public void maths_third_minus(int ii) {
         Log.e(LOG_TAG, "maths_third_minus");
@@ -1442,53 +1373,6 @@ public class CurveGraphActivity extends Activity {
         count_eventArray++;
     }
 
-
-    public float[] graphT_third_plus(int ii) {
-        Bundle extras = getIntent().getExtras();
-        Integer t1 = Integer.valueOf(extras.getString(ModeThird.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeThird.t1));//дополнительная переменная для цикла
-        Integer t2 = Integer.valueOf(extras.getString(ModeThird.t2_support));
-        int tm = 0;//размерность массива
-
-
-        for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-            tm++;
-            t1add++;
-            if (ia > ii)
-                break;
-        }
-
-        float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-        for (int ia = 0; t1 <= t2; ia++) {
-            graphT[ia] = t1;
-            t1++;
-            if (ia > ii)
-                break;
-        }
-        return graphT;
-    }
-
-    public float[] graphT_third_minus(int ii) {
-        Bundle extras = getIntent().getExtras();
-        Integer t1 = Integer.valueOf(extras.getString(ModeThird.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeThird.t1));//дополнительная переменная для цикла
-        Integer t2 = Integer.valueOf(extras.getString(ModeThird.t2_support));
-        int tm = 0;//размерность массива
-
-        for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-            tm++;
-            t1add--;
-            if (ia > ii) break;
-        }
-        float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-        for (int ia = 0; t1 >= t2; ia++) {
-            graphT[ia] = t1;
-            t1--;
-            if (ia > ii) break;
-        }
-        return graphT;
-    }
-
     public float[] graphT_third_support(int ii, int random_event) {//check
 
         Bundle extras = getIntent().getExtras();
@@ -1525,7 +1409,6 @@ public class CurveGraphActivity extends Activity {
         }
         return floatArray;
     }
-
 
     public float[] graphT_third_support_after(int ii, int random_event, float graphT_go[]) {//check
         ArrayList<Float> event111 = new ArrayList<>();
