@@ -492,63 +492,11 @@ public class CurveGraphActivity extends Activity {
         return vo;
     }
 
-    public int[] axisCount(int ii, int t1, int t2, String type) {
-        int tm = 0;
-        int t1add = t1;
-        int[] axis = {};
-        if (type.equals("up")) {
-            for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-                tm++;
-                t1add++;
-                if (ia > ii) break;
-            }
-            axis = new int[tm];
-            for (int ia = 0; t1 <= t2; ia++) {
-                axis[ia] = ia;
-                t1++;
-                if (ia > ii) break;
-            }
-        } else if (type.equals("down")) {
-            for (int ia = 0; t1add >= t2; ia++) {
-                tm++;
-                t1add--;
-                if (ia > ii) break;
-            }
-            axis = new int[tm];
-            for (int ia = 0; t1 >= t2; ia++) {
-                axis[ia] = ia;
-                t1--;
-                if (ia > ii) break;
-            }
-        }
-        return axis;
-    }
-
-
-    public int[] axisAll(int ii) throws NullPointerException {// отсчет для оси х
-        Bundle extras = getIntent().getExtras();
-        int[] axis = {0};
-        try {
-            try {
-                if (Integer.valueOf(extras.getString(ModeFirst.t2)) != null
-                        || Integer.valueOf(extras.getString(ModeSecond.t_support)) == 0) {// для первого режима
-                    Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-                    Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
-                    if (t1 < t2) {
-                        axis = axisCount(stepEvent, t1, t2, "up");
-                    } else if (t1 > t2) {
-                        axis = axisCount(stepEvent, t1, t2, "down");
-                    }
-                }
-            } catch (NumberFormatException e) {
-                axis = new int[stepEvent+2];
-                for (int i = 1; i <axis.length; i++) {
-                    axis[i]=i;
-                }
-                if (Integer.valueOf(extras.getString(ModeSecond.t_support)) != null) ;
-            }
-        } catch (NumberFormatException e) {
-            axis = axis_third(stepEvent);
+    public int[] axisAll(int event) {// отсчет для оси х// in start event = 0;
+        int[] axis;
+        axis = new int[event + 2];
+        for (int i = 0; i < axis.length; i++) {
+            axis[i] = i;
         }
         return axis;
     }
@@ -918,56 +866,6 @@ public class CurveGraphActivity extends Activity {
             }
         }
         count_eventArray++;
-    }
-
-    public int[] axis_third(int ii) {
-        Log.e(LOG_TAG, "iiiiiii " + ii);
-
-        int[] axis;
-
-
-        Bundle extras = getIntent().getExtras();
-
-        Float t1 = Float.valueOf(extras.getString(ModeThird.t1));
-        Float t2 = Float.valueOf(extras.getString(ModeThird.t2_support));
-
-        float a = 0;
-        if (t1 > t2) {
-            a = t1 - t2;
-        } else if (t1 < t2) {
-            a = t2 - t1;
-        } else a = 0;
-        if (a != 0) {
-            if (ii + 1 <= a) {            //режим 1  //проверка на события, если события==температуры, которую нужно достич, то переходим к режиму 2
-                if (t1 > t2) {    //понижение
-
-
-                } else {            //повышение
-
-                }
-
-            } else {                //режим 2
-
-                model_time_Mode_third_axis++;
-            }
-
-        } else {
-            //maths_third_support(ii, random_event);
-
-        }
-
-        model_time_Mode_third_axis++;
-
-
-        axis = new int[model_time_Mode_third_axis];// отсчет для оси х
-        for (int ia = 0; ia < model_time_Mode_third_axis; ia++) {
-            axis[ia] = ia;
-            Log.e(LOG_TAG, " axis_ia " + ia);
-        }
-
-
-        return axis;
-
     }
 
     public float[] graphT_third(int ii, int random_event) {
