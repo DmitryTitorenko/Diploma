@@ -1135,7 +1135,7 @@ public class CurveGraphActivity extends Activity {
         return graphT;
     }
 
-    public float[] countTemp(int ii, int t1, int t2, String type) {
+    public float[] countTemp(int stepEvent, int t1, int t2, String type) {
         int tm = 0;//размерность массива
         int t1add = t1;
         float[] graphT = {};
@@ -1143,25 +1143,25 @@ public class CurveGraphActivity extends Activity {
             for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
                 tm++;
                 t1add++;
-                if (ia > ii) break;
+                if (ia > stepEvent) break;
             }
             graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
             for (int ia = 0; t1 <= t2; ia++) {
                 graphT[ia] = t1;
                 t1++;
-                if (ia > ii) break;
+                if (ia > stepEvent) break;
             }
         } else if (type.equals("down")) {
             for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
                 tm++;
                 t1add--;
-                if (ia > ii) break;
+                if (ia > stepEvent) break;
             }
             graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
             for (int ia = 0; t1 >= t2; ia++) {
                 graphT[ia] = t1;
                 t1--;
-                if (ia > ii) break;
+                if (ia > stepEvent) break;
             }
         }
         return graphT;
