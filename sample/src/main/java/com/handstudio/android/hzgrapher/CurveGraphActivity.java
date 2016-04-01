@@ -549,7 +549,7 @@ public class CurveGraphActivity extends Activity {
                 }
             } catch (NumberFormatException e) {
                 if (Integer.valueOf(extras.getString(ModeSecond.t_support)) != null)
-                    graphT = graphSupport(stepEvent, random_event,"second");
+                    graphT = graphSupport(stepEvent, random_event);
             }
         } catch (NumberFormatException e) {
             graphT = graphT_third(stepEvent, random_event);
@@ -736,24 +736,12 @@ public class CurveGraphActivity extends Activity {
         }
     }
 
-    public float[] graphSupport(int stepEvent, int random_event, String mode) {
-
-        Integer[] eventArray = {};
-        float t_support = 0;
-
-        if (mode.equals("second")) {
-            Bundle extras = getIntent().getExtras();
-            t_support = Float.valueOf(extras.getString(ModeSecond.t_support));
-            ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
-            eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
-            event_mode.toArray(eventArray);
-        } else if (mode.equals("third")) {
-            Bundle extras = getIntent().getExtras();
-            t_support = Float.valueOf(extras.getString(ModeThird.t2_support));
-            ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
-            eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
-            event_mode.toArray(eventArray);
-        }
+    public float[] graphSupport(int stepEvent, int random_event) {
+        Bundle extras = getIntent().getExtras();
+        float t_support = Float.valueOf(extras.getString(ModeSecond.t_support));
+        ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
+        Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
+        event_mode.toArray(eventArray);
         for (int i = 0; i <= eventArray.length; i++) {
             if (i > stepEvent) break;
             if (stepEvent == 0) event.add(t_support);// прорисовка при запуске
@@ -884,7 +872,7 @@ public class CurveGraphActivity extends Activity {
         Bundle extras = getIntent().getExtras();
         Integer t1 = Integer.valueOf(extras.getString(ModeThird.t1));
         Integer t2 = Integer.valueOf(extras.getString(ModeThird.t2_support));
-        float graphT[];
+        float graphT[] = {};
         float a;
         if (t1 > t2) {
             a = t1 - t2;
@@ -901,10 +889,6 @@ public class CurveGraphActivity extends Activity {
             } else {
                 graphT = graphT_third_support_after(ii, random_event, graphT_go);
             }
-        } else {                //режим 2
-            graphT = graphSupport(stepEvent, random_event,"third");
-
-            //graphT = graphT_third_support(ii, random_event);
         }
         return graphT;
     }
@@ -1230,28 +1214,6 @@ public class CurveGraphActivity extends Activity {
             }
         }
         count_eventArray++;
-    }
-
-    public float[] graphT_third_support(int stepEvent, int random_event) {//check
-        Bundle extras = getIntent().getExtras();
-        Float t_support = Float.valueOf(extras.getString(ModeThird.t2_support));
-        ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
-        Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
-        event_mode.toArray(eventArray);
-        int ia;
-        for (ia = 0; ia <= eventArray.length; ia++) {
-            if (ia > stepEvent) break;
-            if (stepEvent == 0)
-                event.add(t_support);// добавляем значения что бы он рисовал при запуске
-        }
-        event.add(t_support + random_event);
-        event.add(t_support);
-        float[] floatArray = new float[event.size()];
-        int i = 0;
-        for (Float f : event) {
-            floatArray[i++] = (f != null ? f : Float.NaN); // Or whatever default you want.
-        }
-        return floatArray;
     }
 
     public float[] graphT_third_support_after(int ii, int random_event, float graphT_go[]) {//check
