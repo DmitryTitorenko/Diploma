@@ -549,10 +549,11 @@ public class CurveGraphActivity extends Activity {
                 }
             } catch (NumberFormatException e) {
                 if (Integer.valueOf(extras.getString(ModeSecond.t_support)) != null)
-                    graphT = graphSupport(stepEvent, random_event);
+                    graphT = graphSupport(stepEvent, random_event,"second");
             }
         } catch (NumberFormatException e) {
             graphT = graphT_third(stepEvent, random_event);
+
         }
         return graphT;
     }
@@ -735,13 +736,24 @@ public class CurveGraphActivity extends Activity {
         }
     }
 
+    public float[] graphSupport(int stepEvent, int random_event, String mode) {
 
-    public float[] graphSupport(int stepEvent, int random_event) {
-        Bundle extras = getIntent().getExtras();
-        Float t_support = Float.valueOf(extras.getString(ModeSecond.t_support));
-        ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
-        Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
-        event_mode.toArray(eventArray);
+        Integer[] eventArray = {};
+        float t_support = 0;
+
+        if (mode.equals("second")) {
+            Bundle extras = getIntent().getExtras();
+            t_support = Float.valueOf(extras.getString(ModeSecond.t_support));
+            ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
+            eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
+            event_mode.toArray(eventArray);
+        } else if (mode.equals("third")) {
+            Bundle extras = getIntent().getExtras();
+            t_support = Float.valueOf(extras.getString(ModeThird.t2_support));
+            ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
+            eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
+            event_mode.toArray(eventArray);
+        }
         for (int i = 0; i <= eventArray.length; i++) {
             if (i > stepEvent) break;
             if (stepEvent == 0) event.add(t_support);// прорисовка при запуске
@@ -890,7 +902,9 @@ public class CurveGraphActivity extends Activity {
                 graphT = graphT_third_support_after(ii, random_event, graphT_go);
             }
         } else {                //режим 2
-            graphT = graphT_third_support(ii, random_event);
+            graphT = graphSupport(stepEvent, random_event,"third");
+
+            //graphT = graphT_third_support(ii, random_event);
         }
         return graphT;
     }
@@ -1218,39 +1232,24 @@ public class CurveGraphActivity extends Activity {
         count_eventArray++;
     }
 
-    public float[] graphT_third_support(int ii, int random_event) {//check
-
+    public float[] graphT_third_support(int stepEvent, int random_event) {//check
         Bundle extras = getIntent().getExtras();
-
         Float t_support = Float.valueOf(extras.getString(ModeThird.t2_support));
-
-        ArrayList<Integer> event_mode = new ArrayList<>();
-        event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
-
+        ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
         Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
         event_mode.toArray(eventArray);
-
-        for (int ia = 0; ia <= eventArray.length; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-            if (ia > ii) break;//для отрисовки не всех сразу событий
-        }
-
         int ia;
         for (ia = 0; ia <= eventArray.length; ia++) {
-            if (ia > ii) break;
-            if (ii == 0) event.add(t_support);// добавляем значения что бы он рисовал при запуске
+            if (ia > stepEvent) break;
+            if (stepEvent == 0)
+                event.add(t_support);// добавляем значения что бы он рисовал при запуске
         }
-
-        event.add(t_support + random_event);//ArrayList с значениями температуры
+        event.add(t_support + random_event);
         event.add(t_support);
-
         float[] floatArray = new float[event.size()];
         int i = 0;
         for (Float f : event) {
             floatArray[i++] = (f != null ? f : Float.NaN); // Or whatever default you want.
-        }
-
-        for (float a : floatArray) {
-            Log.e(LOG_TAG, "floatArray" + a);
         }
         return floatArray;
     }
