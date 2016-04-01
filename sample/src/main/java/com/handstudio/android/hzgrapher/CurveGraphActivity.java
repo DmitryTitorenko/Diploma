@@ -55,13 +55,12 @@ public class CurveGraphActivity extends Activity {
 
     int ii_minusofplus = 0;//количество событий в режиме 1
     int stepEvent = 0;//счетчик событий
-    ArrayList<Float> event = new ArrayList<>();//подсчет событий при поддержки температуры
+    ArrayList<Float> eventSupport = new ArrayList<>();//подсчет событий при поддержки температуры
     ArrayList<Float> event_math = new ArrayList<>();
     int count_eventArray = 0;
     int real_temp_street;//измененние температуры на улице
     int model_time_Mode_third = 0;//модельное время для третьего режима
-    int model_time_Mode_third_axis = 1;
-    float graphT_go[] = {0};//дополнительный массив с значениями массива режима 1
+    float graphFirstMod[] = {0};//массив с значениями температуры первого режима для ее поддержки в 3м режиме
 
     public int callRandomEvent1() {
         return -1 + (int) (Math.random() * ((2) + 1));
@@ -183,7 +182,6 @@ public class CurveGraphActivity extends Activity {
         }
         return tm;
     }
-
 
     void writeFileSD() {
         Bundle extras = getIntent().getExtras();
@@ -455,7 +453,6 @@ public class CurveGraphActivity extends Activity {
         layoutGraphView.addView(new CurveGraphView(this, vo));
     }
 
-
     private CurveGraphVO makeCurveGraphAllSetting(int i, int random_event) {
 
         //BASIC LAYOUT SETTING
@@ -479,7 +476,7 @@ public class CurveGraphActivity extends Activity {
         String[] legendArr = {Arrays.toString(axisAll(i))};
         List<CurveGraph> arrGraph = new ArrayList<CurveGraph>();
 
-        arrGraph.add(new CurveGraph("Графік", 0xaa000000, graphT_oll(i, random_event)));
+        arrGraph.add(new CurveGraph("Графік", 0xaa000000, graphAll(random_event)));
 
         CurveGraphVO vo = new CurveGraphVO(
                 paddingBottom, paddingTop, paddingLeft, paddingRight,
@@ -490,72 +487,6 @@ public class CurveGraphActivity extends Activity {
         vo.setGraphNameBox(new GraphNameBox());
         //set draw graph region
         return vo;
-    }
-
-    public int[] axisAll(int event) {// отсчет для оси х// in start event = 0;
-        int[] axis;
-        axis = new int[event + 2];
-        for (int i = 0; i < axis.length; i++) {
-            axis[i] = i;
-        }
-        return axis;
-    }
-
-    public float[] countTemp(int ii, int t1, int t2, String type) {
-        int tm = 0;//размерность массива
-        int t1add = t1;
-        float[] graphT = {};
-        if (type.equals("up")) {
-            for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-                tm++;
-                t1add++;
-                if (ia > ii) break;
-            }
-            graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-            for (int ia = 0; t1 <= t2; ia++) {
-                graphT[ia] = t1;
-                t1++;
-                if (ia > ii) break;
-            }
-        } else if (type.equals("down")) {
-            for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-                tm++;
-                t1add--;
-                if (ia > ii) break;
-            }
-            graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-            for (int ia = 0; t1 >= t2; ia++) {
-                graphT[ia] = t1;
-                t1--;
-                if (ia > ii) break;
-            }
-        }
-        return graphT;
-    }
-
-    public float[] graphT_oll(int ii, int random_event) throws NumberFormatException {
-        Bundle extras = getIntent().getExtras();
-        float[] graphT = {0};
-        try {
-            try {
-                if (Integer.valueOf(extras.getString(ModeFirst.t2)) != null) {// для первого режима
-                    Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-                    Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
-                    if (t1 < t2) {
-                        graphT = countTemp(stepEvent, t1, t2, "up");
-                    } else if (t1 > t2) {
-                        graphT = countTemp(stepEvent, t1, t2, "down");
-                    }
-                }
-            } catch (NumberFormatException e) {
-                if (Integer.valueOf(extras.getString(ModeSecond.t_support)) != null)
-                    graphT = graphSupport(stepEvent, random_event);
-            }
-        } catch (NumberFormatException e) {
-            graphT = graphT_third(stepEvent, random_event);
-
-        }
-        return graphT;
     }
 
     public void maths_plus(int ii) {
@@ -736,26 +667,6 @@ public class CurveGraphActivity extends Activity {
         }
     }
 
-    public float[] graphSupport(int stepEvent, int random_event) {
-        Bundle extras = getIntent().getExtras();
-        float t_support = Float.valueOf(extras.getString(ModeSecond.t_support));
-        ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
-        Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
-        event_mode.toArray(eventArray);
-        for (int i = 0; i <= eventArray.length; i++) {
-            if (i > stepEvent) break;
-            if (stepEvent == 0) event.add(t_support);// прорисовка при запуске
-        }
-        event.add(t_support + random_event);//ArrayList с значениями температуры
-        event.add(t_support);
-        float[] floatArray = new float[event.size()];
-        int i = 0;
-        for (Float f : event) {
-            floatArray[i++] = (f != null ? f : Float.NaN); // Or whatever default you want.
-        }
-        return floatArray;
-    }
-
     public void maths_support(int ii, int random_event) {
         Log.e(LOG_TAG, "maths__support ii " + ii);
 
@@ -866,31 +777,6 @@ public class CurveGraphActivity extends Activity {
             }
         }
         count_eventArray++;
-    }
-
-    public float[] graphT_third(int ii, int random_event) {
-        Bundle extras = getIntent().getExtras();
-        Integer t1 = Integer.valueOf(extras.getString(ModeThird.t1));
-        Integer t2 = Integer.valueOf(extras.getString(ModeThird.t2_support));
-        float graphT[] = {};
-        float a;
-        if (t1 > t2) {
-            a = t1 - t2;
-        } else if (t1 < t2) {
-            a = t2 - t1;
-        } else a = 0;
-        if (a != 0) {
-            if (ii + 1 <= a) {            //режим 1  //проверка на события, если события==температуры, которую нужно достич, то переходим к режиму 2
-                if (t1 > t2) {
-                    graphT_go = graphT = countTemp(ii, t1, t2, "down");
-                } else {
-                    graphT_go = graphT = countTemp(ii, t1, t2, "up");
-                }
-            } else {
-                graphT = graphT_third_support_after(ii, random_event, graphT_go);
-            }
-        }
-        return graphT;
     }
 
     public void maths_third(int ii, int random_event) {
@@ -1216,58 +1102,138 @@ public class CurveGraphActivity extends Activity {
         count_eventArray++;
     }
 
-    public float[] graphT_third_support_after(int ii, int random_event, float graphT_go[]) {//check
-        ArrayList<Float> event111 = new ArrayList<>();
+    public int[] axisAll(int eventX) {// отсчет для оси х// in start events = 0;
+        int[] axis;
+        axis = new int[eventX + 2];
+        for (int i = 0; i < axis.length; i++) {
+            axis[i] = i;
+        }
+        return axis;
+    }
 
-
+    public float[] graphAll(int randomEvent) throws NumberFormatException {
         Bundle extras = getIntent().getExtras();
+        float[] graphT = {0};
+        try {
+            try {
+                if (Integer.valueOf(extras.getString(ModeFirst.t2)) != null) {
+                    Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
+                    Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
+                    if (t1 < t2) {
+                        graphT = countTemp(stepEvent, t1, t2, "up");
+                    } else if (t1 > t2) {
+                        graphT = countTemp(stepEvent, t1, t2, "down");
+                    }
+                }
+            } catch (NumberFormatException e) {
+                if (Integer.valueOf(extras.getString(ModeSecond.t_support)) != null)
+                    graphT = graphSupport(stepEvent, randomEvent);
+            }
+        } catch (NumberFormatException e) {
+            graphT = graphThird(stepEvent, randomEvent);
+        }
+        return graphT;
+    }
 
-        Float t_support = Float.valueOf(extras.getString(ModeThird.t2_support));
+    public float[] countTemp(int ii, int t1, int t2, String type) {
+        int tm = 0;//размерность массива
+        int t1add = t1;
+        float[] graphT = {};
+        if (type.equals("up")) {
+            for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
+                tm++;
+                t1add++;
+                if (ia > ii) break;
+            }
+            graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
+            for (int ia = 0; t1 <= t2; ia++) {
+                graphT[ia] = t1;
+                t1++;
+                if (ia > ii) break;
+            }
+        } else if (type.equals("down")) {
+            for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
+                tm++;
+                t1add--;
+                if (ia > ii) break;
+            }
+            graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
+            for (int ia = 0; t1 >= t2; ia++) {
+                graphT[ia] = t1;
+                t1--;
+                if (ia > ii) break;
+            }
+        }
+        return graphT;
+    }
 
-        ArrayList<Integer> event_mode = new ArrayList<>();
-        event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
-
+    public float[] graphSupport(int stepEvent, int random_event) {
+        Bundle extras = getIntent().getExtras();
+        float t_support = Float.valueOf(extras.getString(ModeSecond.t_support));
+        ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
         Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
         event_mode.toArray(eventArray);
-
-        for (int ia = 0; ia <= eventArray.length; ia++) {//находим кол-во элементов массива который необходимо нарисовать
-            if (ia > ii) break;//для отрисовки не всех сразу событий
+        for (int i = 0; i <= eventArray.length; i++) {
+            if (i > stepEvent) break;
+            if (stepEvent == 0) eventSupport.add(t_support);// прорисовка при запуске
         }
-
-        int ia;
-        for (ia = 0; ia <= eventArray.length; ia++) {
-            if (ia > ii) break;
-
-            //event.add(t_support);// добавляем значения что бы он рисовал при запуске
-        }
-
-        for (float qwer : graphT_go) {//заполняем данными с 1го режима
-            Log.e(LOG_TAG, "graphT_go " + qwer);
-            event111.add(qwer);
-        }
-        //event111=((ArrayList<Float>) event.clone());
-        //event111.add(event);
-
-        for (int i = 0; i < event.size(); i++) {//добовляем события которые были раньше
-            event111.add(event.get(i));
-        }
-
-        event.add(t_support + random_event);//ArrayList с значениями температуры
-        event.add(t_support);
-
-        event111.add(t_support + random_event);
-        event111.add(t_support);
-
-        float[] floatArray = new float[event111.size()];
+        eventSupport.add(t_support + random_event);//ArrayList с значениями температуры
+        eventSupport.add(t_support);
+        float[] floatArray = new float[eventSupport.size()];
         int i = 0;
-        for (Float f : event111) {
+        for (Float f : eventSupport) {
             floatArray[i++] = (f != null ? f : Float.NaN); // Or whatever default you want.
         }
+        return floatArray;
+    }
 
-        for (float a : floatArray) {
-            Log.e(LOG_TAG, "floatArray" + a);
+    public float[] graphThird(int stepEvent, int randomEvent) {
+        Bundle extras = getIntent().getExtras();
+        Integer t1 = Integer.valueOf(extras.getString(ModeThird.t1));
+        Integer t2 = Integer.valueOf(extras.getString(ModeThird.t2_support));
+        float graphT[] = {};
+        float a;
+        if (t1 > t2) {
+            a = t1 - t2;
+        } else if (t1 < t2) {
+            a = t2 - t1;
+        } else a = 0;
+        if (a != 0) {
+            if (stepEvent + 1 <= a) {
+                if (t1 > t2) {
+                    graphFirstMod = graphT = countTemp(stepEvent, t1, t2, "down");
+                } else {
+                    graphFirstMod = graphT = countTemp(stepEvent, t1, t2, "up");
+                }
+            } else {
+                graphT = graphThirdSupport(randomEvent);
+            }
         }
-        return floatArray;//походу корректно выводит
+        return graphT;
+    }
 
+    public float[] graphThirdSupport(int random_event) {
+        ArrayList<Float> CountAllEvent = new ArrayList<>();
+        Bundle extras = getIntent().getExtras();
+        Float t_support = Float.valueOf(extras.getString(ModeThird.t2_support));
+        ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
+        Integer[] eventArray = new Integer[event_mode.size()];
+        event_mode.toArray(eventArray);
+        for (float i : graphFirstMod) {//заполняем событиями с 1го режима
+            CountAllEvent.add(i);
+        }
+        for (int i = 0; i < eventSupport.size(); i++) {//добовляем события 2го режима, которые были раньше
+            CountAllEvent.add(eventSupport.get(i));
+        }
+        eventSupport.add(t_support + random_event);
+        eventSupport.add(t_support);
+        CountAllEvent.add(t_support + random_event);
+        CountAllEvent.add(t_support);
+        float[] floatArray = new float[CountAllEvent.size()];
+        int i = 0;
+        for (Float f : CountAllEvent) {
+            floatArray[i++] = (f != null ? f : Float.NaN); // Or whatever default you want.
+        }
+        return floatArray;
     }
 }
