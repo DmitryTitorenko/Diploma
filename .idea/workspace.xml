@@ -20,11 +20,22 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="eventSupport" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d928820-b5c5-40c8-a913-5eb52aab4756" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" afterPath="$PROJECT_DIR$/sample/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/debug_3a18b90102d8b9292e75516aa95e4c57d5ed0ef4.jar" afterPath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/debug_3a18b90102d8b9292e75516aa95e4c57d5ed0ef4.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug-unaligned.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug-unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -59,35 +70,32 @@
       <file leaf-file-name="CurveGraphActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84200746">
-              <caret line="861" column="4" selection-start-line="861" selection-start-column="4" selection-end-line="861" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.43122676">
+              <caret line="927" column="5" selection-start-line="927" selection-start-column="5" selection-end-line="927" selection-end-column="5" />
               <folding>
                 <element signature="method#callRandomEvent2#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#onCreate#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#event_limit#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#writeFileSD#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#writeFileSD_plus#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#11784#11799#0" expanded="false" />
+                <element signature="e#11771#11786#0" expanded="false" />
                 <element signature="method#writeFileSD_minus#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#16828#16843#0" expanded="false" />
+                <element signature="e#16815#16830#0" expanded="false" />
                 <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#onOptionsItemSelected#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#setCurveGraph#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#18786#18803#0" expanded="false" />
+                <element signature="e#18773#18790#0" expanded="false" />
                 <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#19106#19128#0" expanded="false" />
-                <element signature="e#19680#19695#0" expanded="false" />
+                <element signature="e#19093#19115#0" expanded="false" />
+                <element signature="e#19667#19682#0" expanded="false" />
                 <element signature="method#maths_oll#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#mathFirstMode#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#mathFirst#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#maths_support#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#maths_third#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#maths_third_support#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#axisAll#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#graphAll#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#countTemp#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#graphSupport#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#graphThird#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="method#graphThirdSupport#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#graphFirst#0;class#CurveGraphActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -3185,7 +3193,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="94" column="21" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3218,35 +3226,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84200746">
-          <caret line="861" column="4" selection-start-line="861" selection-start-column="4" selection-end-line="861" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.43122676">
+          <caret line="927" column="5" selection-start-line="927" selection-start-column="5" selection-end-line="927" selection-end-column="5" />
           <folding>
             <element signature="method#callRandomEvent2#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#event_limit#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#writeFileSD#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#writeFileSD_plus#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#11784#11799#0" expanded="false" />
+            <element signature="e#11771#11786#0" expanded="false" />
             <element signature="method#writeFileSD_minus#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#16828#16843#0" expanded="false" />
+            <element signature="e#16815#16830#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#onOptionsItemSelected#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#setCurveGraph#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#18786#18803#0" expanded="false" />
+            <element signature="e#18773#18790#0" expanded="false" />
             <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#19106#19128#0" expanded="false" />
-            <element signature="e#19680#19695#0" expanded="false" />
+            <element signature="e#19093#19115#0" expanded="false" />
+            <element signature="e#19667#19682#0" expanded="false" />
             <element signature="method#maths_oll#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#mathFirstMode#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#mathFirst#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#maths_support#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#maths_third#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#maths_third_support#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#axisAll#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#graphAll#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#countTemp#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#graphSupport#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#graphThird#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="method#graphThirdSupport#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphFirst#0;class#CurveGraphActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
