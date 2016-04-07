@@ -92,7 +92,7 @@ public class CurveGraphActivity extends Activity {
         tvSet6 = (TextView) findViewById(R.id.tvSet6);
         Button btn_event = (Button) findViewById(R.id.btn_event);
 
-        //отрисовка при запуске Activity
+        //отрисовка при первом запуске
         randomEvent = callRandomEvent2();
         setCurveGraph(stepEvent, randomEvent);
         mathAll();
@@ -102,6 +102,7 @@ public class CurveGraphActivity extends Activity {
         btn_event.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Bundle extras = getIntent().getExtras();
+                ArrayList<Integer> eventMode;//количества событий для каждого режима
                 try {
                     try {
                         if (Integer.valueOf(extras.getString(ModeFirst.t2)) != 0) {// для первого режима
@@ -127,7 +128,8 @@ public class CurveGraphActivity extends Activity {
                         }
                     } catch (NumberFormatException e) {
                         if (Integer.valueOf(extras.getString(ModeSecond.t_support)) != 0) {// для второго  режима
-                            if (stepEvent < event_limit()) {
+                            eventMode = extras.getIntegerArrayList(ModeSecond.eventArray_);
+                            if (stepEvent < eventMode.size()) {
                                 randomEvent = callRandomEvent2();
                                 mathAll();
                                 setCurveGraph(stepEvent, randomEvent);
@@ -139,13 +141,14 @@ public class CurveGraphActivity extends Activity {
                 } catch (NumberFormatException e) {//3й режим
                     int t2 = Integer.valueOf(extras.getString(ModeThird.t2_support));
                     int t1 = Integer.valueOf(extras.getString(ModeThird.t1));
+                    eventMode = extras.getIntegerArrayList(ModeThird.eventArray_);
                     int a;
                     if (t2 > t1) {
                         a = t2 - t1;
                     } else {
                         a = t1 - t2;
                     }
-                    if (stepEvent < event_limit() + a) {
+                    if (stepEvent < eventMode.size() + a) {
                         randomEvent = callRandomEvent2();
                         mathAll();
                         setCurveGraph(stepEvent, randomEvent);
@@ -162,8 +165,10 @@ public class CurveGraphActivity extends Activity {
         Bundle extras = getIntent().getExtras();
         ArrayList<Integer> event_mode = new ArrayList<>();
         int tm = 0;
+
         if (extras.getIntegerArrayList(ModeSecond.eventArray_) != null) {
             event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
+
         } else if (extras.getIntegerArrayList(ModeThird.eventArray_) != null)
             event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
 
@@ -172,7 +177,7 @@ public class CurveGraphActivity extends Activity {
         for (int ia = 0; ia < eventArray.length; ia++) {//находим кол-во элементов массива (события)
             tm++;
         }
-        return tm;
+        return event_mode.size();
     }
 
     private void writeFileSD() {
@@ -268,6 +273,8 @@ public class CurveGraphActivity extends Activity {
                 writeFileSD();
                 Toast.makeText(getApplicationContext(), " Report of modeling created successfully", Toast.LENGTH_SHORT).show();
                 return true;
+            default:
+                Toast.makeText(getApplicationContext(), " Need development ", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
@@ -373,7 +380,7 @@ public class CurveGraphActivity extends Activity {
         double p = 0.473 * (BD / tKelvin);// плотность
         Integer V = a * b * c_height;//обьем
         double m = p * V; //масса воздуха
-        if (modeType.equals("First")) {
+        if ("First".equals(modeType)) {
             t_street_random_array.add(-1 + (int) (Math.random() * ((2) + 1)));
             tStreetReal += t_street_random_array.get(tm);
             tStreet.add(tStreetReal + t_street);
@@ -400,7 +407,7 @@ public class CurveGraphActivity extends Activity {
             tv6.setText("");
             tvSet6.setText("");
             RandomHome.add(null);
-        } else if (modeType.equals("Second")) {
+        } else if ("Second".equals(modeType)) {
             if (eventMod.get(tm - countModeFirst) == 0) {//изменение на улице
                 t_street_random_array.add(callRandomEvent2());
                 tStreetReal += t_street_random_array.get(tm);
@@ -521,7 +528,7 @@ public class CurveGraphActivity extends Activity {
         int tm = 0;//размерность массива
         int t1add = t1;
         float[] graphT = {};
-        if (type.equals("up")) {
+        if ("up".equals(type)) {
             for (int ia = 0; t1add <= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
                 tm++;
                 t1add++;
@@ -533,7 +540,7 @@ public class CurveGraphActivity extends Activity {
                 t1++;
                 if (ia > stepEvent) break;
             }
-        } else if (type.equals("down")) {
+        } else if ("down".equals(type)) {
             for (int ia = 0; t1add >= t2; ia++) {//находим кол-во элементов массива который необходимо нарисовать
                 tm++;
                 t1add--;
@@ -552,11 +559,11 @@ public class CurveGraphActivity extends Activity {
     private float[] graphSupport(int random_event, String type) {
         Bundle extras = getIntent().getExtras();
         int t_support = 0;
-        if (type.equals("SecondMode")) {
+        if ("SecondMode".equals(type)) {
             t_support = Integer.valueOf(extras.getString(ModeSecond.t_support));
             if (stepEvent == 0)
                 eventSupport.add(t_support);// write graph start in t_support
-        } else if (type.equals(("ThirdMode"))) {
+        } else if ("ThirdMode".equals((type))) {
             t_support = Integer.valueOf(extras.getString(ModeThird.t2_support));
         }
         eventSupport.add(t_support + random_event);
