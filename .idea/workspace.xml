@@ -75,18 +75,24 @@
       <file leaf-file-name="CurveGraphActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.5323591">
-              <caret line="168" column="73" selection-start-line="168" selection-start-column="73" selection-end-line="168" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.36738703">
+              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding>
                 <element signature="method#callRandomEvent2#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#writeFileSD#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#writeFileSDFirst#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#9433#9448#0" expanded="false" />
+                <element signature="e#8616#8631#0" expanded="false" />
+                <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#setCurveGraph#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#12390#12407#0" expanded="false" />
+                <element signature="e#11573#11590#0" expanded="false" />
                 <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#12710#12732#0" expanded="false" />
-                <element signature="e#13284#13299#0" expanded="false" />
-                <element signature="method#mathAll#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="e#11893#11915#0" expanded="false" />
+                <element signature="e#12467#12482#0" expanded="false" />
+                <element signature="method#axisAll#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#graphAll#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#graphFirst#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#graphSupport#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#graphThird#0;class#CurveGraphActivity#0" expanded="false" />
               </folding>
             </state>
@@ -2757,8 +2763,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938388" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3992891" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938388" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3992891" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32938388" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938388" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938388" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938388" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3223,18 +3229,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5323591">
-          <caret line="168" column="73" selection-start-line="168" selection-start-column="73" selection-end-line="168" selection-end-column="73" />
+        <state vertical-scroll-proportion="0.36738703">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="method#callRandomEvent2#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#writeFileSD#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#writeFileSDFirst#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#9433#9448#0" expanded="false" />
+            <element signature="e#8616#8631#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#setCurveGraph#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#12390#12407#0" expanded="false" />
+            <element signature="e#11573#11590#0" expanded="false" />
             <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#12710#12732#0" expanded="false" />
-            <element signature="e#13284#13299#0" expanded="false" />
-            <element signature="method#mathAll#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#11893#11915#0" expanded="false" />
+            <element signature="e#12467#12482#0" expanded="false" />
+            <element signature="method#axisAll#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphAll#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphFirst#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphSupport#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#graphThird#0;class#CurveGraphActivity#0" expanded="false" />
           </folding>
         </state>

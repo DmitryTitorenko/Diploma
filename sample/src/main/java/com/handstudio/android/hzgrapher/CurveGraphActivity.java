@@ -42,9 +42,6 @@ public class CurveGraphActivity extends Activity {
     private TextView tv6;
     private TextView tvSet6;
 
-
-    private int stepEvent = 0;//счетчик событий
-    private int tm = 0;//Модельное время
     private final ArrayList<Integer> eventSupport = new ArrayList<>();//Count event in support mode
     private final ArrayList<Double> Q = new ArrayList<>();// количество теплоты/холода, которое необходимо для нагревания/охлаждения
     private final ArrayList<Double> time = new ArrayList<>();//время, которое необходимо для нагревания Q на один градус
@@ -59,7 +56,8 @@ public class CurveGraphActivity extends Activity {
     private int tStreetReal = 0;//текущая температура на улице для 2го режима
     private int countModeFirst = 0;//количество событий в режиме 1
     private int randomEvent;//случайное событие
-
+    private int stepEvent = 0;//счетчик событий
+    private int tm = 0;//Модельное время
 
     private int callRandomEvent1() {
         return -1 + (int) (Math.random() * ((2) + 1));
@@ -159,25 +157,6 @@ public class CurveGraphActivity extends Activity {
                 stepEvent++;
             }
         });
-    }
-
-    private int event_limit() {// метод для нахождения количества событий
-        Bundle extras = getIntent().getExtras();
-        ArrayList<Integer> event_mode = new ArrayList<>();
-        int tm = 0;
-
-        if (extras.getIntegerArrayList(ModeSecond.eventArray_) != null) {
-            event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
-
-        } else if (extras.getIntegerArrayList(ModeThird.eventArray_) != null)
-            event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
-
-        Integer[] eventArray = new Integer[event_mode.size()];//convert ArrayList to Integer[]
-        event_mode.toArray(eventArray);
-        for (int ia = 0; ia < eventArray.length; ia++) {//находим кол-во элементов массива (события)
-            tm++;
-        }
-        return event_mode.size();
     }
 
     private void writeFileSD() {
@@ -381,7 +360,7 @@ public class CurveGraphActivity extends Activity {
         Integer V = a * b * c_height;//обьем
         double m = p * V; //масса воздуха
         if ("First".equals(modeType)) {
-            t_street_random_array.add(-1 + (int) (Math.random() * ((2) + 1)));
+            t_street_random_array.add(callRandomEvent1());
             tStreetReal += t_street_random_array.get(tm);
             tStreet.add(tStreetReal + t_street);
             Q.add(m * c * 1000);//домножаем на 1000 т.к. нужно перевести кДж в Дж
@@ -427,7 +406,7 @@ public class CurveGraphActivity extends Activity {
                 tv6.setText("");
                 tvSet6.setText("");
             } else {
-                t_street_random_array.add(-1 + (int) (Math.random() * ((2) + 1)));
+                t_street_random_array.add(callRandomEvent1());
                 tStreetReal += t_street_random_array.get(tm);
                 tStreet.add(tStreetReal + t_street);
                 RandomHome.add(callRandomEvent2());
