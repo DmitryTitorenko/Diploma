@@ -32,32 +32,15 @@
     <list default="true" id="7d928820-b5c5-40c8-a913-5eb52aab4756" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity$1.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/CurveGraphActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/ModeFirst.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/ModeFirst.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/ModeSecond.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/ModeSecond.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/ModeThird.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/ModeThird.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$id.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapherlib/R$id.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapherlib/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$layout.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$menu.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$string.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$style.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/SelectMode.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/SelectMode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/V.class" afterPath="$PROJECT_DIR$/sample/build/intermediates/classes/debug/com/handstudio/android/hzgrapher/V.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" afterPath="$PROJECT_DIR$/sample/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/debug_3a18b90102d8b9292e75516aa95e4c57d5ed0ef4.jar" afterPath="$PROJECT_DIR$/sample/build/intermediates/pre-dexed/debug/debug_3a18b90102d8b9292e75516aa95e4c57d5ed0ef4.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug-unaligned.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" afterPath="$PROJECT_DIR$/sample/build/outputs/apk/sample-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/generated/source/r/debug/com/handstudio/android/hzgrapher/R.java" afterPath="$PROJECT_DIR$/sample/build/generated/source/r/debug/com/handstudio/android/hzgrapher/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/generated/source/r/debug/com/handstudio/android/hzgrapherlib/R.java" afterPath="$PROJECT_DIR$/sample/build/generated/source/r/debug/com/handstudio/android/hzgrapherlib/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/sample/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/layout/activity_graph.xml" afterPath="$PROJECT_DIR$/sample/build/intermediates/res/merged/debug/layout/activity_graph.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/activity_graph.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diploma.iws" />
@@ -91,14 +74,21 @@
       <file leaf-file-name="CurveGraphActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64869887">
-              <caret line="562" column="75" selection-start-line="562" selection-start-column="75" selection-end-line="562" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.81040895">
+              <caret line="617" column="1" selection-start-line="617" selection-start-column="1" selection-end-line="617" selection-end-column="1" />
               <folding>
-                <element signature="method#onCreate#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#callRandomEvent2#0;class#CurveGraphActivity#0" expanded="false" />
                 <element signature="method#event_limit#0;class#CurveGraphActivity#0" expanded="false" />
-                <element signature="e#19065#19082#0" expanded="false" />
-                <element signature="e#19385#19407#0" expanded="false" />
-                <element signature="e#19959#19974#0" expanded="false" />
+                <element signature="method#writeFileSDFirst#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#setCurveGraph#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="e#11890#11907#0" expanded="false" />
+                <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="e#12210#12232#0" expanded="false" />
+                <element signature="e#12784#12799#0" expanded="false" />
+                <element signature="method#mathsThird#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#axisAll#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#graphFirst#0;class#CurveGraphActivity#0" expanded="false" />
+                <element signature="method#graphSupport#0;class#CurveGraphActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2702,7 +2692,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3123,14 +3113,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/handstudio/android/hzgrapher/CurveGraphActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64869887">
-          <caret line="562" column="75" selection-start-line="562" selection-start-column="75" selection-end-line="562" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.81040895">
+          <caret line="617" column="1" selection-start-line="617" selection-start-column="1" selection-end-line="617" selection-end-column="1" />
           <folding>
-            <element signature="method#onCreate#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#callRandomEvent2#0;class#CurveGraphActivity#0" expanded="false" />
             <element signature="method#event_limit#0;class#CurveGraphActivity#0" expanded="false" />
-            <element signature="e#19065#19082#0" expanded="false" />
-            <element signature="e#19385#19407#0" expanded="false" />
-            <element signature="e#19959#19974#0" expanded="false" />
+            <element signature="method#writeFileSDFirst#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#setCurveGraph#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#11890#11907#0" expanded="false" />
+            <element signature="method#makeCurveGraphAllSetting#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="e#12210#12232#0" expanded="false" />
+            <element signature="e#12784#12799#0" expanded="false" />
+            <element signature="method#mathsThird#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#axisAll#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphFirst#0;class#CurveGraphActivity#0" expanded="false" />
+            <element signature="method#graphSupport#0;class#CurveGraphActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

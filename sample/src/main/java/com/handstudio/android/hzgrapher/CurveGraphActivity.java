@@ -53,7 +53,6 @@ public class CurveGraphActivity extends Activity {
     ArrayList<Integer> eventSupport = new ArrayList<>();//Count event in support mode
     int modelTimeThirdMode = 0;//модельное время для третьего режима
     float graphFirstMod[] = {0};//массив с значениями температуры первого режима для ее поддержки в 3м режиме
-    ArrayList<Integer> CountAllEvent = new ArrayList<>();//массив с значениеями температуры для третьего режима
 
     int tm = 0;//Модельное время
     ArrayList<Double> Q = new ArrayList<>();// количество теплоты/холода, которое необходимо для нагревания/охлаждения
@@ -64,11 +63,13 @@ public class CurveGraphActivity extends Activity {
     ArrayList<Integer> graphT = new ArrayList<>();       //Хранятся данные о температуре на заданом шаге 1й режим
     ArrayList<Integer> t_street_random_array = new ArrayList<>();//случайная темпераутура на улице для 1го режима и так же в доме для 2го
     ArrayList<Integer> tStreet = new ArrayList<>();// температура на улице для 1го режима
+    ArrayList<Integer> HomeTemp = new ArrayList<>();//температура в доме для 1го режима
 
     ArrayList<Integer> eventMod = new ArrayList<>();//события - изменения температуры на улице или в доме
     int tStreetReal = 0;//текущая температура на улице для 2го режима
     ArrayList<Integer> RandomHome = new ArrayList<>();//изменение температуры в доме
     int countModeFirst=0;//количество событий в режиме 1
+    int randomEvent;//случайное событие
 
 
     public int callRandomEvent1() {
@@ -83,7 +84,6 @@ public class CurveGraphActivity extends Activity {
         return a;
     }
 
-    int randomEvent;//случайное событие
 
     @Override
     protected void onCreate(Bundle savedInstanceState) throws NumberFormatException {
@@ -101,10 +101,7 @@ public class CurveGraphActivity extends Activity {
         tvSet5 = (TextView) findViewById(R.id.tvSet5);
         tv6 = (TextView) findViewById(R.id.tv6);
         tvSet6 = (TextView) findViewById(R.id.tvSet6);
-
-
         btn_event = (Button) findViewById(R.id.btn_event);
-
 
         //отрисовка при запуске Activity
         randomEvent = callRandomEvent2();
@@ -191,194 +188,10 @@ public class CurveGraphActivity extends Activity {
 
     void writeFileSD() {
         Bundle extras = getIntent().getExtras();
-        Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-        Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
-        if (t1 < t2) {
-            writeFileSD_plus();
-        } else if (t1 > t2) {
-            writeFileSD_minus();
-        }
+        if (Integer.valueOf(extras.getString(ModeFirst.t1))!=0);
+        writeFileSDFirst();
     }
-
-    void writeFileSD_plus() {
-
-        Bundle extras = getIntent().getExtras();
-
-        Float BD = Float.valueOf(extras.getString(ModeFirst.p));
-        Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeFirst.t1));//дополнительная переменная для цикла
-        Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
-        Float c = Float.valueOf(extras.getString(ModeFirst.c));
-        Float N_heat_productivity = Float.valueOf(extras.getString(ModeFirst.n));
-        Integer a = Integer.valueOf(extras.getString(ModeFirst.a));
-        Integer b = Integer.valueOf(extras.getString(ModeFirst.b));
-        Integer c_height = Integer.valueOf(extras.getString(ModeFirst.c_height));
-
-        Integer t_street = Integer.valueOf(extras.getString(ModeFirst.t_street));
-        Float nn = Float.valueOf(extras.getString(ModeFirst.nn));
-        Float R0 = Float.valueOf(extras.getString(ModeFirst.R0));
-        Float B = Float.valueOf(extras.getString(ModeFirst.B));
-
-
-        Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
-
-        Integer v = a * b * c_height;//обьем
-
-        int maxValue = 20;//max температура
-        int tm = 0;//Модельное время, так же используется для создания массивов
-        float Nr;//реальноя производительность кондиционера
-        float F = a * b;//площадь
-
-        //	if (t1<t2){// для поднятия температуры
-        for (int i = 0; t1add < t2; i++) {//находим кол-во элементов массива который необходимо нарисовать
-            tm++;
-            t1add++;
-        }
-        float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-        int[] axis = new int[tm];// отсчет для оси х
-        double[] Q = new double[tm];// количество теплоты/холода, которое необходимо для нагревания/охлаждения
-        double[] time = new double[tm]; //время, которое необходимо для нагревания Q на один градус
-        double[] Nr_oll = new double[tm];//реальная производительность кондиционера
-        double[] Q_heat_loss = new double[tm];//массив с теплопотерями
-        double[] t_street_random_array = new double[tm];//массив с случайной температурой на улице
-
-        for (int i = 0; t1 < t2; i++) {
-            graphT[i] = t1;
-            axis[i] = i;
-            double tKelvin = t1 + 273.15;// температура в Кельвинах
-            double p = 0.473 * (BD / tKelvin);// плотность
-            double m = p * v; //масса воздуха
-
-            Q[i] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
-
-            int t_street_random = -1 + (int) (Math.random() * ((2) + 1));
-            t_street += t_street_random;
-            t_street_random_array[i] = t_street_random;
-            q = Float.valueOf(F * (t1 - t_street) * (1 + B) * nn / R0);
-            Q_heat_loss[i] = q;
-            Nr = N_heat_productivity - q;
-            Nr_oll[i] = Nr;
-            time[i] = Q[i] / Nr;
-            t1++;
-        }
-        // проверяем доступность SD
-        if (!Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED)) {
-            return;
-        }
-        // получаем путь к SD
-        File sdPath = Environment.getExternalStorageDirectory();
-        // добавляем свой каталог к пути
-        sdPath = new File(sdPath.getAbsolutePath() + "/" + DIR_SD);
-        // создаем каталог
-        sdPath.mkdirs();
-        // формируем объект File, который содержит путь к файлу
-        File sdFile = new File(sdPath, FILENAME_SD);
-        try {
-            // открываем поток для записи
-            BufferedWriter bw = new BufferedWriter(new FileWriter(sdFile));
-            // пишем данные
-            // попытка записать в цикле данные с массива (тест)
-            bw.write(" температура на заданном шаге : ");
-            for (float element : graphT) {
-                bw.write(" " + element);
-            }
-
-            bw.write(" количество холода, которое необходимо для нагревания: ");
-            for (double element2 : Q) {
-                bw.write(" " + element2);
-            }
-            bw.write(" время, которое необходимо для нагревания Q на один градус: ");
-            for (double element3 : time) {
-                bw.write(" " + element3);
-            }
-            bw.write(" модельное время: " + tm);
-            bw.write(" реальная производительность кондиционера на обогрев ");
-            for (double element4 : Nr_oll) {
-                bw.write(" " + element4);
-            }
-            bw.write(" теплопотери ");
-            for (double element5 : Q_heat_loss) {
-                bw.write(" " + element5);
-            }
-            bw.write(" изменение температуры на улице ");
-            for (double element6 : t_street_random_array) {
-                bw.write(" " + element6);
-            }
-
-            // закрываем поток
-            bw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    void writeFileSD_minus() {
-
-        Bundle extras = getIntent().getExtras();
-
-        Float BD = Float.valueOf(extras.getString(ModeFirst.p));
-        Integer t1 = Integer.valueOf(extras.getString(ModeFirst.t1));
-        Integer t1add = Integer.valueOf(extras.getString(ModeFirst.t1));//дополнительная переменная для цикла
-        Integer t2 = Integer.valueOf(extras.getString(ModeFirst.t2));
-        Float c = Float.valueOf(extras.getString(ModeFirst.c));
-        Float N_heat_productivity = Float.valueOf(extras.getString(ModeFirst.n));
-        Float N_loss_productivity = Float.valueOf(extras.getString(ModeFirst.n_loss));
-
-        Integer a = Integer.valueOf(extras.getString(ModeFirst.a));
-        Integer b = Integer.valueOf(extras.getString(ModeFirst.b));
-        Integer c_height = Integer.valueOf(extras.getString(ModeFirst.c_height));
-
-        Integer t_street = Integer.valueOf(extras.getString(ModeFirst.t_street));
-        Float nn = Float.valueOf(extras.getString(ModeFirst.nn));
-        Float R0 = Float.valueOf(extras.getString(ModeFirst.R0));
-        Float B = Float.valueOf(extras.getString(ModeFirst.B));
-
-
-        Float q;//Q_heat_loss=F(t1-t_street)*(1+∑B)*n/R0
-
-        Integer v = a * b * c_height;//обьем
-
-        int maxValue = 20;//max температура
-        int tm = 0;//Модельное время, так же используется для создания массивов
-        float Nr;//реальноя производительность кондиционера
-        float F = a * b;//площадь
-
-        for (int i = 0; t1add > t2; i++) {//находим кол-во элементов массива который необходимо нарисовать
-            tm++;
-            t1add--;
-        }
-        float[] graphT = new float[tm];//Хранятся данные о температуре на заданом шаге
-        int[] axis = new int[tm];// отсчет для оси х
-        double[] Q = new double[tm];// количество теплоты/холода, которое необходимо для нагревания/охлаждения
-        double[] time = new double[tm]; //время, которое необходимо для нагревания Q на один градус
-        double[] Nr_oll = new double[tm];//реальная производительность кондиционера
-        double[] Q_heat_loss = new double[tm];//массив с теплопотерями
-        double[] t_street_random_array = new double[tm];//массив с случайной температурой на улице
-
-
-        for (int i = 0; t1 > t2; i++) {
-            graphT[i] = t1;
-            axis[i] = i;
-            double tKelvin = t1 + 273.15;// температура в Кельвинах
-            double p = 0.473 * (BD / tKelvin);// плотность
-            double m = p * v; //масса воздуха
-
-            Q[i] = m * c * 1000;//домножаем на 1000 т.к. нужно перевести кДж в Дж
-            int t_street_random = -1 + (int) (Math.random() * ((2) + 1));
-            t_street += t_street_random;
-            t_street_random_array[i] = t_street_random;
-
-            q = Float.valueOf(F * (t1 - t_street) * (1 + B) * nn / R0);
-            Q_heat_loss[i] = q;
-
-            Nr = N_loss_productivity - q;
-            Nr_oll[i] = Nr;
-            time[i] = Q[i] / Nr;
-            t1--;
-        }
-
-
+    void writeFileSDFirst(){
         // проверяем доступность SD
         if (!Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {
@@ -399,22 +212,8 @@ public class CurveGraphActivity extends Activity {
             // пишем данные
             // попытка записать в цикле данные с массива (тест)
             bw.write(" температура на заданном шаге : ");
-            for (float element : graphT) {
+            for (float element : HomeTemp) {
                 bw.write(" " + element);
-            }
-
-            bw.write(" количество теплоты, которое необходимо для остывания: ");
-            for (double element2 : Q) {
-                bw.write(" " + element2);
-            }
-            bw.write(" время, которое необходимо для охлождения Q на один градус: ");
-            for (double element3 : time) {
-                bw.write(" " + element3);
-            }
-            bw.write(" модельное время: " + tm);
-            bw.write(" реальная производительность кондиционера на охлождение ");
-            for (double element4 : Nr_oll) {
-                bw.write(" " + element4);
             }
             bw.write(" теплопотери ");
             for (double element5 : Q_heat_loss) {
@@ -424,13 +223,46 @@ public class CurveGraphActivity extends Activity {
             for (double element6 : t_street_random_array) {
                 bw.write(" " + element6);
             }
+            bw.write(" температура на улице: ");
+            for (float element : tStreet) {
+                bw.write(" " + element);
+            }
             // закрываем поток
+            if (HomeTemp.get(0)>HomeTemp.get(1)){
+                bw.write(" количество теплоты, которое необходимо для остывания: ");
+                for (double element2 : Q) {
+                    bw.write(" " + element2);
+                }
+                bw.write(" время, которое необходимо для охлождения Q на один градус: ");
+                for (double element3 : time) {
+                    bw.write(" " + element3);
+                }
+                bw.write(" реальная производительность кондиционера на охлождение ");
+                for (double element4 : Nr_oll) {
+                    bw.write(" " + element4);
+                }
+            }
+            else {
+                bw.write(" количество теплоты, которое необходимо для обогрева: ");
+                for (double element2 : Q) {
+                    bw.write(" " + element2);
+                }
+                bw.write(" время, которое необходимо для обогрева Q на один градус: ");
+                for (double element3 : time) {
+                    bw.write(" " + element3);
+                }
+                bw.write(" реальная производительность кондиционера на обогрев ");
+                for (double element4 : Nr_oll) {
+                    bw.write(" " + element4);
+                }
+            }
+            bw.write(" модельное время: " + tm);
+
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -551,6 +383,7 @@ public class CurveGraphActivity extends Activity {
         Integer V = a * b * c_height;//обьем
         double m = p * V; //масса воздуха
         if (modeType.equals("First")) {
+
             t_street_random_array.add(-1 + (int) (Math.random() * ((2) + 1)));
             tStreetReal += t_street_random_array.get(tm);
             tStreet.add(tStreetReal + t_street);
@@ -560,13 +393,19 @@ public class CurveGraphActivity extends Activity {
             time.add(Q.get(tm) / Nr_oll.get(tm));
             if (t1 < t2) {
                 t1++;
+                HomeTemp.add(t1+tm);
                 tv4.setText("Час, котрий необхідний для обогріву на 1 градус, сек");
             } else if (t1 > t2) {
                 t1--;
+                HomeTemp.add(t1-tm);
                 tv4.setText("Час, котрий необхідний для охолодження на 1 градус, сек");
             }
             tv1.setText("Поточна температура");
-            tvSet1.setText("" + (t1 + tm));
+
+            //tvSet1.setText("" + (t1 + tm));
+            tvSet1.setText("" + HomeTemp.get(tm));
+
+
             tvSet2.setText("" + t_street_random_array.get(tm));
             tvSet3.setText("" + tStreet.get(tm));
             tvSet4.setText("" + time.get(tm));
