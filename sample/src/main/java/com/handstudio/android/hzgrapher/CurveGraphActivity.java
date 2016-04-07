@@ -28,55 +28,44 @@ import com.handstudio.android.hzgrapherlib.vo.curvegraph.CurveGraphVO;
 
 public class CurveGraphActivity extends Activity {
 
-    static final int REPORT = 100;
+    private static final int REPORT = 100;
     private ViewGroup layoutGraphView;
-    final String LOG_TAG = "myLogs";
 
-    final String DIR_SD = "Report of modeling";
-    final String FILENAME_SD = "Report.txt";
-
-    TextView tv1;
-    TextView tvSet1;
-    TextView tvSet2;
-    TextView tvSet3;
-    TextView tv4;
-    TextView tvSet4;
-    TextView tv5;
-    TextView tvSet5;
-    TextView tv6;
-    TextView tvSet6;
+    private TextView tv1;
+    private TextView tvSet1;
+    private TextView tvSet2;
+    private TextView tvSet3;
+    private TextView tv4;
+    private TextView tvSet4;
+    private TextView tv5;
+    private TextView tvSet5;
+    private TextView tv6;
+    private TextView tvSet6;
 
 
-    Button btn_event;
-
-    int stepEvent = 0;//счетчик событий
-    ArrayList<Integer> eventSupport = new ArrayList<>();//Count event in support mode
-    int modelTimeThirdMode = 0;//модельное время для третьего режима
-    float graphFirstMod[] = {0};//массив с значениями температуры первого режима для ее поддержки в 3м режиме
-
-    int tm = 0;//Модельное время
-    ArrayList<Double> Q = new ArrayList<>();// количество теплоты/холода, которое необходимо для нагревания/охлаждения
-    ArrayList<Double> time = new ArrayList<>();//время, которое необходимо для нагревания Q на один градус
-    ArrayList<Double> Nr_oll = new ArrayList<>();//реальная производительность кондиционера
-    ArrayList<Double> Q_heat_loss = new ArrayList<>();// теплопотери
-
-    ArrayList<Integer> graphT = new ArrayList<>();       //Хранятся данные о температуре на заданом шаге 1й режим
-    ArrayList<Integer> t_street_random_array = new ArrayList<>();//случайная темпераутура на улице для 1го режима и так же в доме для 2го
-    ArrayList<Integer> tStreet = new ArrayList<>();// температура на улице для 1го режима
-    ArrayList<Integer> HomeTemp = new ArrayList<>();//температура в доме для 1го режима
-
-    ArrayList<Integer> eventMod = new ArrayList<>();//события - изменения температуры на улице или в доме
-    int tStreetReal = 0;//текущая температура на улице для 2го режима
-    ArrayList<Integer> RandomHome = new ArrayList<>();//изменение температуры в доме
-    int countModeFirst=0;//количество событий в режиме 1
-    int randomEvent;//случайное событие
+    private int stepEvent = 0;//счетчик событий
+    private int tm = 0;//Модельное время
+    private final ArrayList<Integer> eventSupport = new ArrayList<>();//Count event in support mode
+    private final ArrayList<Double> Q = new ArrayList<>();// количество теплоты/холода, которое необходимо для нагревания/охлаждения
+    private final ArrayList<Double> time = new ArrayList<>();//время, которое необходимо для нагревания Q на один градус
+    private final ArrayList<Double> Nr_oll = new ArrayList<>();//реальная производительность кондиционера
+    private final ArrayList<Double> Q_heat_loss = new ArrayList<>();// теплопотери
+    private final ArrayList<Integer> graphT = new ArrayList<>();       //Хранятся данные о температуре на заданом шаге 1й режим
+    private final ArrayList<Integer> t_street_random_array = new ArrayList<>();//случайная темпераутура на улице для 1го режима и так же в доме для 2го
+    private final ArrayList<Integer> tStreet = new ArrayList<>();// температура на улице для 1го режима
+    private final ArrayList<Integer> HomeTemp = new ArrayList<>();//температура в доме для 1го режима
+    private final ArrayList<Integer> RandomHome = new ArrayList<>();//изменение температуры в доме
+    private ArrayList<Integer> eventMod = new ArrayList<>();//события - изменения температуры на улице или в доме
+    private int tStreetReal = 0;//текущая температура на улице для 2го режима
+    private int countModeFirst = 0;//количество событий в режиме 1
+    private int randomEvent;//случайное событие
 
 
-    public int callRandomEvent1() {
+    private int callRandomEvent1() {
         return -1 + (int) (Math.random() * ((2) + 1));
     }
 
-    public int callRandomEvent2() {//-1 или 1
+    private int callRandomEvent2() {//-1 или 1
         int a = (int) (Math.random() * 3) - 1;
         if (a == 0) {
             a = callRandomEvent2();
@@ -101,7 +90,7 @@ public class CurveGraphActivity extends Activity {
         tvSet5 = (TextView) findViewById(R.id.tvSet5);
         tv6 = (TextView) findViewById(R.id.tv6);
         tvSet6 = (TextView) findViewById(R.id.tvSet6);
-        btn_event = (Button) findViewById(R.id.btn_event);
+        Button btn_event = (Button) findViewById(R.id.btn_event);
 
         //отрисовка при запуске Activity
         randomEvent = callRandomEvent2();
@@ -169,7 +158,7 @@ public class CurveGraphActivity extends Activity {
         });
     }
 
-    public int event_limit() {// метод для нахождения количества событий
+    private int event_limit() {// метод для нахождения количества событий
         Bundle extras = getIntent().getExtras();
         ArrayList<Integer> event_mode = new ArrayList<>();
         int tm = 0;
@@ -186,25 +175,29 @@ public class CurveGraphActivity extends Activity {
         return tm;
     }
 
-    void writeFileSD() {
+    private void writeFileSD() {
         Bundle extras = getIntent().getExtras();
-        if (Integer.valueOf(extras.getString(ModeFirst.t1))!=0);
+        if (Integer.valueOf(extras.getString(ModeFirst.t1)) != 0) ;
         writeFileSDFirst();
     }
-    void writeFileSDFirst(){
+
+    private void writeFileSDFirst() {
         // проверяем доступность SD
         if (!Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {
+            String LOG_TAG = "myLogs";
             Log.d(LOG_TAG, "SD-карта не доступна: " + Environment.getExternalStorageState());
             return;
         }
         // получаем путь к SD
         File sdPath = Environment.getExternalStorageDirectory();
         // добавляем свой каталог к пути
+        String DIR_SD = "Report of modeling";
         sdPath = new File(sdPath.getAbsolutePath() + "/" + DIR_SD);
         // создаем каталог
         sdPath.mkdirs();
         // формируем объект File, который содержит путь к файлу
+        String FILENAME_SD = "Report.txt";
         File sdFile = new File(sdPath, FILENAME_SD);
         try {
             // открываем поток для записи
@@ -228,7 +221,7 @@ public class CurveGraphActivity extends Activity {
                 bw.write(" " + element);
             }
             // закрываем поток
-            if (HomeTemp.get(0)>HomeTemp.get(1)){
+            if (HomeTemp.get(0) > HomeTemp.get(1)) {
                 bw.write(" количество теплоты, которое необходимо для остывания: ");
                 for (double element2 : Q) {
                     bw.write(" " + element2);
@@ -241,8 +234,7 @@ public class CurveGraphActivity extends Activity {
                 for (double element4 : Nr_oll) {
                     bw.write(" " + element4);
                 }
-            }
-            else {
+            } else {
                 bw.write(" количество теплоты, которое необходимо для обогрева: ");
                 for (double element2 : Q) {
                     bw.write(" " + element2);
@@ -328,7 +320,7 @@ public class CurveGraphActivity extends Activity {
     }
 
 
-    public void mathAll() throws NumberFormatException {
+    private void mathAll() throws NumberFormatException {
         Bundle extras = getIntent().getExtras();
         try {
             try {
@@ -347,10 +339,10 @@ public class CurveGraphActivity extends Activity {
                     float B = Float.valueOf(extras.getString(ModeFirst.B));
                     if (t1 < t2) {
                         math(BD, t1, t2, c, N_heat_productivity,
-                                a, b, c_height, t_street, nn, R0, B, 0, null, "First");
+                                a, b, c_height, t_street, nn, R0, B, 0, "First");
                     } else if (t1 > t2) {
                         math(BD, t1, t2, c, N_heat_productivity,
-                                a, b, c_height, t_street, nn, R0, B, 0, null, "First");
+                                a, b, c_height, t_street, nn, R0, B, 0, "First");
                     }
                 }
             } catch (NumberFormatException e) {
@@ -366,9 +358,8 @@ public class CurveGraphActivity extends Activity {
                     float nn = Float.valueOf(extras.getString(ModeSecond.nn));
                     float R0 = Float.valueOf(extras.getString(ModeSecond.R0));
                     float B = Float.valueOf(extras.getString(ModeSecond.B));
-                    ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeSecond.eventArray_);
                     eventMod = extras.getIntegerArrayList(ModeSecond.eventArray_);
-                    math(BD, 0, 0, c, N_loss_productivity, a, b, c_height, t_street, nn, R0, B, t_support, event_mode, "Second");
+                    math(BD, 0, 0, c, N_loss_productivity, a, b, c_height, t_street, nn, R0, B, t_support, "Second");
                 }
             }
         } catch (NumberFormatException e) {
@@ -376,36 +367,31 @@ public class CurveGraphActivity extends Activity {
         }
     }
 
-    public void math(float BD, int t1, int t2, double c, double N_heat_productivity,
-                     int a, int b, int c_height, int t_street, double nn, double R0, double B, double t_support, ArrayList<Integer> event_mode, String modeType) {
+    private void math(float BD, int t1, int t2, double c, double N_heat_productivity,
+                      int a, int b, int c_height, int t_street, double nn, double R0, double B, double t_support, String modeType) {
         double tKelvin = t1 + 273.15;// температура в Кельвинах
         double p = 0.473 * (BD / tKelvin);// плотность
         Integer V = a * b * c_height;//обьем
         double m = p * V; //масса воздуха
         if (modeType.equals("First")) {
-
             t_street_random_array.add(-1 + (int) (Math.random() * ((2) + 1)));
             tStreetReal += t_street_random_array.get(tm);
             tStreet.add(tStreetReal + t_street);
             Q.add(m * c * 1000);//домножаем на 1000 т.к. нужно перевести кДж в Дж
-            Q_heat_loss.add(Double.valueOf(a * b * (t1 - tStreet.get(tm)) * (1 + B) * nn / R0));
+            Q_heat_loss.add(a * b * (t1 - tStreet.get(tm)) * (1 + B) * nn / R0);
             Nr_oll.add(N_heat_productivity - Q_heat_loss.get(tm));
             time.add(Q.get(tm) / Nr_oll.get(tm));
             if (t1 < t2) {
                 t1++;
-                HomeTemp.add(t1+tm);
+                HomeTemp.add(t1 + tm);
                 tv4.setText("Час, котрий необхідний для обогріву на 1 градус, сек");
             } else if (t1 > t2) {
                 t1--;
-                HomeTemp.add(t1-tm);
+                HomeTemp.add(t1 - tm);
                 tv4.setText("Час, котрий необхідний для охолодження на 1 градус, сек");
             }
             tv1.setText("Поточна температура");
-
-            //tvSet1.setText("" + (t1 + tm));
             tvSet1.setText("" + HomeTemp.get(tm));
-
-
             tvSet2.setText("" + t_street_random_array.get(tm));
             tvSet3.setText("" + tStreet.get(tm));
             tvSet4.setText("" + time.get(tm));
@@ -415,11 +401,11 @@ public class CurveGraphActivity extends Activity {
             tvSet6.setText("");
             RandomHome.add(null);
         } else if (modeType.equals("Second")) {
-            if (eventMod.get(tm-countModeFirst) == 0) {//изменение на улице
+            if (eventMod.get(tm - countModeFirst) == 0) {//изменение на улице
                 t_street_random_array.add(callRandomEvent2());
                 tStreetReal += t_street_random_array.get(tm);
                 tStreet.add(tStreetReal + t_street);
-                Q_heat_loss.add(Double.valueOf(a * b * (t1 - tStreet.get(tm)) * (1 + B) * nn / R0));
+                Q_heat_loss.add(a * b * (t1 - tStreet.get(tm)) * (1 + B) * nn / R0);
                 Q.add(null);//т.к. они не используются в этом режиме
                 time.add(null);
                 Nr_oll.add(null);
@@ -439,7 +425,7 @@ public class CurveGraphActivity extends Activity {
                 tStreet.add(tStreetReal + t_street);
                 RandomHome.add(callRandomEvent2());
                 Q.add(m * c * 1000);
-                Q_heat_loss.add(Double.valueOf(a * b * (t1 - tStreet.get(tm)) * (1 + B) * nn / R0));
+                Q_heat_loss.add(a * b * (t1 - tStreet.get(tm)) * (1 + B) * nn / R0);
                 Nr_oll.add(N_heat_productivity - Q_heat_loss.get(tm));
                 time.add(Q.get(tm) / Nr_oll.get(tm));
                 if (t1 < t2) {
@@ -464,7 +450,7 @@ public class CurveGraphActivity extends Activity {
         tm++;
     }
 
-    public void mathsThird() {
+    private void mathsThird() {
         Bundle extras = getIntent().getExtras();
         Float BD = Float.valueOf(extras.getString(ModeThird.p));
         Integer t1 = Integer.valueOf(extras.getString(ModeThird.t1));
@@ -478,8 +464,6 @@ public class CurveGraphActivity extends Activity {
         Float nn = Float.valueOf(extras.getString(ModeThird.nn));
         Float R0 = Float.valueOf(extras.getString(ModeThird.R0));
         Float B = Float.valueOf(extras.getString(ModeThird.B));
-        ArrayList<Integer> event_mode = extras.getIntegerArrayList(ModeThird.eventArray_);
-
         float aq;
         if (t1 > t2) {
             aq = t1 - t2;
@@ -488,21 +472,19 @@ public class CurveGraphActivity extends Activity {
         } else aq = 0;
         if (stepEvent + 1 <= aq) {              //проверка на события, если события==температуры, которую нужно достич, то переходим к режиму 2
             if (t1 > t2) {
-                math(BD, t1, t2, c, N_heat_productivity, a, b, c_height, t_street, nn, R0, B, 0, null, "First");
+                math(BD, t1, t2, c, N_heat_productivity, a, b, c_height, t_street, nn, R0, B, 0, "First");
                 countModeFirst++;
             } else {
-                math(BD, t1, t2, c, N_heat_productivity, a, b, c_height, t_street, nn, R0, B, 0, null, "First");
+                math(BD, t1, t2, c, N_heat_productivity, a, b, c_height, t_street, nn, R0, B, 0, "First");
                 countModeFirst++;
             }
             eventMod = extras.getIntegerArrayList(ModeThird.eventArray_);
-
         } else {
-            math(BD, 0, 0, c, N_heat_productivity, a, b, c_height, t_street, nn, R0, B, t2, event_mode, "Second");
+            math(BD, 0, 0, c, N_heat_productivity, a, b, c_height, t_street, nn, R0, B, t2, "Second");
         }
-        modelTimeThirdMode++;
     }
 
-    public int[] axisAll(int eventX) {// отсчет для оси х// in start events = 0;
+    private int[] axisAll(int eventX) {// отсчет для оси х// in start events = 0;
         int[] axis;
         axis = new int[eventX + 2];
         for (int i = 0; i < axis.length; i++) {
@@ -511,7 +493,7 @@ public class CurveGraphActivity extends Activity {
         return axis;
     }
 
-    public float[] graphAll(int randomEvent) throws NumberFormatException {
+    private float[] graphAll(int randomEvent) throws NumberFormatException {
         Bundle extras = getIntent().getExtras();
         float[] graphT = {0};
         try {
@@ -535,7 +517,7 @@ public class CurveGraphActivity extends Activity {
         return graphT;
     }
 
-    public float[] graphFirst(int t1, int t2, String type) {
+    private float[] graphFirst(int t1, int t2, String type) {
         int tm = 0;//размерность массива
         int t1add = t1;
         float[] graphT = {};
@@ -567,7 +549,7 @@ public class CurveGraphActivity extends Activity {
         return graphT;
     }
 
-    public float[] graphSupport(int random_event, String type) {
+    private float[] graphSupport(int random_event, String type) {
         Bundle extras = getIntent().getExtras();
         int t_support = 0;
         if (type.equals("SecondMode")) {
@@ -579,7 +561,7 @@ public class CurveGraphActivity extends Activity {
         }
         eventSupport.add(t_support + random_event);
         eventSupport.add(t_support);
-        float[] floatArray = new float[eventSupport.size()];//convert Arraylist<Float> to float[]
+        float[] floatArray = new float[eventSupport.size()];
         int i = 0;
         for (Integer f : eventSupport) {
             floatArray[i++] = f;
@@ -587,7 +569,7 @@ public class CurveGraphActivity extends Activity {
         return floatArray;
     }
 
-    public float[] graphThird(int randomEvent) {
+    private float[] graphThird(int randomEvent) {
         Bundle extras = getIntent().getExtras();
         Integer t1 = Integer.valueOf(extras.getString(ModeThird.t1));
         Integer t2 = Integer.valueOf(extras.getString(ModeThird.t2_support));
@@ -605,9 +587,9 @@ public class CurveGraphActivity extends Activity {
                     eventSupport.add(t1 + stepEvent + 1);
                 } else eventSupport.add(t1 + stepEvent + 1);
                 if (t1 > t2) {
-                    graphFirstMod = graphT = graphFirst(t1, t2, "down");
+                    graphT = graphFirst(t1, t2, "down");
                 } else {
-                    graphFirstMod = graphT = graphFirst(t1, t2, "up");
+                    graphT = graphFirst(t1, t2, "up");
                 }
             } else {
                 graphT = graphSupport(randomEvent, "ThirdMode");
