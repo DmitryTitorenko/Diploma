@@ -17,18 +17,21 @@ public class SelectMode extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_mode1:
-                Intent intent = new Intent(SelectMode.this, ModeFirst.class);
-                startActivity(intent);
+            case R.id.btnStartFirstMode:
+                Intent intentModeFirst = new Intent(SelectMode.this, ModeFirst.class);
+                startActivity(intentModeFirst);
                 break;
-            case R.id.btn_mode2:
-                Intent i = new Intent(SelectMode.this, ModeSecond.class);
-                startActivity(i);
+            case R.id.btnStartSeconMode:
+                Intent intentModeSecond = new Intent(SelectMode.this, ModeSecond.class);
+                startActivity(intentModeSecond);
                 break;
-            case R.id.btn_mode3:
-                Intent ii = new Intent(SelectMode.this, ModeThird.class);
-                startActivity(ii);
+            case R.id.btnStartThirdMode:
+                Intent intentModeThird = new Intent(SelectMode.this, ModeThird.class);
+                startActivity(intentModeThird);
                 break;
+            case R.id.btnStartSaveMode:
+                Intent intentSaveMode = new Intent(SelectMode.this, Saving.class);
+                startActivity(intentSaveMode);
         }
     }
 }

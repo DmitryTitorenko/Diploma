@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -48,6 +48,9 @@
         <activity
             android:name=".ModeThird"
             android:label="@string/title_activity_mode_third" >
+        </activity>
+        <activity android:name=".Saving">
+
         </activity>
     </application>
 

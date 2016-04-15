@@ -50,6 +50,8 @@
             android:name="com.handstudio.android.hzgrapher.ModeThird"
             android:label="@string/title_activity_mode_third" >
         </activity>
+        <activity android:name="com.handstudio.android.hzgrapher.Saving" >
+        </activity>
     </application>
 
 </manifest>

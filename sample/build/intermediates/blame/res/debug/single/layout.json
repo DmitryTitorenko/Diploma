@@ -4,8 +4,8 @@
         "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\mode_third.xml"
     },
     {
-        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\price.xml",
-        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\price.xml"
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\tariff.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\tariff.xml"
     },
     {
         "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\mode_first.xml",
@@ -26,6 +26,10 @@
     {
         "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\select_mode.xml",
         "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\select_mode.xml"
+    },
+    {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\saving.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\saving.xml"
     },
     {
         "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\mode_second.xml",
