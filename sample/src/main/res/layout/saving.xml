@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText" />
+            android:id="@+id/etSleepMax" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText2" />
+            android:id="@+id/etSleepMin" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText3" />
+            android:id="@+id/etWakeMax" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText4" />
+            android:id="@+id/etWakeMin" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText5" />
+            android:id="@+id/etStartSleep" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText6" />
+            android:id="@+id/etEndSleep" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText7" />
+            android:id="@+id/etStreetMax" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText8" />
+            android:id="@+id/etStreetMin" />
 
         <Button
             android:layout_width="wrap_content"
@@ -131,6 +131,51 @@
             android:id="@+id/btnAddTariff"
             android:layout_gravity="center_horizontal"
             android:onClick="onClick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Начало действия, час"
+            android:id="@+id/textView35" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/etStartTariff"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Конец действия, час"
+            android:id="@+id/textView36" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/etEndTariff"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Коп. за 1 кВт·час"
+            android:id="@+id/textView20" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/etPriceTariff"
+            android:layout_gravity="center_horizontal" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -154,6 +199,18 @@
             android:text="Start"
             android:id="@+id/button3"
             android:layout_gravity="center_horizontal" />
+
+
+        <ListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+            android:clickable="false"
+            android:fastScrollAlwaysVisible="false"
+            android:focusable="true"
+            android:footerDividersEnabled="false"
+            android:layout_gravity="top" />
+
 
     </LinearLayout>
 </ScrollView>
