@@ -18,7 +18,14 @@ ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.
 uses-sdk
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:7:5-9:41
 MERGED from [Diploma:library:unspecified] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:23.2.1] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:9:9-38
 		INJECTED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml
@@ -44,7 +51,12 @@ ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.
 application
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:18:5-55:19
 MERGED from [Diploma:library:unspecified] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\AndroidManifest.xml:11:5-16:19
-MERGED from [com.android.support:support-v4:23.2.1] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:21:9-41
 	android:allowBackup

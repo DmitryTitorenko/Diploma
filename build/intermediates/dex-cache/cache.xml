@@ -1,3 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_e8eca403853920a5cf337632bc591169fce107e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_a39df5d9a96bb31fb35fb6b5a639181757caa264.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_90ecba0b252e46c5399fc5e4dd0d79461f627b22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c0a2b00727f41b80508af198aea6a12eea4b3283">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\instant-run-bootstrap_7b99b7c0cb4b28050d74a0806979f4605f9cd5be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1be21547a6c257eed50649f8aa545152bef4d9c4">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\instant-run_29bd7c68361d86d74b4688cc0c288ed2a88f0022.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_1c0e1f45fe524218f488a0c1133a5318d3f186be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1be21547a6c257eed50649f8aa545152bef4d9c4">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\instant-run_29bd7c68361d86d74b4688cc0c288ed2a88f0022.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="22551e4dc88654a8fbdfba7203da97b57e77e62e">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\instant-run-bootstrap_7b99b7c0cb4b28050d74a0806979f4605f9cd5be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_6b2e9014a1435ee0455ddf8d15d6d4493164a371.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_f7d6797f856f4bbe4ccf79b554097cb7b93e2d5b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_de4d55c723fe5e3c3377122121605eb8aa4d32db.jar" />
+    </item>
+
+</items>

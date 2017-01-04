@@ -33,10 +33,10 @@ public class ModeThird extends FragmentActivity implements View.OnClickListener 
     private FragmentManager manager;
     private Fragment fragment;
 
-    private EditText et_p;
-    private EditText et_t1;
-    private EditText et_t2;
-    private EditText et_c;
+    private EditText et_p;//атмосферное давление
+    private EditText et_t1;//начальтая температура
+    private EditText et_t2;//конечная температура
+    private EditText et_c;//Удельная теплоёмкость
     private EditText et_n;//пеплопроизводительность
     private EditText et_a;//ширина
     private EditText et_b;//длина
@@ -47,7 +47,7 @@ public class ModeThird extends FragmentActivity implements View.OnClickListener 
     private EditText et_R0;//сопротивление теплопередачи
     private EditText et_B;//теплопотери дополнительные
 
-    private ArrayList<Integer> event_mode = new ArrayList<>(); //список событий
+    private ArrayList<Integer> event_mode = new ArrayList<Integer>(); //список событий
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

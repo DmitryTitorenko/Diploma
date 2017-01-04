@@ -5,4 +5,7 @@ package com.handstudio.android.hzgrapher;
  */
 
 public class MainAlgorithm {
+    public static void main(String[] args) {
+        System.out.println("go");
+    }
 }

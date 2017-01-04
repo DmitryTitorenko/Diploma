@@ -42,17 +42,17 @@ public class CurveGraphActivity extends Activity {
     private TextView tv6;
     private TextView tvSet6;
 
-    private final ArrayList<Integer> eventSupport = new ArrayList<>();//Count event in support mode
-    private final ArrayList<Double> Q = new ArrayList<>();// количество теплоты/холода, которое необходимо для нагревания/охлаждения
-    private final ArrayList<Double> time = new ArrayList<>();//время, которое необходимо для нагревания Q на один градус
-    private final ArrayList<Double> Nr_oll = new ArrayList<>();//реальная производительность кондиционера
-    private final ArrayList<Double> Q_heat_loss = new ArrayList<>();// теплопотери
-    private final ArrayList<Integer> graphT = new ArrayList<>();       //Хранятся данные о температуре на заданом шаге 1й режим
-    private final ArrayList<Integer> t_street_random_array = new ArrayList<>();//случайная темпераутура на улице для 1го режима и так же в доме для 2го
-    private final ArrayList<Integer> tStreet = new ArrayList<>();// температура на улице для 1го режима
-    private final ArrayList<Integer> HomeTemp = new ArrayList<>();//температура в доме для 1го режима
-    private final ArrayList<Integer> RandomHome = new ArrayList<>();//изменение температуры в доме
-    private ArrayList<Integer> eventMod = new ArrayList<>();//события - изменения температуры на улице или в доме
+    private final ArrayList<Integer> eventSupport = new ArrayList<Integer>();//Count event in support mode
+    private final ArrayList<Double> Q = new ArrayList<Double>();// количество теплоты/холода, которое необходимо для нагревания/охлаждения
+    private final ArrayList<Double> time = new ArrayList<Double>();//время, которое необходимо для нагревания Q на один градус
+    private final ArrayList<Double> Nr_oll = new ArrayList<Double>();//реальная производительность кондиционера
+    private final ArrayList<Double> Q_heat_loss = new ArrayList<Double>();// теплопотери
+    private final ArrayList<Integer> graphT = new ArrayList<Integer>();       //Хранятся данные о температуре на заданом шаге 1й режим
+    private final ArrayList<Integer> t_street_random_array = new ArrayList<Integer>();//случайная темпераутура на улице для 1го режима и так же в доме для 2го
+    private final ArrayList<Integer> tStreet = new ArrayList<Integer>();// температура на улице для 1го режима
+    private final ArrayList<Integer> HomeTemp = new ArrayList<Integer>();//температура в доме для 1го режима
+    private final ArrayList<Integer> RandomHome = new ArrayList<Integer>();//изменение температуры в доме
+    private ArrayList<Integer> eventMod = new ArrayList<Integer>();//события - изменения температуры на улице или в доме
     private int tStreetReal = 0;//текущая температура на улице для 2го режима
     private int countModeFirst = 0;//количество событий в режиме 1
     private int randomEvent;//случайное событие
@@ -354,17 +354,19 @@ public class CurveGraphActivity extends Activity {
     }
 
     private void math(float BD, int t1, int t2, double c, double N_heat_productivity,
-                      int a, int b, int c_height, int t_street, double nn, double R0, double B, double t_support, String modeType) {
-        double tKelvin = t1 + 273.15;// температура в Кельвинах
-        double p = 0.473 * (BD / tKelvin);// плотность
-        Integer V = a * b * c_height;//обьем
-        double m = p * V; //масса воздуха
-        if ("First".equals(modeType)) {
+                      int a, int b, int c_height, int t_street, double nn, double R0,
+                      double B, double t_support, String modeType) {
+        double tKelvin = t1 + 273.15;// перевод температуры в Кельвины
+        int V = a * b * c_height;//обьем               (2.3)
+        double p = 0.473 * (BD / tKelvin);// плотность (2.4)
+        double m = p * V; //масса воздуха              (2.5)
+
+        if ("First".equals(modeType)) {//First - режим доведения температуры до заданого уровня
             t_street_random_array.add(callRandomEvent1());
             tStreetReal += t_street_random_array.get(tm);
             tStreet.add(tStreetReal + t_street);
-            Q.add(m * c * 1000);//домножаем на 1000 т.к. нужно перевести кДж в Дж
-            Q_heat_loss.add(a * b * (t1 - tStreet.get(tm)) * (1 + B) * nn / R0);
+            Q.add(m * c * 1000);//домножаем на 1000 т.к. нужно перевести кДж в Дж (2.6)
+            Q_heat_loss.add(a * b * (t1 - tStreet.get(tm)) * (1 + B) * nn / R0);//(2.2)
             Nr_oll.add(N_heat_productivity - Q_heat_loss.get(tm));
             time.add(Q.get(tm) / Nr_oll.get(tm));
             if (t1 < t2) {
@@ -386,7 +388,8 @@ public class CurveGraphActivity extends Activity {
             tv6.setText("");
             tvSet6.setText("");
             RandomHome.add(null);
-        } else if ("Second".equals(modeType)) {
+
+        } else if ("Second".equals(modeType)) {//Second - режим поддержки температуры на заданом уровне
             if (eventMod.get(tm - countModeFirst) == 0) {//изменение на улице
                 t_street_random_array.add(callRandomEvent2());
                 tStreetReal += t_street_random_array.get(tm);

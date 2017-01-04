@@ -45,7 +45,7 @@ public class ModeSecond extends FragmentActivity implements View.OnClickListener
     private EditText et_R0;//сопротивление теплопередачи
     private EditText et_B;//теплопотери дополнительные
 
-    private ArrayList<Integer> event_mode = new ArrayList<>(); //список событий
+    private ArrayList<Integer> event_mode = new ArrayList<Integer>(); //список событий
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +125,6 @@ public class ModeSecond extends FragmentActivity implements View.OnClickListener
     }
 
     private void startActivity(Class<?> cls) {
-
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
         i.putExtra(t_support, et_t_support.getText().toString());
