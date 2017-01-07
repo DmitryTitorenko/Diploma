@@ -5,4 +5,15 @@ package com.handstudio.android.hzgrapher;
  */
 
 public class InactivityMode {
+
+    public void inactivityStart(String eventType) {
+        switch (eventType) {
+            case "HomeChangeT":
+                break;
+            case "StreetChangeT":
+                break;
+            default:
+                break;
+        }
+    }
 }

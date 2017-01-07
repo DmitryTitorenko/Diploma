@@ -51,6 +51,8 @@
         </activity>
         <activity android:name="com.handstudio.android.hzgrapher.Saving" >
         </activity>
+        <activity android:name="com.handstudio.android.hzgrapher.MainAlgorithm" >
+        </activity>
     </application>
 
 </manifest>
