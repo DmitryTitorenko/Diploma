@@ -97,20 +97,20 @@
             android:text="20" />
 
         <TextView
-            android:text="начальная T на улице, °C"
+            android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView14"
             android:layout_weight="0.10"
+            android:text="начальная T на улице, °C"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
         <EditText
+            android:id="@+id/etStreetOriginT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/etStreetOriginT"
             android:layout_weight="0.10"
+            android:ems="10"
+            android:inputType="number"
             android:text="" />
 
         <TextView
@@ -144,20 +144,20 @@
             android:text="" />
 
         <TextView
-            android:text="Вероятность удачи для распределения Бернулли"
+            android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView12"
             android:layout_weight="0.10"
+            android:text="Вероятность удачи для распределения Бернулли"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
         <EditText
+            android:id="@+id/etCountEventStreet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:layout_weight="0.10"
             android:ems="10"
-            android:id="@+id/etCountEventStreet"
-            android:layout_weight="0.10" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/textView30"
@@ -221,11 +221,6 @@
             android:ems="10"
             android:inputType="numberDecimal"
             android:text="800" />
-
-
-
-
-
 
 
         <TextView
@@ -410,50 +405,50 @@
             android:fastScrollAlwaysVisible="false"
             android:focusable="true"
             android:footerDividersEnabled="false"
-            android:scrollbars="horizontal"
             android:overScrollMode="always"
+            android:scrollbars="horizontal"
             android:visibility="visible" />
 
         <Button
-            android:text="Задать достижение температуры"
+            android:id="@+id/btnAddNewTemp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:id="@+id/btnAddNewTemp"
-            android:onClick="onClick"/>
+            android:onClick="onClick"
+            android:text="Задать достижение температуры" />
 
         <TextView
-            android:text="t,час"
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView7"
             android:layout_weight="0.10"
+            android:text="t,час"
             android:textAppearance="@android:style/TextAppearance.Holo.Large" />
 
         <EditText
+            android:id="@+id/etHomeTimeChangeT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/etHomeTimeChangeT"
             android:layout_weight="0.10"
+            android:ems="10"
+            android:inputType="number"
             android:text="3" />
 
         <TextView
-            android:text="T, °C"
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView3"
             android:layout_weight="0.10"
+            android:text="T, °C"
             android:textAppearance="@android:style/TextAppearance.Holo.Large" />
 
         <EditText
+            android:id="@+id/etHomeValueChangeT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/etHomeValueChangeT"
             android:layout_weight="0.10"
+            android:ems="10"
+            android:inputType="number"
             android:text="25" />
 
         <ListView
@@ -465,8 +460,8 @@
             android:fastScrollAlwaysVisible="false"
             android:focusable="true"
             android:footerDividersEnabled="false"
-            android:scrollbars="horizontal"
             android:overScrollMode="always"
+            android:scrollbars="horizontal"
             android:visibility="visible" />
 
         <Button
@@ -474,9 +469,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Start"
-            android:onClick="onClick"/>
-
+            android:onClick="onClick"
+            android:text="Start" />
 
     </LinearLayout>
 </ScrollView>

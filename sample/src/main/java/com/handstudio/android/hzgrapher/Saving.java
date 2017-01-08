@@ -17,6 +17,24 @@ import java.util.List;
  */
 public class Saving extends FragmentActivity implements View.OnClickListener {
 
+    public final static String startModeling = "startModeling";
+    public final static String endModeling = "endModeling";
+    public final static String homeOriginT = "homeOriginT";
+    public final static String homeMaxT = "homeMaxT";
+    public final static String homeMinT = "homeMinT";
+    public final static String wideRoom = "wideRoom";
+    public final static String lengthRoom = "lengthRoom";
+    public final static String heightRoom = "heightRoom";
+    public final static String atmospherePressureP = "AtmospherePressureP";
+    public final static String specificHeatC = "specificHeatC";
+    public final static String heatProductivityN = "heatProductivityN";
+    public final static String coolingProductivityN = "coolingProductivityN";
+    public final static String coefficientN = "coefficientN";
+    public final static String r0 = "r0";
+    public final static String heatLossExtraB = "heatLossExtraB";
+    public final static String homeTimeChangeT = "homeTimeChangeT";
+    public final static String homeValueChangeT = "homeValueChangeT";
+
 
     private EditText etStartModeling; //время начала моделирования
     private EditText etEndModeling; // время окончания моделирования
@@ -29,16 +47,16 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
     private EditText etStreetMinT;
     private EditText etCountStreetChange;
 
-    private EditText etWide;//ширина
-    private EditText etLength;//длина
-    private EditText etHeight;//высота
-    private EditText etP;//атмосферное давление
-    private EditText etC;//Удельная теплоёмкость
-    private EditText etN;//пеплопроизводительность
-    private EditText etNLoss;//холодопроизовдительность
-    private EditText etNn; //коэффицент
+    private EditText etWideRoom;//ширина
+    private EditText etLengthRoom;//длина
+    private EditText etHeightRoom;//высота
+    private EditText etAtmospherePressureP;//атмосферное давление
+    private EditText etSpecificHeatC;//Удельная теплоёмкость
+    private EditText etHeatProductivityN;//теплопроизводительность
+    private EditText etCoolingProductivityN;//холодопроизовдительность
+    private EditText etCoefficientN; //коэффицент
     private EditText etR0;//R0 коэффицент сопротивление теплопередачи
-    private EditText etBExtra;//теплопотери дополнительные
+    private EditText etHeatLossExtraB;//теплопотери дополнительные
 
     //tariff
     private EditText etStartTariff;
@@ -71,16 +89,16 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
         etHomeMaxT = (EditText) findViewById(R.id.etHomeMaxT);
         etHomeMinT = (EditText) findViewById(R.id.etHomeMinT);
 
-        etWide = (EditText) findViewById(R.id.et_wide);
-        etLength = (EditText) findViewById(R.id.et_length);
-        etHeight = (EditText) findViewById(R.id.et_height);
-        etP = (EditText) findViewById(R.id.et_p);
-        etC = (EditText) findViewById(R.id.et_c);
-        etN = (EditText) findViewById(R.id.et_n);
-        etNLoss = (EditText) findViewById(R.id.et_n_loss);
-        etNn = (EditText) findViewById(R.id.et_nn);
+        etWideRoom = (EditText) findViewById(R.id.et_wideRoom);
+        etLengthRoom = (EditText) findViewById(R.id.et_lengthRoom);
+        etHeightRoom = (EditText) findViewById(R.id.et_heightRoom);
+        etAtmospherePressureP = (EditText) findViewById(R.id.et_AtmospherePressureP);
+        etSpecificHeatC = (EditText) findViewById(R.id.et_SpecificHeatC);
+        etHeatProductivityN = (EditText) findViewById(R.id.et_HeatProductivityN);
+        etCoolingProductivityN = (EditText) findViewById(R.id.et_CoolingProductivityN);
+        etCoefficientN = (EditText) findViewById(R.id.et_CoefficientN);
         etR0 = (EditText) findViewById(R.id.et_R0);
-        etBExtra = (EditText) findViewById(R.id.et_B);
+        etHeatLossExtraB = (EditText) findViewById(R.id.et_HeatLossExtraB);
 
         /*
         etStartTariff = (EditText) findViewById(R.id.etStartTariff);
@@ -119,23 +137,23 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
 
     private void startActivity(Class<?> cls) {
         Intent i = new Intent(this, cls);
-        i.putExtra("startModeling", etStartModeling.getText().toString());
-        i.putExtra("endModeling", etEndModeling.getText().toString());
-        i.putExtra("homeOriginT", etHomeOriginT.getText().toString());
-        i.putExtra("homeMaxT", etHomeMaxT.getText().toString());
-        i.putExtra("homeMinT", etHomeMinT.getText().toString());
-        i.putExtra("wide", etWide.getText().toString());
-        i.putExtra("length", etLength.getText().toString());
-        i.putExtra("height", etHeight.getText().toString());
-        i.putExtra("p", etP.getText().toString());
-        i.putExtra("c", etC.getText().toString());
-        i.putExtra("n", etN.getText().toString());
-        i.putExtra("nLoss", etNLoss.getText().toString());
-        i.putExtra("nn", etNn.getText().toString());
-        i.putExtra("r0", etR0.getText().toString());
-        i.putExtra("nExtra", etBExtra.getText().toString());
-        i.putExtra("homeTimeChangeT", etHomeTimeChangeT.getText().toString());
-        i.putExtra("homeValueChangeT", etHomeValueChangeT.getText().toString());
+        i.putExtra(startModeling, etStartModeling.getText().toString());
+        i.putExtra(endModeling, etEndModeling.getText().toString());
+        i.putExtra(homeOriginT, etHomeOriginT.getText().toString());
+        i.putExtra(homeMaxT, etHomeMaxT.getText().toString());
+        i.putExtra(homeMinT, etHomeMinT.getText().toString());
+        i.putExtra(wideRoom, etWideRoom.getText().toString());
+        i.putExtra(lengthRoom, etLengthRoom.getText().toString());
+        i.putExtra(heightRoom, etHeightRoom.getText().toString());
+        i.putExtra(atmospherePressureP, etAtmospherePressureP.getText().toString());
+        i.putExtra(specificHeatC, etSpecificHeatC.getText().toString());
+        i.putExtra(heatProductivityN, etHeatProductivityN.getText().toString());
+        i.putExtra(coolingProductivityN, etCoolingProductivityN.getText().toString());
+        i.putExtra(coefficientN, etCoefficientN.getText().toString());
+        i.putExtra(r0, etR0.getText().toString());
+        i.putExtra(heatLossExtraB, etHeatLossExtraB.getText().toString());
+        i.putExtra(homeTimeChangeT, etHomeTimeChangeT.getText().toString());
+        i.putExtra(homeValueChangeT, etHomeValueChangeT.getText().toString());
         startActivity(i);
     }
 }
