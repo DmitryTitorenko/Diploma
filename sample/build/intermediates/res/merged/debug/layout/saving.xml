@@ -167,7 +167,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/et_wide"
+            android:id="@+id/et_wideRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -182,7 +182,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/et_length"
+            android:id="@+id/et_lengthRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -197,7 +197,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/et_height"
+            android:id="@+id/et_heightRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -215,7 +215,7 @@
 
 
         <EditText
-            android:id="@+id/et_p"
+            android:id="@+id/et_AtmospherePressureP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -231,7 +231,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/et_c"
+            android:id="@+id/et_SpecificHeatC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -248,7 +248,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/et_n"
+            android:id="@+id/et_HeatProductivityN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -263,7 +263,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/et_n_loss"
+            android:id="@+id/et_CoolingProductivityN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -279,7 +279,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/et_nn"
+            android:id="@+id/et_CoefficientN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -325,7 +325,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/et_B"
+            android:id="@+id/et_HeatLossExtraB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
