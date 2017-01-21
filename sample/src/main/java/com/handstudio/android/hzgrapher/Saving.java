@@ -34,6 +34,7 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
     public final static String heatLossExtraB = "heatLossExtraB";
     public final static String homeTimeChangeT = "homeTimeChangeT";
     public final static String homeValueChangeT = "homeValueChangeT";
+    public final static String streetOriginT="streetOriginT";
 
 
     private EditText etStartModeling; //время начала моделирования
@@ -109,6 +110,8 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
         etHomeTimeChangeT = (EditText) findViewById(R.id.etHomeTimeChangeT);
         etHomeValueChangeT = (EditText) findViewById(R.id.etHomeValueChangeT);
         //lvHomeChangeT = (ListView) findViewById(R.id.lvHomeChangeT);
+
+        etStreetOriginT =(EditText) findViewById(R.id.etStreetOriginT);
     }
 
     @Override
@@ -154,6 +157,7 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
         i.putExtra(heatLossExtraB, etHeatLossExtraB.getText().toString());
         i.putExtra(homeTimeChangeT, etHomeTimeChangeT.getText().toString());
         i.putExtra(homeValueChangeT, etHomeValueChangeT.getText().toString());
+        i.putExtra(streetOriginT, etStreetOriginT.getText().toString());
         startActivity(i);
     }
 }

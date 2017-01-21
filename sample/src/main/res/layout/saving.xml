@@ -111,7 +111,7 @@
             android:layout_weight="0.10"
             android:ems="10"
             android:inputType="number"
-            android:text="" />
+            android:text="20" />
 
         <TextView
             android:id="@+id/textView15"
