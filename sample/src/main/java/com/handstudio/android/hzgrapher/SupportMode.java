@@ -18,8 +18,8 @@ public class SupportMode {
      * @param time    during support mod;
      * @return float energy consumption .
      */
-    public static float energySupport(int a, int b, int homeT, int streetT, int B, int nn, int R0, int time) {
-        float energy = CalculationQHeatLoss.calculationQHeatLoss(a, b, homeT, streetT, B, nn, R0) * time;
+    public static double energySupport(int a, int b, int homeT, int streetT, int B, int nn, int R0, int time) {
+        double energy = CalculationQHeatLoss.calculationQHeatLoss(a, b, homeT, streetT, B, nn, R0) * time;
         return energy;
     }
 }
