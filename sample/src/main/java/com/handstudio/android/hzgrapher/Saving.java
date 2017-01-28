@@ -9,55 +9,37 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.handstudio.android.hzgrapherlib.vo.*;
+import com.handstudio.android.hzgrapherlib.vo.curvegraph.CurveGraph;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Grinw on 15.04.2016.
  */
-public class Saving extends FragmentActivity implements View.OnClickListener {
+public class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
 
-    public final static String startModeling = "startModeling";
-    public final static String endModeling = "endModeling";
-    public final static String homeOriginT = "homeOriginT";
-    public final static String homeMaxT = "homeMaxT";
-    public final static String homeMinT = "homeMinT";
-    public final static String wideRoom = "wideRoom";
-    public final static String lengthRoom = "lengthRoom";
-    public final static String heightRoom = "heightRoom";
-    public final static String atmospherePressureP = "AtmospherePressureP";
-    public final static String specificHeatC = "specificHeatC";
-    public final static String heatProductivityN = "heatProductivityN";
-    public final static String coolingProductivityN = "coolingProductivityN";
-    public final static String coefficientN = "coefficientN";
-    public final static String r0 = "r0";
-    public final static String heatLossExtraB = "heatLossExtraB";
-    public final static String homeTimeChangeT = "homeTimeChangeT";
-    public final static String homeValueChangeT = "homeValueChangeT";
-    public final static String streetOriginT="streetOriginT";
-
-
-    private EditText etStartModeling; //время начала моделирования
-    private EditText etEndModeling; // время окончания моделирования
-    private EditText etHomeOriginT;//Origin T at home
-    private EditText etHomeMaxT;
-    private EditText etHomeMinT;
-
-    private EditText etStreetOriginT; //Origin T at street
-    private EditText etStreetMaxT;
-    private EditText etStreetMinT;
-    private EditText etCountStreetChange;
-
-    private EditText etWideRoom;//ширина
-    private EditText etLengthRoom;//длина
-    private EditText etHeightRoom;//высота
-    private EditText etAtmospherePressureP;//атмосферное давление
-    private EditText etSpecificHeatC;//Удельная теплоёмкость
-    private EditText etHeatProductivityN;//теплопроизводительность
-    private EditText etCoolingProductivityN;//холодопроизовдительность
-    private EditText etCoefficientN; //коэффицент
-    private EditText etR0;//R0 коэффицент сопротивление теплопередачи
-    private EditText etHeatLossExtraB;//теплопотери дополнительные
+    private static EditText etStartModeling; //время начала моделирования
+    private static EditText etEndModeling; // время окончания моделирования
+    private static EditText etHomeOriginT;//Origin T at home
+    private static EditText etHomeMaxT;
+    private static EditText etHomeMinT;
+    private static EditText etStreetOriginT; //Origin T at street
+    private static EditText etStreetMaxT;
+    private static EditText etStreetMinT;
+    private static EditText etCountStreetChange;
+    private static EditText etWideRoom;//ширина
+    private static EditText etLengthRoom;//длина
+    private static EditText etHeightRoom;//высота
+    private static EditText etAtmospherePressureP;//атмосферное давление
+    private static EditText etSpecificHeatC;//Удельная теплоёмкость
+    private static EditText etHeatProductivityN;//теплопроизводительность
+    private static EditText etCoolingProductivityN;//холодопроизовдительность
+    private static EditText etCoefficientN; //коэффицент
+    private static EditText etR0;//R0 коэффицент сопротивление теплопередачи
+    private static EditText etHeatLossExtraB;//теплопотери дополнительные
 
     //tariff
     private EditText etStartTariff;
@@ -79,7 +61,6 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
     ArrayList<String> timeHomeChangeT = new ArrayList<String>();
     ArrayList<String> valueHomeChange = new ArrayList<String>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +70,7 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
         etHomeOriginT = (EditText) findViewById(R.id.etHomeOriginT);
         etHomeMaxT = (EditText) findViewById(R.id.etHomeMaxT);
         etHomeMinT = (EditText) findViewById(R.id.etHomeMinT);
-
+        etStreetOriginT = (EditText) findViewById(R.id.etStreetOriginT);
         etWideRoom = (EditText) findViewById(R.id.et_wideRoom);
         etLengthRoom = (EditText) findViewById(R.id.et_lengthRoom);
         etHeightRoom = (EditText) findViewById(R.id.et_heightRoom);
@@ -106,12 +87,12 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
         etEndTariff = (EditText) findViewById(R.id.etEndTariff);
         etPriceTariff = (EditText) findViewById(R.id.etPriceTariff);
         m_listview = (ListView) findViewById(R.id.listview);
-*/
+
+        */
         etHomeTimeChangeT = (EditText) findViewById(R.id.etHomeTimeChangeT);
         etHomeValueChangeT = (EditText) findViewById(R.id.etHomeValueChangeT);
-        //lvHomeChangeT = (ListView) findViewById(R.id.lvHomeChangeT);
 
-        etStreetOriginT =(EditText) findViewById(R.id.etStreetOriginT);
+        //lvHomeChangeT = (ListView) findViewById(R.id.lvHomeChangeT);
     }
 
     @Override
@@ -133,31 +114,33 @@ public class Saving extends FragmentActivity implements View.OnClickListener {
                 lvHomeChangeT.setAdapter(adapter1);
                 break;
             case R.id.btnStartSaving:
-                //Toast.makeText(getApplicationContext(),"go",Toast.LENGTH_LONG);
-                startActivity(MainAlgorithm.class);
+                MainAlgorithm mainAlgorithm = new MainAlgorithm(
+                        Integer.valueOf(etStartModeling.getText().toString()),
+                        Integer.valueOf(etEndModeling.getText().toString()),
+                        Integer.valueOf(etHomeOriginT.getText().toString()),
+                        Integer.valueOf(etHomeMaxT.getText().toString()),
+                        Integer.valueOf(etHomeMinT.getText().toString()),
+                        Integer.valueOf(etStreetOriginT.getText().toString()),
+                        Integer.valueOf(etWideRoom.getText().toString()),
+                        Integer.valueOf(etLengthRoom.getText().toString()),
+                        Integer.valueOf(etHeightRoom.getText().toString()),
+                        Double.valueOf(etAtmospherePressureP.getText().toString()),
+                        Double.valueOf(etSpecificHeatC.getText().toString()),
+                        Double.valueOf(etHeatProductivityN.getText().toString()),
+                        Double.valueOf(etCoolingProductivityN.getText().toString()),
+                        Double.valueOf(etCoefficientN.getText().toString()),
+                        Double.valueOf(etR0.getText().toString()),
+                        Double.valueOf(etHeatLossExtraB.getText().toString()),
+                        Integer.valueOf(etHomeTimeChangeT.getText().toString()),
+                        Integer.valueOf(etHomeValueChangeT.getText().toString()));
+                mainAlgorithm.mainAlgorithmBegin();
+                //myStartActivity(Graph.class, mainAlgorithm);
         }
     }
 
-    private void startActivity(Class<?> cls) {
+    private void myStartActivity(Class<?> cls, MainAlgorithm mainAlgorithm) {
         Intent i = new Intent(this, cls);
-        i.putExtra(startModeling, etStartModeling.getText().toString());
-        i.putExtra(endModeling, etEndModeling.getText().toString());
-        i.putExtra(homeOriginT, etHomeOriginT.getText().toString());
-        i.putExtra(homeMaxT, etHomeMaxT.getText().toString());
-        i.putExtra(homeMinT, etHomeMinT.getText().toString());
-        i.putExtra(wideRoom, etWideRoom.getText().toString());
-        i.putExtra(lengthRoom, etLengthRoom.getText().toString());
-        i.putExtra(heightRoom, etHeightRoom.getText().toString());
-        i.putExtra(atmospherePressureP, etAtmospherePressureP.getText().toString());
-        i.putExtra(specificHeatC, etSpecificHeatC.getText().toString());
-        i.putExtra(heatProductivityN, etHeatProductivityN.getText().toString());
-        i.putExtra(coolingProductivityN, etCoolingProductivityN.getText().toString());
-        i.putExtra(coefficientN, etCoefficientN.getText().toString());
-        i.putExtra(r0, etR0.getText().toString());
-        i.putExtra(heatLossExtraB, etHeatLossExtraB.getText().toString());
-        i.putExtra(homeTimeChangeT, etHomeTimeChangeT.getText().toString());
-        i.putExtra(homeValueChangeT, etHomeValueChangeT.getText().toString());
-        i.putExtra(streetOriginT, etStreetOriginT.getText().toString());
+        i.putExtra("Data", mainAlgorithm);
         startActivity(i);
     }
 }

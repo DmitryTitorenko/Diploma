@@ -28,4 +28,5 @@
     <string name="title_activity_mode_second">Mode second</string>
     <string name="btnAdd">+</string>
     <string name="title_activity_mode_third">Mode third</string>
+    <string name="title_activity_graph">Graph</string>
 </resources>

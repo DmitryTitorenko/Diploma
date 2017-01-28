@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.handstudio.android.hzgrapher"
     android:versionCode="1"
-    android:versionName="1.0.0" >
+    android:versionName="1.0.0">
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -19,40 +19,36 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".CurveGraphActivity"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".SelectMode"
-            android:label="@string/title_activity_select_mode" >
+            android:label="@string/title_activity_select_mode"></activity>
+        <activity
+            android:name=".ModeFirst"
+            android:label="@string/title_activity_mode_first"></activity>
+        <activity
+            android:name=".V"
+            android:label="@string/title_activity_v"></activity>
+        <activity
+            android:name=".ModeSecond"
+            android:label="@string/title_activity_mode_second"></activity>
+        <activity
+            android:name=".ModeThird"
+            android:label="@string/title_activity_mode_third"></activity>
+        <activity android:name=".Saving">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainAlgorithm"></activity>
         <activity
-            android:name=".ModeFirst"
-            android:label="@string/title_activity_mode_first" >
-        </activity>
-        <activity
-            android:name=".V"
-            android:label="@string/title_activity_v" >
-        </activity>
-        <activity
-            android:name=".ModeSecond"
-            android:label="@string/title_activity_mode_second" >
-        </activity>
-        <activity
-            android:name=".ModeThird"
-            android:label="@string/title_activity_mode_third" >
-        </activity>
-        <activity android:name=".Saving">
-        </activity>
-        <activity android:name=".MainAlgorithm">
-        </activity>
+            android:name=".Graph"
+            android:label="@string/title_activity_graph"></activity>
     </application>
 
 </manifest>

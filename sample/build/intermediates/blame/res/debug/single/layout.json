@@ -4,6 +4,10 @@
         "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\mode_third.xml"
     },
     {
+        "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_graph2.xml",
+        "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\activity_graph2.xml"
+    },
+    {
         "merged": "D:\\Android_developer\\Project\\Diploma\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\mode_first.xml",
         "source": "D:\\Android_developer\\Project\\Diploma\\sample\\src\\main\\res\\layout\\mode_first.xml"
     },

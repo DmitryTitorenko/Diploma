@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:2:1-58:12
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:2:1-54:12
 	package
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:3:5-47
 		INJECTED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml
@@ -49,7 +49,7 @@ ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.
 	android:name
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:15:9-64
 application
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:18:5-56:19
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:18:5-52:19
 MERGED from [Diploma:library:unspecified] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\AndroidManifest.xml:11:5-16:19
 MERGED from [com.android.support:support-v4:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:25.1.0] D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\AndroidManifest.xml:25:5-20
@@ -66,56 +66,62 @@ MERGED from [com.android.support:support-compat:25.1.0] D:\Android_developer\Pro
 	android:theme
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:22:9-40
 activity#com.handstudio.android.hzgrapher.CurveGraphActivity
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:23:9-26:20
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:23:9-25:57
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:25:13-45
 	android:name
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:24:13-47
 activity#com.handstudio.android.hzgrapher.SelectMode
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:27:9-35:20
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:26:9-28:75
 	android:label
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:29:13-63
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:28:13-63
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:28:13-39
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:30:13-34:29
-action#android.intent.action.MAIN
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:31:17-69
-	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:31:25-66
-category#android.intent.category.LAUNCHER
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:33:17-77
-	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:33:27-74
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:27:13-39
 activity#com.handstudio.android.hzgrapher.ModeFirst
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:36:9-39:20
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:29:9-31:74
 	android:label
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:38:13-62
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:31:13-62
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:37:13-38
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:30:13-38
 activity#com.handstudio.android.hzgrapher.V
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:40:9-43:20
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:32:9-34:65
 	android:label
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:42:13-53
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:34:13-53
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:41:13-30
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:33:13-30
 activity#com.handstudio.android.hzgrapher.ModeSecond
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:44:9-47:20
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:35:9-37:75
 	android:label
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:46:13-63
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:37:13-63
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:45:13-39
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:36:13-39
 activity#com.handstudio.android.hzgrapher.ModeThird
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:48:9-51:20
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:38:9-40:74
 	android:label
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:50:13-62
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:40:13-62
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:49:13-38
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:39:13-38
 activity#com.handstudio.android.hzgrapher.Saving
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:52:9-53:20
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:41:9-47:20
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:52:19-41
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:41:19-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:42:13-46:29
+action#android.intent.action.MAIN
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:43:17-69
+	android:name
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:43:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:45:17-77
+	android:name
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:45:27-74
 activity#com.handstudio.android.hzgrapher.MainAlgorithm
-ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:54:9-55:20
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:48:9-60
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:54:19-48
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:48:19-48
+activity#com.handstudio.android.hzgrapher.Graph
+ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:49:9-51:69
+	android:label
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:51:13-57
+	android:name
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:50:13-34

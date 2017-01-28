@@ -6,3 +6,7 @@
 /sample/build/
 /library
 /library/
+/sample/build
+intermediates
+/intermediates/
+/intermediates
