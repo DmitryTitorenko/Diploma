@@ -3,21 +3,21 @@
 
     <item
         is-multidex="false"
-        jar="D:\Android_developer\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_90ecba0b252e46c5399fc5e4dd0d79461f627b22.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
         <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_e8eca403853920a5cf337632bc591169fce107e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_90ecba0b252e46c5399fc5e4dd0d79461f627b22.jar" />
     </item>
     <item
         is-multidex="false"

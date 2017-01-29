@@ -3,6 +3,7 @@ package com.handstudio.android.hzgrapher;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Dmitry Titorenko on 07.01.2017.
@@ -11,7 +12,6 @@ import java.io.Serializable;
 public class MainAlgorithm implements Serializable {
     private int startModeling;
     private int endModeling;
-    private int homeOriginT;
     private int homeMaxT;
     private int homeMinT;
     private int streetOriginT;
@@ -39,10 +39,15 @@ public class MainAlgorithm implements Serializable {
     }
 
     private int volume;
-    private int roomCurrentTemp;
+    private ArrayList<Integer> roomCurrentTemp = new ArrayList<>();
+    private ArrayList<Double> usingEnergy = new ArrayList<>();
+    private ArrayList<Double> calculationQHeatLoss = new ArrayList<>();
+    private ArrayList<Double> timeByOneModelTme = new ArrayList<>(); //длительность одного модельного времени
+    private ArrayList<Integer> modelTimeArray=new ArrayList<>();
+
     private double realTime;
     private double qHeatLoss;
-    private double timeByOneModelTme; //длительность одного модельного времени
+    private static int homeOriginTCheck;
 
     public MainAlgorithm(int startModeling, int endModeling, int homeOriginT, int homeMaxT, int homeMinT, int streetOriginT,
                          int wideRoom, int lengthRoom, int heightRoom, double atmospherePressureP, double specificHeatC,
@@ -50,7 +55,6 @@ public class MainAlgorithm implements Serializable {
                          double heatLossExtraB, int homeTimeChangeT, int homeValueChangeT) {
         this.startModeling = startModeling;
         this.endModeling = endModeling;
-        this.homeOriginT = homeOriginT;
         this.homeMaxT = homeMaxT;
         this.homeMinT = homeMinT;
         this.streetOriginT = streetOriginT;
@@ -66,48 +70,51 @@ public class MainAlgorithm implements Serializable {
         this.heatLossExtraB = heatLossExtraB;
         this.homeTimeChangeT = homeTimeChangeT;
         this.homeValueChangeT = homeValueChangeT;
+        homeOriginTCheck=homeOriginT;
     }
-
-    public int getStartModeling() {
-        return startModeling;
-    }
-
 
     public void checkMinRoomT() {
-        if (homeOriginT < homeMinT) {
+        if (homeOriginTCheck < homeMinT) {
             event = eventType.STARTATTAINMENT.toString();
-            startAttainment(homeOriginT, homeMinT);
+            roomCurrentTemp.clear();
+            startAttainment(homeMinT);
         }
-        event = eventType.ENDMODELING.toString();
+        //event = eventType.ENDMODELING.toString();
         Log.d(LOG_TAG, "Log " + "end checkMinRoomT");
     }
 
     public void mainAlgorithmBegin() {
         checkMinRoomT();
+        SupportMode.energySupport(wideRoom, lengthRoom, roomCurrentTemp, streetOriginT, heatLossExtraB, coefficientN, r0, endModeling - startModeling);
+        stepModeling(SupportMode.getTimeByOneModelTme(), roomCurrentTemp.get(roomCurrentTemp.size() - 1), SupportMode.getEnergyUsingInSupport(), SupportMode.getCalculationQHeatLoss());
+        Log.d(LOG_TAG, "usingEnergy: " + usingEnergy.toString());
+
         if (event.equals(eventType.ENDMODELING)) {
             // write result to DB
             Log.d(LOG_TAG, "Log " + "write to DB");
         } else {
+
         }
     }
 
-    private void startAttainment(int homeOriginTemp, int attainmentTemp) {
-        for (; homeOriginTemp < attainmentTemp; ) {
+    private void startAttainment(int attainmentTemp) {
+        for (; homeOriginTCheck < attainmentTemp; ) {
             if (event.equals(eventType.STARTATTAINMENT.toString())) {
-                mathTimeForAttainment(homeOriginTemp);
-                modelingTime++;
-                homeOriginTemp++;
+                mathTimeForAttainment();
+                homeOriginTCheck++;
             } else {
             }
         }
     }
 
-    private void mathTimeForAttainment(int homeOriginTemp) {
-        double q = mathQ(homeOriginTemp);
-        qHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(wideRoom, lengthRoom, roomCurrentTemp, streetOriginT, heatLossExtraB, coefficientN, r0);
-        realHeatProductivityN = heatProductivityN - qHeatLoss;
-        timeByOneModelTme = q / realHeatProductivityN;
+    private void mathTimeForAttainment() {
+        double q = mathQ(roomCurrentTemp.get(roomCurrentTemp.size() - 1));
+        double calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(wideRoom, lengthRoom, roomCurrentTemp, streetOriginT, heatLossExtraB, coefficientN, r0);
+        realHeatProductivityN = heatProductivityN - calculationQHeatLoss;
+        double timeByOneModelTme = q / realHeatProductivityN;
+        double usingEnergy = timeByOneModelTme * realHeatProductivityN;
         realTime += timeByOneModelTme;
+        stepModeling(timeByOneModelTme, roomCurrentTemp.get(roomCurrentTemp.size() - 1) + 1, usingEnergy, calculationQHeatLoss);
         Log.d(LOG_TAG, "timeByOneModelTme " + timeByOneModelTme);
     }
 
@@ -118,5 +125,14 @@ public class MainAlgorithm implements Serializable {
         double mass = densityP * volume; //масса воздуха              (2.5)
         double airMassQ = (mass * specificHeatC * 1000);//домножаем на 1000 т.к. нужно перевести кДж в Дж (2.6)
         return airMassQ;
+    }
+
+    private void stepModeling(double timeByOneModelTme, int roomCurrentTemp, double usingEnergy, double calculationQHeatLoss) {
+        this.timeByOneModelTme.add(timeByOneModelTme);
+        this.roomCurrentTemp.add(roomCurrentTemp);
+        this.usingEnergy.add(usingEnergy);
+        this.calculationQHeatLoss.add(calculationQHeatLoss);
+        modelingTime++;
+        this.modelTimeArray.add(modelingTime);
     }
 }

@@ -15,9 +15,9 @@ public class Graph extends Activity {
         setContentView(R.layout.activity_graph2);
         Bundle extras = getIntent().getExtras();
         MainAlgorithm mainAlgorithm=(MainAlgorithm) extras.get("Data");
-        int a= mainAlgorithm.getStartModeling();
+        //int a= mainAlgorithm.getStartModeling();
         //Toast.makeText(getApplicationContext(), a, Toast.LENGTH_SHORT).show();
-        Log.d(LOG_TAG,"asdfasdf: "+a);
+        //Log.d(LOG_TAG,"asdfasdf: "+a);
 
     }
 
