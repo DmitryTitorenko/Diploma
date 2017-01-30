@@ -17,7 +17,7 @@ public class SupportMode {
      *
      * @param wideRoom          width
      * @param lengthRoom        length;
-     * @param roomCurrentTemp   temperature in home;
+     * @param roomCurrentTempSingle   temperature in home;
      * @param streetT           temperature in street;
      * @param heatLossExtraB    additional heat loss ;
      * @param coefficientN      coefficient relatively flat outer surface of the outside air;
@@ -25,8 +25,8 @@ public class SupportMode {
      * @param duringSupportTime during support mod;
      * @return double energy using in support .
      */
-    public static double energySupport(int wideRoom, int lengthRoom, ArrayList<Integer> roomCurrentTemp, int streetT, double heatLossExtraB, double coefficientN, double r0, int duringSupportTime) {
-        calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(wideRoom, lengthRoom, roomCurrentTemp, streetT, heatLossExtraB, coefficientN, r0);
+    public static double energySupport(int wideRoom, int lengthRoom, double roomCurrentTempSingle, int streetT, double heatLossExtraB, double coefficientN, double r0, int duringSupportTime) {
+        calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(wideRoom, lengthRoom, roomCurrentTempSingle, streetT, heatLossExtraB, coefficientN, r0);
         energyUsingInSupport = calculationQHeatLoss * duringSupportTime;
         timeByOneModelTme = duringSupportTime;
         return energyUsingInSupport;

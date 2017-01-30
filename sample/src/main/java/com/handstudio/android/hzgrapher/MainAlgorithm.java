@@ -38,12 +38,12 @@ public class MainAlgorithm implements Serializable {
         ENDMODELING, STARTATTAINMENT
     }
 
-    private int volume;
-    private ArrayList<Integer> roomCurrentTemp = new ArrayList<>();
+    private double roomCurrentTempSingle;
+    private ArrayList<Double> roomCurrentTemp = new ArrayList<>();
     private ArrayList<Double> usingEnergy = new ArrayList<>();
     private ArrayList<Double> calculationQHeatLoss = new ArrayList<>();
     private ArrayList<Double> timeByOneModelTme = new ArrayList<>(); //длительность одного модельного времени
-    private ArrayList<Integer> modelTimeArray=new ArrayList<>();
+    private ArrayList<Integer> modelTimeArray = new ArrayList<>();
 
     private double realTime;
     private double qHeatLoss;
@@ -70,13 +70,12 @@ public class MainAlgorithm implements Serializable {
         this.heatLossExtraB = heatLossExtraB;
         this.homeTimeChangeT = homeTimeChangeT;
         this.homeValueChangeT = homeValueChangeT;
-        homeOriginTCheck=homeOriginT;
+        roomCurrentTempSingle = homeOriginT;
     }
 
     public void checkMinRoomT() {
-        if (homeOriginTCheck < homeMinT) {
+        if (roomCurrentTempSingle < homeMinT) {
             event = eventType.STARTATTAINMENT.toString();
-            roomCurrentTemp.clear();
             startAttainment(homeMinT);
         }
         //event = eventType.ENDMODELING.toString();
@@ -85,12 +84,18 @@ public class MainAlgorithm implements Serializable {
 
     public void mainAlgorithmBegin() {
         checkMinRoomT();
-        SupportMode.energySupport(wideRoom, lengthRoom, roomCurrentTemp, streetOriginT, heatLossExtraB, coefficientN, r0, endModeling - startModeling);
-        stepModeling(SupportMode.getTimeByOneModelTme(), roomCurrentTemp.get(roomCurrentTemp.size() - 1), SupportMode.getEnergyUsingInSupport(), SupportMode.getCalculationQHeatLoss());
+        SupportMode.energySupport(wideRoom, lengthRoom, roomCurrentTempSingle, streetOriginT, heatLossExtraB, coefficientN, r0, endModeling - startModeling);
+        stepModeling(SupportMode.getTimeByOneModelTme(), SupportMode.getEnergyUsingInSupport(), SupportMode.getCalculationQHeatLoss());
         Log.d(LOG_TAG, "usingEnergy: " + usingEnergy.toString());
+        event = eventType.ENDMODELING.toString();
+        Log.d(LOG_TAG, "event " + event);
 
-        if (event.equals(eventType.ENDMODELING)) {
+        if (event.equals(eventType.ENDMODELING.toString())) {
+            Log.d(LOG_TAG, "event 2 " + event);
+
             // write result to DB
+            WriteReportToSD.writeFileSDFirst(startModeling, endModeling, homeMaxT, homeMinT, streetOriginT, homeTimeChangeT, homeValueChangeT, realHeatProductivityN,
+                    modelingTime, realTime, roomCurrentTemp, usingEnergy, calculationQHeatLoss, timeByOneModelTme, modelTimeArray);
             Log.d(LOG_TAG, "Log " + "write to DB");
         } else {
 
@@ -108,31 +113,24 @@ public class MainAlgorithm implements Serializable {
     }
 
     private void mathTimeForAttainment() {
-        double q = mathQ(roomCurrentTemp.get(roomCurrentTemp.size() - 1));
-        double calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(wideRoom, lengthRoom, roomCurrentTemp, streetOriginT, heatLossExtraB, coefficientN, r0);
+        double q = AirMassQ.airMassQ(roomCurrentTempSingle, atmospherePressureP, wideRoom, lengthRoom, heightRoom, specificHeatC);
+        double calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(wideRoom, lengthRoom, roomCurrentTempSingle, streetOriginT, heatLossExtraB, coefficientN, r0);
         realHeatProductivityN = heatProductivityN - calculationQHeatLoss;
         double timeByOneModelTme = q / realHeatProductivityN;
         double usingEnergy = timeByOneModelTme * realHeatProductivityN;
-        realTime += timeByOneModelTme;
-        stepModeling(timeByOneModelTme, roomCurrentTemp.get(roomCurrentTemp.size() - 1) + 1, usingEnergy, calculationQHeatLoss);
+        roomCurrentTempSingle++;
+        stepModeling(timeByOneModelTme, usingEnergy, calculationQHeatLoss);
         Log.d(LOG_TAG, "timeByOneModelTme " + timeByOneModelTme);
     }
 
-    private double mathQ(int originTemp) {
-        double tKelvin = originTemp + 273.15;// перевод температуры в Кельвины
-        double densityP = 0.473 * (atmospherePressureP / tKelvin);// плотность (2.4)
-        volume = wideRoom * lengthRoom * heightRoom;//обьем комнаты                (2.3)
-        double mass = densityP * volume; //масса воздуха              (2.5)
-        double airMassQ = (mass * specificHeatC * 1000);//домножаем на 1000 т.к. нужно перевести кДж в Дж (2.6)
-        return airMassQ;
-    }
 
-    private void stepModeling(double timeByOneModelTme, int roomCurrentTemp, double usingEnergy, double calculationQHeatLoss) {
+    private void stepModeling(double timeByOneModelTme, double usingEnergy, double calculationQHeatLoss) {
         this.timeByOneModelTme.add(timeByOneModelTme);
-        this.roomCurrentTemp.add(roomCurrentTemp);
+        this.roomCurrentTemp.add(roomCurrentTempSingle);
         this.usingEnergy.add(usingEnergy);
         this.calculationQHeatLoss.add(calculationQHeatLoss);
         modelingTime++;
         this.modelTimeArray.add(modelingTime);
+        realTime += modelingTime;
     }
 }

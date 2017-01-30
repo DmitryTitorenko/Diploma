@@ -15,6 +15,7 @@ import com.handstudio.android.hzgrapherlib.vo.curvegraph.CurveGraph;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by Grinw on 15.04.2016.
