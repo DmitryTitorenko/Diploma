@@ -5,12 +5,17 @@ package com.handstudio.android.hzgrapher;
  */
 
 public class AirMassQ {
-    public static double airMassQ(double roomCurrentTempSingle, double atmospherePressureP, int wideRoom, int lengthRoom, int heightRoom, double specificHeatC) {
-        double tKelvin = roomCurrentTempSingle + 273.15;// перевод температуры в Кельвины
-        double densityP = 0.473 * (atmospherePressureP / tKelvin);// плотность (2.4)
-        int volume = wideRoom * lengthRoom * heightRoom;//обьем комнаты                (2.3)
-        double mass = densityP * volume; //масса воздуха              (2.5)
-        double airMassQ = (mass * specificHeatC * 1000);//домножаем на 1000 т.к. нужно перевести кДж в Дж (2.6)
+    /**
+     * The  method used for calculation air mass.<br>
+     *
+     * @return double air mass.
+     */
+    public static double mathAirMassQ(Model model) {
+        double tKelvin = model.getRoomCurrentTempSingle() + 273.15;// transfer to kelvin
+        double densityP = 0.473 * (model.getAtmospherePressureP() / tKelvin);// (2.4)
+        int volumeRomm = model.getWideRoom() * model.getLengthRoom() * model.getHeightRoom();//(2.3)
+        double mass = densityP * volumeRomm; //              (2.5)
+        double airMassQ = (mass * model.getSpecificHeatC() * 1000);//multiply in 1000 to transfer from kilojoule in joule. (2.6)
         return airMassQ;
     }
 }

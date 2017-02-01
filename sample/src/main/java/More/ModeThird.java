@@ -1,4 +1,4 @@
-package com.handstudio.android.hzgrapher;
+package more;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,14 +9,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.handstudio.android.hzgrapher.CurveGraphActivity;
+import com.handstudio.android.hzgrapher.R;
+import com.handstudio.android.hzgrapher.V;
+
 import java.util.ArrayList;
 
-
-public class ModeSecond extends FragmentActivity implements View.OnClickListener {
-    private final static int ACTION_EDIT_V = 101;
+public class ModeThird extends FragmentActivity implements View.OnClickListener {
+    private final static int ACTION_EDIT_V = 101;//идентификатор запроса к V
 
     public final static String p = "p";
-    public final static String t_support = "t_support";
+    public final static String t1 = "t1";
+    public final static String t2_support = "t2_support";
     public final static String c = "c";
     public final static String n = "n";
     public final static String a = "a";
@@ -32,9 +37,10 @@ public class ModeSecond extends FragmentActivity implements View.OnClickListener
     private FragmentManager manager;
     private Fragment fragment;
 
-    private EditText et_p;
-    private EditText et_t_support;//поддержка температуры на этом уровне
-    private EditText et_c;
+    private EditText et_p;//атмосферное давление
+    private EditText et_t1;//начальтая температура
+    private EditText et_t2;//конечная температура
+    private EditText et_c;//Удельная теплоёмкость
     private EditText et_n;//пеплопроизводительность
     private EditText et_a;//ширина
     private EditText et_b;//длина
@@ -50,10 +56,10 @@ public class ModeSecond extends FragmentActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mode_second);
-
+        setContentView(R.layout.mode_third);
         et_p = (EditText) findViewById(R.id.et_p);
-        et_t_support = (EditText) findViewById(R.id.et_t1);
+        et_t1 = (EditText) findViewById(R.id.et_t1);
+        et_t2 = (EditText) findViewById(R.id.et_t2);
         et_c = (EditText) findViewById(R.id.et_c);
         et_n = (EditText) findViewById(R.id.et_n);
         et_a = (EditText) findViewById(R.id.et_a);
@@ -99,7 +105,7 @@ public class ModeSecond extends FragmentActivity implements View.OnClickListener
         switch (v.getId()) {
             case R.id.btn_start:
                 if (et_p.getText().length() == 0
-                        || et_t_support.getText().length() == 0 || et_t_support.getText().length() == 0 || et_c.getText().length() == 0
+                        || et_t1.getText().length() == 0 || et_t2.getText().length() == 0 || et_c.getText().length() == 0
                         || et_n.getText().length() == 0
                         || et_a.getText().length() == 0 || et_b.getText().length() == 0
                         || et_c_height.getText().length() == 0 || et_n_loss.getText().length() == 0
@@ -127,7 +133,8 @@ public class ModeSecond extends FragmentActivity implements View.OnClickListener
     private void startActivity(Class<?> cls) {
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
-        i.putExtra(t_support, et_t_support.getText().toString());
+        i.putExtra(t1, et_t1.getText().toString());
+        i.putExtra(t2_support, et_t2.getText().toString()); //t2=t_support
         i.putExtra(c, et_c.getText().toString());
         i.putExtra(n, et_n.getText().toString());
         i.putExtra(a, et_a.getText().toString());
@@ -144,7 +151,7 @@ public class ModeSecond extends FragmentActivity implements View.OnClickListener
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTION_EDIT_V) {
+        if (requestCode == ACTION_EDIT_V) {// может приходить ответ с разных activity
             if (resultCode == RESULT_OK) {
                 String vvv = data.getStringExtra(V.ANSWER_V);
                 et_R0.setText("" + vvv);

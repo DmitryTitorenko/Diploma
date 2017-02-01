@@ -15,34 +15,12 @@ public class SupportMode {
     /**
      * calculation energy consumption witch use for support this mode.<br>
      *
-     * @param wideRoom          width
-     * @param lengthRoom        length;
-     * @param roomCurrentTempSingle   temperature in home;
-     * @param streetT           temperature in street;
-     * @param heatLossExtraB    additional heat loss ;
-     * @param coefficientN      coefficient relatively flat outer surface of the outside air;
-     * @param r0                heat resistance;
-     * @param duringSupportTime during support mod;
      * @return double energy using in support .
      */
-    public static double energySupport(int wideRoom, int lengthRoom, double roomCurrentTempSingle, int streetT, double heatLossExtraB, double coefficientN, double r0, int duringSupportTime) {
-        calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(wideRoom, lengthRoom, roomCurrentTempSingle, streetT, heatLossExtraB, coefficientN, r0);
+    public static void energySupport(Model model, int duringSupportTime) {
+        calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
         energyUsingInSupport = calculationQHeatLoss * duringSupportTime;
         timeByOneModelTme = duringSupportTime;
-        return energyUsingInSupport;
+        model.stepModeling(timeByOneModelTme, energyUsingInSupport, calculationQHeatLoss);
     }
-
-    public static double getEnergyUsingInSupport() {
-        return energyUsingInSupport;
-    }
-
-    public static double getCalculationQHeatLoss() {
-        return calculationQHeatLoss;
-    }
-
-    public static double getTimeByOneModelTme() {
-        return timeByOneModelTme;
-    }
-
-
 }

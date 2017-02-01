@@ -7,15 +7,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.handstudio.android.hzgrapherlib.vo.*;
-import com.handstudio.android.hzgrapherlib.vo.curvegraph.CurveGraph;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
 
 /**
  * Created by Grinw on 15.04.2016.
@@ -115,7 +109,7 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
                 lvHomeChangeT.setAdapter(adapter1);
                 break;
             case R.id.btnStartSaving:
-                MainAlgorithm mainAlgorithm = new MainAlgorithm(
+                Model model = new Model(
                         Integer.valueOf(etStartModeling.getText().toString()),
                         Integer.valueOf(etEndModeling.getText().toString()),
                         Integer.valueOf(etHomeOriginT.getText().toString()),
@@ -134,7 +128,8 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
                         Double.valueOf(etHeatLossExtraB.getText().toString()),
                         Integer.valueOf(etHomeTimeChangeT.getText().toString()),
                         Integer.valueOf(etHomeValueChangeT.getText().toString()));
-                mainAlgorithm.mainAlgorithmBegin();
+                //model.mainAlgorithmBegin();
+                MainAlgorithm.mainAlgorithmBegin(model);
                 //myStartActivity(Graph.class, mainAlgorithm);
         }
     }

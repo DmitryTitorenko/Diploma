@@ -24,19 +24,19 @@
             android:name="com.handstudio.android.hzgrapher.CurveGraphActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.handstudio.android.hzgrapher.SelectMode"
+            android:name="more.SelectMode"
             android:label="@string/title_activity_select_mode" />
         <activity
-            android:name="com.handstudio.android.hzgrapher.ModeFirst"
+            android:name="more.ModeFirst"
             android:label="@string/title_activity_mode_first" />
         <activity
             android:name="com.handstudio.android.hzgrapher.V"
             android:label="@string/title_activity_v" />
         <activity
-            android:name="com.handstudio.android.hzgrapher.ModeSecond"
+            android:name="more.ModeSecond"
             android:label="@string/title_activity_mode_second" />
         <activity
-            android:name="com.handstudio.android.hzgrapher.ModeThird"
+            android:name="more.ModeThird"
             android:label="@string/title_activity_mode_third" />
         <activity android:name="com.handstudio.android.hzgrapher.Saving" >
             <intent-filter>
@@ -45,7 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.handstudio.android.hzgrapher.MainAlgorithm" />
         <activity
             android:name="com.handstudio.android.hzgrapher.Graph"
             android:label="@string/title_activity_graph" />

@@ -1,19 +1,27 @@
-package com.handstudio.android.hzgrapher;
+package more;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class ModeFirst extends Activity implements View.OnClickListener {
+import com.handstudio.android.hzgrapher.CurveGraphActivity;
+import com.handstudio.android.hzgrapher.R;
+import com.handstudio.android.hzgrapher.V;
 
-    private final static int ACTION_EDIT_V = 101;//идентификатор запроса к V
+import java.util.ArrayList;
+
+
+public class ModeSecond extends FragmentActivity implements View.OnClickListener {
+    private final static int ACTION_EDIT_V = 101;
 
     public final static String p = "p";
-    public final static String t1 = "t1";
-    public final static String t2 = "t2";
+    public final static String t_support = "t_support";
     public final static String c = "c";
     public final static String n = "n";
     public final static String a = "a";
@@ -24,10 +32,13 @@ public class ModeFirst extends Activity implements View.OnClickListener {
     public final static String nn = "nn";
     public final static String R0 = "R0";
     public final static String B = "B";
+    public final static String eventArray_ = "eventArray";
+
+    private FragmentManager manager;
+    private Fragment fragment;
 
     private EditText et_p;
-    private EditText et_t1;
-    private EditText et_t2;
+    private EditText et_t_support;//поддержка температуры на этом уровне
     private EditText et_c;
     private EditText et_n;//пеплопроизводительность
     private EditText et_a;//ширина
@@ -39,13 +50,15 @@ public class ModeFirst extends Activity implements View.OnClickListener {
     private EditText et_R0;//сопротивление теплопередачи
     private EditText et_B;//теплопотери дополнительные
 
+    private ArrayList<Integer> event_mode = new ArrayList<Integer>(); //список событий
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mode_first);
+        setContentView(R.layout.mode_second);
+
         et_p = (EditText) findViewById(R.id.et_p);
-        et_t1 = (EditText) findViewById(R.id.et_t1);
-        et_t2 = (EditText) findViewById(R.id.et_t2);
+        et_t_support = (EditText) findViewById(R.id.et_t1);
         et_c = (EditText) findViewById(R.id.et_c);
         et_n = (EditText) findViewById(R.id.et_n);
         et_a = (EditText) findViewById(R.id.et_a);
@@ -56,6 +69,34 @@ public class ModeFirst extends Activity implements View.OnClickListener {
         et_nn = (EditText) findViewById(R.id.et_nn);
         et_R0 = (EditText) findViewById(R.id.et_R0);
         et_B = (EditText) findViewById(R.id.et_B);
+
+        manager = getSupportFragmentManager();
+    }
+
+    public void onClick_Event(View view) {
+        switch (view.getId()) {
+            case R.id.btn_event:
+                event_mode.add(0);//street
+                EventStreet event_street = new EventStreet();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(R.id.container, event_street, event_street.TAG);
+                transaction.commit();
+                break;
+
+            case R.id.bnt_event2:
+                event_mode.add(1);// home
+                EventHome event_home = new EventHome();
+                transaction = manager.beginTransaction();
+                transaction.add(R.id.container, event_home, event_home.TAG);
+                transaction.commit();
+                break;
+
+            case R.id.btn_delete_event:
+                fragment = getSupportFragmentManager().findFragmentByTag("");
+                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                event_mode.remove(event_mode.size() - 1);
+                break;
+        }
     }
 
     @Override
@@ -63,7 +104,7 @@ public class ModeFirst extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_start:
                 if (et_p.getText().length() == 0
-                        || et_t1.getText().length() == 0 || et_t2.getText().length() == 0 || et_c.getText().length() == 0
+                        || et_t_support.getText().length() == 0 || et_t_support.getText().length() == 0 || et_c.getText().length() == 0
                         || et_n.getText().length() == 0
                         || et_a.getText().length() == 0 || et_b.getText().length() == 0
                         || et_c_height.getText().length() == 0 || et_n_loss.getText().length() == 0
@@ -91,8 +132,7 @@ public class ModeFirst extends Activity implements View.OnClickListener {
     private void startActivity(Class<?> cls) {
         Intent i = new Intent(this, cls);
         i.putExtra(p, et_p.getText().toString());
-        i.putExtra(t1, et_t1.getText().toString());
-        i.putExtra(t2, et_t2.getText().toString());
+        i.putExtra(t_support, et_t_support.getText().toString());
         i.putExtra(c, et_c.getText().toString());
         i.putExtra(n, et_n.getText().toString());
         i.putExtra(a, et_a.getText().toString());
@@ -103,12 +143,13 @@ public class ModeFirst extends Activity implements View.OnClickListener {
         i.putExtra(nn, et_nn.getText().toString());
         i.putExtra(R0, et_R0.getText().toString());
         i.putExtra(B, et_B.getText().toString());
+        i.putExtra(eventArray_, event_mode);
         startActivity(i);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTION_EDIT_V) {// может приходить ответ с разных activity
+        if (requestCode == ACTION_EDIT_V) {
             if (resultCode == RESULT_OK) {
                 String vvv = data.getStringExtra(V.ANSWER_V);
                 et_R0.setText("" + vvv);

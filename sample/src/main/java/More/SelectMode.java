@@ -1,9 +1,12 @@
-package com.handstudio.android.hzgrapher;
+package more;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.handstudio.android.hzgrapher.R;
+import com.handstudio.android.hzgrapher.Saving;
 
 
 public class SelectMode extends Activity implements View.OnClickListener {

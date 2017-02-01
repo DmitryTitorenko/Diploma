@@ -1,4 +1,4 @@
-package com.handstudio.android.hzgrapher;
+package more;
 
 /**
  * Created by Dmitry Titorenko on 29.01.2017.
@@ -11,4 +11,9 @@ public class Gho {
         a++;
         System.out.println(a);
     }
+    public static void G9f9(Dfdf dfdf){
+    }
 }
+class Dfdf{
+
+        }

@@ -1,10 +1,12 @@
-package com.handstudio.android.hzgrapher;
+package more;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.handstudio.android.hzgrapher.R;
 
 /**
  * Created by GrinWey on 13.06.2015.

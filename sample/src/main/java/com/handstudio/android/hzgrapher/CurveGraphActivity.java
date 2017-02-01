@@ -20,6 +20,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import more.ModeFirst;
+import more.ModeSecond;
+import more.ModeThird;
+
 import com.handstudio.android.hzgrapherlib.animation.GraphAnimation;
 import com.handstudio.android.hzgrapherlib.graphview.CurveGraphView;
 import com.handstudio.android.hzgrapherlib.vo.GraphNameBox;
