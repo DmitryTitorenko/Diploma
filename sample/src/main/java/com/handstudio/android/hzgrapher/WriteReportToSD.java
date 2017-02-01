@@ -12,11 +12,9 @@ import java.io.IOException;
  * Created by Dmitry Titorenko on 30.01.2017.
  */
 
-public class WriteReportToSD {
+class WriteReportToSD {
     /**
      * The  method used for write Report to SD card.<br>
-     *
-     * @return nothing.
      */
     public static void writeFileSDFirst(Model model) {
         if (isExternalStorageWritable()) {
@@ -72,7 +70,7 @@ public class WriteReportToSD {
      *
      * @return boolean available or not .
      */
-    public static boolean isExternalStorageWritable() {
+    private static boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
             return true;

@@ -70,8 +70,6 @@ public class Model implements Serializable {
 
     /**
      * The  method used for progress modeling time.<br>
-     *
-     * @return nothing.
      */
     public void stepModeling(double timeByOneModelTme, double usingEnergy, double calculationQHeatLoss) {
         this.timeByOneModelTme.add(timeByOneModelTme);

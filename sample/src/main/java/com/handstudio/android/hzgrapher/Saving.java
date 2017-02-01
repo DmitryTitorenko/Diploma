@@ -16,25 +16,25 @@ import java.util.ArrayList;
  */
 public class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
 
-    private static EditText etStartModeling; //время начала моделирования
-    private static EditText etEndModeling; // время окончания моделирования
-    private static EditText etHomeOriginT;//Origin T at home
-    private static EditText etHomeMaxT;
-    private static EditText etHomeMinT;
-    private static EditText etStreetOriginT; //Origin T at street
-    private static EditText etStreetMaxT;
-    private static EditText etStreetMinT;
-    private static EditText etCountStreetChange;
-    private static EditText etWideRoom;//ширина
-    private static EditText etLengthRoom;//длина
-    private static EditText etHeightRoom;//высота
-    private static EditText etAtmospherePressureP;//атмосферное давление
-    private static EditText etSpecificHeatC;//Удельная теплоёмкость
-    private static EditText etHeatProductivityN;//теплопроизводительность
-    private static EditText etCoolingProductivityN;//холодопроизовдительность
-    private static EditText etCoefficientN; //коэффицент
-    private static EditText etR0;//R0 коэффицент сопротивление теплопередачи
-    private static EditText etHeatLossExtraB;//теплопотери дополнительные
+    private  EditText etStartModeling; //время начала моделирования
+    private  EditText etEndModeling; // время окончания моделирования
+    private  EditText etHomeOriginT;//Origin T at home
+    private  EditText etHomeMaxT;
+    private  EditText etHomeMinT;
+    private  EditText etStreetOriginT; //Origin T at street
+    private  EditText etStreetMaxT;
+    private  EditText etStreetMinT;
+    private  EditText etCountStreetChange;
+    private  EditText etWideRoom;//ширина
+    private  EditText etLengthRoom;//длина
+    private  EditText etHeightRoom;//высота
+    private  EditText etAtmospherePressureP;//атмосферное давление
+    private  EditText etSpecificHeatC;//Удельная теплоёмкость
+    private  EditText etHeatProductivityN;//теплопроизводительность
+    private  EditText etCoolingProductivityN;//холодопроизовдительность
+    private  EditText etCoefficientN; //коэффицент
+    private  EditText etR0;//R0 коэффицент сопротивление теплопередачи
+    private  EditText etHeatLossExtraB;//теплопотери дополнительные
 
     //tariff
     private EditText etStartTariff;
@@ -47,14 +47,14 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
     private EditText etHomeValueChangeT;
     private ListView lvHomeChangeT;
 
-    ArrayList<String> countTariff = new ArrayList<String>();
-    ArrayList<String> priceTariff = new ArrayList<String>();
-    ArrayList<String> startTariff = new ArrayList<String>();
-    ArrayList<String> endTariff = new ArrayList<String>();
+    private ArrayList<String> countTariff = new ArrayList<>();
+    private ArrayList<String> priceTariff = new ArrayList<>();
+    private ArrayList<String> startTariff = new ArrayList<>();
+    private ArrayList<String> endTariff = new ArrayList<>();
 
-    ArrayList<String> countChangeTemp = new ArrayList<String>();
-    ArrayList<String> timeHomeChangeT = new ArrayList<String>();
-    ArrayList<String> valueHomeChange = new ArrayList<String>();
+    private ArrayList<String> countChangeTemp = new ArrayList<>();
+    private ArrayList<String> timeHomeChangeT = new ArrayList<>();
+    private ArrayList<String> valueHomeChange = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +98,14 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
                 startTariff.add(etStartTariff.getText().toString());
                 endTariff.add(etEndTariff.getText().toString());
                 countTariff.add(etStartTariff.getText().toString() + " - " + etEndTariff.getText().toString() + "$ " + etPriceTariff.getText().toString());
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countTariff);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countTariff);
                 m_listview.setAdapter(adapter);
                 break;
             case R.id.btnAddNewTemp:
                 timeHomeChangeT.add(etHomeTimeChangeT.getText().toString());
                 valueHomeChange.add(etHomeValueChangeT.getText().toString());
                 countChangeTemp.add(etHomeTimeChangeT.getText().toString() + "°C " + etHomeValueChangeT.getText().toString() + "t");
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countChangeTemp);
+                ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countChangeTemp);
                 lvHomeChangeT.setAdapter(adapter1);
                 break;
             case R.id.btnStartSaving:

@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by Dmitry Titorenko on 07.01.2017.
  */
 
-public class MainAlgorithm implements Serializable {
+class MainAlgorithm implements Serializable {
 
     public static void mainAlgorithmBegin(Model model) {
         checkMinRoomT(model);
@@ -22,8 +22,6 @@ public class MainAlgorithm implements Serializable {
     /**
      * The  method used for check is current temp smaller then minimum value
      * if current temp lower then min, raise her .<br>
-     *
-     * @return nothing.
      */
     private static void checkMinRoomT(Model model) {
         if (model.getRoomCurrentTempSingle() < model.getHomeMinT()) {

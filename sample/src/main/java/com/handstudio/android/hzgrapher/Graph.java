@@ -2,8 +2,6 @@ package com.handstudio.android.hzgrapher;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
-import android.widget.Toast;
 
 public class Graph extends Activity {
     private String LOG_TAG = "myLogs";

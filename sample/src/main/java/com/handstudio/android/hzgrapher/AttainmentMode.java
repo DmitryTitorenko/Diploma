@@ -4,11 +4,9 @@ package com.handstudio.android.hzgrapher;
  * Created by Dmitry Titorenko on 01.02.2017.
  */
 
-public class AttainmentMode {
+class AttainmentMode {
     /**
      * The  method used for modeling attainment mode .<br>
-     *
-     * @return nothing.
      */
     public static void startAttainment(Model model, int attainmentTemp) {
         for (; model.getRoomCurrentTempSingle() < attainmentTemp; ) {

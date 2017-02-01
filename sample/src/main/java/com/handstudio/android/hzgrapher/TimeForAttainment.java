@@ -4,7 +4,7 @@ package com.handstudio.android.hzgrapher;
  * Created by Dmitry Titorenko on 01.02.2017.
  */
 
-public class TimeForAttainment {
+class TimeForAttainment {
 
     private static double timeByOneModelTme;
     private static double usingEnergy;
@@ -12,8 +12,6 @@ public class TimeForAttainment {
 
     /**
      * The  method used for calculation time for attainment .<br>
-     *
-     * @return nothing.
      */
     public static void mathTimeForAttainment(Model model) {
         double airMassQ = AirMassQ.mathAirMassQ(model);
