@@ -1,4 +1,4 @@
-package more;
+package com.handstudio.android.hzgrapher;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,7 +24,6 @@ import more.ModeFirst;
 import more.ModeSecond;
 import more.ModeThird;
 
-import com.handstudio.android.hzgrapher.R;
 import com.handstudio.android.hzgrapherlib.animation.GraphAnimation;
 import com.handstudio.android.hzgrapherlib.graphview.CurveGraphView;
 import com.handstudio.android.hzgrapherlib.vo.GraphNameBox;

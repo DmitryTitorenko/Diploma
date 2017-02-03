@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.handstudio.android.hzgrapher.R;
-import com.handstudio.android.hzgrapher.Saving;
+//import com.handstudio.android.hzgrapher.Saving;
 
 
 public class SelectMode extends Activity implements View.OnClickListener {
@@ -33,8 +33,8 @@ public class SelectMode extends Activity implements View.OnClickListener {
                 startActivity(intentModeThird);
                 break;
             case R.id.btnStartSaveMode:
-                Intent intentSaveMode = new Intent(SelectMode.this, Saving.class);
-                startActivity(intentSaveMode);
+                //Intent intentSaveMode = new Intent(SelectMode.this, Saving.class);
+                //startActivity(intentSaveMode);
         }
     }
 }

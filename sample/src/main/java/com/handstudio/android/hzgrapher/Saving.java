@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by Grinw on 15.04.2016.
  */
-public class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
+  class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
 
     private  EditText etStartModeling; //время начала моделирования
     private  EditText etEndModeling; // время окончания моделирования

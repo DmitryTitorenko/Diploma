@@ -3,7 +3,7 @@ package com.handstudio.android.hzgrapher;
 import android.os.Bundle;
 import android.app.Activity;
 
-public class Graph extends Activity {
+ class Graph extends Activity {
     private String LOG_TAG = "myLogs";
 
 

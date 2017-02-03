@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Created by Dmitry Titorenko on 09.01.2017.
  */
 
-public class Model implements Serializable {
+class Model implements Serializable {
     private int startModeling;
     private int endModeling;
     private int homeMaxT;
@@ -25,7 +25,6 @@ public class Model implements Serializable {
     private double heatLossExtraB;
     private int homeTimeChangeT;
     private int homeValueChangeT;
-    private double realHeatProductivityN;
     private int modelingTime;
     private double realTime;
     private int homeOriginTCheck;
@@ -34,8 +33,9 @@ public class Model implements Serializable {
     private ArrayList<Double> roomCurrentTemp = new ArrayList<>();
     private ArrayList<Double> usingEnergy = new ArrayList<>();
     private ArrayList<Double> calculationQHeatLoss = new ArrayList<>();
-    private ArrayList<Double> timeByOneModelTme = new ArrayList<>(); //длительность одного модельного времени
+    private ArrayList<Double> timeByOneModelTime = new ArrayList<>(); //длительность одного модельного времени
     private ArrayList<Integer> modelTimeArray = new ArrayList<>();
+    private ArrayList<Double> realHeatProductivityN = new ArrayList<>();
 
     private String event;
 
@@ -71,14 +71,15 @@ public class Model implements Serializable {
     /**
      * The  method used for progress modeling time.<br>
      */
-    public void stepModeling(double timeByOneModelTme, double usingEnergy, double calculationQHeatLoss) {
-        this.timeByOneModelTme.add(timeByOneModelTme);
+    public void stepModeling(double timeByOneModelTime, double usingEnergy, double calculationQHeatLoss, double realHeatProductivityN) {
+        this.timeByOneModelTime.add(timeByOneModelTime);
         this.roomCurrentTemp.add(roomCurrentTempSingle);
         this.usingEnergy.add(usingEnergy);
         this.calculationQHeatLoss.add(calculationQHeatLoss);
+        this.realHeatProductivityN.add(realHeatProductivityN);
         modelingTime++;
         this.modelTimeArray.add(modelingTime);
-        realTime += modelingTime;
+        realTime += timeByOneModelTime;
     }
 
     public int getStartModeling() {
@@ -217,13 +218,6 @@ public class Model implements Serializable {
         this.homeValueChangeT = homeValueChangeT;
     }
 
-    public double getRealHeatProductivityN() {
-        return realHeatProductivityN;
-    }
-
-    public void setRealHeatProductivityN(double realHeatProductivityN) {
-        this.realHeatProductivityN = realHeatProductivityN;
-    }
 
     public int getModelingTime() {
         return modelingTime;
@@ -281,12 +275,12 @@ public class Model implements Serializable {
         this.calculationQHeatLoss = calculationQHeatLoss;
     }
 
-    public ArrayList<Double> getTimeByOneModelTme() {
-        return timeByOneModelTme;
+    public ArrayList<Double> getTimeByOneModelTime() {
+        return timeByOneModelTime;
     }
 
-    public void setTimeByOneModelTme(ArrayList<Double> timeByOneModelTme) {
-        this.timeByOneModelTme = timeByOneModelTme;
+    public void setTimeByOneModelTime(ArrayList<Double> timeByOneModelTime) {
+        this.timeByOneModelTime = timeByOneModelTime;
     }
 
     public ArrayList<Integer> getModelTimeArray() {
@@ -303,5 +297,9 @@ public class Model implements Serializable {
 
     public void setEvent(String event) {
         this.event = event;
+    }
+
+    public double getRealHeatProductivityN() {
+        return realHeatProductivityN.get(realHeatProductivityN.size() - 1);
     }
 }

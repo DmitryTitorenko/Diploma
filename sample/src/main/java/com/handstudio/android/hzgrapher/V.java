@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class V extends Activity implements View.OnClickListener {
+ public class V extends Activity implements View.OnClickListener {
     private EditText et_Lb;
     private EditText et_Lh;
     private EditText et_R;

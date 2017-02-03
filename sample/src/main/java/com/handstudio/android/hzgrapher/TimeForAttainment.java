@@ -9,6 +9,8 @@ class TimeForAttainment {
     private static double timeByOneModelTme;
     private static double usingEnergy;
     private static double calculationQHeatLoss;
+    private static double realHeatProductivityN;
+
 
     /**
      * The  method used for calculation time for attainment .<br>
@@ -16,9 +18,9 @@ class TimeForAttainment {
     public static void mathTimeForAttainment(Model model) {
         double airMassQ = AirMassQ.mathAirMassQ(model);
         calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
-        model.setHeatProductivityN(model.getHeatProductivityN() - calculationQHeatLoss);
-        timeByOneModelTme = airMassQ / model.getRealHeatProductivityN();
-        usingEnergy = timeByOneModelTme * model.getRealHeatProductivityN();
+        realHeatProductivityN = model.getHeatProductivityN() - calculationQHeatLoss;
+        timeByOneModelTme = airMassQ / realHeatProductivityN;
+        usingEnergy = timeByOneModelTme * realHeatProductivityN;
     }
 
     public static double getTimeByOneModelTme() {
@@ -32,4 +34,9 @@ class TimeForAttainment {
     public static double getCalculationQHeatLoss() {
         return calculationQHeatLoss;
     }
+
+    public static double getRealHeatProductivityN() {
+        return realHeatProductivityN;
+    }
+
 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.handstudio.android.hzgrapher.CurveGraphActivity;
 import com.handstudio.android.hzgrapher.R;
 import com.handstudio.android.hzgrapher.V;
 

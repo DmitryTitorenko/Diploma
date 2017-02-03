@@ -54,10 +54,10 @@ class WriteReportToSD {
                 bw.write(model.getUsingEnergy() + "\n");
                 bw.write("calculationQHeatLoss\n");
                 bw.write(model.getCalculationQHeatLoss() + "\n");
-                bw.write("timeByOneModelTme\n");
-                bw.write(model.getTimeByOneModelTme() + "\n");
+                bw.write("timeByOneModelTime\n");
+                bw.write(model.getTimeByOneModelTime() + "\n");
                 bw.write("modelTimeArray\n");
-                bw.write(model.getModelTimeArray()+ "\n");
+                bw.write(model.getModelTimeArray() + "\n");
                 bw.close();
             } catch (IOException e) {
                 e.printStackTrace();
