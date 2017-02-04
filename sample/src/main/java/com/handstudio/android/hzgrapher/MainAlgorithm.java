@@ -10,7 +10,8 @@ class MainAlgorithm implements Serializable {
 
     public static void mainAlgorithmBegin(Model model) {
         checkMinRoomT(model);
-        SupportMode.energySupport(model, model.getRealTime(), model.getEndModeling() - model.getRealTime());
+        InactivityMode.inactivityStart(model);
+        //SupportMode.energySupport(model, model.getRealTime(), model.getEndModeling() - model.getRealTime());
         model.setEvent(Model.eventType.END_MODELING.toString());
         if (model.getEvent().equals(Model.eventType.END_MODELING.toString())) {
             // write result to SD

@@ -65,12 +65,12 @@ MERGED from [com.android.support:support-compat:25.1.0] D:\Android_developer\Pro
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:20:9-45
 	android:theme
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:22:9-40
-activity#com.handstudio.android.hzgrapher.CurveGraphActivity
+activity#more.CurveGraphActivity
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:23:9-25:57
 	android:label
 		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:25:13-45
 	android:name
-		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:24:13-47
+		ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:24:13-51
 activity#more.SelectMode
 ADDED from D:\Android_developer\Project\Diploma\sample\src\main\AndroidManifest.xml:26:9-28:75
 	android:label

@@ -1,19 +1,22 @@
 package more;
 
+import android.support.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
 /**
  * Created by Dmitry Titorenko on 29.01.2017.
  */
 
 public class Gho {
-    static int a;
 
     public static void main(String[] args) {
-        a++;
-        System.out.println(a);
-    }
-    public static void G9f9(Dfdf dfdf){
-    }
-}
-class Dfdf{
-
+        String palStr = "racecar";
+        for (char ch : palStr.toCharArray()) {
+            System.out.println(ch);
         }
+    }
+    }
+
