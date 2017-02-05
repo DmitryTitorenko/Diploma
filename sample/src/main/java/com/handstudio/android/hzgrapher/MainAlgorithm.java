@@ -16,7 +16,6 @@ class MainAlgorithm implements Serializable {
         if (model.getEvent().equals(Model.eventType.END_MODELING.toString())) {
             // write result to SD
             WriteReportToSD.writeFileSDFirst(model);
-        } else {
         }
     }
 

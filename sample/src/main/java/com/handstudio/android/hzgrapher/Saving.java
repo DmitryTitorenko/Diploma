@@ -14,27 +14,27 @@ import java.util.ArrayList;
 /**
  * Created by Grinw on 15.04.2016.
  */
-  class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
+class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
 
-    private  EditText etStartModeling; //время начала моделирования
-    private  EditText etEndModeling; // время окончания моделирования
-    private  EditText etHomeOriginT;//Origin T at home
-    private  EditText etHomeMaxT;
-    private  EditText etHomeMinT;
-    private  EditText etStreetOriginT; //Origin T at street
-    private  EditText etStreetMaxT;
-    private  EditText etStreetMinT;
-    private  EditText etCountStreetChange;
-    private  EditText etWideRoom;//ширина
-    private  EditText etLengthRoom;//длина
-    private  EditText etHeightRoom;//высота
-    private  EditText etAtmospherePressureP;//атмосферное давление
-    private  EditText etSpecificHeatC;//Удельная теплоёмкость
-    private  EditText etHeatProductivityN;//теплопроизводительность
-    private  EditText etCoolingProductivityN;//холодопроизовдительность
-    private  EditText etCoefficientN; //коэффицент
-    private  EditText etR0;//R0 коэффицент сопротивление теплопередачи
-    private  EditText etHeatLossExtraB;//теплопотери дополнительные
+    private EditText etStartModeling; //время начала моделирования
+    private EditText etEndModeling; // время окончания моделирования
+    private EditText etHomeOriginT;//Origin T at home
+    private EditText etHomeMaxT;
+    private EditText etHomeMinT;
+    private EditText etStreetOriginT; //Origin T at street
+    private EditText etStreetMaxT;
+    private EditText etStreetMinT;
+    private EditText etCountStreetChange;
+    private EditText etWideRoom;//ширина
+    private EditText etLengthRoom;//длина
+    private EditText etHeightRoom;//высота
+    private EditText etAtmospherePressureP;//атмосферное давление
+    private EditText etSpecificHeatC;//Удельная теплоёмкость
+    private EditText etHeatProductivityN;//теплопроизводительность
+    private EditText etCoolingProductivityN;//холодопроизовдительность
+    private EditText etCoefficientN; //коэффицент
+    private EditText etR0;//R0 коэффицент сопротивление теплопередачи
+    private EditText etHeatLossExtraB;//теплопотери дополнительные
 
     //tariff
     private EditText etStartTariff;
@@ -131,6 +131,9 @@ import java.util.ArrayList;
                 //model.mainAlgorithmBegin();
                 MainAlgorithm.mainAlgorithmBegin(model);
                 //myStartActivity(Graph.class, mainAlgorithm);
+                break;
+            default:
+                break;
         }
     }
 

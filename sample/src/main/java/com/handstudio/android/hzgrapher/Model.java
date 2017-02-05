@@ -33,7 +33,7 @@ class Model implements Serializable {
     private ArrayList<Double> roomCurrentTemp = new ArrayList<>();
     private ArrayList<Double> usingEnergy = new ArrayList<>();
     private ArrayList<Double> calculationQHeatLoss = new ArrayList<>();
-    private ArrayList<Double> timeByOneModelTime = new ArrayList<>(); //длительность одного модельного времени
+    private ArrayList<Double> timeByOneModelTime = new ArrayList<>();
     private ArrayList<Integer> modelTimeArray = new ArrayList<>();
     private ArrayList<Double> realHeatProductivityN = new ArrayList<>();
 

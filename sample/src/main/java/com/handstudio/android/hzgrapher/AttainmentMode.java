@@ -14,7 +14,6 @@ class AttainmentMode {
                 TimeForAttainment.mathTimeForAttainment(model);
                 model.setRoomCurrentTempSingle(model.getRoomCurrentTempSingle() + 1);
                 model.stepModeling(TimeForAttainment.getTimeByOneModelTme(), TimeForAttainment.getUsingEnergy(), TimeForAttainment.getCalculationQHeatLoss(), TimeForAttainment.getRealHeatProductivityN());
-            } else {
             }
         }
     }
