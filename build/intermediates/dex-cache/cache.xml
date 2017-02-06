@@ -3,21 +3,21 @@
 
     <item
         is-multidex="false"
-        jar="D:\Android_developer\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_90ecba0b252e46c5399fc5e4dd0d79461f627b22.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
         <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_e8eca403853920a5cf337632bc591169fce107e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_90ecba0b252e46c5399fc5e4dd0d79461f627b22.jar" />
     </item>
     <item
         is-multidex="false"
@@ -66,12 +66,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\exploded-aar\Diploma\library\unspecified\jars\classes.jar"
-        jumboMode="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="600ce20e6fcd795d23bf0d122159a401fee58f50">
-        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\Diploma-library-unspecified_da531ac77dd84f28fcae42ca56b276280133f44f.jar" />
+        sha1="1d1a735c5f0d2026ef8f0d84aa9239e9eb5938d8">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\instant-run_29bd7c68361d86d74b4688cc0c288ed2a88f0022.jar" />
     </item>
     <item
         is-multidex="false"
@@ -81,6 +81,15 @@
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_1c0e1f45fe524218f488a0c1133a5318d3f186be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android_developer\Project\Diploma\sample\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b03125eed16c773d36fe990a5f7319b977bfd2e0">
+        <dex dex="D:\Android_developer\Project\Diploma\sample\build\intermediates\pre-dexed\debug\instant-run-bootstrap_7b99b7c0cb4b28050d74a0806979f4605f9cd5be.jar" />
     </item>
     <item
         is-multidex="false"
