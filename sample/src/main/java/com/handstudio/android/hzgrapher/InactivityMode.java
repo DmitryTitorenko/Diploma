@@ -5,26 +5,26 @@ package com.handstudio.android.hzgrapher;
  */
 
 class InactivityMode {
+    private static double airMassQ;
+    private static double calculationQHeatLoss;
+    private static double timeByOneModelTme;
+
     /**
      * The  method used for progress modeling inactivity mode .<br>
      */
     public static void inactivityStart(Model model) {
         for (; model.getRoomCurrentTempSingle() > model.getHomeMinT(); ) {
-            double airMassQ = AirMassQ.mathAirMassQ(model);
-            double calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
-            double timeByOneModelTme = airMassQ / calculationQHeatLoss;
+            airMassQ = AirMassQ.mathAirMassQ(model, 1);
+            calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
+            timeByOneModelTme = airMassQ / calculationQHeatLoss;
             model.setRoomCurrentTempSingle(model.getRoomCurrentTempSingle() - 1);
             model.stepModeling(timeByOneModelTme, 0, calculationQHeatLoss, 0);
-
-            /*
-            switch (model.getEvent()) {
-                case "HomeChangeT":
-                    break;
-                case "StreetChangeT":
-                    break;
-                default:
-                    break;
-            }*/
         }
+    }
+
+    public static double inactivityExpectancy(Model model, int countTempToInactivity) {
+        airMassQ = AirMassQ.mathAirMassQ(model, countTempToInactivity);
+        calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
+        return airMassQ / calculationQHeatLoss;
     }
 }

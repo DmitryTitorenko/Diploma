@@ -11,6 +11,10 @@ import java.util.*;
 public class EventList {
     private static Map<Integer, String> eventList = new TreeMap<>();
 
+
+    public static void main(String[] args) {
+        //eventList.remove()
+    }
     /**
      * The  method used for get current event.<br>
      *

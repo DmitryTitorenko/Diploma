@@ -2,6 +2,8 @@ package com.handstudio.android.hzgrapher;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by Dmitry Titorenko on 09.01.2017.
@@ -28,27 +30,30 @@ class Model implements Serializable {
     private int modelingTime;
     private double realTime;
     private int homeOriginTCheck;
-    private double roomCurrentTempSingle;
+    private int roomCurrentTempSingle;
+    private double timeToAttainmentRequiredTempRoom;
 
-    private ArrayList<Double> roomCurrentTemp = new ArrayList<>();
+    private ArrayList<Integer> roomCurrentTemp = new ArrayList<>();
     private ArrayList<Double> usingEnergy = new ArrayList<>();
     private ArrayList<Double> calculationQHeatLoss = new ArrayList<>();
     private ArrayList<Double> timeByOneModelTime = new ArrayList<>();
     private ArrayList<Integer> modelTimeArray = new ArrayList<>();
     private ArrayList<Double> realHeatProductivityN = new ArrayList<>();
+    private Map<Double, String> eventList = new TreeMap<>();
+
 
     private String event;
 
     public enum eventType {
-        END_MODELING, START_ATTAINMENT
+        END_MODELING, START_ATTAINMENT, START_SUPPORT, START_INACTIVITY
     }
 
     public Model(int startModeling, int endModeling, int homeOriginT, int homeMaxT, int homeMinT, int streetOriginT,
                  int wideRoom, int lengthRoom, int heightRoom, double atmospherePressureP, double specificHeatC,
                  double heatProductivityN, double coolingProductivityN, double coefficientN, double r0,
                  double heatLossExtraB, int homeTimeChangeT, int homeValueChangeT) {
-        this.startModeling = startModeling;
-        this.endModeling = endModeling;
+        this.startModeling = startModeling * 60;//from minute to second
+        this.endModeling = endModeling * 60;
         this.homeMaxT = homeMaxT;
         this.homeMinT = homeMinT;
         this.streetOriginT = streetOriginT;
@@ -81,6 +86,17 @@ class Model implements Serializable {
         this.modelTimeArray.add(modelingTime);
         realTime += timeByOneModelTime;
     }
+
+    /**
+     * The  method used for get current event.<br>
+     *
+     * @return String event type.
+     */
+    public  String  getCurrentEvent(int i) {
+        //return (int) eventList.keySet().toArray()[i];
+        return eventList.get(i);
+    }
+
 
     public int getStartModeling() {
         return startModeling;
@@ -218,7 +234,6 @@ class Model implements Serializable {
         this.homeValueChangeT = homeValueChangeT;
     }
 
-
     public int getModelingTime() {
         return modelingTime;
     }
@@ -243,19 +258,19 @@ class Model implements Serializable {
         this.homeOriginTCheck = homeOriginTCheck;
     }
 
-    public double getRoomCurrentTempSingle() {
+    public int getRoomCurrentTempSingle() {
         return roomCurrentTempSingle;
     }
 
-    public void setRoomCurrentTempSingle(double roomCurrentTempSingle) {
+    public void setRoomCurrentTempSingle(int roomCurrentTempSingle) {
         this.roomCurrentTempSingle = roomCurrentTempSingle;
     }
 
-    public ArrayList<Double> getRoomCurrentTemp() {
+    public ArrayList<Integer> getRoomCurrentTemp() {
         return roomCurrentTemp;
     }
 
-    public void setRoomCurrentTemp(ArrayList<Double> roomCurrentTemp) {
+    public void setRoomCurrentTemp(ArrayList<Integer> roomCurrentTemp) {
         this.roomCurrentTemp = roomCurrentTemp;
     }
 
@@ -301,5 +316,21 @@ class Model implements Serializable {
 
     public double getRealHeatProductivityN() {
         return realHeatProductivityN.get(realHeatProductivityN.size() - 1);
+    }
+
+    public double getTimeToAttainmentRequiredTempRoom() {
+        return timeToAttainmentRequiredTempRoom;
+    }
+
+    public void setTimeToAttainmentRequiredTempRoom(double timeToAttainmentRequiredTempRoom) {
+        this.timeToAttainmentRequiredTempRoom = timeToAttainmentRequiredTempRoom;
+    }
+
+    public Map<Double, String> getEventList() {
+        return eventList;
+    }
+
+    public void setEventList(double time, String event) {
+        this.eventList.put(time,event);
     }
 }
