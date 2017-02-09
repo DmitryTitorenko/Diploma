@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:text="Время начала моделирования, час "
+            android:text="Время начала моделирования, мин "
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
         <EditText
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:text="Время окончания моделирования, час"
+            android:text="Время окончания моделирования, мин"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
         <EditText
@@ -48,7 +48,7 @@
             android:layout_weight="0.10"
             android:ems="10"
             android:inputType="number"
-            android:text="500" />
+            android:text="30" />
 
         <TextView
             android:id="@+id/textView9"
@@ -353,8 +353,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:ems="10"
-            android:inputType="number"
-            android:text="" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/textView36"
@@ -432,7 +431,7 @@
             android:layout_weight="0.10"
             android:ems="10"
             android:inputType="number"
-            android:text="3" />
+            android:text="30" />
 
         <TextView
             android:id="@+id/textView3"

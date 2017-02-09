@@ -92,10 +92,16 @@ class Model implements Serializable {
      *
      * @return String event type.
      */
-    public  String  getCurrentEvent(int i) {
+    public  String getCurrentEventType(double i) {
         //return (int) eventList.keySet().toArray()[i];
         return eventList.get(i);
     }
+
+    public  double getCurrentEventKey(int i) {
+        return (double) eventList.keySet().toArray()[i];
+    }
+
+
 
 
     public int getStartModeling() {
