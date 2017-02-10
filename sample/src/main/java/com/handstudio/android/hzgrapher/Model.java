@@ -27,8 +27,8 @@ class Model implements Serializable {
     private double heatLossExtraB;
     private int homeTimeChangeT;
     private int homeValueChangeT;
-    private int modelingTime;
-    private double realTime;
+    private int modelingTime = 0;
+    private double realTime = 0;
     private int homeOriginTCheck;
     private int roomCurrentTempSingle;
     private double timeToAttainmentRequiredTempRoom;
@@ -39,9 +39,8 @@ class Model implements Serializable {
     private ArrayList<Double> timeByOneModelTime = new ArrayList<>();
     private ArrayList<Integer> modelTimeArray = new ArrayList<>();
     private ArrayList<Double> realHeatProductivityN = new ArrayList<>();
+    private ArrayList<Double> realTimeArray = new ArrayList<>();
     private Map<Double, String> eventList = new TreeMap<>();
-
-
     private String event;
 
     public enum eventType {
@@ -82,6 +81,7 @@ class Model implements Serializable {
         this.usingEnergy.add(usingEnergy);
         this.calculationQHeatLoss.add(calculationQHeatLoss);
         this.realHeatProductivityN.add(realHeatProductivityN);
+        this.realTimeArray.add(realTimeArray.size() == 0 ? timeByOneModelTime : realTimeArray.get(realTimeArray.size() - 1) + timeByOneModelTime);
         modelingTime++;
         this.modelTimeArray.add(modelingTime);
         realTime += timeByOneModelTime;
@@ -92,16 +92,14 @@ class Model implements Serializable {
      *
      * @return String event type.
      */
-    public  String getCurrentEventType(double i) {
+    public String getCurrentEventType(double i) {
         //return (int) eventList.keySet().toArray()[i];
         return eventList.get(i);
     }
 
-    public  double getCurrentEventKey(int i) {
+    public double getCurrentEventKey(int i) {
         return (double) eventList.keySet().toArray()[i];
     }
-
-
 
 
     public int getStartModeling() {
@@ -337,6 +335,10 @@ class Model implements Serializable {
     }
 
     public void setEventList(double time, String event) {
-        this.eventList.put(time,event);
+        this.eventList.put(time, event);
+    }
+
+    public ArrayList<Double> getRealTimeArray() {
+        return realTimeArray;
     }
 }

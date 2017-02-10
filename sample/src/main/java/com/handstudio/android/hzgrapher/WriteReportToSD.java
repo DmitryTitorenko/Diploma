@@ -48,6 +48,8 @@ class WriteReportToSD {
                 bw.write(model.getModelTimeArray() + "\n");
                 bw.write("realTime\n");
                 bw.write("" + model.getRealTime() + "\n");
+                bw.write("realTimeArray");
+                bw.write("" + model.getRealTimeArray() + "\n");
                 bw.write("roomCurrentTemp\n");
                 bw.write(model.getRoomCurrentTemp() + "\n");
                 bw.write("usingEnergy\n");
@@ -58,6 +60,8 @@ class WriteReportToSD {
                 bw.write(model.getTimeByOneModelTime() + "\n");
                 bw.write("modelTimeArray\n");
                 bw.write(model.getModelTimeArray() + "\n");
+                bw.write("eventList\n");
+                bw.write(model.getEventList() + "\n");
                 bw.close();
             } catch (IOException e) {
                 e.printStackTrace();
