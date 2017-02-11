@@ -448,7 +448,7 @@
             android:layout_weight="0.10"
             android:ems="10"
             android:inputType="number"
-            android:text="25" />
+            android:text="22" />
 
         <ListView
             android:id="@+id/lvHomeChangeT"

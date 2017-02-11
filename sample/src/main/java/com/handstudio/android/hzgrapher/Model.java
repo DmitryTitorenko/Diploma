@@ -66,7 +66,7 @@ class Model implements Serializable {
         this.coefficientN = coefficientN;
         this.r0 = r0;
         this.heatLossExtraB = heatLossExtraB;
-        this.homeTimeChangeT = homeTimeChangeT;
+        this.homeTimeChangeT = homeTimeChangeT * 60;
         this.homeValueChangeT = homeValueChangeT;
         roomCurrentTempSingle = homeOriginT;
         event = "start";

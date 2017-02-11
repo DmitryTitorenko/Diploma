@@ -15,13 +15,14 @@ class MainAlgorithm implements Serializable {
             if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_ATTAINMENT.toString())) {
                 AttainmentMode.startAttainment(model);
             }
-            //if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_SUPPORT.toString())) {
-          //      SupportMode.energySupport(model);
-            //}
+
+            if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_SUPPORT.toString())) {
+                SupportMode.energySupport(model, model.getCurrentEventKey(model.getModelingTime() + 1) - model.getCurrentEventKey(model.getModelingTime()));
+            }
+
             if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_INACTIVITY.toString())) {
                 InactivityMode.inactivityStart(model);
             }
-
         }
 
 
@@ -31,8 +32,8 @@ class MainAlgorithm implements Serializable {
 
 
     public static void mainAlgorithmBegin(Model model) {
-        checkMinRoomT(model);
-
+        int attainmentTemp;// count change temp in attainment
+        //checkMinRoomT(model);
 
         //find time to attainment required temp
         TimeForAttainment.mathTimeForAttainmentExpectancy(model, model.getHomeValueChangeT() - model.getRoomCurrentTempSingle());
@@ -40,34 +41,23 @@ class MainAlgorithm implements Serializable {
 
         if (model.getHomeTimeChangeT() - model.getRealTime() < TimeForAttainment.getTimeByExpectancy()) {
 
-            // =>Attainment and we probably can't attainment her to required temp
-            //find double[] events time & add them in eventList
-            double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, model.getHomeValueChangeT() - model.getRoomCurrentTempSingle());
-            for (double timeByOneAttainmentExpectancy : arrayTimeByOneAttainmentExpectancy) {
-                model.setEventList(timeByOneAttainmentExpectancy, Model.eventType.START_ATTAINMENT.toString());
-            }
+            // =>Attainment
+            //and we probably won't attainment her to required time
+            attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
+            findEventsTimeInAttainment(model, attainmentTemp);
 
-        }
-        else {
+        } else {
 
             //find time, when we need start attainment
             double startForAttainment = model.getTimeToAttainmentRequiredTempRoom() + model.getHomeTimeChangeT();
 
-            //model.setEventList(startForAttainment,Model.eventType.START_INACTIVITY.toString());
-
             if (model.getRoomCurrentTempSingle() > model.getHomeMinT()) {
-
+                //Check
                 //Inactivity=>Attainment
-                double[] arrayTimeToChangeOneTemp=InactivityMode.inactivityExpectancy(model,startForAttainment-model.getRealTime());
-                for (double i: arrayTimeToChangeOneTemp){
-                    model.setEventList(i,Model.eventType.START_INACTIVITY.toString());
-
+                double[] arrayTimeToChangeOneTemp = InactivityMode.inactivityExpectancy(model, startForAttainment - model.getRealTime());
+                for (double i : arrayTimeToChangeOneTemp) {
+                    model.setEventList(i, Model.eventType.START_INACTIVITY.toString());
                 }
-
-                //model.setEventList(model.getRealTime(), Model.eventType.START_INACTIVITY.toString());
-                //model.setEventList(startForAttainment, Model.eventType.START_ATTAINMENT.toString());
-
-
                 /*
                 //find should we add start Support
                 int countTempInInactivity = model.getRoomCurrentTempSingle() - model.getHomeMinT(); // count down temp in inactivity
@@ -80,18 +70,12 @@ class MainAlgorithm implements Serializable {
             } else {
 
                 //Support=>Attainment
-                //model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-                //model.setEventList(startForAttainment, Model.eventType.START_ATTAINMENT.toString());
+                model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
+
+                attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
+                findEventsTimeInAttainment(model, attainmentTemp);
             }
         }
-
-/*
-        InactivityMode.inactivityStart(model);
-        SupportMode.energySupport(model, model.getRealTime(), model.getEndModeling() - model.getRealTime());
-        model.setEvent(Model.eventType.END_MODELING.toString());
-        */
-
-
     }
 
     /**
@@ -100,10 +84,23 @@ class MainAlgorithm implements Serializable {
      */
     private static void checkMinRoomT(Model model) {
         if (model.getRoomCurrentTempSingle() < model.getHomeMinT()) {
-            double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, model.getHomeMinT() - model.getRoomCurrentTempSingle());
-            for (double i : arrayTimeByOneAttainmentExpectancy) {
-                model.setEventList(i, Model.eventType.START_ATTAINMENT.toString());
-            }
+            int attainmentTemp = model.getHomeMinT() - model.getRoomCurrentTempSingle();
+            findEventsTimeInAttainment(model, attainmentTemp);
+        }
+    }
+
+    //find events, his time & add them in eventList
+    private static void findEventsTimeInAttainment(Model model, int attainmentTemp) {
+        double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
+        for (double i : arrayTimeByOneAttainmentExpectancy) {
+            model.setEventList(i, Model.eventType.START_ATTAINMENT.toString());
+        }
+    }
+
+    private static void findEventsTimeInAttainmentBeforeSupprot(Model model, int attainmentTemp) {
+        double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
+        for (double i : arrayTimeByOneAttainmentExpectancy) {
+            model.setEventList(i, Model.eventType.START_ATTAINMENT.toString());
         }
     }
 }
