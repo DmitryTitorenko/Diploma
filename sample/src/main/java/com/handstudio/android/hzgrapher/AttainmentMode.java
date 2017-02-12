@@ -5,6 +5,7 @@ package com.handstudio.android.hzgrapher;
  */
 
 class AttainmentMode {
+
     /**
      * The  method used for modeling attainment mode .<br>
      */
@@ -24,7 +25,6 @@ class AttainmentMode {
     public static double[] startAttainmentExpectancy(Model model, int attainmentTemp) {
         int startRoomCurrentTemp = model.getRoomCurrentTempSingle();
         int startRoomCurrentTemp1 = model.getRoomCurrentTempSingle();
-
 
         //store event time
         double[] arrayTimeByOneAttainmentExpectancy = new double[attainmentTemp];
