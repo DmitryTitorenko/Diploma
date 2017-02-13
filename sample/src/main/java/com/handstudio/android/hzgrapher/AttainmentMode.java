@@ -36,6 +36,7 @@ class AttainmentMode {
                 arrayTimeByOneAttainmentExpectancy[i] = TimeForAttainment.getTimeByOneModelTme() + arrayTimeByOneAttainmentExpectancy[i - 1];
             }
             startRoomCurrentTemp1++;
+            model.setRoomCurrentTempSingle(model.getRoomCurrentTempSingle() + 1);
         }
         return arrayTimeByOneAttainmentExpectancy;
     }

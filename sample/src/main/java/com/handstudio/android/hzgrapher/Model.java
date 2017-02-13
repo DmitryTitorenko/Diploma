@@ -31,7 +31,7 @@ class Model implements Serializable {
     private double realTime = 0;
     private int homeOriginTCheck;
     private int roomCurrentTempSingle;
-    private double timeToAttainmentRequiredTempRoom;
+    private double timeToAttainmentRequiredTempRoom=0;
 
     private ArrayList<Integer> roomCurrentTemp = new ArrayList<>();
     private ArrayList<Double> usingEnergy = new ArrayList<>();

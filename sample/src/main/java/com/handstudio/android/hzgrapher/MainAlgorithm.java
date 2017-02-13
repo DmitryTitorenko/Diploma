@@ -7,10 +7,16 @@ import java.io.Serializable;
  */
 
 class MainAlgorithm implements Serializable {
+    private static double sumAttainmentBefore;
 
-    public static void init(Model model) {
+    public static void init(Model model, Model model2) {
+        int tempSingleStart=model.getRoomCurrentTempSingle();
         model.setEventList(model.getEndModeling(), Model.eventType.END_MODELING.toString());
-        mainAlgorithmBegin(model);
+        mainAlgorithmBegin(model2);
+        //model.setRealTime(0);
+        model.setRoomCurrentTempSingle(tempSingleStart);
+        //        model.setRoomCurrentTempSingle(tempSingleStart+1);
+
         for (int i = 0; model.getCurrentEventType(model.getCurrentEventKey(i)) != Model.eventType.END_MODELING.toString(); i++) {
             if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_ATTAINMENT.toString())) {
                 AttainmentMode.startAttainment(model);
@@ -32,8 +38,9 @@ class MainAlgorithm implements Serializable {
 
 
     public static void mainAlgorithmBegin(Model model) {
+
         int attainmentTemp;// count change temp in attainment
-        //checkMinRoomT(model);
+        checkMinRoomT(model);
 
         //find time to attainment required temp
         TimeForAttainment.mathTimeForAttainmentExpectancy(model, model.getHomeValueChangeT() - model.getRoomCurrentTempSingle());
@@ -70,9 +77,16 @@ class MainAlgorithm implements Serializable {
             } else {
 
                 //Support=>Attainment
-                model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-                attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
-                findEventsTimeInAttainmentBeforeSupport(model, attainmentTemp);
+                if (sumAttainmentBefore == 0) {
+                    model.setEventList(0, Model.eventType.START_SUPPORT.toString());
+                    attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
+                    findEventsTimeInAttainmentAfterSupport(model, attainmentTemp);
+                } else {
+                    model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
+                    attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
+                    findEventsTimeInAttainmentAfterSupport(model, attainmentTemp);
+                }
+
             }
         }
     }
@@ -84,7 +98,17 @@ class MainAlgorithm implements Serializable {
     private static void checkMinRoomT(Model model) {
         if (model.getRoomCurrentTempSingle() < model.getHomeMinT()) {
             int attainmentTemp = model.getHomeMinT() - model.getRoomCurrentTempSingle();
-            findEventsTimeInAttainment(model, attainmentTemp);
+            findEventsTimeInAttainmentForCheckMinRoom(model, attainmentTemp);
+            for (int i = 0; i < attainmentTemp; i++) {
+                TimeForAttainment.mathTimeForAttainment(model);
+                sumAttainmentBefore+=TimeForAttainment.getTimeByOneModelTme();
+            }
+            //TimeForAttainment.mathTimeForAttainmentExpectancy(model, attainmentTemp);
+
+            //sumAttainmentBefore=TimeForAttainment.getTimeByExpectancy();
+            model.setRealTime(sumAttainmentBefore);
+
+            model.setRoomCurrentTempSingle(model.getHomeMinT());
         }
     }
 
@@ -98,12 +122,22 @@ class MainAlgorithm implements Serializable {
             model.setEventList(i, Model.eventType.START_ATTAINMENT.toString());
         }
     }
+    /**
+     * The  method used for find events, his time & add them in eventList.<br>
+     * when ure checkMinRoomT()
+     */
+    private static void findEventsTimeInAttainmentForCheckMinRoom(Model model, int attainmentTemp) {
+        double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
+        for (double i : arrayTimeByOneAttainmentExpectancy) {
+            model.setEventList(i-arrayTimeByOneAttainmentExpectancy[0], Model.eventType.START_ATTAINMENT.toString());
+        }
+    }
 
     /**
      * The  method used for find events, his time & add them in eventList.<br>
      * Support=>Attainment
      */
-    private static void findEventsTimeInAttainmentBeforeSupport(Model model, int attainmentTemp) {
+    private static void findEventsTimeInAttainmentAfterSupport(Model model, int attainmentTemp) {
         double startAfterSupport = model.getEndModeling() - model.getTimeToAttainmentRequiredTempRoom();
         double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
         for (int i = 0; i < arrayTimeByOneAttainmentExpectancy.length; i++) {
