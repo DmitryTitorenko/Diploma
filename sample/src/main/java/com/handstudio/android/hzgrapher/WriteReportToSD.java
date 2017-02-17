@@ -44,22 +44,24 @@ class WriteReportToSD {
                 bw.write(model.getHomeValueChangeT() + "\n");
                 bw.write("realHeatProductivityN\n");
                 bw.write("" + model.getRealHeatProductivityN() + "\n");
-                bw.write("modelingTime\n");
-                bw.write(model.getModelTimeArray() + "\n");
                 bw.write("realTime\n");
                 bw.write("" + model.getRealTime() + "\n");
-                bw.write("realTimeArray");
-                bw.write("" + model.getRealTimeArray() + "\n");
-                bw.write("roomCurrentTemp\n");
-                bw.write(model.getRoomCurrentTemp() + "\n");
                 bw.write("usingEnergy\n");
                 bw.write(model.getUsingEnergy() + "\n");
                 bw.write("calculationQHeatLoss\n");
                 bw.write(model.getCalculationQHeatLoss() + "\n");
+                bw.write("roomCurrentTemp\n");
+                bw.write(model.getRoomCurrentTemp() + "\n");
                 bw.write("timeByOneModelTime\n");
                 bw.write(model.getTimeByOneModelTime() + "\n");
+
+                bw.write("oneEventListTime\n");
+                bw.write(model.getOneEventListTime() + "\n");
+
                 bw.write("modelTimeArray\n");
                 bw.write(model.getModelTimeArray() + "\n");
+                bw.write("realTimeArray");
+                bw.write("" + model.getRealTimeArray() + "\n");
                 bw.write("eventList\n");
                 bw.write(model.getEventList() + "\n");
                 bw.close();

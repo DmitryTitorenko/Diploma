@@ -24,19 +24,20 @@ class AttainmentMode {
      */
     public static double[] startAttainmentExpectancy(Model model, int attainmentTemp) {
         int startRoomCurrentTemp = model.getRoomCurrentTempSingle();
-        int startRoomCurrentTemp1 = model.getRoomCurrentTempSingle();
 
         //store event time
         double[] arrayTimeByOneAttainmentExpectancy = new double[attainmentTemp];
-        for (int i = 0; startRoomCurrentTemp1 < startRoomCurrentTemp + attainmentTemp; i++) {
+        for (int i = 0; model.getRoomCurrentTempSingle() < startRoomCurrentTemp + attainmentTemp; i++) {
+
             TimeForAttainment.mathTimeForAttainment(model);
             if (i == 0) {
                 arrayTimeByOneAttainmentExpectancy[i] = TimeForAttainment.getTimeByOneModelTme();
             } else {
                 arrayTimeByOneAttainmentExpectancy[i] = TimeForAttainment.getTimeByOneModelTme() + arrayTimeByOneAttainmentExpectancy[i - 1];
             }
-            startRoomCurrentTemp1++;
             model.setRoomCurrentTempSingle(model.getRoomCurrentTempSingle() + 1);
+
+            model.getOneEventListTime().add(TimeForAttainment.getTimeByOneModelTme());
         }
         return arrayTimeByOneAttainmentExpectancy;
     }

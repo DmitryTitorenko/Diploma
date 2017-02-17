@@ -129,7 +129,7 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
                         Integer.valueOf(etHomeTimeChangeT.getText().toString()),
                         Integer.valueOf(etHomeValueChangeT.getText().toString()));
                 //model.mainAlgorithmBegin();
-                MainAlgorithm.init(model,model);
+                MainAlgorithm.init(model);
                 //myStartActivity(Graph.class, mainAlgorithm);
                 break;
             default:

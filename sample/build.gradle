@@ -17,8 +17,8 @@ android {
         }
     }
 }
-
 dependencies {
     compile project(':library')
     compile 'com.android.support:support-v4:25.1.0'
+    testCompile 'junit:junit:4.12'
 }

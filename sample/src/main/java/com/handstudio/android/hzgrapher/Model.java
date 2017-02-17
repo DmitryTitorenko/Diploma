@@ -43,6 +43,8 @@ class Model implements Serializable {
     private Map<Double, String> eventList = new TreeMap<>();
     private String event;
 
+    private ArrayList<Double> oneEventListTime =new ArrayList<>();
+
     public enum eventType {
         END_MODELING, START_ATTAINMENT, START_SUPPORT, START_INACTIVITY
     }
@@ -340,5 +342,13 @@ class Model implements Serializable {
 
     public ArrayList<Double> getRealTimeArray() {
         return realTimeArray;
+    }
+
+    public ArrayList<Double> getOneEventListTime() {
+        return oneEventListTime;
+    }
+
+    public void setOneEventListTime(ArrayList<Double> oneEventListTime) {
+        this.oneEventListTime = oneEventListTime;
     }
 }
