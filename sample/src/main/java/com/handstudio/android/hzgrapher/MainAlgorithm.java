@@ -1,24 +1,22 @@
 package com.handstudio.android.hzgrapher;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Created by Dmitry Titorenko on 07.01.2017.
  */
 
 class MainAlgorithm implements Serializable {
-    private static double sumAttainmentBefore;
-
 
     public static void init(Model model) {
         int tempSingleStart = model.getRoomCurrentTempSingle();
         model.setEventList(model.getEndModeling(), Model.eventType.END_MODELING.toString());
-        //checkMinRoomT(model);
         mainAlgorithmBegin(model);
         model.setRealTime(0);
         model.setRoomCurrentTempSingle(tempSingleStart);
 
-        for (int i = 0; model.getCurrentEventType(model.getCurrentEventKey(i)) != Model.eventType.END_MODELING.toString(); i++) {
+        for (int i = 0; !Objects.equals(model.getCurrentEventType(model.getCurrentEventKey(i)), Model.eventType.END_MODELING.toString()); i++) {
 
             if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_ATTAINMENT.toString())) {
                 AttainmentMode.startAttainment(model);
@@ -33,36 +31,28 @@ class MainAlgorithm implements Serializable {
             }
         }
 
-
         // write result to SD
         WriteReportToSD.writeFileSDFirst(model);
     }
 
 
-    public static void mainAlgorithmBegin(Model model) {
-
-        int attainmentTemp;// count change temp in attainment
+    private static void mainAlgorithmBegin(Model model) {
         checkMinRoomT(model);
-
-        //find time to attainment required temp
-        TimeForAttainment.mathTimeForAttainmentExpectancy(model, model.getHomeValueChangeT() - model.getRoomCurrentTempSingle());
-        model.setTimeToAttainmentRequiredTempRoom(TimeForAttainment.getTimeByExpectancy());
-
-        if (model.getHomeTimeChangeT() - model.getRealTime() < model.getTimeToAttainmentRequiredTempRoom()) {
+        double timeToAttainment = findTimeToAttainmentRequireTemp(model);
+        if (model.getHomeTimeChangeT() - model.getRealTime() < timeToAttainment) {
 
             // =>Attainment
             //and we probably won't attainment her to required time
-            attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
+            int attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
             findEventsTimeInAttainment(model, attainmentTemp);
 
         } else {
 
-            //find time, when we need start attainment
-            double startForAttainment = model.getTimeToAttainmentRequiredTempRoom() + model.getHomeTimeChangeT();
-
             if (model.getRoomCurrentTempSingle() > model.getHomeMinT()) {
-                //Check
+
                 //Inactivity=>Attainment
+                //find time, when we need start attainment
+                double startForAttainment = timeToAttainment + model.getHomeTimeChangeT();
                 double[] arrayTimeToChangeOneTemp = InactivityMode.inactivityExpectancy(model, startForAttainment - model.getRealTime());
                 for (double i : arrayTimeToChangeOneTemp) {
                     model.setEventList(i, Model.eventType.START_INACTIVITY.toString());
@@ -81,24 +71,13 @@ class MainAlgorithm implements Serializable {
                 if (model.getHomeValueChangeT() == model.getRoomCurrentTempSingle()) {
 
                     //Support
-                    if (sumAttainmentBefore == 0) {
-                        model.setEventList(0, Model.eventType.START_SUPPORT.toString());
-                    } else {
-                        model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-                    }
-
+                    model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
                 } else {
 
                     //Support=>Attainment
-                    if (sumAttainmentBefore == 0) {
-                        model.setEventList(0, Model.eventType.START_SUPPORT.toString());
-                        attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
-                        findEventsTimeInAttainmentAfterSupport(model, attainmentTemp);
-                    } else {
-                        model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-                        attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
-                        findEventsTimeInAttainmentAfterSupport(model, attainmentTemp);
-                    }
+                    model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
+                    int attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
+                    findEventsTimeInAttainmentAfterSupport(model, attainmentTemp);
                 }
             }
         }
@@ -111,20 +90,7 @@ class MainAlgorithm implements Serializable {
     private static void checkMinRoomT(Model model) {
         if (model.getRoomCurrentTempSingle() < model.getHomeMinT()) {
             int attainmentTemp = model.getHomeMinT() - model.getRoomCurrentTempSingle();
-            double sumEventsTimeInAttainmentForCheckMinRoom = findEventsTimeInAttainmentForCheckMinRoom(model, attainmentTemp);
-
-            /*
-            for (int i = 0; i < attainmentTemp; i++) {
-                TimeForAttainment.mathTimeForAttainment(model);
-                sumAttainmentBefore+=TimeForAttainment.getTimeByOneModelTme();
-            }
-            */
-            //TimeForAttainment.mathTimeForAttainmentExpectancy(model, attainmentTemp);
-
-            //sumAttainmentBefore=TimeForAttainment.getTimeByExpectancy();
-            model.setRealTime(sumEventsTimeInAttainmentForCheckMinRoom);
-            sumAttainmentBefore = sumEventsTimeInAttainmentForCheckMinRoom;
-            //model.setRoomCurrentTempSingle(model.getHomeMinT());
+            findEventsTimeInAttainmentForCheckMinRoom(model, attainmentTemp);
         }
     }
 
@@ -141,16 +107,15 @@ class MainAlgorithm implements Serializable {
 
     /**
      * The  method used for find events, his time & add them in eventList.<br>
-     * when ure checkMinRoomT()
-     *
-     * @return sum of events time
+     * when use checkMinRoomT()
      */
-    private static double findEventsTimeInAttainmentForCheckMinRoom(Model model, int attainmentTemp) {
+    private static void findEventsTimeInAttainmentForCheckMinRoom(Model model, int attainmentTemp) {
         double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
         for (double i : arrayTimeByOneAttainmentExpectancy) {
             model.setEventList(i - arrayTimeByOneAttainmentExpectancy[0], Model.eventType.START_ATTAINMENT.toString());
         }
-        return arrayTimeByOneAttainmentExpectancy[arrayTimeByOneAttainmentExpectancy.length - 1];
+        // set time witch need to attainment this temp
+        model.setRealTime(arrayTimeByOneAttainmentExpectancy[arrayTimeByOneAttainmentExpectancy.length - 1]);
     }
 
     /**
@@ -163,5 +128,17 @@ class MainAlgorithm implements Serializable {
         for (int i = 0; i < arrayTimeByOneAttainmentExpectancy.length; i++) {
             model.setEventList(i == 0 ? e1 : e1 + arrayTimeByOneAttainmentExpectancy[i - 1], Model.eventType.START_ATTAINMENT.toString());
         }
+    }
+
+    /**
+     * The  method used for find time to attainment require temp.<br>
+     *
+     * @return require time
+     */
+    private static double findTimeToAttainmentRequireTemp(Model model) {
+        int roomCurrentTempSingle = model.getRoomCurrentTempSingle();
+        double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, model.getHomeValueChangeT() - model.getRoomCurrentTempSingle());
+        model.setRoomCurrentTempSingle(roomCurrentTempSingle);
+        return arrayTimeByOneAttainmentExpectancy.length == 0 ? 0 : arrayTimeByOneAttainmentExpectancy[arrayTimeByOneAttainmentExpectancy.length - 1];
     }
 }
