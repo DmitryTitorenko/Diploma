@@ -11,7 +11,6 @@ class TimeForAttainment {
     private static double calculationQHeatLoss;
     private static double realHeatProductivityN;
     private static double airMassQ;
-    private static double timeByExpectancy;
 
     /**
      * The  method used for calculation time for attainment .<br>
@@ -24,17 +23,6 @@ class TimeForAttainment {
         usingEnergy = timeByOneModelTme * realHeatProductivityN;
     }
 
-    /**
-     * The  method used for calculation how long will be work attainment mode.<br>
-     *
-     * @param temp count of temp witch need expectancy
-     */
-    public static void mathTimeForAttainmentExpectancy(Model model, int temp) {
-        airMassQ = AirMassQ.mathAirMassQ(model, temp);
-        calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
-        realHeatProductivityN = model.getHeatProductivityN() - calculationQHeatLoss;
-        timeByExpectancy = airMassQ / realHeatProductivityN;
-    }
 
     public static double getTimeByOneModelTme() {
         return timeByOneModelTme;
@@ -52,9 +40,6 @@ class TimeForAttainment {
         return realHeatProductivityN;
     }
 
-    public static double getTimeByExpectancy() {
-        return timeByExpectancy;
-    }
 
     public static double getAirMassQ() {
 

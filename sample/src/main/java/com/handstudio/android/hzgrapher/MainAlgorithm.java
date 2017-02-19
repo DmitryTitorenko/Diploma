@@ -12,6 +12,7 @@ class MainAlgorithm implements Serializable {
     public static void init(Model model) {
         int tempSingleStart = model.getRoomCurrentTempSingle();
         model.setEventList(model.getEndModeling(), Model.eventType.END_MODELING.toString());
+        checkMinRoomT(model);
         mainAlgorithmBegin(model);
         model.setRealTime(0);
         model.setRoomCurrentTempSingle(tempSingleStart);
@@ -27,7 +28,7 @@ class MainAlgorithm implements Serializable {
             }
 
             if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_INACTIVITY.toString())) {
-                InactivityMode.inactivityStart(model);
+                InactivityMode.inactivityStart(model, InactivityMode.modelingOrExpectancy.MODELING.toString());
             }
         }
 
@@ -35,10 +36,12 @@ class MainAlgorithm implements Serializable {
         WriteReportToSD.writeFileSDFirst(model);
     }
 
-
     private static void mainAlgorithmBegin(Model model) {
-        checkMinRoomT(model);
-        double timeToAttainment = findTimeToAttainmentRequireTemp(model);
+        double timeToAttainment = 0;
+        if (model.getRoomCurrentTempSingle() < model.getHomeValueChangeT()) {
+            timeToAttainment = findTimeToAttainmentRequireTemp(model);
+        }
+
         if (model.getHomeTimeChangeT() - model.getRealTime() < timeToAttainment) {
 
             // =>Attainment
@@ -50,32 +53,45 @@ class MainAlgorithm implements Serializable {
 
             if (model.getRoomCurrentTempSingle() > model.getHomeMinT()) {
 
-                //Inactivity=>Attainment
-                //find time, when we need start attainment
-                double startForAttainment = timeToAttainment + model.getHomeTimeChangeT();
-                double[] arrayTimeToChangeOneTemp = InactivityMode.inactivityExpectancy(model, startForAttainment - model.getRealTime());
-                for (double i : arrayTimeToChangeOneTemp) {
-                    model.setEventList(i, Model.eventType.START_INACTIVITY.toString());
-                }
-                /*
-                //find should we add start Support
-                int countTempInInactivity = model.getRoomCurrentTempSingle() - model.getHomeMinT(); // count down temp in inactivity
-                double endDuringInactivity = InactivityMode.inactivityExpectancy(model, countTempInInactivity);//max inactivity during
-                if (endDuringInactivity < startForAttainment) {
+                //Inactivity
+                for (String st = "Start"; model.getRoomCurrentTempSingle() > model.getHomeMinT() & st.equals("Start"); ) {
 
-                    //Inactivity=>Support=>Attainment
-                    model.setEventList(endDuringInactivity, Model.eventType.START_SUPPORT.toString());
-                }*/
+                    InactivityMode.inactivityStart(model, InactivityMode.modelingOrExpectancy.EXPECTANCY.toString());
+
+                    if (model.getRoomCurrentTempSingle() <= model.getHomeValueChangeT()) {
+                        if (model.getHomeTimeChangeT() < model.getRealTime() + findTimeToAttainmentRequireTemp(model)) {
+                            //Inactivity=>Attainment
+                            int attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
+                            findEventsTimeInAttainment(model, attainmentTemp);
+                            st = "End";
+                        } else {
+                            if (model.getRoomCurrentTempSingle() == model.getHomeMinT()) {
+
+                                //Inactivity=>Support
+                                model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
+
+                                if (model.getHomeValueChangeT() != model.getRoomCurrentTempSingle()) {
+
+                                    //Inactivity=>Support=>Attainment
+                                    int attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
+                                    findEventsTimeInAttainmentAfterSupport(model, attainmentTemp);
+                                }
+                                st = "End";
+                            }
+                        }
+                    }
+                    model.setEventList(model.getRealTime() - InactivityMode.getTimeByOneModelTme(), Model.eventType.START_INACTIVITY.toString());
+                }
+
+
             } else {
 
-                if (model.getHomeValueChangeT() == model.getRoomCurrentTempSingle()) {
+                //Support
+                model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
 
-                    //Support
-                    model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-                } else {
+                if (model.getHomeValueChangeT() != model.getRoomCurrentTempSingle()) {
 
                     //Support=>Attainment
-                    model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
                     int attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
                     findEventsTimeInAttainmentAfterSupport(model, attainmentTemp);
                 }
