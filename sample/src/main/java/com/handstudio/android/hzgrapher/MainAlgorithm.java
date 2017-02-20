@@ -17,6 +17,8 @@ class MainAlgorithm implements Serializable {
         model.setRealTime(0);
         model.setRoomCurrentTempSingle(tempSingleStart);
 
+        fixInactivityAfterAttainment(model);
+
         for (int i = 0; !Objects.equals(model.getCurrentEventType(model.getCurrentEventKey(i)), Model.eventType.END_MODELING.toString()); i++) {
 
             if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_ATTAINMENT.toString())) {
@@ -54,15 +56,17 @@ class MainAlgorithm implements Serializable {
             if (model.getRoomCurrentTempSingle() > model.getHomeMinT()) {
 
                 //Inactivity
-                for (String st = "Start"; model.getRoomCurrentTempSingle() > model.getHomeMinT() & st.equals("Start"); ) {
+                for (String st = "Start"; model.getRoomCurrentTempSingle() > model.getHomeMinT() & st.equals("Start") &
+                        model.getRealTime() < model.getEndModeling(); ) {
 
                     InactivityMode.inactivityStart(model, InactivityMode.modelingOrExpectancy.EXPECTANCY.toString());
 
                     if (model.getRoomCurrentTempSingle() <= model.getHomeValueChangeT()) {
+
                         if (model.getHomeTimeChangeT() < model.getRealTime() + findTimeToAttainmentRequireTemp(model)) {
                             //Inactivity=>Attainment
                             int attainmentTemp = model.getHomeValueChangeT() - model.getRoomCurrentTempSingle();
-                            findEventsTimeInAttainment(model, attainmentTemp);
+                            findEventsTimeInAttainmentAfterSupport(model, attainmentTemp);
                             st = "End";
                         } else {
                             if (model.getRoomCurrentTempSingle() == model.getHomeMinT()) {
@@ -156,5 +160,17 @@ class MainAlgorithm implements Serializable {
         double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, model.getHomeValueChangeT() - model.getRoomCurrentTempSingle());
         model.setRoomCurrentTempSingle(roomCurrentTempSingle);
         return arrayTimeByOneAttainmentExpectancy.length == 0 ? 0 : arrayTimeByOneAttainmentExpectancy[arrayTimeByOneAttainmentExpectancy.length - 1];
+    }
+
+    private static void fixInactivityAfterAttainment(Model model) {
+        for (int i = 0; !Objects.equals(model.getCurrentEventType(model.getCurrentEventKey(i)), Model.eventType.END_MODELING.toString()); i++) {
+            if (model.getCurrentEventType((model.getCurrentEventKey(i))).equals(Model.eventType.START_ATTAINMENT.toString()) &
+                    model.getCurrentEventType((model.getCurrentEventKey(i + 1))).equals(Model.eventType.START_INACTIVITY.toString())) {
+
+                model.delEvent(i + 1);
+                model.delEvent(i);
+                model.delEvent(i-1);
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ class Model implements Serializable {
     private double realTime = 0;
     private int homeOriginTCheck;
     private int roomCurrentTempSingle;
-    private double timeToAttainmentRequiredTempRoom=0;
+    private double timeToAttainmentRequiredTempRoom = 0;
 
     private ArrayList<Integer> roomCurrentTemp = new ArrayList<>();
     private ArrayList<Double> usingEnergy = new ArrayList<>();
@@ -43,7 +43,7 @@ class Model implements Serializable {
     private Map<Double, String> eventList = new TreeMap<>();
     private String event;
 
-    private ArrayList<Double> oneEventListTime =new ArrayList<>();
+    private ArrayList<Double> oneEventListTime = new ArrayList<>();
 
     public enum eventType {
         END_MODELING, START_ATTAINMENT, START_SUPPORT, START_INACTIVITY
@@ -97,6 +97,7 @@ class Model implements Serializable {
     public String getCurrentEventType(double i) {
         //return (int) eventList.keySet().toArray()[i];
         return eventList.get(i);
+
     }
 
     public double getCurrentEventKey(int i) {
@@ -338,6 +339,12 @@ class Model implements Serializable {
 
     public void setEventList(double time, String event) {
         this.eventList.put(time, event);
+    }
+
+    public void delEvent(int  index) {
+        this.eventList.remove (eventList.keySet().toArray()[index]);
+
+        //this.eventList.remove(time);
     }
 
     public ArrayList<Double> getRealTimeArray() {
