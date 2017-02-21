@@ -353,7 +353,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="0" />
 
         <TextView
             android:id="@+id/textView36"
@@ -369,7 +370,7 @@
             android:layout_gravity="center_horizontal"
             android:ems="10"
             android:inputType="number"
-            android:text="" />
+            android:text="30" />
 
         <TextView
             android:id="@+id/textView20"
@@ -385,7 +386,7 @@
             android:layout_gravity="center_horizontal"
             android:ems="10"
             android:inputType="number"
-            android:text="" />
+            android:text="40" />
 
         <LinearLayout
             android:id="@+id/containerTariff"

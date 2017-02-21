@@ -12,8 +12,8 @@ import java.util.TreeMap;
 class Model implements Serializable {
     private int startModeling;
     private int endModeling;
-    private int homeMaxT;
-    private int homeMinT;
+    private int roomMaxT;
+    private int roomMinT;
     private int streetOriginT;
     private int wideRoom;
     private int lengthRoom;
@@ -25,11 +25,11 @@ class Model implements Serializable {
     private double coefficientN;
     private double r0;
     private double heatLossExtraB;
-    private int homeTimeChangeT;
-    private int homeValueChangeT;
+    private int roomTimeChangeT;
+    private int roomValueChangeT;
     private int modelingTime = 0;
     private double realTime = 0;
-    private int homeOriginTCheck;
+    private int roomOriginTCheck;
     private int roomCurrentTempSingle;
     private double timeToAttainmentRequiredTempRoom = 0;
 
@@ -49,14 +49,14 @@ class Model implements Serializable {
         END_MODELING, START_ATTAINMENT, START_SUPPORT, START_INACTIVITY
     }
 
-    public Model(int startModeling, int endModeling, int homeOriginT, int homeMaxT, int homeMinT, int streetOriginT,
+    public Model(int startModeling, int endModeling, int roomOriginT, int roomMaxT, int roomMinT, int streetOriginT,
                  int wideRoom, int lengthRoom, int heightRoom, double atmospherePressureP, double specificHeatC,
                  double heatProductivityN, double coolingProductivityN, double coefficientN, double r0,
-                 double heatLossExtraB, int homeTimeChangeT, int homeValueChangeT) {
+                 double heatLossExtraB, int roomTimeChangeT, int roomValueChangeT) {
         this.startModeling = startModeling * 60;//from minute to second
         this.endModeling = endModeling * 60;
-        this.homeMaxT = homeMaxT;
-        this.homeMinT = homeMinT;
+        this.roomMaxT = roomMaxT;
+        this.roomMinT = roomMinT;
         this.streetOriginT = streetOriginT;
         this.wideRoom = wideRoom;
         this.lengthRoom = lengthRoom;
@@ -68,9 +68,9 @@ class Model implements Serializable {
         this.coefficientN = coefficientN;
         this.r0 = r0;
         this.heatLossExtraB = heatLossExtraB;
-        this.homeTimeChangeT = homeTimeChangeT * 60;
-        this.homeValueChangeT = homeValueChangeT;
-        roomCurrentTempSingle = homeOriginT;
+        this.roomTimeChangeT = roomTimeChangeT * 60;
+        this.roomValueChangeT = roomValueChangeT;
+        roomCurrentTempSingle = roomOriginT;
         event = "start";
     }
 
@@ -121,20 +121,20 @@ class Model implements Serializable {
         this.endModeling = endModeling;
     }
 
-    public int getHomeMaxT() {
-        return homeMaxT;
+    public int getRoomMaxT() {
+        return roomMaxT;
     }
 
-    public void setHomeMaxT(int homeMaxT) {
-        this.homeMaxT = homeMaxT;
+    public void setRoomMaxT(int roomMaxT) {
+        this.roomMaxT = roomMaxT;
     }
 
-    public int getHomeMinT() {
-        return homeMinT;
+    public int getRoomMinT() {
+        return roomMinT;
     }
 
-    public void setHomeMinT(int homeMinT) {
-        this.homeMinT = homeMinT;
+    public void setRoomMinT(int roomMinT) {
+        this.roomMinT = roomMinT;
     }
 
     public int getStreetOriginT() {
@@ -225,20 +225,20 @@ class Model implements Serializable {
         this.heatLossExtraB = heatLossExtraB;
     }
 
-    public int getHomeTimeChangeT() {
-        return homeTimeChangeT;
+    public int getRoomTimeChangeT() {
+        return roomTimeChangeT;
     }
 
-    public void setHomeTimeChangeT(int homeTimeChangeT) {
-        this.homeTimeChangeT = homeTimeChangeT;
+    public void setRoomTimeChangeT(int roomTimeChangeT) {
+        this.roomTimeChangeT = roomTimeChangeT;
     }
 
-    public int getHomeValueChangeT() {
-        return homeValueChangeT;
+    public int getRoomValueChangeT() {
+        return roomValueChangeT;
     }
 
-    public void setHomeValueChangeT(int homeValueChangeT) {
-        this.homeValueChangeT = homeValueChangeT;
+    public void setRoomValueChangeT(int roomValueChangeT) {
+        this.roomValueChangeT = roomValueChangeT;
     }
 
     public int getModelingTime() {
@@ -257,12 +257,12 @@ class Model implements Serializable {
         this.realTime = realTime;
     }
 
-    public int getHomeOriginTCheck() {
-        return homeOriginTCheck;
+    public int getRoomOriginTCheck() {
+        return roomOriginTCheck;
     }
 
-    public void setHomeOriginTCheck(int homeOriginTCheck) {
-        this.homeOriginTCheck = homeOriginTCheck;
+    public void setRoomOriginTCheck(int roomOriginTCheck) {
+        this.roomOriginTCheck = this.roomOriginTCheck;
     }
 
     public int getRoomCurrentTempSingle() {

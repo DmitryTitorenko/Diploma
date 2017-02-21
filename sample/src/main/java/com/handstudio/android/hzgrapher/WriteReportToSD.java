@@ -35,13 +35,13 @@ class WriteReportToSD {
                 bw.write("endModeling \n");
                 bw.write(model.getEndModeling() + "\n");
                 bw.write("homeMaxT\n");
-                bw.write(model.getHomeMaxT() + "\n");
+                bw.write(model.getRoomMaxT() + "\n");
                 bw.write("homeMinT\n");
-                bw.write(model.getHomeMinT() + "\n");
+                bw.write(model.getRoomMinT() + "\n");
                 bw.write("homeTimeChangeT\n");
-                bw.write(model.getHomeTimeChangeT() + "\n");
+                bw.write(model.getRoomTimeChangeT() + "\n");
                 bw.write("homeValueChangeT\n");
-                bw.write(model.getHomeValueChangeT() + "\n");
+                bw.write(model.getRoomValueChangeT() + "\n");
                 bw.write("realHeatProductivityN\n");
                 bw.write("" + model.getRealHeatProductivityN() + "\n");
                 bw.write("realTime\n");

@@ -77,13 +77,13 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
         etR0 = (EditText) findViewById(R.id.et_R0);
         etHeatLossExtraB = (EditText) findViewById(R.id.et_HeatLossExtraB);
 
-        /*
+
         etStartTariff = (EditText) findViewById(R.id.etStartTariff);
         etEndTariff = (EditText) findViewById(R.id.etEndTariff);
         etPriceTariff = (EditText) findViewById(R.id.etPriceTariff);
         m_listview = (ListView) findViewById(R.id.listview);
 
-        */
+
         etHomeTimeChangeT = (EditText) findViewById(R.id.etHomeTimeChangeT);
         etHomeValueChangeT = (EditText) findViewById(R.id.etHomeValueChangeT);
 
