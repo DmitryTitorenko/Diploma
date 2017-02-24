@@ -47,14 +47,18 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
     private EditText etHomeValueChangeT;
     private ListView lvHomeChangeT;
 
+    //tariff store
+    private ArrayList<Integer> startTariff = new ArrayList<>();
+    private ArrayList<Integer> endTariff = new ArrayList<>();
+    private ArrayList<Double> priceTariff = new ArrayList<>();
     private ArrayList<String> countTariff = new ArrayList<>();
-    private ArrayList<String> priceTariff = new ArrayList<>();
-    private ArrayList<String> startTariff = new ArrayList<>();
-    private ArrayList<String> endTariff = new ArrayList<>();
 
+
+    //change tempRoom store
+    private ArrayList<Integer> timeHomeChangeT = new ArrayList<>();
+    private ArrayList<Integer> valueHomeChange = new ArrayList<>();
     private ArrayList<String> countChangeTemp = new ArrayList<>();
-    private ArrayList<String> timeHomeChangeT = new ArrayList<>();
-    private ArrayList<String> valueHomeChange = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,25 +90,24 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
 
         etHomeTimeChangeT = (EditText) findViewById(R.id.etHomeTimeChangeT);
         etHomeValueChangeT = (EditText) findViewById(R.id.etHomeValueChangeT);
-
-        //lvHomeChangeT = (ListView) findViewById(R.id.lvHomeChangeT);
+        lvHomeChangeT = (ListView) findViewById(R.id.lvHomeChangeT);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnAddTariff:
-                priceTariff.add(etPriceTariff.getText().toString());
-                startTariff.add(etStartTariff.getText().toString());
-                endTariff.add(etEndTariff.getText().toString());
+                startTariff.add(Integer.valueOf(etStartTariff.getText().toString()));
+                endTariff.add(Integer.valueOf(etEndTariff.getText().toString()));
+                priceTariff.add(Double.valueOf(etPriceTariff.getText().toString()));
                 countTariff.add(etStartTariff.getText().toString() + " - " + etEndTariff.getText().toString() + "$ " + etPriceTariff.getText().toString());
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countTariff);
                 m_listview.setAdapter(adapter);
                 break;
             case R.id.btnAddNewTemp:
-                timeHomeChangeT.add(etHomeTimeChangeT.getText().toString());
-                valueHomeChange.add(etHomeValueChangeT.getText().toString());
-                countChangeTemp.add(etHomeTimeChangeT.getText().toString() + "°C " + etHomeValueChangeT.getText().toString() + "t");
+                timeHomeChangeT.add(Integer.valueOf(etHomeTimeChangeT.getText().toString()));
+                valueHomeChange.add(Integer.valueOf(etHomeValueChangeT.getText().toString()));
+                countChangeTemp.add(etHomeTimeChangeT.getText().toString()  + "t "  + etHomeValueChangeT.getText().toString()+"°C ");
                 ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countChangeTemp);
                 lvHomeChangeT.setAdapter(adapter1);
                 break;
@@ -126,8 +129,12 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
                         Double.valueOf(etCoefficientN.getText().toString()),
                         Double.valueOf(etR0.getText().toString()),
                         Double.valueOf(etHeatLossExtraB.getText().toString()),
-                        Integer.valueOf(etHomeTimeChangeT.getText().toString()),
-                        Integer.valueOf(etHomeValueChangeT.getText().toString()));
+
+                        timeHomeChangeT,
+                        valueHomeChange,
+                        startTariff,
+                        endTariff,
+                        priceTariff);
                 //model.mainAlgorithmBegin();
                 MainAlgorithm.init(model);
                 //myStartActivity(Graph.class, mainAlgorithm);

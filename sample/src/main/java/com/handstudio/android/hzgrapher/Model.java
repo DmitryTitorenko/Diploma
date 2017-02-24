@@ -25,8 +25,8 @@ class Model implements Serializable {
     private double coefficientN;
     private double r0;
     private double heatLossExtraB;
-    private int roomTimeChangeT;
-    private int roomValueChangeT;
+    private ArrayList<Integer> roomTimeChangeT = new ArrayList<>();
+    private ArrayList<Integer> roomValueChangeT = new ArrayList<>();
     private int modelingTime = 0;
     private double realTime = 0;
     private int roomOriginTCheck;
@@ -41,9 +41,18 @@ class Model implements Serializable {
     private ArrayList<Double> realHeatProductivityN = new ArrayList<>();
     private ArrayList<Double> realTimeArray = new ArrayList<>();
     private Map<Double, String> eventList = new TreeMap<>();
-    private String event;
+
+    //tariff
+    private ArrayList<Integer> startTariff = new ArrayList<>();
+    private ArrayList<Integer> endTariff = new ArrayList<>();
+    private ArrayList<Double> priceTariff = new ArrayList<>();
+
 
     private ArrayList<Double> oneEventListTime = new ArrayList<>();
+
+    private int stepByIteration = 0;// current iteration (step of Loop);
+    private int currentTariff = 0;//for find current tariff where index - this variable;
+    private int currentIndexChangeTempRoom = 0;// current change temp in room witch we set
 
     public enum eventType {
         END_MODELING, START_ATTAINMENT, START_SUPPORT, START_INACTIVITY
@@ -52,7 +61,9 @@ class Model implements Serializable {
     public Model(int startModeling, int endModeling, int roomOriginT, int roomMaxT, int roomMinT, int streetOriginT,
                  int wideRoom, int lengthRoom, int heightRoom, double atmospherePressureP, double specificHeatC,
                  double heatProductivityN, double coolingProductivityN, double coefficientN, double r0,
-                 double heatLossExtraB, int roomTimeChangeT, int roomValueChangeT) {
+                 double heatLossExtraB, ArrayList roomTimeChangeT, ArrayList roomValueChangeT,
+                 ArrayList<Integer> startTariff, ArrayList<Integer> endTariff, ArrayList<Double> priceTariff) {
+
         this.startModeling = startModeling * 60;//from minute to second
         this.endModeling = endModeling * 60;
         this.roomMaxT = roomMaxT;
@@ -68,10 +79,12 @@ class Model implements Serializable {
         this.coefficientN = coefficientN;
         this.r0 = r0;
         this.heatLossExtraB = heatLossExtraB;
-        this.roomTimeChangeT = roomTimeChangeT * 60;
+        this.roomTimeChangeT = roomTimeChangeT;
         this.roomValueChangeT = roomValueChangeT;
-        roomCurrentTempSingle = roomOriginT;
-        event = "start";
+        this.roomCurrentTempSingle = roomOriginT;
+        this.startTariff = startTariff;
+        this.endTariff = endTariff;
+        this.priceTariff = priceTariff;
     }
 
     /**
@@ -225,19 +238,20 @@ class Model implements Serializable {
         this.heatLossExtraB = heatLossExtraB;
     }
 
-    public int getRoomTimeChangeT() {
+    public ArrayList<Integer> getRoomTimeChangeT() {
         return roomTimeChangeT;
     }
 
-    public void setRoomTimeChangeT(int roomTimeChangeT) {
+    public void setRoomTimeChangeT(ArrayList roomTimeChangeT) {
         this.roomTimeChangeT = roomTimeChangeT;
     }
 
-    public int getRoomValueChangeT() {
+
+    public ArrayList<Integer> getRoomValueChangeT() {
         return roomValueChangeT;
     }
 
-    public void setRoomValueChangeT(int roomValueChangeT) {
+    public void setRoomValueChangeT(ArrayList roomValueChangeT) {
         this.roomValueChangeT = roomValueChangeT;
     }
 
@@ -313,13 +327,6 @@ class Model implements Serializable {
         this.modelTimeArray = modelTimeArray;
     }
 
-    public String getEvent() {
-        return event;
-    }
-
-    public void setEvent(String event) {
-        this.event = event;
-    }
 
     public double getRealHeatProductivityN() {
         return realHeatProductivityN.get(realHeatProductivityN.size() - 1);
@@ -341,8 +348,8 @@ class Model implements Serializable {
         this.eventList.put(time, event);
     }
 
-    public void delEvent(int  index) {
-        this.eventList.remove (eventList.keySet().toArray()[index]);
+    public void delEvent(int index) {
+        this.eventList.remove(eventList.keySet().toArray()[index]);
 
         //this.eventList.remove(time);
     }
@@ -357,5 +364,61 @@ class Model implements Serializable {
 
     public void setOneEventListTime(ArrayList<Double> oneEventListTime) {
         this.oneEventListTime = oneEventListTime;
+    }
+
+    public ArrayList<Integer> getStartTariff() {
+        return startTariff;
+    }
+
+    public void setStartTariff(ArrayList startTariff) {
+        this.startTariff = startTariff;
+    }
+
+    public ArrayList<Integer> getEndTariff() {
+        return endTariff;
+    }
+
+    public void setEndTariff(ArrayList endTariff) {
+        this.endTariff = endTariff;
+    }
+
+    public ArrayList<Double> getPriceTariff() {
+        return priceTariff;
+    }
+
+    public int getStepByIteration() {
+        return stepByIteration;
+    }
+
+    public void setCurrentTariff(int currentTariff) {
+        this.currentTariff = currentTariff;
+    }
+
+    public int getCurrentEndTariff() {
+        return this.endTariff.get(currentTariff);
+    }
+
+    public int getCurrentStartTariff() {
+        return this.startTariff.get(currentTariff);
+    }
+
+    public double getCurrentPriсeTariff() {
+        return this.priceTariff.get(currentTariff);
+    }
+
+    public double getNextPriсeTariff() {
+        return this.priceTariff.get(currentTariff + 1);
+    }
+
+    public int getCurrentTimeChangeTempRoom() {
+        return this.roomTimeChangeT.get(currentIndexChangeTempRoom);
+    }
+
+    public void setCurrentChangeTempRoom(int currentIndexChangeTempRoom) {
+        this.currentIndexChangeTempRoom = currentIndexChangeTempRoom;
+    }
+
+    public int getCurrentValueChangeTempRoom() {
+        return this.roomValueChangeT.get(currentIndexChangeTempRoom);
     }
 }
