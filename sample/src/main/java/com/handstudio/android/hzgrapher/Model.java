@@ -402,6 +402,20 @@ class Model implements Serializable {
         return this.startTariff.get(currentTariff);
     }
 
+    public boolean isNextTariffAvailable() {
+        if (startTariff.size() > currentTariff + 1) {
+            return true;
+        } else return false;
+    }
+
+    public int getNextEndTariff() {
+        return this.endTariff.get(currentTariff + 1);
+    }
+
+    public int getNextStartTariff() {
+        return this.startTariff.get(currentTariff + 1);
+    }
+
     public double getCurrentPriсeTariff() {
         return this.priceTariff.get(currentTariff);
     }

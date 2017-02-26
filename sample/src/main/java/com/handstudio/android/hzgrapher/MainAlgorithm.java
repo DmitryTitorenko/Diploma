@@ -52,7 +52,7 @@ class MainAlgorithm implements Serializable {
 
         //check  should attainment temp in this stage
         if (model.getRoomCurrentTempSingle() < model.getCurrentValueChangeTempRoom()) {
-            timeToAttainment = findTimeToAttainmentRequireTemp(model);
+            timeToAttainment = findTimeToAttainmentRequireTemp(model, model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle());
         }
 
         //check  should start attainment now
@@ -103,7 +103,8 @@ class MainAlgorithm implements Serializable {
 
 
     private static void origin(Model model) {
-        if (model.getCurrentTimeChangeTempRoom() <= model.getCurrentEndTariff()) {
+        //if (!model.getRoomTimeChangeT().isEmpty()&&)
+        if (!model.getRoomTimeChangeT().isEmpty() && model.getCurrentTimeChangeTempRoom() <= model.getCurrentEndTariff()) {
 
             //next event- change temp in this tariff
             mathBranch(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
@@ -114,6 +115,15 @@ class MainAlgorithm implements Serializable {
                 mathBranch(model, model.getRoomMaxT(), model.getCurrentEndTariff());
 
             } else {
+
+                // next tariff less expensive
+                //check should set temp in next tariff + start attainment in this tariff
+
+                double startAttainmentInThisTariff = isAttainmentShouldStartInThisTariff(model);
+                if(startAttainmentInThisTariff!=0){
+                    model.setEventList(startAttainmentInThisTariff, Model.eventType.START_ATTAINMENT.toString());
+                }
+
 
             }
         }
@@ -144,7 +154,7 @@ class MainAlgorithm implements Serializable {
 
                 if (model.getRoomCurrentTempSingle() <= tempEnd) {
 
-                    if (timeEnd < model.getRealTime() + findTimeToAttainmentRequireTemp(model)) {
+                    if (timeEnd < model.getRealTime() + findTimeToAttainmentRequireTemp(model, model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle())) {
 
                         //Inactivity=>Attainment
                         findEventsTimeInAttainmentAfterSupport(model, tempEnd - model.getRoomCurrentTempSingle(), timeEnd);
@@ -172,7 +182,7 @@ class MainAlgorithm implements Serializable {
 
 
     private static void checkAttainmentAfterSupport(Model model, int timeEnd) {
-        if (model.getCurrentValueChangeTempRoom() != model.getRoomCurrentTempSingle()) {
+        if (!model.getRoomTimeChangeT().isEmpty() && model.getCurrentValueChangeTempRoom() != model.getRoomCurrentTempSingle()) {
 
             //Support=>Attainment
             int attainmentTemp = model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle();
@@ -233,9 +243,10 @@ class MainAlgorithm implements Serializable {
      *
      * @return require time
      */
-    private static double findTimeToAttainmentRequireTemp(Model model) {
+    //tempToAttainment= model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle()
+    private static double findTimeToAttainmentRequireTemp(Model model, int tempToAttainment) {
         int roomCurrentTempSingle = model.getRoomCurrentTempSingle();
-        double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle());
+        double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, tempToAttainment);
         model.setRoomCurrentTempSingle(roomCurrentTempSingle);
         return arrayTimeByOneAttainmentExpectancy.length == 0 ? 0 : arrayTimeByOneAttainmentExpectancy[arrayTimeByOneAttainmentExpectancy.length - 1];
     }
@@ -271,5 +282,27 @@ class MainAlgorithm implements Serializable {
             switchMinToSecond.add(model.getStartTariff().get(i) * 60);
         }
         model.setStartTariff(switchMinToSecond);
+    }
+
+    /**
+     * The  method used for find should attainment start in this tariff to attainment change temp in next tariff.<br>
+     *
+     * @return require time to start attainment in this tariff
+     */
+
+    private static double isAttainmentShouldStartInThisTariff(Model model) {
+        double timeToAttainmentChangeTempInNextTariff = 0;
+        double timeToStartAttainmentInThisTariff = 0;
+        if (model.isNextTariffAvailable()) {
+            for (int a : model.getRoomTimeChangeT()) {
+                if (a < model.getNextEndTariff() && a > model.getNextStartTariff()) { // find is change temp in next tariff
+                    timeToAttainmentChangeTempInNextTariff = a + findTimeToAttainmentRequireTemp(model, model.getCurrentValueChangeTempRoom() - model.getRoomMinT());
+                    if (timeToAttainmentChangeTempInNextTariff - model.getNextStartTariff() > 0) {
+                        timeToStartAttainmentInThisTariff = timeToAttainmentChangeTempInNextTariff - model.getNextStartTariff();
+                    }
+                }
+            }
+        }
+        return timeToStartAttainmentInThisTariff;
     }
 }
