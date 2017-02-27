@@ -1,7 +1,6 @@
 package com.handstudio.android.hzgrapher;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -12,11 +11,13 @@ class MainAlgorithm implements Serializable {
 
     public static void init(Model model) {
 
-        switchMinToSecond(model);
+        SwitchMinToSecond.switchMinToSecond(model);
         int tempSingleStart = model.getRoomCurrentTempSingle();
         model.setEventList(model.getEndModeling(), Model.eventType.END_MODELING.toString());
 
         checkMinRoomT(model);
+        checkShouldStartAttainmentNow(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
+
         origin(model);
         model.setRealTime(0);
         model.setRoomCurrentTempSingle(tempSingleStart);
@@ -42,71 +43,10 @@ class MainAlgorithm implements Serializable {
         WriteReportToSD.writeFileSDFirst(model);
     }
 
-    // getRoomTimeChangeT() => getCurrentTimeChangeTempRoom()
-    // getRoomValueChangeT=>tempEnd
-    //getCurrentValueChangeTempRoom =>tempEnd
-    //  getRoomValueChangeT()=>getCurrentValueChangeTempRoom()
-
-    private static void mainAlgorithmBegin(Model model) {
-        double timeToAttainment = 0;
-
-        //check  should attainment temp in this stage
-        if (model.getRoomCurrentTempSingle() < model.getCurrentValueChangeTempRoom()) {
-            timeToAttainment = findTimeToAttainmentRequireTemp(model, model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle());
-        }
-
-        //check  should start attainment now
-        if (model.getCurrentTimeChangeTempRoom() - model.getRealTime() < timeToAttainment) {
-
-            // =>Attainment
-            //and we probably won't attainment her to required time
-            int attainmentTemp = model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle();
-            findEventsTimeInAttainment(model, attainmentTemp);
-        } else {/*
-
-            if (model.getRoomCurrentTempSingle() > model.getRoomMinT()) {
-
-                //Inactivity
-                for (String st = "Start"; model.getRoomCurrentTempSingle() > model.getRoomMinT() & st.equals("Start") &
-                        model.getRealTime() < model.getEndModeling(); ) {
-
-                    InactivityMode.inactivityStart(model, InactivityMode.modelingOrExpectancy.EXPECTANCY.toString());
-
-                    if (model.getRoomCurrentTempSingle() <= model.getRoomValueChangeT()) {
-
-                        if (model.getRoomTimeChangeT() < model.getRealTime() + findTimeToAttainmentRequireTemp(model)) {
-
-                            //Inactivity=>Attainment
-                            findEventsTimeInAttainmentAfterSupport(model, model.getRoomValueChangeT() - model.getRoomCurrentTempSingle());
-                            st = "End";
-                        } else if (model.getRoomCurrentTempSingle() == model.getRoomMinT()) {
-
-                            //Inactivity=>Support
-                            model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-                            checkAttainmentAfterSupport(model);
-                            st = "End";
-                        }
-
-                    }
-                    model.setEventList(model.getRealTime() - InactivityMode.getTimeByOneModelTme(), Model.eventType.START_INACTIVITY.toString());
-                }
-
-            } else {
-
-                //Support
-                model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-                checkAttainmentAfterSupport(model);
-
-            }*/
-        }
-    }
-
-
     private static void origin(Model model) {
-        //if (!model.getRoomTimeChangeT().isEmpty()&&)
         if (!model.getRoomTimeChangeT().isEmpty() && model.getCurrentTimeChangeTempRoom() <= model.getCurrentEndTariff()) {
 
-            //next event- change temp in this tariff
+            //next event - change temp in this tariff
             mathBranch(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
         } else {
             if (model.getNextPriсeTariff() > model.getCurrentPriсeTariff()) {
@@ -116,15 +56,13 @@ class MainAlgorithm implements Serializable {
 
             } else {
 
-                // next tariff less expensive
-                //check should set temp in next tariff + start attainment in this tariff
-
-                double startAttainmentInThisTariff = isAttainmentShouldStartInThisTariff(model);
-                if(startAttainmentInThisTariff!=0){
-                    model.setEventList(startAttainmentInThisTariff, Model.eventType.START_ATTAINMENT.toString());
+                //next tariff less expensive
+                //check should start attainment in this tariff if should isAttainmentShouldStartInThisTariff=true
+                if (isAttainmentShouldStartInThisTariff(model)) {
+                    mathBranch(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
+                } else {
+                    mathBranch(model, model.getRoomMinT(), model.getCurrentEndTariff());
                 }
-
-
             }
         }
     }
@@ -133,17 +71,10 @@ class MainAlgorithm implements Serializable {
     /**
      * The  method used for match branch .<br>
      *
-     * @param tempEnd store temp in the end of iteration
+     * @param tempEnd store temp witch would be in the end of iteration
+     * @param timeEnd store time witch would be in the end of iteration
      */
-
-
-    // getRoomTimeChangeT() => getCurrentTimeChangeTempRoom()
-    // getRoomValueChangeT=>tempEnd
-    //getCurrentValueChangeTempRoom =>tempEnd
-    //  getRoomValueChangeT()=>getCurrentValueChangeTempRoom()
     private static void mathBranch(Model model, int tempEnd, int timeEnd) {
-
-
         if (model.getRoomCurrentTempSingle() > model.getRoomMinT()) {
 
             //Inactivity
@@ -166,7 +97,6 @@ class MainAlgorithm implements Serializable {
                         checkAttainmentAfterSupport(model, timeEnd);
                         st = "End";
                     }
-
                 }
                 model.setEventList(model.getRealTime() - InactivityMode.getTimeByOneModelTme(), Model.eventType.START_INACTIVITY.toString());
             }
@@ -175,12 +105,15 @@ class MainAlgorithm implements Serializable {
 
             //Support
             model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-            checkAttainmentAfterSupport(model, timeEnd);
-
+            if (tempEnd != model.getRoomMinT()) {
+                checkAttainmentAfterSupport(model, timeEnd);
+            }
         }
     }
 
-
+    /**
+     * The  method used for switch should start attainment after support, if yes - start it use findEventsTimeInAttainmentAfterSupport().<br>
+     */
     private static void checkAttainmentAfterSupport(Model model, int timeEnd) {
         if (!model.getRoomTimeChangeT().isEmpty() && model.getCurrentValueChangeTempRoom() != model.getRoomCurrentTempSingle()) {
 
@@ -243,13 +176,16 @@ class MainAlgorithm implements Serializable {
      *
      * @return require time
      */
-    //tempToAttainment= model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle()
     private static double findTimeToAttainmentRequireTemp(Model model, int tempToAttainment) {
         int roomCurrentTempSingle = model.getRoomCurrentTempSingle();
         double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, tempToAttainment);
         model.setRoomCurrentTempSingle(roomCurrentTempSingle);
         return arrayTimeByOneAttainmentExpectancy.length == 0 ? 0 : arrayTimeByOneAttainmentExpectancy[arrayTimeByOneAttainmentExpectancy.length - 1];
     }
+
+    /**
+     * The  method used fix inactivity after attainment.<br>
+     */
 
     private static void fixInactivityAfterAttainment(Model model) {
         for (int i = 0; !Objects.equals(model.getCurrentEventType(model.getCurrentEventKey(i)), Model.eventType.END_MODELING.toString()); i++) {
@@ -263,46 +199,49 @@ class MainAlgorithm implements Serializable {
     }
 
 
-    public static void switchMinToSecond(Model model) {
 
-        ArrayList<Integer> switchMinToSecond = new ArrayList<>();
-        for (int i = 0; i < model.getRoomTimeChangeT().size(); i++) {
-            switchMinToSecond.add(model.getRoomTimeChangeT().get(i) * 60);
-        }
-        model.setRoomTimeChangeT(switchMinToSecond);
-        switchMinToSecond = new ArrayList<>();
-
-        for (int i = 0; i < model.getEndTariff().size(); i++) {
-            switchMinToSecond.add(model.getEndTariff().get(i) * 60);
-        }
-        model.setEndTariff(switchMinToSecond);
-        switchMinToSecond = new ArrayList<>();// why if use switchMinToSecond.clear => delete all elements in endTariff?
-
-        for (int i = 0; i < model.getStartTariff().size(); i++) {
-            switchMinToSecond.add(model.getStartTariff().get(i) * 60);
-        }
-        model.setStartTariff(switchMinToSecond);
-    }
 
     /**
-     * The  method used for find should attainment start in this tariff to attainment change temp in next tariff.<br>
+     * The  method used for find should attainment start in this tariff for attainment change temp in next tariff.<br>
      *
-     * @return require time to start attainment in this tariff
+     * @return true if it should start attainment in this tariff
      */
 
-    private static double isAttainmentShouldStartInThisTariff(Model model) {
-        double timeToAttainmentChangeTempInNextTariff = 0;
-        double timeToStartAttainmentInThisTariff = 0;
+    private static boolean isAttainmentShouldStartInThisTariff(Model model) {
+        boolean check = false;
         if (model.isNextTariffAvailable()) {
             for (int a : model.getRoomTimeChangeT()) {
                 if (a < model.getNextEndTariff() && a > model.getNextStartTariff()) { // find is change temp in next tariff
-                    timeToAttainmentChangeTempInNextTariff = a + findTimeToAttainmentRequireTemp(model, model.getCurrentValueChangeTempRoom() - model.getRoomMinT());
-                    if (timeToAttainmentChangeTempInNextTariff - model.getNextStartTariff() > 0) {
-                        timeToStartAttainmentInThisTariff = timeToAttainmentChangeTempInNextTariff - model.getNextStartTariff();
+                    double timeToAttainmentChangeTempInNextTariff = a - findTimeToAttainmentRequireTemp(model, model.getCurrentValueChangeTempRoom() - model.getRoomMinT());
+                    if (timeToAttainmentChangeTempInNextTariff < model.getNextStartTariff()) {
+                        check = true;
                     }
                 }
             }
         }
-        return timeToStartAttainmentInThisTariff;
+        return check;
+    }
+
+    /**
+     * The  method used for check should we start attainment now if yes, start it .<br>
+     *
+     * @param tempEnd store temp witch would be in the end of iteration
+     * @param timeEnd store time witch would be in the end of iteration
+     */
+    private static void checkShouldStartAttainmentNow(Model model, int tempEnd, int timeEnd) {
+        double timeToAttainment = 0;
+
+        //check  should attainment temp in this stage
+        if (model.getRoomCurrentTempSingle() < tempEnd) {
+            timeToAttainment = findTimeToAttainmentRequireTemp(model, tempEnd - model.getRoomCurrentTempSingle());
+        }
+
+        //check  should start attainment now
+        if (timeEnd - model.getRealTime() < timeToAttainment) {
+
+            // =>Attainment
+            //and we probably won't attainment her to required time
+            findEventsTimeInAttainment(model, tempEnd - model.getRoomCurrentTempSingle());
+        }
     }
 }
