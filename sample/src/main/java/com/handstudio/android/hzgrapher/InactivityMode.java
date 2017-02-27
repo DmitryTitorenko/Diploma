@@ -16,11 +16,12 @@ class InactivityMode {
     /**
      * The  method used for progress modeling inactivity mode .<br>
      *
-     * @param type check is we expectancy or modeling.
+     * @param model entity witch contain all parameters
+     * @param type  check are we expectancy or modeling.
      */
 
     public static void inactivityStart(Model model, String type) {
-        airMassQ = AirMassQ.mathAirMassQ(model, 1);
+        airMassQ = AirMassQ.mathAirMassQ(model);
         calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
         timeByOneModelTme = airMassQ / calculationQHeatLoss;
         model.setRoomCurrentTempSingle(model.getRoomCurrentTempSingle() - 1);
