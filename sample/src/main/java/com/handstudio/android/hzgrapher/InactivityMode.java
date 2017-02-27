@@ -5,8 +5,6 @@ package com.handstudio.android.hzgrapher;
  */
 
 class InactivityMode {
-    private static double airMassQ;
-    private static double calculationQHeatLoss;
     private static double timeByOneModelTme;
 
     public enum modelingOrExpectancy {
@@ -19,10 +17,9 @@ class InactivityMode {
      * @param model entity witch contain all parameters
      * @param type  check are we expectancy or modeling.
      */
-
     public static void inactivityStart(Model model, String type) {
-        airMassQ = AirMassQ.mathAirMassQ(model);
-        calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
+        double airMassQ = AirMassQ.mathAirMassQ(model);
+        double calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
         timeByOneModelTme = airMassQ / calculationQHeatLoss;
         model.setRoomCurrentTempSingle(model.getRoomCurrentTempSingle() - 1);
         if (type.equals(modelingOrExpectancy.MODELING.toString())) {
