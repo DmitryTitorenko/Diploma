@@ -42,8 +42,6 @@ class WriteReportToSD {
                 bw.write(model.getRoomTimeChangeT() + "\n");
                 bw.write("homeValueChangeT\n");
                 bw.write(model.getRoomValueChangeT() + "\n");
-                bw.write("realHeatProductivityN\n");
-                bw.write("" + model.getRealHeatProductivityN() + "\n");
                 bw.write("realTime\n");
                 bw.write("" + model.getRealTime() + "\n");
                 bw.write("usingEnergy\n");

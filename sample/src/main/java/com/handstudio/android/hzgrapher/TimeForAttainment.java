@@ -16,7 +16,7 @@ class TimeForAttainment {
      * The  method used for calculation time for attainment .<br>
      */
     public static void mathTimeForAttainment(Model model) {
-        airMassQ = AirMassQ.mathAirMassQ(model, 1);
+        airMassQ = AirMassQ.mathAirMassQ(model);
         calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
         realHeatProductivityN = model.getHeatProductivityN() - calculationQHeatLoss;
         timeByOneModelTme = airMassQ / realHeatProductivityN;

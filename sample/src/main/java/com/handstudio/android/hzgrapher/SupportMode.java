@@ -7,19 +7,11 @@ package com.handstudio.android.hzgrapher;
 class SupportMode {
 
     /**
-     * calculation energy consumption witch use in support.<br>
+     * The  method used for calculation energy consumption witch use in support.<br>
+     *
+     * @param model               entity witch contain all parameters
+     * @param durationSupportTime time for work support mode in seconds
      */
-
-    /*
-    public static void energySupport(Model model) {
-        //находим продолжительность времени поддержки вычитая время начала будующего событие из текущего
-        double duringSupportTime = model.getCurrentEventKey(model.getModelingTime() + 1) - model.getCurrentEventKey(model.getModelingTime());
-        double calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
-        double energyUsingInSupport = calculationQHeatLoss * duringSupportTime;
-        double realHeatProductivityN = model.getHeatProductivityN() - calculationQHeatLoss;
-        model.stepModeling(duringSupportTime, energyUsingInSupport, calculationQHeatLoss, realHeatProductivityN);
-    }*/
-
     public static void energySupport(Model model, double durationSupportTime) {
         double calculationQHeatLoss = CalculationQHeatLoss.calculationQHeatLoss(model);
         double energyUsingInSupport = calculationQHeatLoss * durationSupportTime;
