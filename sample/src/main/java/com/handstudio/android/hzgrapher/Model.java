@@ -50,9 +50,9 @@ class Model implements Serializable {
 
     private ArrayList<Double> oneEventListTime = new ArrayList<>();
 
-    private int stepByIteration = 0;// current iteration (step of Loop);
-    private int currentTariff = 0;//for find current tariff where index - this variable;
-    private int currentIndexChangeTempRoom = 0;// current change temp in room witch we set
+    //change every iteration
+    private int indexCurrentTariffForIteration = 0;//for find current tariff where index - this variable;
+    private int indexCurrentChangeRoomForIteration = 0;// current change temp in room witch we set
 
     public enum eventType {
         END_MODELING, START_ATTAINMENT, START_SUPPORT, START_INACTIVITY
@@ -386,53 +386,58 @@ class Model implements Serializable {
         return priceTariff;
     }
 
-    public int getStepByIteration() {
-        return stepByIteration;
-    }
-
-    public void setCurrentTariff(int currentTariff) {
-        this.currentTariff = currentTariff;
-    }
-
     public int getCurrentEndTariff() {
-        return this.endTariff.get(currentTariff);
+        return this.endTariff.get(indexCurrentTariffForIteration);
     }
 
     public int getCurrentStartTariff() {
-        return this.startTariff.get(currentTariff);
+        return this.startTariff.get(indexCurrentTariffForIteration);
     }
 
     public boolean isNextTariffAvailable() {
-        if (startTariff.size() > currentTariff + 1) {
+        if (startTariff.size() > indexCurrentTariffForIteration + 1) {
             return true;
         } else return false;
     }
 
     public int getNextEndTariff() {
-        return this.endTariff.get(currentTariff + 1);
+        return this.endTariff.get(indexCurrentTariffForIteration + 1);
     }
 
     public int getNextStartTariff() {
-        return this.startTariff.get(currentTariff + 1);
+        return this.startTariff.get(indexCurrentTariffForIteration + 1);
     }
 
     public double getCurrentPriсeTariff() {
-        return this.priceTariff.get(currentTariff);
+        return this.priceTariff.get(indexCurrentTariffForIteration);
     }
 
     public double getNextPriсeTariff() {
-        return this.priceTariff.get(currentTariff + 1);
+        return this.priceTariff.get(indexCurrentTariffForIteration + 1);
     }
 
     public int getCurrentTimeChangeTempRoom() {
-        return this.roomTimeChangeT.get(currentIndexChangeTempRoom);
+        return this.roomTimeChangeT.get(indexCurrentChangeRoomForIteration);
     }
 
-    public void setCurrentChangeTempRoom(int currentIndexChangeTempRoom) {
-        this.currentIndexChangeTempRoom = currentIndexChangeTempRoom;
-    }
 
     public int getCurrentValueChangeTempRoom() {
-        return this.roomValueChangeT.get(currentIndexChangeTempRoom);
+        return this.roomValueChangeT.get(indexCurrentChangeRoomForIteration);
+    }
+
+    public int getIndexCurrentChangeRoomForIteration() {
+        return indexCurrentChangeRoomForIteration;
+    }
+
+    public void setNewIndexCurrentChangeRoomForIteration() {
+        this.indexCurrentChangeRoomForIteration = indexCurrentChangeRoomForIteration+1;
+    }
+
+    public int getIndexCurrentTariffForIteration() {
+        return indexCurrentTariffForIteration;
+    }
+
+    public void setNewIndexCurrentTariffForIteration() {
+        this.indexCurrentTariffForIteration = indexCurrentTariffForIteration+1;
     }
 }

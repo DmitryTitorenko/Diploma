@@ -22,7 +22,7 @@ class MainAlgorithm implements Serializable {
         model.setRealTime(0);
         model.setRoomCurrentTempSingle(tempSingleStart);
 
-        fixInactivityAfterAttainment(model);
+        //fixInactivityAfterAttainment(model);
 
         for (int i = 0; !Objects.equals(model.getCurrentEventType(model.getCurrentEventKey(i)), Model.eventType.END_MODELING.toString()); i++) {
 
@@ -44,24 +44,36 @@ class MainAlgorithm implements Serializable {
     }
 
     private static void origin(Model model) {
-        if (!model.getRoomTimeChangeT().isEmpty() && model.getCurrentTimeChangeTempRoom() <= model.getCurrentEndTariff()) {
+        for (; model.getRealTime() < model.getEndModeling(); ) {
 
-            //next event - change temp in this tariff
-            mathBranch(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
-        } else {
-            if (model.getNextPriсeTariff() > model.getCurrentPriсeTariff()) {
+            if (!model.getRoomTimeChangeT().isEmpty() && model.getCurrentTimeChangeTempRoom() <= model.getCurrentEndTariff()) {
 
-                // next tariff more expensive
-                mathBranch(model, model.getRoomMaxT(), model.getCurrentEndTariff());
-
+                //next event - change temp in this tariff
+                mathBranch(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
+                model.setRealTime(model.getCurrentTimeChangeTempRoom());
             } else {
+                if (model.getNextPriсeTariff() > model.getCurrentPriсeTariff()) {
 
-                //next tariff less expensive
-                //check should start attainment in this tariff if should isAttainmentShouldStartInThisTariff=true
-                if (isAttainmentShouldStartInThisTariff(model)) {
-                    mathBranch(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
+                    // next tariff more expensive
+                    mathBranch(model, model.getRoomMaxT(), model.getCurrentEndTariff());
+                    model.setRealTime(model.getCurrentEndTariff());
+                    model.setNewIndexCurrentTariffForIteration();
+
+
                 } else {
-                    mathBranch(model, model.getRoomMinT(), model.getCurrentEndTariff());
+
+                    //next tariff less expensive
+                    //check should start attainment in this tariff if should isAttainmentShouldStartInThisTariff=true
+                    if (isAttainmentShouldStartInThisTariff(model)) {
+                        mathBranch(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
+                        model.setRealTime(model.getCurrentTimeChangeTempRoom());
+                        model.setNewIndexCurrentChangeRoomForIteration();
+
+                    } else {
+                        mathBranch(model, model.getRoomMinT(), model.getCurrentEndTariff());
+                        model.setRealTime(model.getCurrentEndTariff());
+                        model.setNewIndexCurrentTariffForIteration();
+                    }
                 }
             }
         }
@@ -69,7 +81,7 @@ class MainAlgorithm implements Serializable {
 
 
     /**
-     * The  method used for match branch .<br>
+     * The  method used for match branch for every iteration.<br>
      *
      * @param tempEnd store temp witch would be in the end of iteration
      * @param timeEnd store time witch would be in the end of iteration
@@ -197,8 +209,6 @@ class MainAlgorithm implements Serializable {
             }
         }
     }
-
-
 
 
     /**
