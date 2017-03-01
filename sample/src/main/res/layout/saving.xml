@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
             android:text="Время начала моделирования, мин "
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            android:textSize="22sp" />
 
         <EditText
             android:id="@+id/etStartModeling"
@@ -332,13 +333,31 @@
             android:inputType="numberDecimal"
             android:text="0.7" />
 
-        <Button
-            android:id="@+id/btnAddTariff"
+        <GridLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:onClick="onClick"
-            android:text="добавить тариф" />
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnAddTariff"
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onClick"
+                android:text="добавить тариф"
+                android:layout_weight="0.44"
+                android:textAppearance="@android:style/TextAppearance.Material.Button"
+                android:textSize="20sp" />
+
+            <Button
+                android:text="удалить "
+                android:layout_height="wrap_content"
+                android:id="@+id/btnDelTariff"
+                android:layout_width="174dp"
+                android:onClick="onClick"
+                android:textAppearance="@android:style/TextAppearance.Material.Button"
+                android:textSize="20sp" />
+
+        </GridLayout>
 
         <TextView
             android:id="@+id/textView35"
@@ -370,7 +389,7 @@
             android:layout_gravity="center_horizontal"
             android:ems="10"
             android:inputType="number"
-            android:text="30" />
+            android:text="15" />
 
         <TextView
             android:id="@+id/textView20"
@@ -409,13 +428,29 @@
             android:scrollbars="horizontal"
             android:visibility="visible" />
 
-        <Button
-            android:id="@+id/btnAddNewTemp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.10"
-            android:onClick="onClick"
-            android:text="Задать достижение температуры" />
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnAddNewTemp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.10"
+                android:onClick="onClick"
+                android:text="add"
+                android:layout_width="170dp"
+                android:textAppearance="@android:style/TextAppearance.Material.Button"
+                android:textSize="20sp" />
+
+            <Button
+                android:text="del"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:id="@+id/btnDelTemp"
+                android:onClick="onClick"
+                android:textAppearance="@android:style/TextAppearance.Material.Button"
+                android:textSize="20sp" />
+        </GridLayout>
 
         <TextView
             android:id="@+id/textView7"

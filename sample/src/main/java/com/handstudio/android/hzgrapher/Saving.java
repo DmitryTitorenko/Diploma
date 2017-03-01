@@ -52,12 +52,14 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
     private ArrayList<Integer> endTariff = new ArrayList<>();
     private ArrayList<Double> priceTariff = new ArrayList<>();
     private ArrayList<String> countTariff = new ArrayList<>();
+    private ArrayAdapter<String> adapterStoreTariff;
 
 
     //change tempRoom store
     private ArrayList<Integer> timeHomeChangeT = new ArrayList<>();
     private ArrayList<Integer> valueHomeChange = new ArrayList<>();
     private ArrayList<String> countChangeTemp = new ArrayList<>();
+    private ArrayAdapter<String> adapterStoreNewTemp;
 
 
     @Override
@@ -101,16 +103,35 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
                 endTariff.add(Integer.valueOf(etEndTariff.getText().toString()));
                 priceTariff.add(Double.valueOf(etPriceTariff.getText().toString()));
                 countTariff.add(etStartTariff.getText().toString() + " - " + etEndTariff.getText().toString() + "$ " + etPriceTariff.getText().toString());
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countTariff);
-                m_listview.setAdapter(adapter);
+                adapterStoreTariff = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countTariff);
+                m_listview.setAdapter(adapterStoreTariff);
+
+                //upd old layout
+                int stepTariff = endTariff.get(0) - startTariff.get(0);
+                etStartTariff.setText("" + endTariff.get(endTariff.size() - 1));
+                etEndTariff.setText("" + (endTariff.get(endTariff.size() - 1) + stepTariff));
                 break;
+
+            case R.id.btnDelTariff:
+                if (!adapterStoreTariff.isEmpty()) {
+                    adapterStoreTariff.remove(adapterStoreTariff.getItem(adapterStoreTariff.getCount() - 1));
+                }
+                break;
+
             case R.id.btnAddNewTemp:
                 timeHomeChangeT.add(Integer.valueOf(etHomeTimeChangeT.getText().toString()));
                 valueHomeChange.add(Integer.valueOf(etHomeValueChangeT.getText().toString()));
-                countChangeTemp.add(etHomeTimeChangeT.getText().toString()  + "t "  + etHomeValueChangeT.getText().toString()+"°C ");
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countChangeTemp);
-                lvHomeChangeT.setAdapter(adapter1);
+                countChangeTemp.add(etHomeTimeChangeT.getText().toString() + "t " + etHomeValueChangeT.getText().toString() + "°C ");
+                adapterStoreNewTemp = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countChangeTemp);
+                lvHomeChangeT.setAdapter(adapterStoreNewTemp);
                 break;
+
+            case R.id.btnDelTemp:
+                if (!adapterStoreNewTemp.isEmpty()) {
+                    adapterStoreNewTemp.remove(adapterStoreNewTemp.getItem(adapterStoreNewTemp.getCount() - 1));
+                }
+                break;
+
             case R.id.btnStartSaving:
                 Model model = new Model(
                         Integer.valueOf(etStartModeling.getText().toString()),
