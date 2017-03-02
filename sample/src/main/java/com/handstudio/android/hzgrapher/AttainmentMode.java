@@ -19,7 +19,7 @@ class AttainmentMode {
     /**
      * The  method used for calculation every start event time in attainment mode .<br>
      *
-     * @param attainmentTemp count of temp witch need find start time.
+     * @param attainmentTemp count of temp witch need attainment.
      * @return array witch contain every events start time.
      */
     public static double[] startAttainmentExpectancy(Model model, int attainmentTemp) {

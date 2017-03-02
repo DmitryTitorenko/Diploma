@@ -9,6 +9,12 @@ import java.util.Objects;
 
 class MainAlgorithm implements Serializable {
 
+    /**
+     * The  method used for initialization algorithm.<br>
+     *
+     * @param model entity witch contain all parameters
+     */
+
     public static void init(Model model) {
 
         SwitchMinToSecond.switchMinToSecond(model);
@@ -43,6 +49,11 @@ class MainAlgorithm implements Serializable {
         WriteReportToSD.writeFileSDFirst(model);
     }
 
+    /**
+     * The  method used for split modelling on iterations .<br>
+     *
+     * @param model entity witch contain all parameters
+     */
     private static void origin(Model model) {
         for (; model.getRealTime() < model.getEndModeling(); ) {
 
@@ -59,10 +70,9 @@ class MainAlgorithm implements Serializable {
                     model.setRealTime(model.getCurrentEndTariff());
                     model.setNewIndexCurrentTariffForIteration();
 
-
                 } else {
 
-                    //next tariff less expensive
+                    //next tariff <=expensive
                     //check should start attainment in this tariff if should isAttainmentShouldStartInThisTariff=true
                     if (isAttainmentShouldStartInThisTariff(model)) {
                         mathBranch(model, model.getCurrentValueChangeTempRoom(), model.getCurrentTimeChangeTempRoom());
@@ -83,6 +93,7 @@ class MainAlgorithm implements Serializable {
     /**
      * The  method used for match branch for every iteration.<br>
      *
+     * @param model   entity witch contain all parameters
      * @param tempEnd store temp witch would be in the end of iteration
      * @param timeEnd store time witch would be in the end of iteration
      */
@@ -106,7 +117,7 @@ class MainAlgorithm implements Serializable {
 
                         //Inactivity=>Support
                         model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
-                        checkAttainmentAfterSupport(model, timeEnd);
+                        checkAttainmentAfterSupport(model, tempEnd, timeEnd);
                         st = "End";
                     }
                 }
@@ -118,19 +129,23 @@ class MainAlgorithm implements Serializable {
             //Support
             model.setEventList(model.getRealTime(), Model.eventType.START_SUPPORT.toString());
             if (tempEnd != model.getRoomMinT()) {
-                checkAttainmentAfterSupport(model, timeEnd);
+                checkAttainmentAfterSupport(model, tempEnd, timeEnd);
             }
         }
     }
 
     /**
      * The  method used for switch should start attainment after support, if yes - start it use findEventsTimeInAttainmentAfterSupport().<br>
+     *
+     * @param model   entity witch contain all parameters
+     * @param tempEnd store temp witch would be in the end of iteration
+     * @param timeEnd store time witch would be in the end of iteration
      */
-    private static void checkAttainmentAfterSupport(Model model, int timeEnd) {
-        if (!model.getRoomTimeChangeT().isEmpty() && model.getCurrentValueChangeTempRoom() != model.getRoomCurrentTempSingle()) {
+    private static void checkAttainmentAfterSupport(Model model, int tempEnd, int timeEnd) {
+        if (!model.getRoomTimeChangeT().isEmpty() && model.getRoomCurrentTempSingle() != tempEnd) {
 
             //Support=>Attainment
-            int attainmentTemp = model.getCurrentValueChangeTempRoom() - model.getRoomCurrentTempSingle();
+            int attainmentTemp = tempEnd - model.getRoomCurrentTempSingle();
             findEventsTimeInAttainmentAfterSupport(model, attainmentTemp, timeEnd);
         }
     }
@@ -139,6 +154,8 @@ class MainAlgorithm implements Serializable {
     /**
      * The  method used for check is current temp smaller then minimum value
      * if current temp lower then min, raise her - find time for every events and add to eventList.<br>
+     *
+     * @param model entity witch contain all parameters
      */
     private static void checkMinRoomT(Model model) {
         if (model.getRoomCurrentTempSingle() < model.getRoomMinT()) {
@@ -149,7 +166,9 @@ class MainAlgorithm implements Serializable {
 
     /**
      * The  method used for find events, his time & add them in eventList.<br>
-     * =>Attainment
+     *
+     * @param model          entity witch contain all parameters
+     * @param attainmentTemp count of temp witch need attainment.
      */
     private static void findEventsTimeInAttainment(Model model, int attainmentTemp) {
         double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
@@ -161,6 +180,9 @@ class MainAlgorithm implements Serializable {
     /**
      * The  method used for find events, his time & add them in eventList.<br>
      * when use checkMinRoomT()
+     *
+     * @param model          entity witch contain all parameters
+     * @param attainmentTemp count of temp witch need attainment.
      */
     private static void findEventsTimeInAttainmentForCheckMinRoom(Model model, int attainmentTemp) {
         double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
@@ -174,6 +196,10 @@ class MainAlgorithm implements Serializable {
     /**
      * The  method used for find events, his time & add them in eventList.<br>
      * Support=>Attainment
+     *
+     * @param model          entity witch contain all parameters
+     * @param attainmentTemp count of temp witch need attainment.
+     * @param timeEnd        store time witch would be in the end of iteration
      */
     private static void findEventsTimeInAttainmentAfterSupport(Model model, int attainmentTemp, int timeEnd) {
         double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
@@ -186,17 +212,21 @@ class MainAlgorithm implements Serializable {
     /**
      * The  method used for find time to attainment require temp.<br>
      *
+     * @param model          entity witch contain all parameters
+     * @param attainmentTemp count of temp witch need attainment.
      * @return require time
      */
-    private static double findTimeToAttainmentRequireTemp(Model model, int tempToAttainment) {
+    private static double findTimeToAttainmentRequireTemp(Model model, int attainmentTemp) {
         int roomCurrentTempSingle = model.getRoomCurrentTempSingle();
-        double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, tempToAttainment);
+        double[] arrayTimeByOneAttainmentExpectancy = AttainmentMode.startAttainmentExpectancy(model, attainmentTemp);
         model.setRoomCurrentTempSingle(roomCurrentTempSingle);
         return arrayTimeByOneAttainmentExpectancy.length == 0 ? 0 : arrayTimeByOneAttainmentExpectancy[arrayTimeByOneAttainmentExpectancy.length - 1];
     }
 
     /**
      * The  method used fix inactivity after attainment.<br>
+     *
+     * @param model entity witch contain all parameters
      */
 
     private static void fixInactivityAfterAttainment(Model model) {
@@ -214,6 +244,7 @@ class MainAlgorithm implements Serializable {
     /**
      * The  method used for find should attainment start in this tariff for attainment change temp in next tariff.<br>
      *
+     * @param model entity witch contain all parameters
      * @return true if it should start attainment in this tariff
      */
 
@@ -235,6 +266,7 @@ class MainAlgorithm implements Serializable {
     /**
      * The  method used for check should we start attainment now if yes, start it .<br>
      *
+     * @param model   entity witch contain all parameters
      * @param tempEnd store temp witch would be in the end of iteration
      * @param timeEnd store time witch would be in the end of iteration
      */
