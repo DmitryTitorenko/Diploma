@@ -101,7 +101,7 @@ class MainAlgorithm implements Serializable {
         if (model.getRoomCurrentTempSingle() > model.getRoomMinT()) {
 
             //Inactivity
-            for (String st = "Start"; model.getRoomCurrentTempSingle() > model.getRoomMinT() & st.equals("Start") &
+            for (String st = "Start"; model.getRoomCurrentTempSingle() > model.getRoomMinT() & "Start".equals(st) &
                     model.getRealTime() < model.getEndModeling(); ) {
 
                 InactivityMode.inactivityStart(model, InactivityMode.modelingOrExpectancy.EXPECTANCY.toString());
