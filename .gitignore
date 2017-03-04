@@ -1,0 +1,11 @@
+.gradle
+/.idea
+/.navigation
+/build/
+/gradle/
+/key/
+/library/
+/projectFilesBackup/
+/reports/
+/sample/build/
+/more
