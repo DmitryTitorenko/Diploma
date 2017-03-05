@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by Grinw on 15.04.2016.
  */
-class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
+public class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
 
     private EditText etStartModeling; //время начала моделирования
     private EditText etEndModeling; // время окончания моделирования
@@ -114,7 +114,15 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
 
             case R.id.btnDelTariff:
                 if (!adapterStoreTariff.isEmpty()) {
+                    //upd old layout
+                    stepTariff = endTariff.get(0) - startTariff.get(0);
+                    etStartTariff.setText("" + (startTariff.size() == 1 ? 0 : (startTariff.get(startTariff.size() - 1) )));
+                    etEndTariff.setText("" + (endTariff.size() == 1 ? stepTariff : (endTariff.get(endTariff.size() - 1) )));
+
                     adapterStoreTariff.remove(adapterStoreTariff.getItem(adapterStoreTariff.getCount() - 1));
+                    startTariff.remove(startTariff.size() - 1);
+                    endTariff.remove(endTariff.size() - 1);
+                    priceTariff.remove(priceTariff.size() - 1);
                 }
                 break;
 
@@ -129,6 +137,9 @@ class Saving extends FragmentActivity implements View.OnClickListener, Serializa
             case R.id.btnDelTemp:
                 if (!adapterStoreNewTemp.isEmpty()) {
                     adapterStoreNewTemp.remove(adapterStoreNewTemp.getItem(adapterStoreNewTemp.getCount() - 1));
+
+                    timeHomeChangeT.remove(timeHomeChangeT.size()-1);
+                    valueHomeChange.remove(valueHomeChange.size()-1);
                 }
                 break;
 
