@@ -11,7 +11,7 @@ public class LinearCongruentialGenerator {
 
     // IllegalArgumentException messages
     private static final String BadBound = "bound must be positive";
-    private long seed = System.nanoTime();
+    private static long seed = System.nanoTime();
     private static final long multiplier = 25214903917L;
     private static final long addend = 11;
     private static final long mask = (1L << 48) - 1;
@@ -23,7 +23,7 @@ public class LinearCongruentialGenerator {
      * @return the next pseudorandom value from this random number
      * generator's sequence
      */
-    private int next(int bits) {
+    private static int next(int bits) {
         seed = (seed * multiplier + addend) & mask;
         return (int) (seed >>> (48 - bits));
     }
@@ -38,7 +38,7 @@ public class LinearCongruentialGenerator {
      * from this random number generator's sequence
      * @throws IllegalArgumentException if bound is not positive
      */
-    public int nextInt(int bound) {
+    private static int nextInt(int bound) {
         if (bound <= 0)
             throw new IllegalArgumentException(BadBound);
         int r = next(31);
@@ -49,5 +49,9 @@ public class LinearCongruentialGenerator {
             r = r % bound;
         }
         return r;
+    }
+
+    public static int setRange(int min, int max) {
+        return nextInt((max - min) + 1) + min;
     }
 }
