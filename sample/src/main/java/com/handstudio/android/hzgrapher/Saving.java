@@ -78,7 +78,6 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
         etAtmospherePressureP = (EditText) findViewById(R.id.et_AtmospherePressureP);
         etSpecificHeatC = (EditText) findViewById(R.id.et_SpecificHeatC);
         etHeatProductivityN = (EditText) findViewById(R.id.et_HeatProductivityN);
-        etCoolingProductivityN = (EditText) findViewById(R.id.et_CoolingProductivityN);
         etCoefficientN = (EditText) findViewById(R.id.et_CoefficientN);
         etR0 = (EditText) findViewById(R.id.et_R0);
         etHeatLossExtraB = (EditText) findViewById(R.id.et_HeatLossExtraB);
