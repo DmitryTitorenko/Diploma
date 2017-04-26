@@ -21,7 +21,6 @@ class Model implements Serializable {
     private double atmospherePressureP;
     private double specificHeatC;
     private double heatProductivityN;
-    private double coolingProductivityN;
     private double coefficientN;
     private double r0;
     private double heatLossExtraB;
@@ -60,7 +59,7 @@ class Model implements Serializable {
 
     public Model(int startModeling, int endModeling, int roomOriginT, int roomMaxT, int roomMinT, int streetOriginT,
                  int wideRoom, int lengthRoom, int heightRoom, double atmospherePressureP, double specificHeatC,
-                 double heatProductivityN, double coolingProductivityN, double coefficientN, double r0,
+                 double heatProductivityN, double coefficientN, double r0,
                  double heatLossExtraB, ArrayList roomTimeChangeT, ArrayList roomValueChangeT,
                  ArrayList<Integer> startTariff, ArrayList<Integer> endTariff, ArrayList<Double> priceTariff) {
 
@@ -75,7 +74,6 @@ class Model implements Serializable {
         this.atmospherePressureP = atmospherePressureP;
         this.specificHeatC = specificHeatC;
         this.heatProductivityN = heatProductivityN;
-        this.coolingProductivityN = coolingProductivityN;
         this.coefficientN = coefficientN;
         this.r0 = r0;
         this.heatLossExtraB = heatLossExtraB;
@@ -205,14 +203,7 @@ class Model implements Serializable {
     public void setHeatProductivityN(double heatProductivityN) {
         this.heatProductivityN = heatProductivityN;
     }
-
-    public double getCoolingProductivityN() {
-        return coolingProductivityN;
-    }
-
-    public void setCoolingProductivityN(double coolingProductivityN) {
-        this.coolingProductivityN = coolingProductivityN;
-    }
+    
 
     public double getCoefficientN() {
         return coefficientN;

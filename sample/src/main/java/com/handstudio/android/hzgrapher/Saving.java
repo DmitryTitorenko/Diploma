@@ -156,7 +156,6 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
                         Double.valueOf(etAtmospherePressureP.getText().toString()),
                         Double.valueOf(etSpecificHeatC.getText().toString()),
                         Double.valueOf(etHeatProductivityN.getText().toString()),
-                        Double.valueOf(etCoolingProductivityN.getText().toString()),
                         Double.valueOf(etCoefficientN.getText().toString()),
                         Double.valueOf(etR0.getText().toString()),
                         Double.valueOf(etHeatLossExtraB.getText().toString()),
