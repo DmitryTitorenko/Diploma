@@ -203,7 +203,7 @@ class Model implements Serializable {
     public void setHeatProductivityN(double heatProductivityN) {
         this.heatProductivityN = heatProductivityN;
     }
-    
+
 
     public double getCoefficientN() {
         return coefficientN;

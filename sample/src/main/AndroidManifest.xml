@@ -30,8 +30,8 @@
             android:name="more.ModeFirst"
             android:label="@string/title_activity_mode_first"></activity>
         <activity
-            android:name=".V"
-            android:label="@string/title_activity_v"></activity>
+            android:name=".ValueR0"
+            android:label="@string/title_activity_value_r0"></activity>
         <activity
             android:name="more.ModeSecond"
             android:label="@string/title_activity_mode_second"></activity>

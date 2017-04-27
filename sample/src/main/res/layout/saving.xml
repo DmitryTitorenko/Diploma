@@ -291,7 +291,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:text="0.50842" />
+                android:text="0.5084208" />
 
             <Button
                 android:id="@+id/btn_add_R0"

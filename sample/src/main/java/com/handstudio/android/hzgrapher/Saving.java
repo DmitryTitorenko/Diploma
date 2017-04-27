@@ -16,6 +16,7 @@ import java.util.ArrayList;
  */
 public class Saving extends FragmentActivity implements View.OnClickListener, Serializable {
 
+    private final static int ACTION_EDIT_R0 = 101;//идентификатор запроса к ValueR0
     private EditText etStartModeling; //время начала моделирования
     private EditText etEndModeling; // время окончания моделирования
     private EditText etHomeOriginT;//Origin T at home
@@ -31,7 +32,6 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
     private EditText etAtmospherePressureP;//атмосферное давление
     private EditText etSpecificHeatC;//Удельная теплоёмкость
     private EditText etHeatProductivityN;//теплопроизводительность
-    private EditText etCoolingProductivityN;//холодопроизовдительность
     private EditText etCoefficientN; //коэффицент
     private EditText etR0;//R0 коэффицент сопротивление теплопередачи
     private EditText etHeatLossExtraB;//теплопотери дополнительные
@@ -97,6 +97,10 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btn_add_R0:
+                Intent i = new Intent(this, ValueR0.class);
+                startActivityForResult(i, ACTION_EDIT_R0);
+                break;
             case R.id.btnAddTariff:
                 startTariff.add(Integer.valueOf(etStartTariff.getText().toString()));
                 endTariff.add(Integer.valueOf(etEndTariff.getText().toString()));
@@ -178,5 +182,15 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
         Intent i = new Intent(this, cls);
         i.putExtra("Data", mainAlgorithm);
         startActivity(i);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ACTION_EDIT_R0) {// может приходить ответ с разных activity
+            if (resultCode == RESULT_OK) {
+                String answerR0 = data.getStringExtra(ValueR0.ANSWER_R0);
+                etR0.setText("" + answerR0);
+            }
+        }
     }
 }

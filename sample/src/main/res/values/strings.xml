@@ -24,7 +24,7 @@
     <string name="error_p">"kjh"</string>
     <string name="title_activity_q_heat_loss">Q_heat_loss</string>
     <string name="title_activity_v">V</string>
-    <string name="title_activity_r0">R0</string>
+    <string name="title_activity_value_r0">R0</string>
     <string name="title_activity_mode_second">Mode second</string>
     <string name="btnAdd">+</string>
     <string name="title_activity_mode_third">Mode third</string>
