@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:text="Время начала моделирования, мин "
+            android:text="Час початку моделювання, хв"
             android:textAppearance="@android:style/TextAppearance.Material.Title"
             android:textSize="22sp" />
 
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:text="Время окончания моделирования, мин"
+            android:text="Час закінчення моделювання, хв"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
         <EditText
@@ -55,7 +55,7 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Начальная T в доме, °C"
+            android:text="Початкова температура в приміщенні, °C"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -71,7 +71,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="max T в доме, °C"
+            android:text="Максимальна температура в приміщенні, °C"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -86,7 +86,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="min T в доме, °C"
+            android:text="Мінімальна температура в приміщенні, °C"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -102,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:text="начальная T на улице, °C"
+            android:text="Початкова температура на вулиці, °C"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
         <EditText
@@ -118,7 +118,7 @@
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="max T на улице днем, °C"
+            android:text="Максимальна температура на вулиці вдень, °C"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -133,7 +133,7 @@
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="min T на улице ночью, °C"
+            android:text="Мінімальна температура на вулиці вночі, °C"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -149,7 +149,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:text="Вероятность удачи для распределения Бернулли"
+            android:text="Імовірність успіху для розподілу Бернуллі"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
         <EditText
@@ -327,18 +327,18 @@
                 android:layout_width="174dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:onClick="onClick"
-                android:text="добавить тариф"
                 android:layout_weight="0.44"
+                android:onClick="onClick"
+                android:text="Додати тариф"
                 android:textAppearance="@android:style/TextAppearance.Material.Button"
                 android:textSize="20sp" />
 
             <Button
-                android:text="удалить "
-                android:layout_height="wrap_content"
                 android:id="@+id/btnDelTariff"
                 android:layout_width="174dp"
+                android:layout_height="wrap_content"
                 android:onClick="onClick"
+                android:text="Видалити тариф"
                 android:textAppearance="@android:style/TextAppearance.Material.Button"
                 android:textSize="20sp" />
 
@@ -348,7 +348,7 @@
             android:id="@+id/textView35"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Начало действия, час"
+            android:text="Початок дії, хв"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -364,7 +364,7 @@
             android:id="@+id/textView36"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Конец действия, час"
+            android:text="Кінець дії, хв"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -380,7 +380,7 @@
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Коп. за 1 кВт·час"
+            android:text="Ціна, коп/(кВт*год)"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -422,13 +422,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.10"
                 android:onClick="onClick"
-                android:text="add"
+                android:text="Задати значення температури"
                 android:layout_width="170dp"
                 android:textAppearance="@android:style/TextAppearance.Material.Button"
                 android:textSize="20sp" />
 
             <Button
-                android:text="del"
+                android:text="Видалити  значення температури"
                 android:layout_width="170dp"
                 android:layout_height="match_parent"
                 android:id="@+id/btnDelTemp"
@@ -442,7 +442,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:text="t,час"
+            android:text="Момент часу, хв"
             android:textAppearance="@android:style/TextAppearance.Holo.Large" />
 
         <EditText
@@ -459,7 +459,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.10"
-            android:text="T, °C"
+            android:text="Значення температури, °C"
             android:textAppearance="@android:style/TextAppearance.Holo.Large" />
 
         <EditText

@@ -105,7 +105,7 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
                 startTariff.add(Integer.valueOf(etStartTariff.getText().toString()));
                 endTariff.add(Integer.valueOf(etEndTariff.getText().toString()));
                 priceTariff.add(Double.valueOf(etPriceTariff.getText().toString()));
-                countTariff.add(etStartTariff.getText().toString() + " - " + etEndTariff.getText().toString() + "$ " + etPriceTariff.getText().toString());
+                countTariff.add(etStartTariff.getText().toString() + " - " + etEndTariff.getText().toString() + "хв " + etPriceTariff.getText().toString()+"коп");
                 adapterStoreTariff = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countTariff);
                 m_listview.setAdapter(adapterStoreTariff);
 
@@ -132,7 +132,7 @@ public class Saving extends FragmentActivity implements View.OnClickListener, Se
             case R.id.btnAddNewTemp:
                 timeHomeChangeT.add(Integer.valueOf(etHomeTimeChangeT.getText().toString()));
                 valueHomeChange.add(Integer.valueOf(etHomeValueChangeT.getText().toString()));
-                countChangeTemp.add(etHomeTimeChangeT.getText().toString() + "t " + etHomeValueChangeT.getText().toString() + "°C ");
+                countChangeTemp.add(etHomeTimeChangeT.getText().toString() + "хв " + etHomeValueChangeT.getText().toString() + "°C ");
                 adapterStoreNewTemp = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countChangeTemp);
                 lvHomeChangeT.setAdapter(adapterStoreNewTemp);
                 break;
