@@ -53,6 +53,8 @@ class Model implements Serializable {
     private int indexCurrentTariffForIteration = 0;//for find current tariff where index - this variable;
     private int indexCurrentChangeRoomForIteration = 0;// current change temp in room witch we set
 
+    private ArrayList<Double>priceByModelStep=new ArrayList<>();// price by every modeling step
+
     public enum eventType {
         END_MODELING, START_ATTAINMENT, START_SUPPORT, START_INACTIVITY
     }
@@ -95,9 +97,13 @@ class Model implements Serializable {
         this.calculationQHeatLoss.add(calculationQHeatLoss);
         this.realHeatProductivityN.add(realHeatProductivityN);
         this.realTimeArray.add(realTimeArray.size() == 0 ? timeByOneModelTime : realTimeArray.get(realTimeArray.size() - 1) + timeByOneModelTime);
+        priceByModelStep.add(mathPriceByOneModelTime());
         modelingTime++;
         this.modelTimeArray.add(modelingTime);
         realTime += timeByOneModelTime;
+    }
+    private double mathPriceByOneModelTime(){
+        return this.getUsingEnergy().get(modelingTime)*(this.priceTariff.get(indexCurrentTariffForIteration)/3600000);
     }
 
     /**
@@ -430,5 +436,13 @@ class Model implements Serializable {
 
     public void setNewIndexCurrentTariffForIteration() {
         this.indexCurrentTariffForIteration = indexCurrentTariffForIteration+1;
+    }
+
+    public void setIndexCurrentTariffForIteration(int indexCurrentTariffForIteration) {
+        this.indexCurrentTariffForIteration = indexCurrentTariffForIteration;
+    }
+
+    public ArrayList<Double> getPriceByModelStep() {
+        return priceByModelStep;
     }
 }

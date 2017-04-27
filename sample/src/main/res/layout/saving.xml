@@ -287,19 +287,20 @@
 
             <EditText
                 android:id="@+id/et_R0"
-                android:layout_width="272dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:text="0.5084208" />
+                android:text="0.5084208"
+                android:layout_weight="0.88" />
 
             <Button
                 android:id="@+id/btn_add_R0"
                 style="?android:attr/buttonStyleSmall"
-                android:layout_width="match_parent"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
-                android:text="+" />
+                android:text="Розрахувати" />
 
         </LinearLayout>
 
@@ -490,7 +491,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:onClick="onClick"
-            android:text="Start" />
+            android:text="Старт" />
 
     </LinearLayout>
 </ScrollView>

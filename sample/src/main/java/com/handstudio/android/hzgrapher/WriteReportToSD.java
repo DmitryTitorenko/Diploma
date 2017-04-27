@@ -48,6 +48,12 @@ class WriteReportToSD {
                 bw.write(model.getUsingEnergy() + "\n");
                 bw.write("calculationQHeatLoss\n");
                 bw.write(model.getCalculationQHeatLoss() + "\n");
+
+                bw.write("PriceByModelStep\n");
+                bw.write(model.getPriceByModelStep() + "\n");
+                bw.write("PriceTariff\n");
+                bw.write(model.getPriceTariff() + "\n");
+
                 bw.write("roomCurrentTemp\n");
                 bw.write(model.getRoomCurrentTemp() + "\n");
                 bw.write("timeByOneModelTime\n");

@@ -27,6 +27,7 @@ class MainAlgorithm implements Serializable {
         origin(model);
         model.setRealTime(0);
         model.setRoomCurrentTempSingle(tempSingleStart);
+        model.setIndexCurrentTariffForIteration(0);
 
         //fixInactivityAfterAttainment(model);
 
