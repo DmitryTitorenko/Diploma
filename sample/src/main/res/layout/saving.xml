@@ -49,7 +49,7 @@
             android:layout_weight="0.10"
             android:ems="10"
             android:inputType="number"
-            android:text="30" />
+            android:text="1440" />
 
         <TextView
             android:id="@+id/textView9"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="18" />
+            android:text="19" />
 
         <TextView
             android:id="@+id/textView"
@@ -375,7 +375,7 @@
             android:layout_gravity="center_horizontal"
             android:ems="10"
             android:inputType="number"
-            android:text="15" />
+            android:text="720" />
 
         <TextView
             android:id="@+id/textView20"
@@ -391,7 +391,7 @@
             android:layout_gravity="center_horizontal"
             android:ems="10"
             android:inputType="number"
-            android:text="40" />
+            android:text="84" />
 
         <LinearLayout
             android:id="@+id/containerTariff"
@@ -453,7 +453,7 @@
             android:layout_weight="0.10"
             android:ems="10"
             android:inputType="number"
-            android:text="30" />
+            android:text="1440" />
 
         <TextView
             android:id="@+id/textView3"
@@ -470,7 +470,7 @@
             android:layout_weight="0.10"
             android:ems="10"
             android:inputType="number"
-            android:text="20" />
+            android:text="21" />
 
         <ListView
             android:id="@+id/lvHomeChangeT"

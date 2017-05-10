@@ -51,6 +51,10 @@ class WriteReportToSD {
 
                 bw.write("PriceByModelStep\n");
                 bw.write(model.getPriceByModelStep() + "\n");
+
+                bw.write("PriceAll\n");
+                bw.write(model.getPriceAll() + "\n");
+
                 bw.write("PriceTariff\n");
                 bw.write(model.getPriceTariff() + "\n");
 

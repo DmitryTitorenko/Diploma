@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Created by Dmitry Titorenko on 09.01.2017.
@@ -53,7 +55,7 @@ class Model implements Serializable {
     private int indexCurrentTariffForIteration = 0;//for find current tariff where index - this variable;
     private int indexCurrentChangeRoomForIteration = 0;// current change temp in room witch we set
 
-    private ArrayList<Double>priceByModelStep=new ArrayList<>();// price by every modeling step
+    private ArrayList<Double> priceByModelStep = new ArrayList<>();// price by every modeling step
 
     public enum eventType {
         END_MODELING, START_ATTAINMENT, START_SUPPORT, START_INACTIVITY
@@ -102,8 +104,22 @@ class Model implements Serializable {
         this.modelTimeArray.add(modelingTime);
         realTime += timeByOneModelTime;
     }
-    private double mathPriceByOneModelTime(){
-        return this.getUsingEnergy().get(modelingTime)*(this.priceTariff.get(indexCurrentTariffForIteration)/3600000);
+
+    private double mathPriceByOneModelTime() {
+        checkIsTimeToChangeTariff();
+        return this.getUsingEnergy().get(modelingTime) * (this.priceTariff.get(indexCurrentTariffForIteration) / 3600000);
+    }
+
+    private void checkIsTimeToChangeTariff(){
+        try{
+            double newDouble = new BigDecimal(realTime).setScale(3, RoundingMode.UP).doubleValue();
+            int c=(int)realTime;
+            if (newDouble ==  getNextStartTariff()) {
+                indexCurrentTariffForIteration++;
+            }
+        }
+        catch (Exception e1){
+        }
     }
 
     /**
@@ -427,7 +443,7 @@ class Model implements Serializable {
     }
 
     public void setNewIndexCurrentChangeRoomForIteration() {
-        this.indexCurrentChangeRoomForIteration = indexCurrentChangeRoomForIteration+1;
+        this.indexCurrentChangeRoomForIteration = indexCurrentChangeRoomForIteration + 1;
     }
 
     public int getIndexCurrentTariffForIteration() {
@@ -435,7 +451,7 @@ class Model implements Serializable {
     }
 
     public void setNewIndexCurrentTariffForIteration() {
-        this.indexCurrentTariffForIteration = indexCurrentTariffForIteration+1;
+        this.indexCurrentTariffForIteration = indexCurrentTariffForIteration + 1;
     }
 
     public void setIndexCurrentTariffForIteration(int indexCurrentTariffForIteration) {
@@ -444,5 +460,13 @@ class Model implements Serializable {
 
     public ArrayList<Double> getPriceByModelStep() {
         return priceByModelStep;
+    }
+
+    public double getPriceAll() {
+        double all = 0;
+        for (double i : priceByModelStep) {
+            all += i;
+        }
+        return all;
     }
 }
